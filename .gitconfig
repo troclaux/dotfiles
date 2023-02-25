@@ -1,3 +1,5 @@
 [user]
 	name = Arthur Albuquerque
 	email = arthur.albuquerque.1995@gmail.com
+[credential]
+	helper = store
