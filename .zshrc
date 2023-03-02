@@ -104,7 +104,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"
-alias zshconfig="code ~/.zshrc"
+alias tcc="cd ~/Documents/tcc_machine_teaching"
+alias zshconfig="nvim ~/.zshrc"
 alias atua="sudo apt-get update && sudo apt-get upgrade -y"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias sonvim="source ~/.config/nvim/init.vim"
+alias sozsh="source ~/.zshrc"
+
