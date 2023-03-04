@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# to run the script, type the following in the terminal:
+# chmod +x install_flatpaks.sh
+
 # Install Flatpak and the required packages
 sudo apt-get update && \
-sudo apt-get install -y flatpak && \
 sudo apt-get install -y flatpak gnome-software-plugin-flatpak && \
 
 # Add the Flathub repository
