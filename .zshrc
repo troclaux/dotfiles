@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$PATH:/home/arthur/.local/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -110,4 +111,7 @@ alias atua="sudo apt-get update && sudo apt-get upgrade -y"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias sonvim="source ~/.config/nvim/init.vim"
 alias sozsh="source ~/.zshrc"
+alias py="python3"
+alias dot="cd ~/.dotfiles"
+
 
