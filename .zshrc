@@ -112,6 +112,11 @@ alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias sonvim="source ~/.config/nvim/init.vim"
 alias sozsh="source ~/.zshrc"
 alias py="python3"
+alias vim="nvim"
 alias dot="cd ~/.dotfiles"
+alias pro="cd ~/Documents/programs"
 
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
