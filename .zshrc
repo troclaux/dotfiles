@@ -115,6 +115,7 @@ alias py="python3"
 alias vim="nvim"
 alias dot="cd ~/.dotfiles"
 alias pro="cd ~/Documents/programs"
+alias commit="git add . && git commit -m"
 
 
 export NVM_DIR="$HOME/.nvm"
