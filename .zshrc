@@ -103,20 +103,18 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"
 alias tcc="cd ~/Documents/tcc_machine_teaching"
 alias zshconfig="nvim ~/.zshrc"
-alias atua="sudo apt-get update && sudo apt-get upgrade -y"
 alias up="sudo apt-get update && sudo apt-get upgrade -y"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias sonvim="source ~/.config/nvim/init.vim"
 alias sozsh="source ~/.zshrc"
 alias py="python3"
 alias dot="cd ~/.dotfiles"
-alias pro="cd ~/Documents/programs"
-alias commit="git add . && git commit -m"
-
+alias fcd='cd ~ && cd $(find * -type d | fzf)'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
