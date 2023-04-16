@@ -115,6 +115,7 @@ alias sozsh="source ~/.zshrc"
 alias py="python3"
 alias dot="cd ~/.dotfiles"
 alias fcd='cd ~ && cd $(find * -type d | fzf)'
+alias pro="cd ~/Documents/programs"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
