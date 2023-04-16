@@ -114,7 +114,7 @@ alias sonvim="source ~/.config/nvim/init.vim"
 alias sozsh="source ~/.zshrc"
 alias py="python3"
 alias dot="cd ~/.dotfiles"
-alias fcd='cd ~ && cd $(find * -type d | fzf)'
+alias cdf='cd ~ && cd $(find * -type d | fzf)'
 alias pro="cd ~/Documents/programs"
 
 export NVM_DIR="$HOME/.nvm"
