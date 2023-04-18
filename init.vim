@@ -1,4 +1,4 @@
-set clipboard=unnamed
+set clipboard=unnamedplus
 set shiftwidth=4
 set number
 set relativenumber
