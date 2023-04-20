@@ -120,7 +120,7 @@ alias vi="nvim"
 alias vim="nvim"
 
 # Enable zsh-syntax-highlighting (maybe delete later)
-source /home/troclaux/Documents/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /home/troclaux/Documents/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
