@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # to run the script, type the following in the terminal:
-# chmod +x install_flatpaks.sh
+# chmod u+x install_flatpaks.sh
 
 # Install Flatpak and the required packages
-sudo apt-get update && \
-sudo apt-get install -y flatpak gnome-software-plugin-flatpak && \
+# sudo apt-get update && \
+# sudo apt-get install -y flatpak gnome-software-plugin-flatpak && \
 
 # Add the Flathub repository
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Install Flatpaks
 flatpak install flathub org.telegram.desktop -y && \
