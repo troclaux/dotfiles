@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$PATH:/home/arthur/.local/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -102,20 +101,26 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"
 alias tcc="cd ~/Documents/tcc_machine_teaching"
 alias zshconfig="nvim ~/.zshrc"
-alias up="sudo apt-get update && sudo apt-get upgrade -y"
+alias up="sudo dnf upgrade"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias sonvim="source ~/.config/nvim/init.vim"
 alias sozsh="source ~/.zshrc"
 alias py="python3"
-alias dot="cd ~/.dotfiles"
+alias dot="cd ~/dotfiles"
 alias cdf='cd ~ && cd $(find * -type d | fzf)'
 alias pro="cd ~/Documents/programs"
+alias vi="nvim"
+alias vim="nvim"
+
+# Enable zsh-syntax-highlighting (maybe delete later)
+source /home/troclaux/Documents/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
