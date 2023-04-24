@@ -116,8 +116,7 @@ alias py="python3"
 alias dot="cd ~/dotfiles"
 alias cdf='cd ~ && cd $(find * -type d | fzf)'
 alias pro="cd ~/Documents/programs"
-alias vi="nvim"
-alias vim="nvim"
+alias cdv="cd ~/.config/nvim"
 
 # Enable zsh-syntax-highlighting (maybe delete later)
 # source /home/troclaux/Documents/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
