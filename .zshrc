@@ -109,14 +109,16 @@ alias dow="cd ~/Downloads"
 alias tcc="cd ~/Documents/tcc_machine_teaching"
 alias zshconfig="nvim ~/.zshrc"
 alias up="sudo dnf upgrade"
-alias nvimconfig="nvim ~/.config/nvim/init.vim"
-alias sonvim="source ~/.config/nvim/init.vim"
+alias nvimconfig="nvim ~/.config/nvim/init.lua"
+alias sonvim="source ~/.config/nvim/init.lua"
 alias sozsh="source ~/.zshrc"
 alias py="python3"
 alias dot="cd ~/dotfiles"
 alias cdf='cd ~ && cd $(find * -type d | fzf)'
 alias pro="cd ~/Documents/programs"
 alias cdv="cd ~/.config/nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 # Enable zsh-syntax-highlighting (maybe delete later)
 # source /home/troclaux/Documents/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
