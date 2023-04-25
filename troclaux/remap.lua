@@ -17,6 +17,9 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.api.nvim_set_keymap('n', '<Leader>x', '*``cgn', {noremap = true})
 
 -- Map <leader>h and <leader>l to go to start and end of line
-vim.api.nvim_set_keymap('n', '<Leader>h', '0^', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>h', '_', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>l', '$', { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true })
 
