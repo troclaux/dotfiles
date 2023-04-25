@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Map <leader>x to change word and go to next instance
-vim.api.nvim_set_keymap('n', '<Leader>x', '*``cgn', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
 
 -- Map <leader>h and <leader>l to go to start and end of line
 vim.api.nvim_set_keymap('n', '<Leader>h', '_', { noremap = true })
@@ -22,4 +22,6 @@ vim.api.nvim_set_keymap('n', '<Leader>l', '$', { noremap = true })
 
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<Leader><CR>', ':!', { noremap = true })
 
