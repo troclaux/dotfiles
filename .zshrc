@@ -77,6 +77,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/fzf/shell/key-bindings.zsh
 
 # User configuration
 
@@ -121,6 +122,7 @@ alias cdv="cd ~/.config/nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias clipboard="xclip -selection clipboard"
+alias vfzf="fzf --preview 'bat --color=always {}'"
 
 # Enable zsh-syntax-highlighting (maybe delete later)
 # source /home/troclaux/Documents/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
