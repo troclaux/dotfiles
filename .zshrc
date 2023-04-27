@@ -120,6 +120,7 @@ alias pro="cd ~/Documents/programs"
 alias cdv="cd ~/.config/nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias clipboard="xclip -selection clipboard"
 
 # Enable zsh-syntax-highlighting (maybe delete later)
 # source /home/troclaux/Documents/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
