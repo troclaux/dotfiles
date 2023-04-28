@@ -1,0 +1,39 @@
+---
+- name: Install several packages
+  hosts: localhost
+  become: yes
+  tasks:
+
+    - name: Update package manager repository
+      dnf:
+        update_cache: yes
+
+    - name: Install git
+      dnf:
+        name: git
+        state: present
+
+    - name: Install go
+      dnf:
+        name: go
+        state: present
+
+    - name: Install htop
+      dnf:
+        name: go
+        state: present
+
+    - name: Install fzf
+      dnf:
+        name: fzf
+        state: present
+
+    - name: Install xclip
+      dnf:
+        name: xclip
+        state: present
+
+    - name: Install neovim
+      dnf:
+        name: neovim
+        state: present
