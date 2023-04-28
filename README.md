@@ -20,10 +20,12 @@ ansible-playbook local.yml
 3. pip
     - ansible
 4. zsh
+5. install neovim requirements
+    - ripgrep
+    - fd-find
+    - gcc-c++
 5. nvim
     - setup packer
-        - ripgrep
-        - fd-find
     - install plugins
 5. stow
     - setup dotfiles
@@ -31,6 +33,7 @@ ansible-playbook local.yml
     - htop
     - go
     - bat
+    - tree
 7. Clone favorite repositories
 ```
 git clone https://github.com/MichaelCade/90DaysOfDevOps && \
