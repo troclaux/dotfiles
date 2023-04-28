@@ -10,8 +10,8 @@ vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 -- Map <leader>q to close the current buffer.
 vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true })
 
--- Map <leader>pv to open vim file explorer
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- Map <leader>e to open vim file explorer
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 -- Map <leader>x to change word and go to next instance
 vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
