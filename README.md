@@ -30,6 +30,7 @@ ansible-playbook local.yml
 6. Install remaining packages
     - htop
     - go
+    - bat
 7. Clone favorite repositories
 ```
 git clone https://github.com/MichaelCade/90DaysOfDevOps && \
