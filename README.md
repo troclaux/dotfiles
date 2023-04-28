@@ -24,6 +24,7 @@ ansible-playbook local.yml
     - ripgrep
     - fd-find
     - gcc-c++
+    - bat
 5. nvim
     - setup packer
     - install plugins
@@ -32,7 +33,6 @@ ansible-playbook local.yml
 6. Install remaining packages
     - htop
     - go
-    - bat
     - tree
 7. Clone favorite repositories
 ```
