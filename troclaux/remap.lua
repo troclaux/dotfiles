@@ -20,8 +20,12 @@ vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>h', '_', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>l', '$', { noremap = true })
 
+-- control+d and control+u will keep viewport centralized
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true })
 
+-- Map <leader>enter to run bash command inside vim
 vim.api.nvim_set_keymap('n', '<Leader><CR>', ':!', { noremap = true })
 
+-- Map <leader>tab to convert the present file indentation
+vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':%retab', { noremap = true })
