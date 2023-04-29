@@ -17,6 +17,7 @@ ansible-playbook local.yml
 
 1. run setup\_dnf\_conf exe
 2. git
+    - ```git clone https://github.com/troclaux/dotfiles```
 3. pip
     - ansible
 4. zsh
@@ -35,8 +36,6 @@ ansible-playbook local.yml
     - go
     - tree
 7. Clone favorite repositories
-```
-git clone https://github.com/MichaelCade/90DaysOfDevOps && \
-git clone https://github.com/bregman-arie/devops-exercises && \
-git clone https://github.com/adonovan/gopl.io/
-```
+    - ```git clone https://github.com/MichaelCade/90DaysOfDevOps```
+    - ```git clone https://github.com/bregman-arie/devops-exercises```
+    - ```git clone https://github.com/adonovan/gopl.io/```
