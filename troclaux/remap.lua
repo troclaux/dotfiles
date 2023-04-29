@@ -29,3 +29,11 @@ vim.api.nvim_set_keymap('n', '<Leader><CR>', ':!', { noremap = true })
 
 -- Map <leader>tab to convert the present file indentation
 vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':%retab', { noremap = true })
+
+-- Map J and K to reposition highlighted text in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Center viewport on highlighted search
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
