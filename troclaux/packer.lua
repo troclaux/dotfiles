@@ -13,11 +13,6 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    use ('folke/tokyonight.nvim')
-    use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-    use ('mbbill/undotree')
-    use ('tpope/vim-fugitive')
-    use ('tpope/vim-surround')
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -39,5 +34,14 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},     -- Required
         }
     }
+
+
+    use ('folke/tokyonight.nvim')
+    use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use ('mbbill/undotree')
+    use ('tpope/vim-fugitive')
+    use ('tpope/vim-surround')
+    use ('tpope/vim-commentary')
+    use ('ThePrimeagen/vim-be-good')
 
 end)
