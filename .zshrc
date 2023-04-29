@@ -105,25 +105,30 @@ source /usr/share/fzf/shell/key-bindings.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias up="sudo dnf upgrade"
+
+alias zshconfig="nvim ~/.zshrc"
+alias sozsh="source ~/.zshrc"
+alias rem="nvim ~/dotfiles/troclaux/remap.lua"
+alias nvimset="nvim ~/dotfiles/troclaux/set.lua"
+
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"
 alias tcc="cd ~/Documents/tcc_machine_teaching"
-alias zshconfig="nvim ~/.zshrc"
-alias up="sudo dnf upgrade"
-alias rem="nvim ~/dotfiles/troclaux/remap.lua"
-alias nvimset="nvim ~/dotfiles/troclaux/set.lua"
-alias sozsh="source ~/.zshrc"
-alias py="python3"
 alias dot="cd ~/dotfiles"
-alias cdf='cd ~ && cd $(find * -type d | fzf)'
 alias pro="cd ~/Documents/programs"
 alias cdv="cd ~/.config/nvim"
+alias art="cd ~/arthur"
+
+alias py="python3"
 alias vi="nvim"
 alias vim="nvim"
+
+alias cdf='cd ~ && cd $(find * -type d | fzf)'
 alias clipboard="xclip -selection clipboard"
+alias bfzf="fzf --preview 'bat --color=always {}'"
 alias vf="nvim -c 'Telescope find_files'"
 alias vg='nvim -c "Telescope live_grep"'
-alias bfzf="fzf --preview 'bat --color=always {}'"
 
 
 # Enable zsh-syntax-highlighting (maybe delete later)
