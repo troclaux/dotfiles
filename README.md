@@ -13,7 +13,7 @@ ansible-playbook local.yml
 ## Testing ansible-playbook
 
 1. ```docker build -t my-fedora-image .```
-2. ```docker run -it my-fedora-image bash```
+2. ```docker run -it -v ~/dotfiles:/dotfiles my-fedora-image bash```
 
 ## Ansible-playbook steps
 
