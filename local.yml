@@ -25,6 +25,18 @@
           - python3-neovim
         state: present
 
+    - name: Install gcc-c++
+      dnf:
+        name:
+          - gcc-c++
+        state: present
+
+    - name: Install ripgrep
+      dnf:
+        name:
+          - ripgrep
+        state: present
+
     - name: Install go
       dnf:
         name: go
