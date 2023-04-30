@@ -18,6 +18,13 @@
         name: fzf
         state: present
 
+    - name: Install neovim
+      dnf:
+        name:
+          - neovim
+          - python3-neovim
+        state: present
+
     - name: Install go
       dnf:
         name: go
@@ -36,9 +43,4 @@
     - name: Install xclip
       dnf:
         name: xclip
-        state: present
-
-    - name: Install neovim
-      dnf:
-        name: neovim
         state: present
