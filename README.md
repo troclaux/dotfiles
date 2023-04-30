@@ -19,27 +19,28 @@ ansible-playbook local.yml
 
 ### Install packages
 
-1. run setup\_dnf\_conf exe
-2. git
+- run setup\_dnf\_conf.sh
+- git
     - ```git clone https://github.com/troclaux/dotfiles```
-3. pip
+- pip
     - ansible
-4. zsh
-5. install neovim requirements
+- fzf
+- zsh
+- install neovim requirements
     - ripgrep
     - fd-find
     - gcc-c++
     - bat
-5. nvim
+- nvim
     - setup packer
     - install plugins
-5. stow
+- stow
     - setup dotfiles
-6. Install remaining packages
+- Install remaining packages
     - htop
     - go
     - tree
-7. Clone favorite repositories
+- Clone favorite repositories
     - ```git clone https://github.com/MichaelCade/90DaysOfDevOps```
     - ```git clone https://github.com/bregman-arie/devops-exercises```
     - ```git clone https://github.com/adonovan/gopl.io/```
