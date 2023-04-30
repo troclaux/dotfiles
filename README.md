@@ -17,9 +17,10 @@ ansible-playbook local.yml
 
 ## Ansible-playbook steps
 
-### Install packages
-
-- run setup\_dnf\_conf.sh
+- Add dnf.conf configurations
+    - max_parallel_downloads=5
+    - fastestmirror=True
+    - deltarpm=True
 - git
     - ```git clone https://github.com/troclaux/dotfiles```
 - pip
