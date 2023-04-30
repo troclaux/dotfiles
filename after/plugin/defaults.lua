@@ -18,6 +18,9 @@ vim.opt.scrolloff = 8
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true })
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true })
 
+-- Map <leader>x to make a script executable
+vim.api.nvim_set_keymap('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
+
 -- Map <leader>p to vim file explorer
 vim.api.nvim_set_keymap('n', '<leader>p', ':Ex<CR>', { noremap = true })
 
