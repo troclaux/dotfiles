@@ -18,11 +18,11 @@ vim.opt.scrolloff = 8
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true })
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true })
 
--- Map <leader>w to save the current file.
-vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
+-- Map <leader>p to vim file explorer
+vim.api.nvim_set_keymap('n', '<leader>p', ':Ex<CR>', { noremap = true })
 
--- Map <leader>q to close the current buffer.
-vim.api.nvim_set_keymap('n', '<leader>q', ':q!<CR>', { noremap = true })
+-- Map <leader>w to save the current file
+vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 
 -- Map <leader>x to change word and go to next instance
 vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
