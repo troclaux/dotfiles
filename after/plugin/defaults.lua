@@ -24,6 +24,9 @@ vim.api.nvim_set_keymap('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = 
 -- Map <leader>p to vim file explorer
 vim.api.nvim_set_keymap('n', '<leader>p', ':Ex<CR>', { noremap = true })
 
+-- Map <leader>o to quit vim
+vim.api.nvim_set_keymap('n', '<leader>o', ':q<CR>', { noremap = true })
+
 -- Map <leader>w to save the current file
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 
