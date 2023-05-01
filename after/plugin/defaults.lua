@@ -11,6 +11,9 @@ vim.o.expandtab = true
 
 vim.opt.scrolloff = 8
 
+vim.o.hlsearch = true
+vim.opt.incsearch = true
+
 
 -- REMAP
 
