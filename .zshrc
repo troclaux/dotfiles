@@ -129,6 +129,7 @@ alias clipboard="xclip -selection clipboard"
 alias bfzf="fzf --preview 'bat --color=always {}'"
 alias vf="nvim -c 'Telescope find_files'"
 alias vg='nvim -c "Telescope live_grep"'
+alias ve="nvim -c Ex"
 
 
 # Enable zsh-syntax-highlighting (maybe delete later)
