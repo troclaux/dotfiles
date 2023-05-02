@@ -1,12 +1,29 @@
 
-- name: Install neovim package for Fedora
-  package:
-    name: neovim
-  tags: nvim
-  when: ansible_pkg_mgr == 'dnf'
-
 - name: Install neovim package for Ubuntu
   package:
     name: neovim
   tags: nvim
   when: ansible_pkg_mgr == 'apt'
+
+- name: Install neovim package for Fedora
+  package:
+    name: 
+      - neovim
+      - python3-neovim
+  tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
+
+- name: Install neovim requirements
+  package:
+    name:
+      - ripgrep
+      - fd-find
+      - gcc-c++
+      - bat
+  tags: nvim
+
+- name: Clone install kickstart
+  ansible.builtin.git:
+    repo: 'https://github.com/nvim-lua/kickstart.nvim.git'
+    dest: '~/.config/nvim'
+  tags: nvim
