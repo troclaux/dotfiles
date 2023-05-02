@@ -21,12 +21,18 @@
   dnf:
     name: which
   tags: zsh
-  when: ansible_pkg_mgr == 'dnf'
 
-- name: Change shell
+- name: Set default shell to zsh on Ubuntu
   become: true
   shell: chsh -s $(which zsh)
   tags: zsh
+  when: ansible_pkg_mgr == 'apt'
+
+# - name: Set default shell to zsh on Fedora
+#   become: true
+#   shell: chsh -s $(which zsh)
+#   tags: zsh
+#   when: ansible_pkg_mgr == 'dnf'
 
 - name: Install oh my zsh
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -38,6 +44,11 @@
     dest: '~/.oh-my-zsh/plugins/zsh-autosuggestions'
   tags: zsh
 
-- name: Add zsh-autosuggestions on .zshrc
+- name: Add zsh-autosuggestions on .zshrc plugin list
   shell: sed -i 's/(git/(git zsh-autosuggestions/' ~/.zshrc
+  tags: zsh
+
+- name: Install zsh-syntax-highlighting 
+  dnf:
+    -name: zsh-syntax-highlighting
   tags: zsh
