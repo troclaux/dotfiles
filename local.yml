@@ -7,12 +7,25 @@
       package:
         update_cache: true
       tags:
-        - node
         - zsh
+        - nvim
+        - node
 
   tasks:
+
+    - name: Install git
+      package:
+        name: git
+        state: present
+      tags: 
+        - zsh
+        - nvim
+
     - include_tasks: tasks/zsh.yml
       tags: [zsh]
+    
+    - include_tasks: tasks/nvim.yml
+      tags: [nvim]
 
     - name: Install fzf
       package:

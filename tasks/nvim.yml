@@ -1,0 +1,12 @@
+
+- name: Install neovim package for Fedora
+  package:
+    name: neovim
+  tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
+
+- name: Install neovim package for Ubuntu
+  package:
+    name: neovim
+  tags: nvim
+  when: ansible_pkg_mgr == 'apt'
