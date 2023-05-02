@@ -23,7 +23,8 @@ vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true })
 
 -- Map <leader>x to make a script executable
 vim.api.nvim_set_keymap('n', 'ç', '$', { noremap = true })
-vim.api.nvim_set_keymap('v', 'ç', '$', { noremap = true })
+vim.api.nvim_set_keymap('n', 'dç', 'd$', { noremap = true })
+vim.api.nvim_set_keymap('v', 'vç', 'v$', { noremap = true })
 
 -- Map <leader>x to make a script executable
 vim.api.nvim_set_keymap('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
