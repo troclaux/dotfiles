@@ -12,6 +12,7 @@
 
   tasks:
     - include_tasks: tasks/zsh.yml
+      tags: [zsh]
 
     - name: Install fzf
       package:
