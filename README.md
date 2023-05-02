@@ -1,23 +1,20 @@
-# dotfiles
-
-## Objective of this repository
+# Objetive
 Setup a fresh Fedora workstation with all packages and configurations automatically.
 
-## Requirements to run
-1 Install pip
-2 Install ansible
-3 Insert the following command:
+# Requirements to run
+1 Install ansible
+2 Insert the following command:
 ```
 ansible-playbook local.yml
 ```
-## Testing ansible-playbook
+# Testing ansible-playbook
 
-1. ```docker build -t my-fedora-image .```
-2. ```docker run -it -v ~/dotfiles:/dotfiles my-fedora-image bash```
+- ```chmod u+x setup_test_container.sh```
+- ```./setup_test_container.sh```
 
-## Ansible-playbook steps
+# Ansible-playbook steps
 
-- Add dnf.conf configurations
+- If Linux distro is Fedora, add dnf.conf configurations
     - max_parallel_downloads=5
     - fastestmirror=True
     - deltarpm=True
@@ -33,14 +30,24 @@ ansible-playbook local.yml
     - gcc-c++
     - bat
 - nvim
-    - setup packer
+    - setup kickstart neovim
     - install plugins
 - stow
     - setup dotfiles
 - Install remaining packages
-    - htop
     - go
+    - gcc
+    - htop
     - tree
+- Install GUI programs
+    - code
+    - chrome
+    - firefox
+    - telegram 
+    - discord
+    - VLC
+    - bitwarden
+    - GNOME extension manager
 - Clone favorite repositories
     - ```git clone https://github.com/MichaelCade/90DaysOfDevOps```
     - ```git clone https://github.com/bregman-arie/devops-exercises```
