@@ -1,58 +1,52 @@
 ---
-- name: Install several packages
+- name: Setup workstation
   hosts: localhost
   become: yes
+  pre_tasks:
+    - name: Update cache
+      package:
+        update_cache: true
+      tags:
+        - node
+        - zsh
+
   tasks:
-
-    - name: Update package manager repository
-      dnf:
-        update_cache: yes
-
-    - name: Install git
-      dnf:
-        name: git
-        state: present
+    - include_tasks: tasks/zsh.yml
 
     - name: Install fzf
-      dnf:
+      package:
         name: fzf
         state: present
 
-    - name: Install neovim
-      dnf:
-        name:
-          - neovim
-          - python3-neovim
-        state: present
-
     - name: Install gcc-c++
-      dnf:
+      package:
         name:
           - gcc-c++
         state: present
 
     - name: Install ripgrep
-      dnf:
+      package:
         name:
           - ripgrep
         state: present
 
     - name: Install go
-      dnf:
+      package:
         name: go
         state: present
 
     - name: Install htop
-      dnf:
+      package:
         name: go
         state: present
 
-    - name: Install fzf
-      dnf:
-        name: fzf
-        state: present
-
     - name: Install xclip
-      dnf:
+      package:
         name: xclip
         state: present
+
+    - name: Install tldr
+      package:
+        name: tldr
+        state: present
+

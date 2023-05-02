@@ -1,0 +1,43 @@
+
+- name: Install git
+  package:
+    name: git
+    state: present
+  tags: zsh
+
+- name: Install oh my zsh
+  package:
+    name: zsh
+    state: present
+  tags: zsh
+
+- name: install chsh command
+  dnf:
+    name: util-linux-user
+  tags: zsh
+  when: ansible_pkg_mgr == 'dnf'
+
+- name: install which command
+  dnf:
+    name: which
+  tags: zsh
+  when: ansible_pkg_mgr == 'dnf'
+
+- name: Change shell
+  become: true
+  shell: chsh -s $(which zsh)
+  tags: zsh
+
+- name: Install oh my zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  tags: zsh
+
+- name: Install zsh-autosuggestions plugin
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    dest: '~/.oh-my-zsh/plugins/zsh-autosuggestions'
+  tags: zsh
+
+- name: Add zsh-autosuggestions on .zshrc
+  shell: sed -i 's/(git/(git zsh-autosuggestions/' ~/.zshrc
+  tags: zsh
