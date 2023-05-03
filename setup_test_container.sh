@@ -20,9 +20,9 @@ fi
 if [[ $action -eq 2 || $action -eq 3 ]]; then
 
     if [[ $distro -eq 1 ]]; then
-        docker run -it -v ~/dotfiles:/home/dotfiles my-ubuntu-image
+        docker run -it -v ~/dotfiles:/root/dotfiles my-ubuntu-image
     elif [[ $distro -eq 2 ]]; then
-        docker run -it -v ~/dotfiles:/home/dotfiles my-fedora-image
+        docker run -it -v ~/dotfiles:/root/dotfiles my-fedora-image
     else
         echo -e "Invalid value inserted for linux distribution, insert 1 or 2"
     fi
