@@ -20,6 +20,7 @@
         - zsh
         - nvim
 
+    # zsh should be installed first so that other packages can add key bindings
     - include_tasks: tasks/zsh.yml
       tags: [zsh]
     
