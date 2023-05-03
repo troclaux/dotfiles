@@ -31,12 +31,6 @@
         name: fzf
         state: present
 
-    - name: Install gcc-c++
-      package:
-        name:
-          - gcc-c++
-        state: present
-
     - name: Install ripgrep
       package:
         name:
