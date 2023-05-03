@@ -127,6 +127,7 @@ alias cdf='cd ~ && cd $(find * -type d | fzf)'
 alias clipboard="xclip -selection clipboard"
 alias bfzf="fzf --preview 'bat --color=always {}'"
 alias vf="nvim -c 'Telescope find_files'"
+alias vp="nvim -c 'Telescope git_files'"
 alias vg='nvim -c "Git"'
 alias gs='nvim -c "Git"'
 alias vgrep='nvim -c "Telescope live_grep"'
