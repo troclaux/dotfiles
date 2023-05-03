@@ -2,12 +2,12 @@ FROM ubuntu:latest
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt install -y python3-pip \
-    && python3 -m pip install --user ansible \
-    && export PATH=$PATH:/root/.local/bin
+    && apt install -y python3-pip
 
-VOLUME /home/dotfiles
+RUN pip install ansible
 
-WORKDIR /home
+# RUN echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc 
+
+WORKDIR .
 
 CMD ["/bin/bash"]
