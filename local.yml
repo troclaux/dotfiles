@@ -24,13 +24,14 @@
     - include_tasks: tasks/zsh.yml
       tags: [zsh]
     
-    - include_tasks: tasks/nvim.yml
-      tags: [nvim]
-
     - name: Install fzf
       package:
         name: fzf
         state: present
+      tags: [nvim]
+
+    - include_tasks: tasks/nvim.yml
+      tags: [nvim]
 
     - name: Install go
       package:
