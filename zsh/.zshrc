@@ -77,7 +77,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/fzf/shell/key-bindings.zsh
+# source /usr/share/fzf/shell/key-bindings.zsh
 
 # User configuration
 
@@ -128,6 +128,7 @@ alias clipboard="xclip -selection clipboard"
 alias bfzf="fzf --preview 'bat --color=always {}'"
 alias vf="nvim -c 'Telescope find_files'"
 alias vg='nvim -c "Git"'
+alias gs='nvim -c "Git"'
 alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
 
