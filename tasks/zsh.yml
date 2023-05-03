@@ -1,10 +1,4 @@
 
-- name: Install git
-  package:
-    name: git
-    state: present
-  tags: zsh
-
 - name: Install oh my zsh
   package:
     name: zsh
