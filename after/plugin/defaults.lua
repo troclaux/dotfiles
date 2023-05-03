@@ -21,6 +21,9 @@ vim.opt.incsearch = true
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true })
 vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true })
 
+-- Map control+delete to delete whole word in insert mode
+vim.api.nvim_set_keymap('i', '<C-Delete>', '<Esc>dwi', { noremap = true })
+
 -- Map <leader>x to make a script executable
 vim.api.nvim_set_keymap('n', 'ç', '$', { noremap = true })
 vim.api.nvim_set_keymap('n', 'dç', 'd$', { noremap = true })
