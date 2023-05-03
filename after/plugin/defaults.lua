@@ -38,6 +38,9 @@ vim.api.nvim_set_keymap('n', '<leader>p', ':Ex<CR>', { noremap = true })
 -- Map <leader>enter to open shell to insert command
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':!', { noremap = true })
 
+-- Map <leader>so to source current file
+vim.api.nvim_set_keymap('n', '<leader>so', ':source<CR>', { noremap = true })
+
 -- Map <leader>o to quit vim
 vim.api.nvim_set_keymap('n', '<leader>o', ':q<CR>', { noremap = true })
 
