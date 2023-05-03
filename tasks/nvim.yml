@@ -18,10 +18,24 @@
     name:
       - ripgrep
       - fd-find
-      - gcc-c++
       - bat
   tags: nvim
 
+- name: Install more neovim requirements for Ubuntu
+  apt:
+    name:
+      - build-essential
+  tags: nvim
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Install more neovim requirements for Fedora
+  dnf:
+    name:
+      - gcc
+      - gcc-c++
+  tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
+      
 - name: Clone install kickstart
   ansible.builtin.git:
     repo: 'https://github.com/nvim-lua/kickstart.nvim.git'
