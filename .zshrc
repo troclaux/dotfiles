@@ -109,8 +109,7 @@ alias up="sudo dnf upgrade"
 
 alias zshconfig="nvim ~/.zshrc"
 alias sozsh="source ~/.zshrc"
-alias rem="nvim ~/dotfiles/troclaux/remap.lua"
-alias nvimset="nvim ~/dotfiles/troclaux/set.lua"
+alias def="nvim ~/dotfiles/after/plugin/defaults.lua"
 
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"
@@ -128,7 +127,8 @@ alias cdf='cd ~ && cd $(find * -type d | fzf)'
 alias clipboard="xclip -selection clipboard"
 alias bfzf="fzf --preview 'bat --color=always {}'"
 alias vf="nvim -c 'Telescope find_files'"
-alias vg='nvim -c "Telescope live_grep"'
+alias vg='nvim -c "Git"'
+alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
 
 
