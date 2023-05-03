@@ -6,9 +6,10 @@ RUN grep -q "max_parallel_downloads=" /etc/dnf/dnf.conf || echo "max_parallel_do
     && dnf -y update \
     && dnf clean all\
     && dnf -y install python3-pip \
-    && python3 -m pip install --user ansible \
-    && export PATH=$PATH:/root/.local/bin
+    && python3 -m pip install --user ansible
 
-WORKDIR /root
+RUN echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
+
+WORKDIR .
 
 CMD ["/bin/bash"]
