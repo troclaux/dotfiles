@@ -18,7 +18,6 @@
     name:
       - ripgrep
       - fd-find
-      - bat
   tags: nvim
 
 - name: Install more neovim requirements for Ubuntu
