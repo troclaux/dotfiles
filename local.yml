@@ -22,19 +22,22 @@
 
     # zsh should be installed first so that other packages can add key bindings
     - include_tasks: tasks/zsh.yml
-      tags: [zsh]
+      tags: zsh
     
     - name: Install fzf
       package:
         name: fzf
         state: present
-      tags: [nvim]
+      tags: nvim
 
     - include_tasks: tasks/nvim.yml
-      tags: [nvim]
+      tags: nvim
+
+    - include_tasks: tasks/flatpaks.yml
+      tags: flatpaks
 
     - include_tasks: tasks/clone.yml
-      tags: [clone]
+      tags: clone
 
     - include_tasks: tasks/optional_packages.yml
-      tags: [optional_packages]
+      tags: optional_packages
