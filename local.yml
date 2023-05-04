@@ -33,23 +33,8 @@
     - include_tasks: tasks/nvim.yml
       tags: [nvim]
 
-    - name: Install go
-      package:
-        name: go
-        state: present
+    - include_tasks: tasks/clone.yml
+      tags: [clone]
 
-    - name: Install htop
-      package:
-        name: go
-        state: present
-
-    - name: Install xclip
-      package:
-        name: xclip
-        state: present
-
-    - name: Install tldr
-      package:
-        name: tldr
-        state: present
-
+    - include_tasks: tasks/optional_packages.yml
+      tags: [optional_packages]
