@@ -1,4 +1,4 @@
-
+---
 - name: Install neovim package for Ubuntu
   package:
     name: neovim
