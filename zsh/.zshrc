@@ -77,7 +77,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-# source /usr/share/fzf/shell/key-bindings.zsh
 
 # User configuration
 
@@ -133,10 +132,3 @@ alias gs='nvim -c "Git"'
 alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
 
-
-# Enable zsh-syntax-highlighting (maybe delete later)
-# source /home/troclaux/Documents/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
