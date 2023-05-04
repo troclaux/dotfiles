@@ -1,4 +1,4 @@
-
+---
 - name: Install oh my zsh
   package:
     name: zsh
