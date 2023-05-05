@@ -1,13 +1,4 @@
-
-git clone https://github.com/adonovan/gopl.io/ ~/Documents/gopl.io && \
-git clone https://github.com/jwasham/coding-interview-university ~/Documents/coding-interview-university && \
-git clone https://github.com/MichaelCade/90DaysOfDevOps ~/Documents/90DaysOfDevOps && \
-git clone https://github.com/bregman-arie/devops-exercises ~/Documents/devops-exercises 
-
-# - name: Add zsh-syntax-highlighting
-#   shell: sed -i 's/(git/(git zsh-syntax-highlighting/' ~/.zshrc
-#   tags: zsh
-
+---
 - name: Clone install repo for gopl.io
   ansible.builtin.git:
     repo: 'https://github.com/adonovan/gopl.io/'
@@ -30,4 +21,10 @@ git clone https://github.com/bregman-arie/devops-exercises ~/Documents/devops-ex
   ansible.builtin.git:
     repo: 'https://github.com/bregman-arie/devops-exercises'
     dest: '~/Documents/devops-exercises'
+  tags: clone
+
+- name: Clone install repo for coding interview university
+  ansible.builtin.git:
+    repo: 'https://github.com/ThePrimeagen/.dotfiles'
+    dest: '~/Documents/.dotfiles'
   tags: clone
