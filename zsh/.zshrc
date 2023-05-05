@@ -134,3 +134,4 @@ alias gs='nvim -c "Git"'
 alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
 
+bindkey -s ^f "tmux-sessionizer\n"
