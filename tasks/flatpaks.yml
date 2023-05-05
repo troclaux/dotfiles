@@ -66,3 +66,15 @@
     state: present
   tags: flatpaks
 
+- name: Install GBA emulator
+  community.general.flatpak:
+    name: io.mgba.mGBA
+    state: present
+  tags: flatpaks
+
+- name: Install Bitwarden
+  community.general.flatpak:
+    name: com.bitwarden.desktop
+    state: present
+  tags: flatpaks
+
