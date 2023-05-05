@@ -41,6 +41,9 @@ vim.api.nvim_set_keymap('n', '<leader><CR>', ':!', { noremap = true })
 -- Map <leader>so to source current file
 vim.api.nvim_set_keymap('n', '<leader>so', ':source<CR>', { noremap = true })
 
+-- Map <leader>so to source current file
+vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true })
+
 -- Map <leader>o to quit vim
 vim.api.nvim_set_keymap('n', '<leader>o', ':q<CR>', { noremap = true })
 
@@ -63,6 +66,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true })
 
--- Map 'cp' to yank a paragraph and paste it after the next empty line
+-- Map cp to yank a paragraph
 vim.api.nvim_set_keymap('n', 'cp', 'yap:execute "normal! j/^$`<cr>P"<cr>', { noremap = true })
 
