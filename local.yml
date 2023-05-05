@@ -20,15 +20,16 @@
         - zsh
         - nvim
 
-    # zsh should be installed first so that other packages can add key bindings
-    - include_tasks: tasks/zsh.yml
-      tags: zsh
-    
+    # fzf comes before zsh so that zsh can use fuzzy command history search
     - name: Install fzf
       package:
         name: fzf
         state: present
       tags: nvim
+
+    # zsh should be installed first so that other packages can add key bindings
+    - include_tasks: tasks/zsh.yml
+      tags: zsh
 
     - include_tasks: tasks/nvim.yml
       tags: nvim
