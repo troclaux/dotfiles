@@ -1,0 +1,47 @@
+---
+- name: Install stow
+  package:
+    name: stow
+    state: present
+  tags:
+    - stow
+    - gitconfig
+    - zshrc
+    - tmux
+
+- name: Remove current gitconfig file
+  shell: rm ~/.gitconfig
+  tags:
+    - stow
+    - gitconfig
+
+- name: Stow gitconfig
+  shell: stow gitconfig
+  tags:
+    - stow
+    - gitconfig
+
+- name: Remove current zshrc file
+  shell: rm ~/.zshrc
+  tags:
+    - stow
+    - zshrc
+
+- name: Stow zshrc
+  shell: stow zshrc
+  tags:
+    - stow
+    - zshrc
+
+- name: Remove current .tmux.conf file
+  shell: rm ~/.tmux.conf
+  tags:
+    - stow
+    - tmux
+
+- name: Stow .tmux.conf
+  shell: stow .tmux.conf
+  tags:
+    - stow
+    - tmux
+
