@@ -3,23 +3,23 @@
   package:
     name: go
     state: present
-  tags: [optional_packages]
+  tags: optional_packages
 
 - name: Install htop
   package:
     name: go
     state: present
-  tags: [optional_packages]
+  tags: optional_packages
 
 - name: Install xclip
   package:
     name: xclip
     state: present
-  tags: [optional_packages]
+  tags: optional_packages
 
 - name: Install tldr
   package:
     name: tldr
     state: present
-  tags: [optional_packages]
+  tags: optional_packages
 
