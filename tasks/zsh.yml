@@ -35,13 +35,11 @@
 - name: Install zsh-syntax-highlighting 
   shell: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   tags:
-    - zsh
     - zsh_plugins
 
 - name: Add zsh-syntax-highlighting
   shell: sed -i 's/(git/(git zsh-syntax-highlighting/' ~/.zshrc
   tags:
-    - zsh
     - zsh_plugins
 
 - name: Install zsh-autosuggestions plugin
@@ -49,12 +47,10 @@
     repo: 'https://github.com/zsh-users/zsh-autosuggestions'
     dest: '~/.oh-my-zsh/plugins/zsh-autosuggestions'
   tags:
-    - zsh
     - zsh_plugins
 
 - name: Add zsh-autosuggestions on .zshrc plugin list
   shell: sed -i 's/(git/(git zsh-autosuggestions/' ~/.zshrc
   tags:
-    - zsh
     - zsh_plugins
 
