@@ -78,6 +78,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+source /usr/share/fzf/shell/key-bindings.zsh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
