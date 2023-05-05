@@ -49,6 +49,7 @@ vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 
 -- Map <leader>x to change word and go to next instance
 vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgN', {noremap = true})
 
 -- Map J and K to reposition highlighted text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
