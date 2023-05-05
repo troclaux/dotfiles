@@ -124,15 +124,15 @@ alias py="python3"
 alias vi="nvim"
 alias vim="nvim"
 
-alias cdf='cd ~ && cd $(find * -type d | fzf)'
 alias clipboard="xclip -selection clipboard"
-alias bfzf="fzf --preview 'bat --color=always {}'"
 alias vf="nvim -c 'Telescope find_files'"
 alias vp="nvim -c 'Telescope git_files'"
 alias vg='nvim -c "Git"'
 alias gs='nvim -c "Git"'
 alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
+
+alias tk="tmux kill-session -a"
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^n "tmux-windowizer "
