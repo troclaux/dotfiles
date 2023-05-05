@@ -11,7 +11,7 @@ vim.o.expandtab = true
 
 vim.opt.scrolloff = 8
 
-vim.o.hlsearch = true
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 
@@ -49,7 +49,7 @@ vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 
 -- Map <leader>x to change word and go to next instance
 vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgN', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>R', '*``cgN', {noremap = true})
 
 -- Map J and K to reposition highlighted text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -62,4 +62,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- control+d and control+u will keep viewport centralized
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true })
+
+-- Map 'cp' to yank a paragraph and paste it after the next empty line
+vim.api.nvim_set_keymap('n', 'cp', 'yap:execute "normal! j/^$`<cr>P"<cr>', { noremap = true })
 
