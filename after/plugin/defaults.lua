@@ -38,8 +38,14 @@ vim.api.nvim_set_keymap('n', '<leader>p', ':Ex<CR>', { noremap = true })
 -- Map <leader>enter to open shell to insert command
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':!', { noremap = true })
 
+-- Map <leader>enter to open shell to insert command
+vim.api.nvim_set_keymap('n', '<leader>b', ':b#<CR>', { noremap = true })
+
 -- Map <leader>so to source current file
 vim.api.nvim_set_keymap('n', '<leader>so', ':source<CR>', { noremap = true })
+
+-- Map <leader>i to remove all extra split screens and focus on the one with the cursor
+vim.api.nvim_set_keymap('n', '<leader>i', ':only<CR>', { noremap = true })
 
 -- Map <leader>so to source current file
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true })
