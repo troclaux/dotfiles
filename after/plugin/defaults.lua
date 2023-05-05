@@ -44,8 +44,12 @@ vim.api.nvim_set_keymap('n', '<leader>b', ':b#<CR>', { noremap = true })
 -- Map <leader>so to source current file
 vim.api.nvim_set_keymap('n', '<leader>so', ':source<CR>', { noremap = true })
 
+-- Map Control+f to tmux-sessionizer
+vim.api.nvim_set_keymap('n', '<C-f>', ':!tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
+
 -- Map <leader>i to remove all extra split screens and focus on the one with the cursor
 vim.api.nvim_set_keymap('n', '<leader>i', ':only<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<leader>io', ':1b<Bar>only<CR>', { noremap = true })
 
 -- Map <leader>so to source current file
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true })
