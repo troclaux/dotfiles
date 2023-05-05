@@ -45,3 +45,15 @@
     - stow
     - tmux
 
+- name: Apply changes to tmux configurations
+  shell: tmux source-file ~/.tmux.conf
+  tags:
+    - stow
+    - tmux
+
+- name: Apply changes to zshrc configurations
+  shell: source zshrc
+  tags:
+    - stow
+    - zshrc
+
