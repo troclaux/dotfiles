@@ -63,11 +63,11 @@
     state: present
   tags: flatpaks
 
-- name: Install Chrome
-  community.general.flatpak:
-    name: com.google.Chrome
-    state: present
-  tags: flatpaks
+# - name: Install Chrome
+#   community.general.flatpak:
+#     name: com.google.Chrome
+#     state: present
+#   tags: flatpaks
 
 - name: Install GBA emulator
   community.general.flatpak:
