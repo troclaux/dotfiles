@@ -67,6 +67,12 @@
     - stow
     - tmux
 
+- name: Start tmux server
+  shell: tmux new-session -d -s mysession
+  tags:
+    - stow
+    - tmux
+
 - name: Apply changes to tmux configurations
   shell: tmux source-file ~/.tmux.conf
   tags:
