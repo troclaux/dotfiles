@@ -1,0 +1,33 @@
+---
+- name: Create symlink to tmux-windowizer
+  become: yes
+  file:
+    src: "~/dotfiles/bin/tmux-windowizer"
+    dest: "/usr/local/bin/tmux-windowizer"
+    state: link
+  tags: scripts
+
+- name: Create symlink to tmux-sessionizer 
+  become: yes
+  file:
+    src: "~/dotfiles/bin/tmux-sessionizer"
+    dest: "/usr/local/bin/tmux-sessionizer"
+    state: link
+  tags: scripts
+
+- name: Create symlink to tmux-cht.sh
+  become: yes
+  file:
+    src: "~/dotfiles/bin/tmux-cht.sh"
+    dest: "/usr/local/bin/tmux-cht.sh"
+    state: link
+  tags: scripts
+
+- name: Create symlink to tmux-tvui
+  become: yes
+  file:
+    src: "~/dotfiles/bin/tmux-tvui"
+    dest: "/usr/local/bin/tmux-tvui"
+    state: link
+  tags: scripts
+
