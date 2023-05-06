@@ -1,16 +1,19 @@
 ---
-- name: Install Flatpak
-  apt:
-    name: Flatpak
+- name: Install Flatpak on Fedora
+  become: true
+  package:
+    name: flatpak
     state: present
   tags: flatpaks
-  when: ansible_pkg_mgr == 'apt'
 
 - name: Add Flathub remote repo
   become: true
   command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   tags: flatpaks
-  when: ansible_pkg_mgr == 'apt'
+
+- name: Install Ansible Flatpak module
+  shell: 'ansible-galaxy collection install community.general'
+  tags: flatpaks
 
 - name: Install Telegram
   community.general.flatpak:
