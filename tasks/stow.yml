@@ -8,9 +8,11 @@
     - gitconfig
     - zshrc
     - tmux
-
-- name: Remove current gitconfig file
-  shell: rm ~/.gitconfig
+    
+- name: Remove gitconfig
+  file:
+    path: ~/.gitconfig
+    state: absent
   tags:
     - stow
     - gitconfig
@@ -21,8 +23,10 @@
     - stow
     - gitconfig
 
-- name: Remove current zshrc file
-  shell: rm ~/.zshrc
+- name: Remove zshrc
+  file:
+    path: ~/.zshrc
+    state: absent
   tags:
     - stow
     - zshrc
@@ -33,14 +37,32 @@
     - stow
     - zshrc
 
-- name: Remove current .tmux.conf file
-  shell: rm ~/.tmux.conf
+- name: Remove tmux.conf
+  file:
+    path: ~/.tmux.conf
+    state: absent
   tags:
     - stow
     - tmux
 
-- name: Stow .tmux.conf
-  shell: stow .tmux.conf
+- name: Remove tmux-cht-languages
+  file:
+    path: ~/.tmux-cht-languages
+    state: absent
+  tags:
+    - stow
+    - tmux
+
+- name: Remove tmux-cht-command
+  file:
+    path: ~/.tmux-cht-command
+    state: absent
+  tags:
+    - stow
+    - tmux
+
+- name: Stow tmux
+  shell: stow tmux
   tags:
     - stow
     - tmux
