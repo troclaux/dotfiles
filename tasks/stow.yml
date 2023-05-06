@@ -32,7 +32,7 @@
     - zshrc
 
 - name: Stow zshrc
-  shell: stow zshrc
+  shell: stow zsh
   tags:
     - stow
     - zshrc
