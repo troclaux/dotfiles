@@ -51,8 +51,8 @@
     - include_tasks: tasks/scripts.yml
       tags: scripts
 
-    - include_tasks: tasks/flatpaks.yml
-      tags: flatpaks
+    # - include_tasks: tasks/flatpaks.yml
+    #   tags: flatpaks
 
     - include_tasks: tasks/optional_packages.yml
       tags: optional_packages
