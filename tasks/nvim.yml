@@ -13,21 +13,21 @@
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
-- name: Install neovim requirements
+- name: Install kickstart neovim requirements
   package:
     name:
       - ripgrep
       - fd-find
   tags: nvim
 
-- name: Install more neovim requirements for Ubuntu
+- name: Install more kickstart neovim requirements for Ubuntu
   apt:
     name:
       - build-essential
   tags: nvim
   when: ansible_pkg_mgr == 'apt'
 
-- name: Install more neovim requirements for Fedora
+- name: Install more kickstart neovim requirements for Fedora
   dnf:
     name:
       - gcc
