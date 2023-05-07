@@ -5,7 +5,7 @@ Automatically configure a fresh Linux workstation by installing all required pac
 1 Install ansible
 2 Insert the following command:
 ```
-ansible-playbook local.yml
+ansible-playbook local.yml -t dotfiles --ask-vault-pass --skip-tags "flatpaks, clone"
 ```
 # Testing ansible-playbook
 
