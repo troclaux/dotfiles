@@ -1,4 +1,28 @@
 ---
+- name: Deletes lazy.vim config file
+  ansible.builtin.file:
+    path: '~/.config/nvim'
+    state: absent
+  tags: nvim
+
+- name: Deletes lazy.vim
+  ansible.builtin.file:
+    path: '~/.local/share/nvim/lazy'
+    state: absent
+  tags: nvim
+
+- name: Deletes lazy.vim
+  ansible.builtin.file:
+    path: '~/.local/state/nvim/lazy'
+    state: absent
+  tags: nvim
+
+- name: Deletes lazy.vim
+  ansible.builtin.file:
+    path: '~/.config/nvim/lazy-lock.json'
+    state: absent
+  tags: nvim
+
 - name: Install neovim package for Ubuntu
   package:
     name: neovim
