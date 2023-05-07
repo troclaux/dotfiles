@@ -73,6 +73,9 @@ vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true })
 -- Map yp to yank a paragraph
 vim.api.nvim_set_keymap('n', 'yp', 'yap:execute >normal! j/^$`<cr>P"<cr>', { noremap = true })
 
+-- Replace line with yanked line
+vim.api.nvim_set_keymap('n', 'dp', 'pkddyy', { noremap = true })
+
 -- Map J and K to reposition highlighted text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
