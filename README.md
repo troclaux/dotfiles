@@ -1,5 +1,5 @@
 # Objetive
-Setup a fresh Fedora workstation with all packages and configurations automatically.
+Automatically configure a fresh Linux workstation by installing all required packages and configurations using Ansible 
 
 # Requirements to run
 1 Install ansible
