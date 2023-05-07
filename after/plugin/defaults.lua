@@ -48,7 +48,6 @@ vim.api.nvim_set_keymap('n', '<C-f>', ':!tmux neww tmux-sessionizer<CR>', { nore
 
 -- Map <leader>i to remove all extra split screens and focus on the one with the cursor
 vim.api.nvim_set_keymap('n', '<leader>i', ':only<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', '<leader>io', ':1b<Bar>only<CR>', { noremap = true })
 
 -- Git push
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true })
@@ -63,7 +62,6 @@ vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>R', '*``cgN', {noremap = true})
 
-
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
@@ -72,6 +70,12 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true })
 
--- Map cp to yank a paragraph
-vim.api.nvim_set_keymap('n', 'cp', 'yap:execute "normal! j/^$`<cr>P"<cr>', { noremap = true })
+-- Map yp to yank a paragraph
+vim.api.nvim_set_keymap('n', 'yp', 'yap:execute >normal! j/^$`<cr>P"<cr>', { noremap = true })
 
+-- Map J and K to reposition highlighted text in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Select until end of line in visual mode 
+vim.api.nvim_set_keymap('v', 'ç', '$', { noremap = true })
