@@ -24,10 +24,9 @@ vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true })
 -- Map control+delete to delete whole word in insert mode
 vim.api.nvim_set_keymap('i', '<C-Delete>', '<Esc>ldwi', { noremap = true })
 
--- Map <leader>x to make a script executable
+-- Go to end of line and delete until end of line
 vim.api.nvim_set_keymap('n', 'ç', '$', { noremap = true })
 vim.api.nvim_set_keymap('n', 'dç', 'd$', { noremap = true })
-vim.api.nvim_set_keymap('v', 'vç', 'v$', { noremap = true })
 
 -- Map <leader>x to make a script executable
 vim.api.nvim_set_keymap('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
