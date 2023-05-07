@@ -50,7 +50,7 @@ vim.api.nvim_set_keymap('n', '<C-f>', ':!tmux neww tmux-sessionizer<CR>', { nore
 vim.api.nvim_set_keymap('n', '<leader>i', ':only<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<leader>io', ':1b<Bar>only<CR>', { noremap = true })
 
--- Map <leader>so to source current file
+-- Git push
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true })
 
 -- Map <leader>o to quit vim
