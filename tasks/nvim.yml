@@ -64,3 +64,9 @@
     repo: 'https://github.com/nvim-lua/kickstart.nvim.git'
     dest: '~/.config/nvim'
   tags: nvim
+
+- name: Change init.lua so that Neovim displays full file path
+  shell: >
+    sed -i '/component_separators/s/\(\s*\)\(component_separators\s*=\s*[^,]*,\)/\1\2\n\1path = 2,/' ~/.config/nvim/init.lua
+  tags: nvim
+
