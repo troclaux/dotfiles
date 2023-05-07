@@ -59,13 +59,10 @@ vim.api.nvim_set_keymap('n', '<leader>o', ':q<CR>', { noremap = true })
 -- Map <leader>w to save the current file
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 
--- Map <leader>x to change word and go to next instance
+-- Change word and go to next instance
 vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>R', '*``cgN', {noremap = true})
 
--- Map J and K to reposition highlighted text in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv")
