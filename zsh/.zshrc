@@ -134,5 +134,5 @@ alias ve="nvim -c Ex"
 
 alias tk="tmux kill-session -a"
 
-bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^n "tmux-windowizer "
+bindkey -s '^f' "tmux-sessionizer\n"
+bindkey -s '^[f' "tmux-vimionizer\n"
