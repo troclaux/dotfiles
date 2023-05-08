@@ -5,21 +5,15 @@
     state: absent
   tags: nvim
 
-- name: Deletes lazy.vim
+- name: Deletes lazy.vim share folder
   ansible.builtin.file:
     path: '~/.local/share/nvim/lazy'
     state: absent
   tags: nvim
 
-- name: Deletes lazy.vim
+- name: Deletes lazy.vim state folder
   ansible.builtin.file:
     path: '~/.local/state/nvim/lazy'
-    state: absent
-  tags: nvim
-
-- name: Deletes lazy.vim
-  ansible.builtin.file:
-    path: '~/.config/nvim/lazy-lock.json'
     state: absent
   tags: nvim
 
