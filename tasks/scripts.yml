@@ -15,6 +15,14 @@
     state: link
   tags: scripts
 
+- name: Create symlink to tmux-vimionizer 
+  become: yes
+  file:
+    src: "~/dotfiles/bin/tmux-vimionizer"
+    dest: "/usr/local/bin/tmux-vimionizer"
+    state: link
+  tags: scripts
+
 - name: Create symlink to tmux-cht.sh
   become: yes
   file:
