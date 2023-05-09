@@ -1,19 +1,28 @@
 ---
-- name: Install oh my zsh
-  package:
+
+- name: install zsh package
+  apt:
     name: zsh
-    state: present
   tags: zsh
+  when: ansible_pkg_mgr == 'apt'
+
+- name: install zsh package
+  dnf:
+    name: zsh
+  tags: zsh
+  when: ansible_pkg_mgr == 'dnf'
 
 - name: install chsh command
-  dnf:
-    name: util-linux-user
+  apt:
+    name: passwd
   tags: zsh
+  when: ansible_pkg_mgr == 'apt'
 
 - name: install which command
   dnf:
     name: which
   tags: zsh
+  when: ansible_pkg_mgr == 'dnf'
 
 # - name: Set default shell to zsh on Ubuntu
 #   become: true
