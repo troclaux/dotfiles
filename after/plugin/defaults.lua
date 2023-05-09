@@ -55,6 +55,7 @@ vim.api.nvim_set_keymap('n', '<leader>i', ':only<CR>', { noremap = true })
 
 -- Git push
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gl', ':GcLog -S ', { noremap = true })
 
 -- Map <leader>o to quit vim
 vim.api.nvim_set_keymap('n', '<leader>o', ':q<CR>', { noremap = true })
