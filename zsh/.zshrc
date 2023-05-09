@@ -132,7 +132,8 @@ alias gs='nvim -c "Git"'
 alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
 
-alias tk="tmux kill-session -a"
+alias ta="tmux kill-session -a"
+alias tk="tmux kill-server"
 
 bindkey -s '^f' "tmux-sessionizer\n"
 bindkey -s '^[f' "tmux-vimionizer\n"
