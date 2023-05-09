@@ -27,6 +27,7 @@ vim.api.nvim_set_keymap('i', '<C-Delete>', '<Esc>ldwi', { noremap = true })
 -- Go to end of line and delete until end of line
 vim.api.nvim_set_keymap('n', 'ç', '$', { noremap = true })
 vim.api.nvim_set_keymap('n', 'dç', 'd$', { noremap = true })
+vim.api.nvim_set_keymap('n', 'yç', 'y$', { noremap = true })
 
 -- Map <leader>x to make a script executable
 vim.api.nvim_set_keymap('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
