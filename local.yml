@@ -28,7 +28,7 @@
         - tmux
 
     # fzf comes before zsh so that zsh can use fuzzy command history search
-    - name: Install fzf
+    - name: Install fzf package
       package:
         name: fzf
         state: present
