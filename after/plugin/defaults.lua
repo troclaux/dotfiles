@@ -86,3 +86,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Select until end of line in visual mode 
 vim.api.nvim_set_keymap('v', 'ç', '$', { noremap = true })
+
+-- Copy into system clipboard
+vim.keymap.set('n', '<Leader>y', '\"+yy')
+vim.keymap.set('v', '<Leader>y', '\"+y')
+vim.keymap.set('n', '<Leader>Y', '\"+Y')
