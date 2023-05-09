@@ -56,7 +56,7 @@ vim.api.nvim_set_keymap('n', '<leader>i', ':only<CR>', { noremap = true })
 -- Git push
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>', { noremap = true })
 
---git pull
+-- Git pull
 vim.api.nvim_set_keymap('n', '<leader>gu', ':Git pull<CR>', { noremap = true })
 
 -- Search commit messages ( git -log -S <pattern> )
