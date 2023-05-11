@@ -11,7 +11,7 @@ vim.o.expandtab = true
 
 vim.opt.scrolloff = 8
 
-vim.opt.hlsearch = true
+vim.o.hlsearch = true
 vim.opt.incsearch = true
 
 
