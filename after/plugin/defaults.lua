@@ -36,7 +36,7 @@ vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 vim.keymap.set('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
 
 -- Map <leader>p to vim file explorer
-vim.keymap.set('n', '<leader>p', ':Ex<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>pe', ':Ex<CR>', { noremap = true })
 
 -- Map <leader>enter to open shell to insert command
 vim.keymap.set('n', '<leader><CR>', ':!', { noremap = true })
@@ -98,6 +98,15 @@ vim.keymap.set('n', '<Leader>y', '\"+yy', { noremap = true } )
 vim.keymap.set('v', '<Leader>y', '\"+y', { noremap = true } )
 vim.keymap.set('n', '<Leader>Y', '\"+Y', { noremap = true } )
 
+vim.keymap.set('n', '<Leader>pr', ':reg<CR>', { noremap = true } , { desc = 'List Registers' } )
 
-
-vim.keymap.set('v', 'ç', '$', { noremap = true })
+vim.keymap.set('n', '<Leader>p0', '\"0p', { noremap = true }, { desc = 'Paste reg 0' } )
+vim.keymap.set('n', '<Leader>p1', '\"1p', { noremap = true }, { desc = 'Paste reg 1' } )
+vim.keymap.set('n', '<Leader>p2', '\"2p', { noremap = true }, { desc = 'Paste reg 2' } )
+vim.keymap.set('n', '<Leader>p3', '\"3p', { noremap = true }, { desc = 'Paste reg 3' } )
+vim.keymap.set('n', '<Leader>p4', '\"4p', { noremap = true }, { desc = 'Paste reg 4' } )
+vim.keymap.set('n', '<Leader>p5', '\"5p', { noremap = true }, { desc = 'Paste reg 5' } )
+vim.keymap.set('n', '<Leader>p6', '\"6p', { noremap = true }, { desc = 'Paste reg 6' } )
+vim.keymap.set('n', '<Leader>p7', '\"7p', { noremap = true }, { desc = 'Paste reg 7' } )
+vim.keymap.set('n', '<Leader>p8', '\"8p', { noremap = true }, { desc = 'Paste reg 8' } )
+vim.keymap.set('n', '<Leader>p9', '\"9p', { noremap = true }, { desc = 'Paste reg 9' } )
