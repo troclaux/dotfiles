@@ -94,9 +94,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
 vim.keymap.set('v', 'ç', '$', { noremap = true })
 
 -- Copy into system clipboard
-vim.keymap.set('n', '<Leader>y', '\"+yy', { noremap = true } )
-vim.keymap.set('v', '<Leader>y', '\"+y', { noremap = true } )
-vim.keymap.set('n', '<Leader>Y', '\"+Y', { noremap = true } )
+vim.keymap.set('n', '<Leader>y', '\"+yy', { noremap = true } , { desc = 'Yank to system clipboard n' } )
+vim.keymap.set('v', '<Leader>y', '\"+y', { noremap = true } , { desc = 'Yank to system clipboard v' } )
+vim.keymap.set('n', '<Leader>Y', '\"+Y', { noremap = true } , { desc = 'Yank line to system clipboard' } )
 
 vim.keymap.set('n', '<Leader>pr', ':reg<CR>', { noremap = true } , { desc = 'List Registers' } )
 
