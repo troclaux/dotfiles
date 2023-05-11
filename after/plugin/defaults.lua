@@ -32,45 +32,10 @@ vim.keymap.set('n', 'yç', 'y$', { noremap = true })
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 
--- Map <leader>x to make a script executable
-vim.keymap.set('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
-
--- Map <leader>p to vim file explorer
-vim.keymap.set('n', '<leader>pe', ':Ex<CR>', { noremap = true })
-
--- Map <leader>enter to open shell to insert command
-vim.keymap.set('n', '<leader><CR>', ':!', { noremap = true })
-
--- Map <leader>enter to open shell to insert command
-vim.keymap.set('n', '<leader>b', ':b#<CR>', { noremap = true })
-
--- Map <leader>so to source current file
-vim.keymap.set('n', '<leader>so', ':source<CR>', { noremap = true })
 
 -- Map Control+f to tmux-sessionizer
 vim.keymap.set('n', '<C-f>', ':!tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
--- Map <leader>i to remove all extra split screens and focus on the one with the cursor
-vim.keymap.set('n', '<leader>i', ':only<CR>', { noremap = true })
-
--- Git push
-vim.keymap.set('n', '<leader>gp', ':Git push<CR>', { noremap = true })
-
--- Git pull
-vim.keymap.set('n', '<leader>gu', ':Git pull<CR>', { noremap = true })
-
--- Search commit messages ( git -log -S <pattern> )
-vim.keymap.set('n', '<leader>gl', ':GcLog -S ', { noremap = true })
-
--- Map <leader>o to quit vim
-vim.keymap.set('n', '<leader>o', ':q<CR>', { noremap = true })
-
--- Map <leader>w to save the current file
-vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true })
-
--- Change word and go to next instance
-vim.keymap.set('n', '<Leader>r', '*``cgn', {noremap = true})
-vim.keymap.set('n', '<Leader>R', '*``cgN', {noremap = true})
 
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
@@ -93,11 +58,51 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
 -- Select until end of line in visual mode 
 vim.keymap.set('v', 'ç', '$', { noremap = true })
 
+
+
+-- Map <leader>w to save the current file
+vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true })
+
+-- Change word and go to next instance
+vim.keymap.set('n', '<Leader>r', '*``cgn', {noremap = true})
+vim.keymap.set('n', '<Leader>R', '*``cgN', {noremap = true})
+
+-- Map <leader>i to remove all extra split screens and focus on the one with the cursor
+vim.keymap.set('n', '<leader>i', ':only<CR>', { noremap = true })
+
+-- Git push
+vim.keymap.set('n', '<leader>gp', ':Git push<CR>', { noremap = true })
+
+-- Git pull
+vim.keymap.set('n', '<leader>gu', ':Git pull<CR>', { noremap = true })
+
+-- Search commit messages ( git -log -S <pattern> )
+vim.keymap.set('n', '<leader>gl', ':GcLog -S ', { noremap = true })
+
+-- Map <leader>o to quit vim
+vim.keymap.set('n', '<leader>o', ':q<CR>', { noremap = true })
+
+-- Map <leader>x to make a script executable
+vim.keymap.set('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
+
+-- Map <leader>pe to vim file explorer
+vim.keymap.set('n', '<leader>pe', ':Ex<CR>', { noremap = true })
+
+-- Map <leader>enter to open shell to insert command
+vim.keymap.set('n', '<leader><CR>', ':!', { noremap = true })
+
+-- Map <leader>enter to open shell to insert command
+vim.keymap.set('n', '<leader>b', ':b#<CR>', { noremap = true })
+
+-- Map <leader>so to source current file
+vim.keymap.set('n', '<leader>so', ':source<CR>', { noremap = true })
+
 -- Copy into system clipboard
 vim.keymap.set('n', '<Leader>y', '\"+yy', { noremap = true } , { desc = 'Yank to system clipboard n' } )
 vim.keymap.set('v', '<Leader>y', '\"+y', { noremap = true } , { desc = 'Yank to system clipboard v' } )
 vim.keymap.set('n', '<Leader>Y', '\"+Y', { noremap = true } , { desc = 'Yank line to system clipboard' } )
 
+-- Manage Registers
 vim.keymap.set('n', '<Leader>pr', ':reg<CR>', { noremap = true } , { desc = 'List Registers' } )
 
 vim.keymap.set('n', '<Leader>p0', '\"0p', { noremap = true }, { desc = 'Paste reg 0' } )
