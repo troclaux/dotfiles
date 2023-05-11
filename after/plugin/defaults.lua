@@ -67,6 +67,9 @@ vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>R', '*``cgN', {noremap = true})
 
+-- Find and replace
+vim.keymap.set('n', '<leader>ss', ':%s/', { noremap = true })
+
 -- Map <leader>i to remove all extra split screens and focus on the one with the cursor
 vim.keymap.set('n', '<leader>i', ':only<CR>', { noremap = true })
 
