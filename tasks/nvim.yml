@@ -92,3 +92,8 @@
     sed -i '/component_separators/s/\(\s*\)\(component_separators\s*=\s*[^,]*,\)/\1\2\n\1path = 2,/' ~/.config/nvim/init.lua
   tags: nvim
 
+- name: Change init.lua so that Neovim displays full file path
+  shell: >
+    sed -i 's/vim\.o\.hlsearch = false/vim.o.hlsearch = true/' ~/.config/nvim/init.lua
+  tags: nvim
+
