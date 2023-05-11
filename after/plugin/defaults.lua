@@ -95,8 +95,8 @@ vim.keymap.set('n', '<leader>pe', ':Ex<CR>', { noremap = true })
 vim.keymap.set('n', '<leader><CR>', ':!', { noremap = true })
 
 -- Map <leader>n to swith buffers
-vim.keymap.set('n', '<leader>n', ':bnext<CR>', { noremap = true })
-vim.keymap.set('n', '<leader>N', ':bprev<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>b', ':bnext<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>B', ':bprev<CR>', { noremap = true })
 
 -- Map <leader>so to source current file
 vim.keymap.set('n', '<leader>so', ':source<CR>', { noremap = true })
