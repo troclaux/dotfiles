@@ -73,27 +73,31 @@ vim.keymap.set('n', '<Leader>r', '*``cgn', {noremap = true})
 vim.keymap.set('n', '<Leader>R', '*``cgN', {noremap = true})
 
 -- Center viewport on highlighted search
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true } )
 
 -- control+d and control+u will keep viewport centralized
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 
 -- Map yp to yank a paragraph
-vim.keymap.set('n', 'yp', 'yap:execute >normal! j/^$`<cr>P"<cr>', { noremap = true })
+vim.keymap.set('n', 'yp', 'yap:execute >normal! j/^$`<CR>P"<cr>', { noremap = true })
 
 -- Replace line with yanked line
 vim.keymap.set('n', 'dp', 'pkddyy', { noremap = true })
 
 -- Map J and K to reposition highlighted text in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true } )
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
 
 -- Select until end of line in visual mode 
 vim.keymap.set('v', 'ç', '$', { noremap = true })
 
 -- Copy into system clipboard
-vim.keymap.set('n', '<Leader>y', '\"+yy')
-vim.keymap.set('v', '<Leader>y', '\"+y')
-vim.keymap.set('n', '<Leader>Y', '\"+Y')
+vim.keymap.set('n', '<Leader>y', '\"+yy', { noremap = true } )
+vim.keymap.set('v', '<Leader>y', '\"+y', { noremap = true } )
+vim.keymap.set('n', '<Leader>Y', '\"+Y', { noremap = true } )
+
+
+
+vim.keymap.set('v', 'ç', '$', { noremap = true })
