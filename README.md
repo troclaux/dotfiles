@@ -2,8 +2,13 @@
 Automatically configure a fresh Linux workstation by installing all required packages and configurations with Ansible
 
 # Requirements
+- Install git
+- Clone repository with the command below:
+```
+git clone https://github.com/troclaux/dotfiles ~/dotfiles
+```
 - Install Ansible
-- Run:
+- Run Ansible playbook with the command below:
 ```
 ansible-playbook local.yml -t dotfiles --ask-vault-pass --skip-tags "flatpaks, clone"
 ```
