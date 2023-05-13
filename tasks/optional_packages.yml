@@ -5,6 +5,12 @@
     state: present
   tags: optional_packages
 
+- name: Install bat
+  package:
+    name: bat
+    state: present
+  tags: optional_packages
+
 - name: Install htop
   package:
     name: go
