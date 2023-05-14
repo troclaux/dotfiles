@@ -40,8 +40,11 @@
   shell: yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   tags: zsh
 
-- name: Install zsh-syntax-highlighting 
-  shell: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+- name: Clone and install zsh-syntax-highlighting
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+    dest: '{{ ansible_env.ZSH_CUSTOM | default("~/.oh-my-zsh/custom") }}/plugins/zsh-syntax-highlighting'
+  become: true
   tags:
     - zsh_plugins
 
@@ -49,6 +52,7 @@
   shell: sed -i 's/(git/(git zsh-syntax-highlighting/' ~/.zshrc
   tags:
     - zsh_plugins
+  when: ansible_pkg_mgr == 'dnf'
 
 - name: Install zsh-autosuggestions plugin
   ansible.builtin.git:
@@ -61,4 +65,5 @@
   shell: sed -i 's/(git/(git zsh-autosuggestions/' ~/.zshrc
   tags:
     - zsh_plugins
+  when: ansible_pkg_mgr == 'dnf'
 
