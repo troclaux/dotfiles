@@ -58,18 +58,21 @@
     repo: 'https://github.com/nvim-lua/kickstart.nvim.git'
     dest: '~/.config/nvim'
   tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
 
 - name: Remove after folder
   ansible.builtin.file:
     path: '~/.config/nvim/after'
     state: absent
   tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
 
 - name: Remove folder plugins
   ansible.builtin.file:
     path: '~/.config/nvim/lua/custom/plugins'
     state: absent
   tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
 
 - name: Symlink folder after
   become: yes
@@ -78,6 +81,7 @@
     dest: '~/.config/nvim/after'
     state: link
   tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
 
 - name: Symlink folder plugins
   become: yes
@@ -86,14 +90,17 @@
     dest: '~/.config/nvim/lua/custom/plugins'
     state: link
   tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
 
 - name: Change init.lua so that Neovim displays full file path
   shell: >
     sed -i '/component_separators/s/\(\s*\)\(component_separators\s*=\s*[^,]*,\)/\1\2\n\1path = 2,/' ~/.config/nvim/init.lua
   tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
 
 - name: Change init.lua so that Neovim displays full file path
   shell: >
     sed -i 's/vim\.o\.hlsearch = false/vim.o.hlsearch = true/' ~/.config/nvim/init.lua
   tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
 
