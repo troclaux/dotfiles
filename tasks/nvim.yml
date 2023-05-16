@@ -98,7 +98,7 @@
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
-- name: Change init.lua so that Neovim displays full file path
+- name: Enabling highlighted search for kickstart neovim
   shell: >
     sed -i 's/vim\.o\.hlsearch = false/vim.o.hlsearch = true/' ~/.config/nvim/init.lua
   tags: nvim
