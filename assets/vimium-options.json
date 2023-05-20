@@ -9,7 +9,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\n\nmap gb visitPreviousTab\nmap ' Marks.activateGotoMode\nmap <a-,> moveTabLeft\nmap <a-.> moveTabRight\nmap <a-j> previousTab\nmap <a-k> nextTab",
+  "keyMappings": "# Insert your preferred key mappings here.\n\nmap gb visitPreviousTab\nmap ' Marks.activateGotoMode\nmap <a-,> moveTabLeft\nmap <a-.> moveTabRight\nmap <a-j> scrollDown\nmap <a-k> scrollUp",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
