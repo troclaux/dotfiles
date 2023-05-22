@@ -4,4 +4,5 @@ return {
     'mbbill/undotree',
     'ThePrimeagen/harpoon',
     'tpope/vim-surround',
+    'github/copilot.vim'
 }
