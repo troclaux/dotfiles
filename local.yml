@@ -38,6 +38,12 @@
     - include_tasks: tasks/zsh.yml
       tags: zsh
 
+    - name: Install NVM
+      shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+      tags:
+        - nvim
+        - node
+
     - include_tasks: tasks/nvim.yml
       tags: nvim
 
