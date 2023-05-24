@@ -104,7 +104,9 @@
     src: "{{ lookup('env', 'HOME') }}/dotfiles/after"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/after"
     state: link
-  tags: nvim
+  tags:
+    - nvim
+    - stow_nvim_configs
   when: ansible_pkg_mgr == 'dnf'
 
 - name: Symlink folder plugins
@@ -113,6 +115,8 @@
     src: "{{ lookup('env', 'HOME') }}/dotfiles/lua"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua"
     state: link
-  tags: nvim
+  tags:
+    - nvim
+    - stow_nvim_configs
   when: ansible_pkg_mgr == 'dnf'
 
