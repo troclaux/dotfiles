@@ -15,6 +15,6 @@ vim.o.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.signcolumn = "no"
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 vim.o.mouse = 'a'
