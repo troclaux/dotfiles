@@ -31,21 +31,21 @@
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
-- name: Install kickstart neovim requirements
+- name: Install neovim requirements
   package:
     name:
       - ripgrep
       - fd-find
   tags: nvim
 
-- name: Install more kickstart neovim requirements for Ubuntu
+- name: Install more neovim requirements for Ubuntu
   apt:
     name:
       - build-essential
   tags: nvim
   when: ansible_pkg_mgr == 'apt'
 
-- name: Install more kickstart neovim requirements for Fedora
+- name: Install more neovim requirements for Fedora
   dnf:
     name:
       - gcc
@@ -53,12 +53,6 @@
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
       
-- name: Clone install kickstart
-  ansible.builtin.git:
-    repo: 'https://github.com/nvim-lua/kickstart.nvim.git'
-    dest: '~/.config/nvim'
-  tags: nvim
-  when: ansible_pkg_mgr == 'dnf'
 
 - name: Remove after folder
   ansible.builtin.file:
@@ -74,6 +68,15 @@
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
+- name: Symlink init.lua
+  become: yes
+  file:
+    src: '~/dotfiles/init.lua'
+    dest: '~/.config/nvim/init.lua'
+    state: link
+  tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
+
 - name: Symlink folder after
   become: yes
   file:
@@ -86,21 +89,9 @@
 - name: Symlink folder plugins
   become: yes
   file:
-    src: '~/dotfiles/plugins'
-    dest: '~/.config/nvim/lua/custom/plugins'
+    src: '~/dotfiles/lua'
+    dest: '~/.config/nvim/lua'
     state: link
-  tags: nvim
-  when: ansible_pkg_mgr == 'dnf'
-
-- name: Change init.lua so that Neovim displays full file path
-  shell: >
-    sed -i '/component_separators/s/\(\s*\)\(component_separators\s*=\s*[^,]*,\)/\1\2\n\1path = 2,/' ~/.config/nvim/init.lua
-  tags: nvim
-  when: ansible_pkg_mgr == 'dnf'
-
-- name: Enabling highlighted search for kickstart neovim
-  shell: >
-    sed -i 's/vim\.o\.hlsearch = false/vim.o.hlsearch = true/' ~/.config/nvim/init.lua
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
