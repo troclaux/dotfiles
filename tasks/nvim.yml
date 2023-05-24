@@ -28,6 +28,12 @@
   apt:
     name:
       - build-essential
+      - libssl-dev
+      - ninja-build
+      - gettext
+      - cmake
+      - unzip
+      - curl
   tags: nvim
   when: ansible_pkg_mgr == 'apt'
 
@@ -38,7 +44,6 @@
       - gcc-c++
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
-      
 
 - name: Remove after folder
   ansible.builtin.file:
@@ -69,12 +74,6 @@
 #   tags: nvim
 #   when: ansible_pkg_mgr == 'dnf'
 
-- name: Install neovim package for Ubuntu
-  package:
-    name: neovim
-  tags: nvim
-  when: ansible_pkg_mgr == 'apt'
-
 - name: Install neovim package for Fedora
   package:
     name: 
@@ -87,6 +86,30 @@
   shell: mkdir -p ~/.config/nvim
   tags: nvim
 
+- name: Clone neovim from source for Debian-based distro
+  ansible.builtin.git:
+    repo: 'https://github.com/neovim/neovim'
+    dest: "{{ lookup('env', 'HOME') }}/neovim"
+    version: stable
+  tags:
+    - nvim
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Build neovim for Debian-based distro
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make -j 20"
+  tags:
+    - install
+    - nvim
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Install neovim for Debian-based distro
+  become: true
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
+  tags:
+    - install
+    - nvim
+  when: ansible_pkg_mgr == 'apt'
+
 - name: Symlink init.lua
   become: yes
   file:
@@ -96,7 +119,6 @@
   tags:
     - nvim
     - stow_nvim_configs
-  when: ansible_pkg_mgr == 'dnf'
 
 - name: Symlink folder after
   become: yes
@@ -107,7 +129,6 @@
   tags:
     - nvim
     - stow_nvim_configs
-  when: ansible_pkg_mgr == 'dnf'
 
 - name: Symlink folder plugins
   become: yes
@@ -118,5 +139,4 @@
   tags:
     - nvim
     - stow_nvim_configs
-  when: ansible_pkg_mgr == 'dnf'
 
