@@ -93,7 +93,9 @@
     src: "{{ lookup('env', 'HOME') }}/dotfiles/init.lua"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.lua"
     state: link
-  tags: nvim
+  tags:
+    - nvim
+    - stow_nvim_configs
   when: ansible_pkg_mgr == 'dnf'
 
 - name: Symlink folder after
