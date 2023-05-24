@@ -25,6 +25,20 @@ require("lazy").setup({
     'mbbill/undotree',
     'github/copilot.vim',
 
+    {
+        -- Set lualine as statusline
+        'nvim-lualine/lualine.nvim',
+        -- See `:help lualine.txt`
+        opts = {
+            options = {
+                icons_enabled = false,
+                path = 2,
+                theme = 'onedark',
+                component_separators = '|',
+                section_separators = '',
+            },
+        },
+    },
 
     {
         'VonHeikemen/lsp-zero.nvim',
