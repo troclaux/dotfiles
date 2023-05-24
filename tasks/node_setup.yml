@@ -1,0 +1,13 @@
+
+- name: Install NVM
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  tags:
+    - nvim
+    - node
+
+- name: Install node
+  shell: nvm install node
+  tags:
+    - nvim
+    - node
+
