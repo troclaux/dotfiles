@@ -1,35 +1,21 @@
 ---
 - name: Deletes lazy.vim config file
   ansible.builtin.file:
-    path: '~/.config/nvim'
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: absent
   tags: nvim
 
 - name: Deletes lazy.vim share folder
   ansible.builtin.file:
-    path: '~/.local/share/nvim/lazy'
+    path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/lazy"
     state: absent
   tags: nvim
 
 - name: Deletes lazy.vim state folder
   ansible.builtin.file:
-    path: '~/.local/state/nvim/lazy'
+    path: "{{ lookup('env', 'HOME') }}/.local/state/nvim/lazy"
     state: absent
   tags: nvim
-
-- name: Install neovim package for Ubuntu
-  package:
-    name: neovim
-  tags: nvim
-  when: ansible_pkg_mgr == 'apt'
-
-- name: Install neovim package for Fedora
-  package:
-    name: 
-      - neovim
-      - python3-neovim
-  tags: nvim
-  when: ansible_pkg_mgr == 'dnf'
 
 - name: Install neovim requirements
   package:
@@ -56,23 +42,56 @@
 
 - name: Remove after folder
   ansible.builtin.file:
-    path: '~/.config/nvim/after'
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/after"
     state: absent
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
 - name: Remove folder plugins
   ansible.builtin.file:
-    path: '~/.config/nvim/lua/custom/plugins'
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/custom/plugins"
     state: absent
+  tags: nvim
+  when: ansible_pkg_mgr == 'dnf'
+
+# - name: Symlink init.lua
+#   ansible.builtin.shell: ln -s ~/dotfiles/init.lua ~/.config/nvim/init.lua
+#   tags: nvim
+#   when: ansible_pkg_mgr == 'dnf'
+
+# - name: Symlink after folder
+#   ansible.builtin.shell: ln -s ~/dotfiles/after ~/.config/nvim/after
+#   tags: nvim
+#   when: ansible_pkg_mgr == 'dnf'
+
+# - name: Symlink lua folder
+#   ansible.builtin.shell: ln -s ~/dotfiles/lua ~/.config/nvim/lua
+#   tags: nvim
+#   when: ansible_pkg_mgr == 'dnf'
+
+- name: Create .config/nvim folder
+  shell: mkdir -p ~/.config/nvim
+  tags: nvim
+
+- name: Install neovim package for Ubuntu
+  package:
+    name: neovim
+  tags: nvim
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Install neovim package for Fedora
+  package:
+    name: 
+      - neovim
+      - python3-neovim
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
 - name: Symlink init.lua
   become: yes
   file:
-    src: '~/dotfiles/init.lua'
-    dest: '~/.config/nvim/init.lua'
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/init.lua"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.lua"
     state: link
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
@@ -80,8 +99,8 @@
 - name: Symlink folder after
   become: yes
   file:
-    src: '~/dotfiles/after'
-    dest: '~/.config/nvim/after'
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/after"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/after"
     state: link
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
@@ -89,8 +108,8 @@
 - name: Symlink folder plugins
   become: yes
   file:
-    src: '~/dotfiles/lua'
-    dest: '~/.config/nvim/lua'
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/lua"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua"
     state: link
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
