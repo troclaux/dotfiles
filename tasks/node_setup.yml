@@ -5,9 +5,3 @@
     - nvim
     - node
 
-- name: Install node
-  shell: nvm install node
-  tags:
-    - nvim
-    - node
-
