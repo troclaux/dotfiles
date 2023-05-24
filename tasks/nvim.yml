@@ -69,10 +69,6 @@
 #   tags: nvim
 #   when: ansible_pkg_mgr == 'dnf'
 
-- name: Create .config/nvim folder
-  shell: mkdir -p ~/.config/nvim
-  tags: nvim
-
 - name: Install neovim package for Ubuntu
   package:
     name: neovim
@@ -86,6 +82,10 @@
       - python3-neovim
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
+
+- name: Create .config/nvim folder
+  shell: mkdir -p ~/.config/nvim
+  tags: nvim
 
 - name: Symlink init.lua
   become: yes
