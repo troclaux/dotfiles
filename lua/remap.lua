@@ -13,10 +13,9 @@ vim.keymap.set('n', 'yç', 'y$', { noremap = true })
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 
-
 -- Map Control+f to tmux-sessionizer
 vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
-
+vim.keymap.set('n', '<A-f>', ':silent !tmux neww tmux-vimionizer<CR>', { noremap = true, silent = true })
 
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
