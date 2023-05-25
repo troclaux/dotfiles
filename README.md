@@ -1,7 +1,7 @@
 # Objective
 Automatically configure a fresh Linux workstation by installing all required packages and configurations with Ansible
 
-# Requirements
+# Installation
 - Install git
 - Clone repository with the command below:
 ```
