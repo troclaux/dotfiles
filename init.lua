@@ -21,6 +21,7 @@ require("lazy").setup({
     'tpope/vim-fugitive',
     'tpope/vim-surround',
     'tpope/vim-commentary',
+    'tpope/vim-sleuth',
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
     'github/copilot.vim',
