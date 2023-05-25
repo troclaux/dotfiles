@@ -15,7 +15,7 @@ vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 
 
 -- Map Control+f to tmux-sessionizer
-vim.keymap.set('n', '<C-f>', ':!tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
 
 -- Center viewport on highlighted search
