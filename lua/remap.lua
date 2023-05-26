@@ -1,9 +1,28 @@
+-- Insert mode remaps
+
 -- Map jk and kj to go to normal mode
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
 vim.keymap.set('i', 'kj', '<Esc>', { noremap = true })
 
 -- Map control+delete to delete whole word in insert mode
 vim.keymap.set('i', '<C-Delete>', '<Esc>ldwi', { noremap = true })
+
+
+-- Visual mode remaps
+
+-- Keep selection after indenting
+vim.keymap.set("v", ">", ">gv", { noremap = true } )
+vim.keymap.set("v", "<", "<gv", { noremap = true } )
+
+-- Map J and K to reposition highlighted text in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true } )
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
+
+-- Select until end of line in visual mode 
+vim.keymap.set('v', 'ç', '$', { noremap = true })
+
+
+-- Normal mode remaps
 
 -- Go to end of line and delete until end of line
 vim.keymap.set('n', 'ç', '$', { noremap = true })
@@ -21,10 +40,6 @@ vim.keymap.set('n', '<A-f>', ':silent !tmux neww tmux-vimionizer<CR>', { noremap
 vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true } )
 
--- Keep selection after indenting
-vim.keymap.set("v", ">", ">gv", { noremap = true } )
-vim.keymap.set("v", "<", "<gv", { noremap = true } )
-
 -- control+d and control+u will keep viewport centralized
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
@@ -34,15 +49,6 @@ vim.keymap.set('n', 'yp', 'yap:execute >normal! j/^$`<CR>P"<cr>', { noremap = tr
 
 -- Replace line with yanked line
 vim.keymap.set('n', 'dp', 'pkddyy', { noremap = true })
-
--- Map J and K to reposition highlighted text in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true } )
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
-
--- Select until end of line in visual mode 
-vim.keymap.set('v', 'ç', '$', { noremap = true })
-
-
 
 -- Map <leader>w to save the current file
 vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true })
