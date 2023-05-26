@@ -21,6 +21,10 @@ vim.keymap.set('n', '<A-f>', ':silent !tmux neww tmux-vimionizer<CR>', { noremap
 vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true } )
 
+-- Keep selection after indenting
+vim.keymap.set("v", ">", ">gv", { noremap = true } )
+vim.keymap.set("v", "<", "<gv", { noremap = true } )
+
 -- control+d and control+u will keep viewport centralized
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
