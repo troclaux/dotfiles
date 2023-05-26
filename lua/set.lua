@@ -1,6 +1,8 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.ignorecase = true
+
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
@@ -19,3 +21,5 @@ vim.opt.signcolumn = "no"
 -- vim.opt.colorcolumn = "80"
 
 vim.o.mouse = 'a'
+
+vim.cmd.colorscheme "catppuccin"

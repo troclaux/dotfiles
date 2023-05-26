@@ -26,6 +26,9 @@ require("lazy").setup({
     'mbbill/undotree',
     'github/copilot.vim',
 
+
+    { "catppuccin/nvim", name = "catppuccin" },
+
     {
         -- Set lualine as statusline
         'nvim-lualine/lualine.nvim',
