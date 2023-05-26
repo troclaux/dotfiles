@@ -98,6 +98,7 @@ vim.keymap.set('n', '<Leader>Y', '\"+Y', { noremap = true } , { desc = 'Yank lin
 
 -- Manage Registers
 vim.keymap.set('n', '<Leader>pr', ':reg<CR>', { noremap = true } , { desc = 'List Registers' } )
+vim.keymap.set('n', '<Leader>pp', '"+p', { noremap = true } , { desc = 'Paste with system clipboard' } )
 
 vim.keymap.set('n', '<Leader>p0', '\"0p', { noremap = true } )
 vim.keymap.set('n', '<Leader>p1', '\"1p', { noremap = true } )
