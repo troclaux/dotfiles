@@ -44,10 +44,7 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true } )
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 
--- Map yp to yank a paragraph
-vim.keymap.set('n', 'yp', 'yap:execute >normal! j/^$`<CR>P"<cr>', { noremap = true })
-
--- Replace line with yanked line
+-- Replace line with yanked line and keep saved line in register
 vim.keymap.set('n', 'dp', 'pkddyy', { noremap = true })
 
 -- Map <leader>w to save the current file
