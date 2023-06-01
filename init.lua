@@ -24,7 +24,7 @@ require("lazy").setup({
     'tpope/vim-sleuth',
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
-    'github/copilot.vim',
+    -- 'zbirenbaum/copilot.lua',
 
 
     { "catppuccin/nvim", name = "catppuccin" },
@@ -101,13 +101,16 @@ require("lazy").setup({
 
 }, {})
 
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {})
 vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
     group = highlight_group,
     pattern = '*',
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 90,
+        })
+    end,
 })
 
 require('telescope').setup()
@@ -137,6 +140,7 @@ require('nvim-treesitter.configs').setup({
         additional_vim_regex_highlighting = false,
     },
 })
+
 
 require("remap")
 require("set")
