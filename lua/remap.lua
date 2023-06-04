@@ -7,7 +7,7 @@ vim.keymap.set('i', 'kj', '<Esc>', { noremap = true })
 -- Map control+delete to delete whole word in insert mode
 vim.keymap.set('i', '<C-Delete>', '<Esc>ldwi', { noremap = true })
 
--- Map control+delete to delete whole word in insert mode
+-- Closes brackets automatically
 vim.keymap.set('i', '{<CR>', '}<Esc>O{<Esc>o', { noremap = true })
 
 
