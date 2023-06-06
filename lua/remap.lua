@@ -8,8 +8,7 @@ vim.keymap.set('i', 'kj', '<Esc>', { noremap = true })
 vim.keymap.set('i', '<C-Delete>', '<Esc>ldwi', { noremap = true })
 
 -- Closes brackets automatically
-vim.keymap.set('i', '{<CR>', '}<Esc>O{<Esc>o', { noremap = true })
-
+vim.keymap.set('i', '{<CR>', '{<Esc>o<BS>}<Esc>ko', { noremap = true })
 
 -- Visual mode remaps
 
