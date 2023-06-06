@@ -4,7 +4,7 @@
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
 vim.keymap.set('i', 'kj', '<Esc>', { noremap = true })
 
--- Map control+delete to delete whole word in insert mode
+-- Delete whole word in insert mode
 vim.keymap.set('i', '<C-Delete>', '<Esc>ldwi', { noremap = true })
 
 -- Closes brackets automatically
@@ -17,7 +17,7 @@ vim.keymap.set('i', '{<CR>', '}<Esc>O{<Esc>o', { noremap = true })
 vim.keymap.set("v", ">", ">gv", { noremap = true } )
 vim.keymap.set("v", "<", "<gv", { noremap = true } )
 
--- Map J and K to reposition highlighted text in visual mode
+-- Reposition highlighted text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true } )
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
 
@@ -35,7 +35,7 @@ vim.keymap.set('n', 'yç', 'y$', { noremap = true })
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 
--- Map Control+f to tmux-sessionizer
+-- Keybind for tmux-sessionizer
 vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-f>', ':silent !tmux neww tmux-vimionizer<CR>', { noremap = true, silent = true })
 
@@ -43,14 +43,14 @@ vim.keymap.set('n', '<A-f>', ':silent !tmux neww tmux-vimionizer<CR>', { noremap
 vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true } )
 
--- control+d and control+u will keep viewport centralized
+-- Keep viewport centralized when using ctrl+d and ctrl+u
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 
 -- Replace line with yanked line and keep saved line in register
 vim.keymap.set('n', 'dp', 'pkddyy', { noremap = true })
 
--- Map <leader>w to save the current file
+-- Save the current file
 vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true })
 
 -- Change word and go to next instance
@@ -60,7 +60,7 @@ vim.api.nvim_set_keymap('n', '<Leader>R', '*``cgN', {noremap = true})
 -- Find and replace
 vim.keymap.set('n', '<leader>ss', ':%s/', { noremap = true })
 
--- Map <leader>i to remove all extra split screens and focus on the one with the cursor
+-- Remove all extra split screens and focus on the one with the cursor
 vim.keymap.set('n', '<leader>i', ':only<CR>', { noremap = true })
 
 -- Git push
@@ -72,23 +72,23 @@ vim.keymap.set('n', '<leader>gu', ':Git pull<CR>', { noremap = true })
 -- Search commit messages ( git -log -S <pattern> )
 vim.keymap.set('n', '<leader>gl', ':GcLog -S ', { noremap = true })
 
--- Map <leader>o to quit vim
+-- Quit vim
 vim.keymap.set('n', '<leader>o', ':q<CR>', { noremap = true })
 
--- Map <leader>x to make a script executable
+-- Make a script executable
 vim.keymap.set('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
 
--- Map <leader>pe to vim file explorer
+-- Open vim file explorer
 vim.keymap.set('n', '<leader>pe', ':Ex<CR>', { noremap = true })
 
--- Map <leader>enter to open shell to insert command
+-- Open shell to insert command
 vim.keymap.set('n', '<leader><CR>', ':!', { noremap = true })
 
--- Map <leader>n to swith buffers
+-- Navigate buffers
 vim.keymap.set('n', '<leader>b', ':bnext<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>B', ':bprev<CR>', { noremap = true })
 
--- Map <leader>so to source current file
+-- Source current file
 vim.keymap.set('n', '<leader>so', ':source<CR>', { noremap = true })
 
 -- Copy into system clipboard
