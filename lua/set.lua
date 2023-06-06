@@ -20,6 +20,8 @@ vim.opt.incsearch = true
 vim.opt.signcolumn = "no"
 -- vim.opt.colorcolumn = "80"
 
+vim.o.whichwrap = "lh"
+
 vim.o.mouse = 'a'
 
 vim.cmd.colorscheme "catppuccin"
