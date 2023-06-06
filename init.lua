@@ -24,7 +24,7 @@ require("lazy").setup({
     'tpope/vim-sleuth',
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
-    'zbirenbaum/copilot.lua',
+    'github/copilot.vim',
 
     { "catppuccin/nvim", name = "catppuccin" },
 
@@ -151,21 +151,6 @@ require('nvim-treesitter.configs').setup({
     },
 })
 
-require('copilot').setup({
-    suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        debounce = 75,
-        keymap = {
-            accept = "<C-ç>",
-            accept_word = "<C-m>",
-            accept_line = "<C-l>",
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-]>",
-        },
-    },
-})
 
 require("remap")
 require("set")
