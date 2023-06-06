@@ -24,7 +24,8 @@ require("lazy").setup({
     'tpope/vim-sleuth',
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
-    'github/copilot.vim',
+    -- 'github/copilot.vim',
+    -- 'zbirenbaum/copilot-cmp',
 
     { "catppuccin/nvim", name = "catppuccin" },
 
