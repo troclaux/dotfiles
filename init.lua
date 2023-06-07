@@ -25,7 +25,14 @@ require("lazy").setup({
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
     -- 'github/copilot.vim',
-    -- 'zbirenbaum/copilot-cmp',
+    'zbirenbaum/copilot.lua',
+
+    {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+            require("copilot_cmp").setup()
+        end
+    },
 
     { "catppuccin/nvim", name = "catppuccin" },
 
@@ -161,6 +168,28 @@ end)
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 lsp.setup()
 
+require("copilot").setup({
+    suggestion = { enabled = false },
+    panel = { enabled = false },
+})
+require("copilot_cmp").setup()
+
+local cmp = require('cmp')
+cmp.setup({
+    sources = {
+        {name = 'copilot'},
+        {name = 'nvim_lsp'},
+        {name = 'lsp-zero'},
+    },
+    mapping = {
+        ['<CR>'] = cmp.mapping.confirm({
+            -- documentation says this is important.
+            -- I don't know why.
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false,
+        })
+    }
+})
 
 require("remap")
 require("set")
