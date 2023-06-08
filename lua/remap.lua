@@ -93,7 +93,6 @@ vim.keymap.set('n', '<leader>so', ':source<CR>', { noremap = true })
 -- Copy into system clipboard
 vim.keymap.set('n', '<Leader>y', '\"+yy', { noremap = true } , { desc = 'Yank to system clipboard n' } )
 vim.keymap.set('v', '<Leader>y', '\"+y', { noremap = true } , { desc = 'Yank to system clipboard v' } )
-vim.keymap.set('n', '<Leader>Y', '\"+Y', { noremap = true } , { desc = 'Yank line to system clipboard' } )
 
 -- Manage Registers
 vim.keymap.set('n', '<Leader>pr', ':reg<CR>', { noremap = true } , { desc = 'List Registers' } )
