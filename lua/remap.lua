@@ -26,10 +26,8 @@ vim.keymap.set('v', 'ç', '$', { noremap = true })
 
 -- Normal mode remaps
 
--- Go to end of line and delete until end of line
+-- Go to end of line
 vim.keymap.set('n', 'ç', '$', { noremap = true })
-vim.keymap.set('n', 'dç', 'd$', { noremap = true })
-vim.keymap.set('n', 'yç', 'y$', { noremap = true })
 
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
