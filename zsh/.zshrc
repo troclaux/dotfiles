@@ -132,7 +132,7 @@ alias vg='nvim -c "Git"'
 alias gs='nvim -c "Git"'
 alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
-alias fcd="cd \$(find /home/\$USER -type d | fzf)"
+alias cdf="cd \$(find /home/\$USER -type d | fzf)"
 
 
 alias ta="tmux kill-session -a"
