@@ -13,7 +13,13 @@
 
 - name: Install htop
   package:
-    name: go
+    name: htop
+    state: present
+  tags: optional_packages
+
+- name: Install btop
+  package:
+    name: btop
     state: present
   tags: optional_packages
 
