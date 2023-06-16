@@ -35,3 +35,8 @@
     state: present
   tags: optional_packages
 
+- name: Install xkill for Fedora
+  dnf:
+    name: xkill
+  tags: optional_packages
+  when: ansible_pkg_mgr == 'dnf'
