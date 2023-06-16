@@ -10,6 +10,6 @@ RUN grep -q "max_parallel_downloads=" /etc/dnf/dnf.conf || echo "max_parallel_do
 
 RUN echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
 
-WORKDIR .
+WORKDIR /root/dotfiles
 
 CMD ["/bin/bash"]

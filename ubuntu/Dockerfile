@@ -8,6 +8,6 @@ RUN pip install ansible
 
 # RUN echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc 
 
-WORKDIR .
+WORKDIR /root/dotfiles
 
 CMD ["/bin/bash"]
