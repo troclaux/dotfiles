@@ -33,8 +33,7 @@ vim.keymap.set('n', 'ç', '$', { noremap = true })
 vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 
 -- Keybind for tmux-sessionizer
-vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<A-f>', ':silent !tmux neww tmux-vimionizer<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
