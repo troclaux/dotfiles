@@ -23,6 +23,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
 -- Select until end of line in visual mode 
 vim.keymap.set('v', 'ç', '$', { noremap = true })
 
+-- Paste system clipboard on visual mode
+vim.keymap.set('v', '<leader>p', '"+p', { noremap = true })
+
 
 -- Normal mode remaps
 
