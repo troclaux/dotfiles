@@ -35,6 +35,9 @@ vim.keymap.set('n', 'ç', '$', { noremap = true })
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 
+-- Reselect pasted text
+vim.keymap.set('n', 'gp', '`[v`]', { noremap = true })
+
 -- Keybind for tmux-sessionizer
 vim.keymap.set('n', '<leader>t', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
