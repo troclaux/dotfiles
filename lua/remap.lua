@@ -26,6 +26,9 @@ vim.keymap.set('v', 'ç', '$', { noremap = true })
 -- Paste system clipboard on visual mode
 vim.keymap.set('v', '<leader>p', '"+p', { noremap = true })
 
+-- Align text in visual mode around equals sign
+vim.keymap.set('v', '<leader>=', ':Tab /=', { noremap = true })
+
 
 -- Normal mode remaps
 

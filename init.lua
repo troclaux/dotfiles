@@ -24,6 +24,8 @@ require("lazy").setup({
     'tpope/vim-sleuth',
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
+    'godlygeek/tabular',
+    'tommcdo/vim-lion',
     -- 'github/copilot.vim',
     'zbirenbaum/copilot.lua',
 
