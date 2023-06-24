@@ -27,7 +27,7 @@ vim.keymap.set('v', 'ç', '$', { noremap = true })
 vim.keymap.set('v', '<leader>p', '"+p', { noremap = true })
 
 -- Align text in visual mode around equals sign
-vim.keymap.set('v', '<leader>=', ':Tab /=', { noremap = true })
+vim.keymap.set('v', '<leader>=', ':Tab /=<CR>', { noremap = true })
 
 
 -- Normal mode remaps
@@ -42,7 +42,7 @@ vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 vim.keymap.set('n', 'gp', '`[v`]', { noremap = true })
 
 -- Keybind for tmux-sessionizer
-vim.keymap.set('n', '<leader>f', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>t', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
 -- Center viewport on highlighted search
