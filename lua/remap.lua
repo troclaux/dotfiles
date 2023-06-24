@@ -24,10 +24,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
 vim.keymap.set('v', 'ç', '$', { noremap = true })
 
 -- Paste system clipboard on visual mode
-vim.keymap.set('v', '<leader>p', '"+p', { noremap = true })
+vim.keymap.set('v', '<Leader>p', '"+p', { noremap = true })
 
 -- Align text in visual mode around equals sign
-vim.keymap.set('v', '<leader>=', ':Tab /=<CR>', { noremap = true })
+vim.keymap.set('v', '<Leader>=', ':Tab /=<CR>', { noremap = true })
 
 
 -- Normal mode remaps
@@ -43,7 +43,7 @@ vim.keymap.set('n', 'gp', '`[v`]', { noremap = true })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>t', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>t', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
@@ -57,45 +57,45 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 vim.keymap.set('n', 'dp', 'pkddyy', { noremap = true })
 
 -- Save the current file
-vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true })
 
 -- Change word and go to next instance
 vim.api.nvim_set_keymap('n', '<Leader>r', '*``cgn', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>R', '*``cgN', {noremap = true})
 
 -- Find and replace
-vim.keymap.set('n', '<leader>ss', ':%s/', { noremap = true })
+vim.keymap.set('n', '<Leader>ss', ':%s/', { noremap = true })
 
 -- Remove all extra split screens and focus on the one with the cursor
-vim.keymap.set('n', '<leader>i', ':only<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>i', ':only<CR>', { noremap = true })
 
 -- Git push
-vim.keymap.set('n', '<leader>gp', ':Git push<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>gp', ':Git push<CR>', { noremap = true })
 
 -- Git pull
-vim.keymap.set('n', '<leader>gu', ':Git pull<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>gu', ':Git pull<CR>', { noremap = true })
 
 -- Search commit messages ( git -log -S <pattern> )
-vim.keymap.set('n', '<leader>gl', ':GcLog -S ', { noremap = true })
+vim.keymap.set('n', '<Leader>gl', ':GcLog -S ', { noremap = true })
 
 -- Quit vim
-vim.keymap.set('n', '<leader>o', ':q<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>o', ':q<CR>', { noremap = true })
 
 -- Make a script executable
-vim.keymap.set('n', '<leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
 
 -- Open vim file explorer
-vim.keymap.set('n', '<leader>pe', ':Ex<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>pe', ':Ex<CR>', { noremap = true })
 
 -- Open shell to insert command
-vim.keymap.set('n', '<leader><CR>', ':!', { noremap = true })
+vim.keymap.set('n', '<Leader><CR>', ':!', { noremap = true })
 
 -- Navigate buffers
-vim.keymap.set('n', '<leader>b', ':bnext<CR>', { noremap = true })
-vim.keymap.set('n', '<leader>B', ':bprev<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>b', ':bnext<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>B', ':bprev<CR>', { noremap = true })
 
 -- Source current file
-vim.keymap.set('n', '<leader>so', ':source<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>so', ':source<CR>', { noremap = true })
 
 -- Copy into system clipboard
 vim.keymap.set('n', '<Leader>y', '\"+yy', { noremap = true } , { desc = 'Yank to system clipboard n' } )
