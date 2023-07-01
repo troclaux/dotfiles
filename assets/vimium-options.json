@@ -22,7 +22,7 @@
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
   "keyMappings": "# Insert your preferred key mappings here.\n\nmap a visitPreviousTab\nmap s Vomnibar.activateTabSelection\nmap e LinkHints.activateModeToOpenInNewForegroundTab\nmap ' Marks.activateGotoMode\nmap <a-,> moveTabLeft\nmap <a-.> moveTabRight\nmap <a-j> scrollDown\nmap <a-k> scrollUp\nmap <a-f> enterFindMode",
-  "linkHintCharacters": "sadfjklewcmpghuxrq",
+  "linkHintCharacters": "sadfjklewcmhyuiq",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
   "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
