@@ -11,7 +11,7 @@
     
 - name: Remove gitconfig
   file:
-    path: ~/.gitconfig
+    path: $HOME/.gitconfig
     state: absent
   tags:
     - stow
@@ -25,7 +25,7 @@
 
 - name: Remove zshrc
   file:
-    path: ~/.zshrc
+    path: $HOME/.zshrc
     state: absent
   tags:
     - stow
@@ -39,7 +39,7 @@
 
 - name: Remove tmux.conf
   file:
-    path: ~/.tmux.conf
+    path: $HOME/.tmux.conf
     state: absent
   tags:
     - stow
@@ -47,7 +47,7 @@
 
 - name: Remove tmux-cht-languages
   file:
-    path: ~/.tmux-cht-languages
+    path: $HOME/.tmux-cht-languages
     state: absent
   tags:
     - stow
@@ -55,7 +55,7 @@
 
 - name: Remove tmux-cht-command
   file:
-    path: ~/.tmux-cht-command
+    path: $HOME/.tmux-cht-command
     state: absent
   tags:
     - stow
