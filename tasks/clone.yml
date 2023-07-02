@@ -2,23 +2,25 @@
 - name: Clone install repo for gopl.io
   ansible.builtin.git:
     repo: 'https://github.com/adonovan/gopl.io/'
-    dest: '~/Documents/gopl.io'
+    dest: "{{ lookup('env', 'HOME') }}/Documents/gopl.io"
   tags: clone
 
 - name: Clone install repo for coding interview university
   ansible.builtin.git:
     repo: 'https://github.com/jwasham/coding-interview-university'
-    dest: '~/Documents/coding-interview-university'
+    dest: "{{ lookup('env', 'HOME') }}/Documents/coding-interview-university"
   tags: clone
 
 - name: Clone install repo for 90 days of DevOps
   ansible.builtin.git:
     repo: 'https://github.com/MichaelCade/90DaysOfDevOps'
-    dest: '~/Documents/90DaysOfDevOps'
+    dest: "{{ lookup('env', 'HOME') }}/Documents/90DaysOfDevOps"
   tags: clone
 
 - name: Clone install repo for devops exercises
   ansible.builtin.git:
     repo: 'https://github.com/bregman-arie/devops-exercises'
-    dest: '~/Documents/devops-exercises'
+    dest: "{{ lookup('env', 'HOME') }}/Documents/devops-exercises"
   tags: clone
+
+
