@@ -111,7 +111,7 @@
   when: ansible_pkg_mgr == 'apt'
 
 - name: Symlink init.lua
-  become: yes
+  become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/init.lua"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.lua"
@@ -121,7 +121,7 @@
     - stow_nvim_configs
 
 - name: Symlink folder after
-  become: yes
+  become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/after"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/after"
@@ -131,7 +131,7 @@
     - stow_nvim_configs
 
 - name: Symlink folder plugins
-  become: yes
+  become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/lua"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua"
