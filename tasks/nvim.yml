@@ -60,17 +60,17 @@
   when: ansible_pkg_mgr == 'dnf'
 
 # - name: Symlink init.lua
-#   ansible.builtin.shell: ln -s ~/dotfiles/init.lua ~/.config/nvim/init.lua
+#   ansible.builtin.shell: ln -s $HOME/dotfiles/init.lua $HOME/.config/nvim/init.lua
 #   tags: nvim
 #   when: ansible_pkg_mgr == 'dnf'
 
 # - name: Symlink after folder
-#   ansible.builtin.shell: ln -s ~/dotfiles/after ~/.config/nvim/after
+#   ansible.builtin.shell: ln -s $HOME/dotfiles/after $HOME/.config/nvim/after
 #   tags: nvim
 #   when: ansible_pkg_mgr == 'dnf'
 
 # - name: Symlink lua folder
-#   ansible.builtin.shell: ln -s ~/dotfiles/lua ~/.config/nvim/lua
+#   ansible.builtin.shell: ln -s $HOME/dotfiles/lua $HOME/.config/nvim/lua
 #   tags: nvim
 #   when: ansible_pkg_mgr == 'dnf'
 
@@ -83,7 +83,7 @@
   when: ansible_pkg_mgr == 'dnf'
 
 - name: Create .config/nvim folder
-  shell: mkdir -p ~/.config/nvim
+  shell: mkdir -p $HOME/.config/nvim
   tags: nvim
 
 - name: Clone neovim from source for Debian-based distro
