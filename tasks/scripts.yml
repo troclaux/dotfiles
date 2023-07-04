@@ -1,6 +1,6 @@
 ---
 - name: Create symlink to tmux-windowizer
-  become: yes
+  become: true
   file:
     src: "~/dotfiles/bin/tmux-windowizer"
     dest: "/usr/local/bin/tmux-windowizer"
@@ -8,7 +8,7 @@
   tags: scripts
 
 - name: Create symlink to tmux-sessionizer 
-  become: yes
+  become: true
   file:
     src: "~/dotfiles/bin/tmux-sessionizer"
     dest: "/usr/local/bin/tmux-sessionizer"
@@ -16,7 +16,7 @@
   tags: scripts
 
 - name: Create symlink to tmux-vimionizer 
-  become: yes
+  become: true
   file:
     src: "~/dotfiles/bin/tmux-vimionizer"
     dest: "/usr/local/bin/tmux-vimionizer"
@@ -24,7 +24,7 @@
   tags: scripts
 
 - name: Create symlink to tmux-cht.sh
-  become: yes
+  become: true
   file:
     src: "~/dotfiles/bin/tmux-cht.sh"
     dest: "/usr/local/bin/tmux-cht.sh"
@@ -32,7 +32,7 @@
   tags: scripts
 
 - name: Create symlink to tmux-tvui
-  become: yes
+  become: true
   file:
     src: "~/dotfiles/bin/tmux-tvui"
     dest: "/usr/local/bin/tmux-tvui"
