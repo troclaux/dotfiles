@@ -15,7 +15,7 @@ ansible-playbook local.yml -t dotfiles --ask-vault-pass --skip-tags "flatpaks, c
 # Use Docker to test Ansible playbook
 
 ```
-chmod u+x setup_test_container.sh
+chmod +x setup_test_container.sh
 ```
 
 ```
