@@ -21,7 +21,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true } )
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
 
 -- Select until end of line in visual mode 
-vim.keymap.set('v', 'ç', '$', { noremap = true })
+vim.keymap.set('v', 'L', '$', { noremap = true })
 
 -- Paste system clipboard on visual mode
 vim.keymap.set('v', '<Leader>p', '"+p', { noremap = true })
@@ -33,7 +33,7 @@ vim.keymap.set('v', '<Leader>=', ':Tab /=<CR>', { noremap = true })
 -- Normal mode remaps
 
 -- Go to end of line
-vim.keymap.set('n', 'ç', '$', { noremap = true })
+vim.keymap.set('n', 'L', '$', { noremap = true })
 
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
