@@ -20,6 +20,9 @@ vim.keymap.set("v", "<", "<gv", { noremap = true } )
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true } )
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
 
+-- Select until start of line in visual mode 
+vim.keymap.set('v', 'H', '^', { noremap = true })
+
 -- Select until end of line in visual mode 
 vim.keymap.set('v', 'L', '$', { noremap = true })
 
@@ -31,6 +34,9 @@ vim.keymap.set('v', '<Leader>=', ':Tab /=<CR>', { noremap = true })
 
 
 -- Normal mode remaps
+
+-- Go to start of line
+vim.keymap.set('n', 'H', '^', { noremap = true })
 
 -- Go to end of line
 vim.keymap.set('n', 'L', '$', { noremap = true })
