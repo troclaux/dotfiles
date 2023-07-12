@@ -97,8 +97,8 @@ vim.keymap.set('n', '<Leader>pe', ':Ex<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader><CR>', ':!', { noremap = true })
 
 -- Navigate buffers
-vim.keymap.set('n', '<Leader>b', ':bnext<CR>', { noremap = true })
-vim.keymap.set('n', '<Leader>B', ':bprev<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>B', ':bnext<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>b', ':bprev<CR>', { noremap = true })
 
 -- Source current file
 vim.keymap.set('n', '<Leader>so', ':source<CR>', { noremap = true })
