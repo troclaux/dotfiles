@@ -1,5 +1,5 @@
 # Objective
-Automatically configure a fresh Linux workstation by installing all required packages and configurations with Ansible
+Automatically configure a fresh Linux workstation by installing all required packages and dotfiles with Ansible
 
 # Installation
 - Install git
