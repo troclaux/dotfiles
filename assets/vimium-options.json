@@ -1,5 +1,5 @@
 {
-  "settingsVersion": "1.67.4",
+  "settingsVersion": "1.67.7",
   "exclusionRules": [
     {
       "pattern": "https://www.youtube.com/watch*",
@@ -14,7 +14,15 @@
       "passKeys": "/"
     },
     {
-      "pattern": "https://docs.google.com/document",
+      "pattern": "https://docs.google.com/document/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https://docs.google.com/presentation/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https://docs.google.com/spreadsheets/*",
       "passKeys": ""
     }
   ],
