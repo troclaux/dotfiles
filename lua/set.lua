@@ -21,6 +21,7 @@ vim.opt.signcolumn = "no"
 -- vim.opt.colorcolumn = "80"
 
 vim.o.whichwrap = "lh"
+vim.opt.wrap = false
 
 vim.o.mouse = 'a'
 
