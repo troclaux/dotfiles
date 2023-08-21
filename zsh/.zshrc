@@ -129,6 +129,8 @@ alias vi="nvim"
 alias vim="nvim"
 
 alias clipboard="xclip -selection clipboard"
+alias markdown="glow -p"
+
 alias vf="nvim -c 'Telescope find_files'"
 alias vp="nvim -c 'Telescope git_files'"
 alias vg='nvim -c "Git"'
