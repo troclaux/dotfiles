@@ -130,6 +130,7 @@ alias vim="nvim"
 
 alias clipboard="xclip -selection clipboard"
 alias markdown="glow -p"
+alias open="xdg-open"
 
 alias vf="nvim -c 'Telescope find_files'"
 alias vp="nvim -c 'Telescope git_files'"
