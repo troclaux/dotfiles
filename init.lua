@@ -28,6 +28,7 @@ require("lazy").setup({
     'tommcdo/vim-lion',
     -- 'github/copilot.vim',
     'zbirenbaum/copilot.lua',
+    'wellle/context.vim',
 
     {
         "zbirenbaum/copilot-cmp",
