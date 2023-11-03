@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
     'tpope/vim-fugitive',
+    'tpope/vim-unimpaired',
     'tpope/vim-surround',
     'tpope/vim-commentary',
     'tpope/vim-sleuth',
