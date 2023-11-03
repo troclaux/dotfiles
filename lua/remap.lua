@@ -20,6 +20,10 @@ vim.keymap.set("v", "<", "<gv", { noremap = true } )
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true } )
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
 
+-- add empty line before and after current line in normal mode
+vim.keymap.set("n", "[ ", "O<Esc>k", { noremap = true } )
+vim.keymap.set("n", "] ", "o<Esc>k", { noremap = true } )
+
 -- Select until start of line in visual mode 
 vim.keymap.set('v', 'H', '^', { noremap = true })
 
