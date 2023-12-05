@@ -93,6 +93,9 @@ vim.keymap.set('n', '<Leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, sil
 -- Open vim file explorer
 vim.keymap.set('n', '<Leader>pe', ':Ex<CR>', { noremap = true })
 
+-- Toggle Tagbar extension
+vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>', { noremap = true })
+
 -- Open shell to insert command
 vim.keymap.set('n', '<Leader><CR>', ':!', { noremap = true })
 
