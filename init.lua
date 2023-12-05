@@ -27,16 +27,16 @@ require("lazy").setup({
     'mbbill/undotree',
     'godlygeek/tabular',
     'tommcdo/vim-lion',
-    -- 'github/copilot.vim',
-    'zbirenbaum/copilot.lua',
+    -- 'zbirenbaum/copilot.lua',
     'wellle/context.vim',
+    'preservim/tagbar',
 
-    {
-        "zbirenbaum/copilot-cmp",
-        config = function ()
-            require("copilot_cmp").setup()
-        end
-    },
+    -- {
+    --     "zbirenbaum/copilot-cmp",
+    --     config = function ()
+    --         require("copilot_cmp").setup()
+    --     end
+    -- },
 
     { "catppuccin/nvim", name = "catppuccin" },
 
@@ -173,16 +173,16 @@ end)
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 lsp.setup()
 
-require("copilot").setup({
-    suggestion = { enabled = false },
-    panel = { enabled = false },
-})
-require("copilot_cmp").setup()
+-- require("copilot").setup({
+--     suggestion = { enabled = false },
+--     panel = { enabled = false },
+-- })
+-- require("copilot_cmp").setup()
 
 local cmp = require('cmp')
 cmp.setup({
     sources = {
-        {name = 'copilot'},
+        -- {name = 'copilot'},
         {name = 'nvim_lsp'},
         {name = 'lsp-zero'},
     },
