@@ -30,6 +30,8 @@ require("lazy").setup({
     -- 'zbirenbaum/copilot.lua',
     'wellle/context.vim',
     'preservim/tagbar',
+    'mg979/vim-visual-multi',
+    'saadparwaiz1/cmp_luasnip',
 
     -- {
     --     "zbirenbaum/copilot-cmp",
@@ -91,12 +93,12 @@ require("lazy").setup({
             end,
             },
 
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-        -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
 
         }
     },
@@ -180,19 +182,38 @@ lsp.setup()
 -- require("copilot_cmp").setup()
 
 local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+
+require('luasnip.loaders.from_vscode').lazy_load()
+
 cmp.setup({
+
+    preselect = 'item',
+
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
+
+    snippet = {
+      expand = function(args)
+        require'luasnip'.lsp_expand(args.body)
+      end
+    },
+
     sources = {
         -- {name = 'copilot'},
+        {name = 'luasnip'},
         {name = 'nvim_lsp'},
+        -- {name = 'buffer'},
         {name = 'lsp-zero'},
     },
+
     mapping = {
-        ['<CR>'] = cmp.mapping.confirm({
-            -- documentation says this is important.
-            -- I don't know why.
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
-        })
+        ['<Tab>'] = cmp_action.luasnip_supertab(),
+        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
     }
 })
 
