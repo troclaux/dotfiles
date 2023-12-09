@@ -83,7 +83,7 @@
   when: ansible_pkg_mgr == 'dnf'
 
 - name: Create .config/nvim folder
-  shell: mkdir -p $HOME/.config/nvim
+  shell: "mkdir -p {{ lookup('env', 'HOME') }}/.config/nvim"
   tags: nvim
 
 - name: Clone neovim from source for Debian-based distro
