@@ -135,7 +135,6 @@ alias open="xdg-open"
 alias vf="nvim -c 'Telescope find_files'"
 alias vp="nvim -c 'Telescope git_files'"
 alias vg='nvim -c "Git"'
-alias gs='nvim -c "Git"'
 alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
 alias cdf="cd \$(find /home/\$USER -type d | fzf)"
