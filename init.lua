@@ -124,6 +124,15 @@ require("lazy").setup({
         build = ':TSUpdate',
     },
 
+    {
+        'Wansmer/treesj',
+        -- keys = { '<space>m', '<space>j', '<space>s' },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        config = function()
+            require('treesj').setup({--[[ your config ]]})
+        end,
+    },
+
 }, {})
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {})
