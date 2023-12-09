@@ -27,7 +27,7 @@ vim.keymap.set('v', 'H', '^', { noremap = true })
 vim.keymap.set('v', 'L', '$', { noremap = true })
 
 -- Paste system clipboard on visual mode
-vim.keymap.set('v', '<Leader>p', '"+p', { noremap = true })
+vim.keymap.set('v', '<Leader>p', '"+p==', { noremap = true })
 
 -- Align text in visual mode around equals sign
 vim.keymap.set('v', '<Leader>=', ':Tab /=<CR>', { noremap = true })
@@ -49,7 +49,7 @@ vim.keymap.set('n', 'gp', '`[v`]', { noremap = true })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>t', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<Leader>t', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
@@ -60,10 +60,19 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 
 -- Replace line with yanked line and keep saved line in register
-vim.keymap.set('n', 'dp', 'pkddyy', { noremap = true })
+vim.keymap.set('n', 'dp', 'pkddyy==', { noremap = true })
+
+-- Paste and auto indent
+vim.keymap.set('n', 'p', 'p==', { noremap = true })
+
+-- Add semicolon to end of line in normal mode and return to previous position
+vim.keymap.set('n', '<Leader>;', 'mzA;<Esc>`z', { noremap = true, desc = 'Add semicolon to end of line' })
 
 -- Save the current file
-vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true, desc = 'Save current file' })
+
+-- Run last terminal command
+vim.keymap.set('n', '<Leader>t', ':@:<CR>', { noremap = true, silent = true, desc = 'Run last terminal cmd'})
 
 -- Change word and go to next instance
 vim.api.nvim_set_keymap('n', '<Leader>rr', '*``cgn', {noremap = true})
@@ -83,6 +92,12 @@ vim.keymap.set('n', '<Leader>gu', ':Git pull<CR>', { noremap = true })
 
 -- Search commit messages ( git -log -S <pattern> )
 vim.keymap.set('n', '<Leader>gl', ':GcLog -S ', { noremap = true })
+
+-- Snippet to print yanked variable
+vim.keymap.set('n', '<Leader>sc', 'mzoconsole.log( { <Esc>pA } );<Esc>`z', { noremap = true })
+
+-- Split/Join line of code
+vim.keymap.set('n', '<Leader>T', ':TSJToggle<CR>', { noremap = true, desc = 'Split/Join line of code'})
 
 -- Quit vim
 vim.keymap.set('n', '<Leader>o', ':q<CR>', { noremap = true })
@@ -112,8 +127,8 @@ vim.keymap.set('v', '<Leader>y', '\"+y', { noremap = true } , { desc = 'Yank to 
 
 -- Manage Registers
 vim.keymap.set('n', '<Leader>pr', ':reg<CR>', { noremap = true } , { desc = 'List Registers' } )
-vim.keymap.set('n', '<Leader>pp', '"+p', { noremap = true } , { desc = 'Paste with system clipboard' } )
-vim.keymap.set('n', '<Leader>PP', '"+P', { noremap = true } , { desc = 'Paste with system clipboard' } )
+vim.keymap.set('n', '<Leader>pp', '"+p==', { noremap = true } , { desc = 'Paste with system clipboard' } )
+vim.keymap.set('n', '<Leader>PP', '"+P==', { noremap = true } , { desc = 'Paste with system clipboard' } )
 
 vim.keymap.set('n', '<Leader>p0', '\"0p', { noremap = true } )
 vim.keymap.set('n', '<Leader>p1', '\"1p', { noremap = true } )
