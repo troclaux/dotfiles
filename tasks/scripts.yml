@@ -31,11 +31,3 @@
     state: link
   tags: scripts
 
-- name: Create symlink to tmux-tvui
-  become: true
-  file:
-    src: "~/dotfiles/bin/tmux-tvui"
-    dest: "/usr/local/bin/tmux-tvui"
-    state: link
-  tags: scripts
-
