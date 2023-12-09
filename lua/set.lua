@@ -8,8 +8,8 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
-vim.opt.smarttab = true
-vim.opt.smartindent = true
+vim.opt.smarttab = false
+vim.opt.smartindent = false
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 
 vim.opt.scrolloff = 8
