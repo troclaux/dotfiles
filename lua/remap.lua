@@ -32,6 +32,8 @@ vim.keymap.set('v', '<Leader>p', '"+p==', { noremap = true })
 -- Align text in visual mode around equals sign
 vim.keymap.set('v', '<Leader>=', ':Tab /=<CR>', { noremap = true })
 
+-- Select all
+vim.keymap.set('v', '<Leader>a', '<Esc>GVgg', { noremap = true })
 
 -- Normal mode remaps
 
