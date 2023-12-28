@@ -67,8 +67,9 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 -- Replace line with yanked line and keep saved line in register
 vim.keymap.set('n', 'dp', 'pkddyy==', { noremap = true })
 
--- Paste and auto indent
-vim.keymap.set('n', 'p', 'p==', { noremap = true })
+-- Paste and indent pasted text
+vim.keymap.set('n', 'p', 'p`[v`]=', { noremap = true })
+vim.keymap.set('n', 'P', 'P`[v`]=', { noremap = true })
 
 -- Add semicolon to end of line in normal mode and return to previous position
 vim.keymap.set('n', '<Leader>;', 'mzA;<Esc>`z', { noremap = true, desc = 'Add semicolon to end of line' })
