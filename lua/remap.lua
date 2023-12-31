@@ -81,8 +81,8 @@ vim.keymap.set('n', '<Leader>t', ':@:<CR>', { noremap = true, silent = true, des
 vim.api.nvim_set_keymap('n', '<Leader>rr', '*``cgn', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>RR', '*``cgN', {noremap = true})
 
--- Find and replace
-vim.keymap.set('n', '<Leader>ss', ':%s/', { noremap = true })
+-- Search and replace
+vim.keymap.set('n', '<Leader>se', ':%s/', { noremap = true })
 
 -- Remove all extra split screens and focus on the one with the cursor
 vim.keymap.set('n', '<Leader>i', ':only<CR>', { noremap = true })
