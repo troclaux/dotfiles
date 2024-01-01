@@ -1,3 +1,5 @@
+
+
 -- Insert mode remaps
 
 -- Map jk and kj to go to normal mode
@@ -6,6 +8,7 @@ vim.keymap.set('i', 'kj', '<Esc>', { noremap = true })
 
 -- Closes brackets automatically
 vim.keymap.set('i', '{<CR>', '{<Esc>o<BS>}<Esc>ko', { noremap = true })
+
 
 -- Visual mode remaps
 
@@ -31,6 +34,7 @@ vim.keymap.set('v', '<Leader>=', ':Tab /=<CR>', { noremap = true })
 
 -- Select all
 vim.keymap.set('v', '<Leader>a', '<Esc>GVgg', { noremap = true })
+
 
 -- Normal mode remaps
 
@@ -96,9 +100,6 @@ vim.keymap.set('n', '<Leader>gu', ':Git pull<CR>', { noremap = true })
 -- Search commit messages ( git -log -S <pattern> )
 vim.keymap.set('n', '<Leader>gl', ':GcLog -S ', { noremap = true })
 
--- Snippet to print yanked variable
-vim.keymap.set('n', '<Leader>sc', 'mzoconsole.log( { <Esc>pA } );<Esc>`z', { noremap = true })
-
 -- Split/Join line of code
 vim.keymap.set('n', '<Leader>T', ':TSJToggle<CR>', { noremap = true, desc = 'Split/Join line of code'})
 
@@ -154,3 +155,15 @@ vim.keymap.set('n', '<Leader>P6', '\"6P', { noremap = true } )
 vim.keymap.set('n', '<Leader>P7', '\"7P', { noremap = true } )
 vim.keymap.set('n', '<Leader>P8', '\"8P', { noremap = true } )
 vim.keymap.set('n', '<Leader>P9', '\"9P', { noremap = true } )
+
+
+-- Language specific Snippets
+
+
+-- Golang Snippets
+
+-- Javascript Snippets
+
+-- Snippet to print yanked variable in Javascript
+vim.keymap.set('n', '<Leader>pj', 'mzoconsole.log( { <Esc>pA } );<Esc>`z', { noremap = true, desc = 'Insert print Statement in Javascript' })
+
