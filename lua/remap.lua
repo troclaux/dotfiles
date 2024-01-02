@@ -110,7 +110,7 @@ vim.keymap.set('n', '<Leader>o', ':q<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
 
 -- Open vim file explorer
-vim.keymap.set('n', '<Leader>pe', ':Ex<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>pe', ':Ex<CR>', { noremap = true, desc = 'Open vim file explorer' })
 
 -- Toggle Tagbar extension
 vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>', { noremap = true })
