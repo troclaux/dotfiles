@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "How to use: $0 <GitHub Repository URL>"
+    exit 1
+fi
+
+repo_url="$1"
+repo_name=$(basename -s .git "$repo_url")
+repo_dirname=$(dirname "$repo_url")
+repo_usr=$(basename "$repo_dirname")
+
+if [ ! -f ~/.ssh/id_rsa ]; then
+    echo "Error: SSH key not found. Please set up an SSH key first."
+    exit 1
+fi
+
+git clone "git@github.com:$repo_usr/$repo_name.git"
+
