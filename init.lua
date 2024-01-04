@@ -25,7 +25,7 @@ require("lazy").setup({
     'tpope/vim-sleuth',
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
-    'godlygeek/tabular',
+    -- 'godlygeek/tabular',
     'tommcdo/vim-lion',
     -- 'zbirenbaum/copilot.lua',
     'wellle/context.vim',
