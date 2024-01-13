@@ -17,8 +17,8 @@ vim.keymap.set("v", ">", ">gv", { noremap = true } )
 vim.keymap.set("v", "<", "<gv", { noremap = true } )
 
 -- Reposition highlighted text in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true } )
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true } )
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, desc = 'Move selection down' } )
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, desc = 'Move selection up' } )
 
 -- Select until start of line in visual mode 
 vim.keymap.set('v', 'H', '^', { noremap = true })
