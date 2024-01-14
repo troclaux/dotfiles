@@ -21,10 +21,10 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, desc = 'Move sele
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, desc = 'Move selection up' } )
 
 -- Select until start of line in visual mode 
-vim.keymap.set('v', 'H', '^', { noremap = true })
+vim.keymap.set('v', 'H', '^', { noremap = true, desc = 'Go to start of line' })
 
 -- Select until end of line in visual mode 
-vim.keymap.set('v', 'L', '$', { noremap = true })
+vim.keymap.set('v', 'L', '$', { noremap = true, desc = 'Go to end of line'  })
 
 -- Paste system clipboard on visual mode
 vim.keymap.set('v', '<Leader>p', '"+p==', { noremap = true })
