@@ -31,3 +31,11 @@
     state: link
   tags: scripts
 
+- name: Create symlink to gclone
+  become: true
+  file:
+    src: "~/dotfiles/bin/gclone"
+    dest: "/usr/local/bin/gclone"
+    state: link
+  tags: scripts
+
