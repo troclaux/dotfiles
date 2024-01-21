@@ -39,10 +39,10 @@ vim.keymap.set('v', '<Leader>a', '<Esc>GVgg', { noremap = true, desc = 'Select a
 -- Normal mode remaps
 
 -- Go to start of line
-vim.keymap.set('n', 'H', '^', { noremap = true })
+vim.keymap.set('n', 'H', '^', { noremap = true, desc = 'Go to start of line' })
 
 -- Go to end of line
-vim.keymap.set('n', 'L', '$', { noremap = true })
+vim.keymap.set('n', 'L', '$', { noremap = true, desc = 'Go to end of line' })
 
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
