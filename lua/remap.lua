@@ -33,7 +33,7 @@ vim.keymap.set('v', '<Leader>p', '"+pgv=_', { noremap = true, desc = 'Paste with
 vim.keymap.set('v', '<Leader>=', ':!column -t<CR>gv=', { noremap = true, desc = 'Column Align' })
 
 -- Select all
-vim.keymap.set('v', '<Leader>a', '<Esc>GVgg', { noremap = true })
+vim.keymap.set('v', '<Leader>a', '<Esc>GVgg', { noremap = true, desc = 'Select all' })
 
 
 -- Normal mode remaps
