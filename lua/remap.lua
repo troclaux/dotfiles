@@ -54,7 +54,7 @@ vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 vim.keymap.set('n', 'gp', '`[v`]', { noremap = true })
 
 -- Select all
-vim.keymap.set('n', '<Leader>a', 'GVgg', { noremap = true })
+vim.keymap.set('n', '<Leader>a', 'GVgg', { noremap = true, desc = 'Select all text' })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
