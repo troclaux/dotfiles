@@ -51,7 +51,7 @@ vim.keymap.set('n', 'L', '$', { noremap = true, desc = 'Go to end of line' })
 vim.keymap.set('n', 'J', 'mzJ`z', { noremap = true })
 
 -- Reselect pasted text
-vim.keymap.set('n', 'gp', '`[v`]', { noremap = true })
+vim.keymap.set('n', 'gp', '`[v`]', { noremap = true, desc = 'Reselect pasted text' })
 
 -- Select all
 vim.keymap.set('n', '<Leader>a', 'GVgg', { noremap = true, desc = 'Select all text' })
