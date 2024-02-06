@@ -57,7 +57,7 @@ vim.keymap.set('n', 'gp', '`[v`]', { noremap = true, desc = 'Reselect pasted tex
 vim.keymap.set('n', '<Leader>a', 'GVgg', { noremap = true, desc = 'Select all text' })
 
 -- Keybind for tmux-sessionizer
-vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, desc = 'tmux sessionizer', silent = true })
 -- vim.keymap.set('n', '<Leader>t', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
 
 -- Center viewport on highlighted search
