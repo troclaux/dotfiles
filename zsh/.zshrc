@@ -87,6 +87,7 @@ source /usr/share/fzf/shell/key-bindings.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
