@@ -85,8 +85,8 @@ vim.keymap.set('n', '<Leader>w', ':w<CR>', { noremap = true, desc = 'Save curren
 vim.keymap.set('n', '<Leader>t', ':@:<CR>', { noremap = true, silent = true, desc = 'Run last terminal cmd'})
 
 -- Change word and go to next instance
-vim.api.nvim_set_keymap('n', '<Leader>rr', '*``cgn', {noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>RR', '*``cgN', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>rr', '*``cgn', {noremap = true, desc = 'Replace word and go to next instance'})
+vim.api.nvim_set_keymap('n', '<Leader>RR', '*``cgN', {noremap = true, desc = 'Replace word and go to previous instance'})
 
 -- Search and replace
 vim.keymap.set('n', '<Leader>se', ':%s/', { noremap = true, desc = 'Search and replace command' })
