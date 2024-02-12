@@ -120,6 +120,8 @@ vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>', { noremap = true })
 
 -- Open shell to insert command
 vim.keymap.set('n', '<Leader><CR>', ':!', { noremap = true })
+-- Change to current buffer's parent directory and run command
+vim.keymap.set('n', '<Leader>cd', ':!cd %:p:h && ', { noremap = true, desc = 'Change to current buffer\'s parent directory' })
 
 -- Navigate buffers
 vim.keymap.set('n', '<Leader>B', ':bnext<CR>', { noremap = true })
