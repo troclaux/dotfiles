@@ -89,7 +89,7 @@ vim.api.nvim_set_keymap('n', '<Leader>rr', '*``cgn', {noremap = true, desc = 'Re
 vim.api.nvim_set_keymap('n', '<Leader>RR', '*``cgN', {noremap = true, desc = 'Replace word and go to previous instance'})
 
 -- Search and replace
-vim.keymap.set('n', '<Leader>se', ':%s/', { noremap = true, desc = 'Search and replace command' })
+vim.keymap.set('n', '<Leader>ss', ':%s/', { noremap = true, desc = 'Search and replace command' })
 
 -- Remove all extra split screens and focus on the one with the cursor
 vim.keymap.set('n', '<Leader>i', ':only<CR>', { noremap = true, desc = 'Remove all extra split screens' })
