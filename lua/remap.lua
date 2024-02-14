@@ -104,13 +104,13 @@ vim.keymap.set('n', '<Leader>gu', ':Git pull<CR>', { noremap = true, desc = 'git
 vim.keymap.set('n', '<Leader>gl', ':GcLog -S ', { noremap = true, desc = 'Search git commit messages' })
 
 -- Split/Join line of code
-vim.keymap.set('n', '<Leader>T', ':TSJToggle<CR>', { noremap = true, desc = 'Split/Join line of code'})
+vim.keymap.set('n', '<Leader>T', ':TSJToggle<CR>', { noremap = true, desc = 'Split/Join line of code' })
 
 -- Quit vim
-vim.keymap.set('n', '<Leader>o', ':q<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>o', ':q<CR>', { noremap = true, desc = 'Quit vim' })
 
 -- Make a script executable
-vim.keymap.set('n', '<Leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>x', ':w<bar>!chmod +x %<cr>', { noremap = true, desc = 'Make script executable', silent = true })
 
 -- Open vim file explorer
 vim.keymap.set('n', '<Leader>pe', ':Ex<CR>', { noremap = true, desc = 'Open vim file explorer' })
