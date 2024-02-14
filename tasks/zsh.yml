@@ -38,6 +38,8 @@
 
 - name: Install oh my zsh
   shell: yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    creates: ~/.oh-my-zsh
   tags: zsh
 
 - name: Clone and install zsh-syntax-highlighting
@@ -48,11 +50,11 @@
   tags:
     - zsh_plugins
 
-- name: Add zsh-syntax-highlighting
-  shell: sed -i 's/(git/(git zsh-syntax-highlighting/' ~/.zshrc
-  tags:
-    - zsh_plugins
-  when: ansible_pkg_mgr == 'dnf'
+# - name: Add zsh-syntax-highlighting
+#   shell: sed -i 's/(git/(git zsh-syntax-highlighting/' ~/.zshrc
+#   tags:
+#     - zsh_plugins
+#   when: ansible_pkg_mgr == 'dnf'
 
 - name: Install zsh-autosuggestions plugin
   ansible.builtin.git:
@@ -61,9 +63,9 @@
   tags:
     - zsh_plugins
 
-- name: Add zsh-autosuggestions on .zshrc plugin list
-  shell: sed -i 's/(git/(git zsh-autosuggestions/' ~/.zshrc
-  tags:
-    - zsh_plugins
-  when: ansible_pkg_mgr == 'dnf'
+# - name: Add zsh-autosuggestions on .zshrc plugin list
+#   shell: sed -i 's/(git/(git zsh-autosuggestions/' ~/.zshrc
+#   tags:
+#     - zsh_plugins
+#   when: ansible_pkg_mgr == 'dnf'
 
