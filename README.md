@@ -10,7 +10,7 @@ git clone https://github.com/troclaux/dotfiles ~/dotfiles
 - Install Ansible
 - Run Ansible playbook with the command below:
 ```
-ansible-playbook local.yml -t dotfiles --ask-vault-pass --skip-tags "flatpaks, clone"
+ansible-playbook local.yml -K
 ```
 # Use Docker to test Ansible playbook
 
