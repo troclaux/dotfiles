@@ -12,7 +12,7 @@ git clone https://github.com/troclaux/dotfiles ~/dotfiles
 ```
 ansible-playbook local.yml -K
 ```
-# Use Docker to test Ansible playbook
+# Run script to setup Docker container to test Ansible playbook
 
 ```
 chmod +x setup_test_container.sh
