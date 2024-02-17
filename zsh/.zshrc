@@ -130,7 +130,8 @@ alias vi="nvim"
 alias vim="nvim"
 
 alias clipboard="xclip -selection clipboard"
-alias markdown="glow -p"
+# alias markdown="glow -p \$(find . -type f -name '*.md' | fzf)"
+
 alias open="xdg-open"
 
 alias vf="nvim -c 'Telescope find_files'"
