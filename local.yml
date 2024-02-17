@@ -63,5 +63,5 @@
     - include_tasks: tasks/optional_packages.yml
       tags: optional_packages
 
-    - include_tasks: tasks/clone.yml
-      tags: clone
+    # - include_tasks: tasks/clone.yml
+    #   tags: clone
