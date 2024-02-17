@@ -5,4 +5,5 @@ grep -q "deltarpm=True" /etc/dnf/dnf.conf || echo "deltarpm=True" >> /etc/dnf/dn
 sudo dnf upgrade -y && \
 sudo dnf install git -y && \
 git clone https://github.com/troclaux/dotfiles && \
-ansible-playbook local.yml -K --skip-tags "zsh_plugins,clone"
+# ansible-playbook local.yml -K --skip-tags "clone"
+ansible-playbook local.yml -K
