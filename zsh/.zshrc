@@ -138,6 +138,8 @@ alias vp="nvim -c 'Telescope git_files'"
 alias vg='nvim -c "Git"'
 alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
+alias vl="vim -c \"normal '0\""
+
 alias cdf="cd \$(find /home/\$USER -type d | fzf)"
 alias vif="nvim \$(find /home/\$USER -type f | fzf)"
 
