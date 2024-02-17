@@ -60,8 +60,8 @@ vim.keymap.set('n', '<Leader>a', 'GVgg', { noremap = true, desc = 'Select all te
 vim.keymap.set('n', '<Leader>?', ':Telescope keymaps<CR>', { noremap = true, desc = 'Fuzzy search mapped keys' })
 
 -- Keybind for tmux-sessionizer
-vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, desc = 'tmux sessionizer', silent = true })
--- vim.keymap.set('n', '<Leader>t', ':silent !tmux neww tmux-sessionizer<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { noremap = true, desc = 'tmux sessionizer' })
+-- vim.keymap.set('n', '<Leader>t', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { noremap = true })
 
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv", { noremap = true } )
