@@ -3,27 +3,24 @@ vim.opt.relativenumber = true
 
 vim.opt.ignorecase = true
 
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.shiftround = true
-
-vim.opt.smarttab = false
-vim.opt.smartindent = false
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.shiftround = true
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 
 vim.opt.scrolloff = 8
 
-vim.o.hlsearch = true
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.signcolumn = "no"
 -- vim.opt.colorcolumn = "80"
 
-vim.o.whichwrap = "lh"
+vim.opt.whichwrap = "lh"
 vim.opt.wrap = false
 
-vim.o.mouse = 'a'
+vim.opt.mouse = 'a'
 
 vim.cmd.colorscheme "catppuccin"
