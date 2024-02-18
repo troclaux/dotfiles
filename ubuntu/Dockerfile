@@ -1,8 +1,8 @@
 FROM ubuntu:latest
 
-RUN apt-get update \
-    && apt-get upgrade -y \
     && apt install -y python3-pip
+RUN apt-get update && \
+    apt-get upgrade -y
 
 RUN pip install ansible
 
