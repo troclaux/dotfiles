@@ -15,14 +15,14 @@ vim.opt.scrolloff = 8
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
-vim.opt.signcolumn = "no"
--- vim.opt.colorcolumn = "80"
+vim.opt.signcolumn = 'no'
+-- vim.opt.colorcolumn = '80'
 
-vim.opt.whichwrap = "lh"
+vim.opt.whichwrap = 'lh'
 vim.opt.wrap = false
 
 vim.opt.mouse = 'a'
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme 'catppuccin'
 vim.opt.termguicolors = true
 -- vim.opt.updatetime = 50
