@@ -7,7 +7,7 @@ RUN \
     dnf -y update && \
     dnf clean all
 
-RUN python3 -m pip install --user ansible
+RUN dnf -y install ansible
 
 RUN echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
 
