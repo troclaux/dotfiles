@@ -1,10 +1,9 @@
 FROM ubuntu:latest
 
-    && apt install -y python3-pip
 RUN apt-get update && \
     apt-get upgrade -y
 
-RUN pip install ansible
+RUN apt install -y ansible
 
 # RUN echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc 
 
