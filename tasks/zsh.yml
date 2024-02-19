@@ -36,11 +36,18 @@
 #   tags: zsh
 #   when: ansible_pkg_mgr == 'dnf'
 
-- name: Install oh my zsh
+- name: Check if Oh My Zsh is installed
+  stat:
+    path: ~/.oh-my-zsh
+  register: oh_my_zsh_installed
+  tags: zsh
+
+- name: Install Oh My Zsh
   shell: yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   args:
     creates: ~/.oh-my-zsh
   tags: zsh
+  when: oh_my_zsh_installed.stat.exists == false
 
 - name: Clone and install zsh-syntax-highlighting
   ansible.builtin.git:
