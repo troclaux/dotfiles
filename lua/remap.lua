@@ -1,6 +1,6 @@
 
 
--- Insert mode remaps
+-- Insert mode remaps --
 
 -- Map jk and kj to go to normal mode
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
@@ -10,7 +10,7 @@ vim.keymap.set('i', 'kj', '<Esc>', { noremap = true })
 vim.keymap.set('i', '{<CR>', '{<Esc>o<BS>}<Esc>ko', { noremap = true, desc = 'Close brackets automatically' })
 
 
--- Visual mode remaps
+-- Visual mode remaps --
 
 -- Keep selection after indenting
 vim.keymap.set("v", ">", ">gv", { noremap = true } )
@@ -39,7 +39,7 @@ vim.keymap.set('v', '<Leader>=', ':!column -t<CR>gv=', { noremap = true, desc = 
 vim.keymap.set('v', '<Leader>a', '<Esc>GVgg', { noremap = true, desc = 'Select all' })
 
 
--- Normal mode remaps
+-- Normal mode remaps --
 
 -- Go to start of line
 vim.keymap.set('n', 'H', '^', { noremap = true, desc = 'Go to start of line' })
@@ -170,8 +170,9 @@ vim.keymap.set('n', '<Leader>P9', '\"9P', { noremap = true } )
 
 -- Golang Snippets
 
--- Javascript Snippets
+-- Javascript Snippets --
 
 -- Snippet to print yanked variable in Javascript
 vim.keymap.set('n', '<Leader>pj', 'mzoconsole.log( { <Esc>pA } );<Esc>`z', { noremap = true, desc = 'Insert print Statement in Javascript' })
 
+-- Python Snippets --
