@@ -10,7 +10,7 @@ RUN \
 
 RUN dnf -y install ansible
 
-RUN echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
+RUN echo 'export PATH=$PATH:root/.local/bin' >> ~/.bashrc
 
 WORKDIR /root/dotfiles
 
