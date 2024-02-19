@@ -6,6 +6,7 @@ RUN \
     grep -q "deltarpm=True" /etc/dnf/dnf.conf || echo "deltarpm=True" >> /etc/dnf/dnf.conf && \
     dnf -y update && \
     dnf clean all
+    # && dnf -y install python3-pip
 
 RUN dnf -y install ansible
 
