@@ -149,7 +149,7 @@ alias tk="tmux kill-server"
 alias ts="tmux-sessionizer"
 
 bindkey -s '^f' "tmux-sessionizer\n"
-bindkey -s '^[f' "tmux-vimionizer\n"
+# bindkey -s '^[f' "tmux-vimionizer\n"
 bindkey -s '^p' "nvim -c 'Telescope git_files'\n"
 bindkey -s '^b' "!!\n\n"
 
