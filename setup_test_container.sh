@@ -13,8 +13,8 @@ case $action in
         esac ;;
     2 )
         case $distro in
-            1 ) docker run -it -v ~/dotfiles:/root/dotfiles my-ubuntu-image ;;
-            2 ) docker run -it -v ~/dotfiles:/root/dotfiles my-fedora-image ;;
+            1 ) docker run -it --rm -v ~/dotfiles:/root/dotfiles my-ubuntu-image ;;
+            2 ) docker run -it --rm -v ~/dotfiles:/root/dotfiles my-fedora-image ;;
             * ) echo -e "Invalid value inserted for linux distribution, insert 1 or 2" && exit 1 ;;
         esac ;;
     * ) echo -e "Invalid value inserted for action, insert 1 or 2" && exit 1 ;;
