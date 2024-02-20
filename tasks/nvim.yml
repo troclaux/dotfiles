@@ -82,6 +82,10 @@
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
+- name: Remove .config/nvim folder
+  shell: "rm -rdf {{ lookup('env', 'HOME') }}/.config/nvim"
+  tags: nvim
+
 - name: Create .config/nvim folder
   shell: "mkdir -p {{ lookup('env', 'HOME') }}/.config/nvim"
   tags: nvim
