@@ -91,18 +91,6 @@ vim.api.nvim_set_keymap('n', '<Leader>RR', '*``cgN', {noremap = true, desc = 'Re
 -- Search and replace
 vim.keymap.set('n', '<Leader>ss', ':%s/', { noremap = true, desc = 'Search and replace command' })
 
--- Remove all extra split screens and focus on the one with the cursor
-vim.keymap.set('n', '<Leader>i', ':only<CR>', { noremap = true, desc = 'Remove all extra split screens' })
-
--- Git push
-vim.keymap.set('n', '<Leader>gp', ':Git push<CR>', { noremap = true, desc = 'git push' })
-
--- Git pull
-vim.keymap.set('n', '<Leader>gu', ':Git pull<CR>', { noremap = true, desc = 'git pull' })
-
--- Search commit messages ( git -log -S <pattern> )
-vim.keymap.set('n', '<Leader>gl', ':GcLog -S ', { noremap = true, desc = 'Search git commit messages' })
-
 -- Split/Join line of code
 vim.keymap.set('n', '<Leader>T', ':TSJToggle<CR>', { noremap = true, desc = 'Split/Join line of code' })
 
