@@ -56,9 +56,6 @@ vim.keymap.set('n', 'gp', '`[v`]', { noremap = true, desc = 'Reselect pasted tex
 -- Select all
 vim.keymap.set('n', '<Leader>a', 'GVgg', { noremap = true, desc = 'Select all text' })
 
--- Fuzzy search mapped keys
-vim.keymap.set('n', '<Leader>?', ':Telescope keymaps<CR>', { noremap = true, desc = 'Fuzzy search mapped keys' })
-
 -- Keybind for tmux-sessionizer
 vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { noremap = true, desc = 'tmux sessionizer' })
 -- vim.keymap.set('n', '<Leader>t', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { noremap = true })
