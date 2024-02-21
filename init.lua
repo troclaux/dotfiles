@@ -211,10 +211,11 @@ cmp.setup({
 
     sources = {
         -- {name = 'copilot'},
+        -- {name = 'buffer'},
         {name = 'luasnip'},
         {name = 'nvim_lsp'},
-        -- {name = 'buffer'},
         {name = 'lsp-zero'},
+        {name = 'nvim_lsp_signature_help'},
     },
 
     mapping = {
