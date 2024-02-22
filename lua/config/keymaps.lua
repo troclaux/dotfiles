@@ -107,7 +107,7 @@ vim.keymap.set("n", "] ", "mzo<Esc>`z", { noremap = true, desc = "Save current b
 -- Make a script executable
 vim.keymap.set(
 	"n",
-	"<Leader>x",
+	"<Leader>xx",
 	":w<bar>!chmod +x %<cr>",
 	{ noremap = true, desc = "Make script executable", silent = true }
 )
