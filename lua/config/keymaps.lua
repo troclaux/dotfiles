@@ -4,6 +4,8 @@ vim.keymap.del("n", "<Leader>ww")
 vim.keymap.del("n", "<Leader>w-")
 vim.keymap.del("n", "<Leader>w|")
 vim.keymap.del("n", "<Leader>wd")
+vim.keymap.del("n", "<Leader>l")
+vim.keymap.del("n", "<Leader>gs")
 
 -- Insert mode remaps --
 
