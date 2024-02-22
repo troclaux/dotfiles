@@ -12,12 +12,9 @@ vim.keymap.del("n", "<Leader>gs")
 -- Map jk and kj to go to normal mode
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
 vim.keymap.set("i", "kj", "<Esc>", { noremap = true })
+-- vim.keymap.set("v", "S", "<nop>", { noremap = true })
 
 -- Visual mode remaps --
-
--- Keep selection after indenting
--- vim.keymap.set("v", ">", ">gv", { noremap = true } )
--- vim.keymap.set("v", "<", "<gv", { noremap = true } )
 
 -- Reposition highlighted text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, desc = "Move selection down" })
