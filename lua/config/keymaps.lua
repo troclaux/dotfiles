@@ -21,7 +21,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, desc = "Move sele
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, desc = "Move selection up" })
 
 -- Select until start of line in visual mode
-vim.keymap.set("v", "H", "^", { noremap = true, desc = "Go to start of line" })
+vim.keymap.set("v", "H", "_", { noremap = true, desc = "Go to start of line" })
 
 -- Keep buffer after pasting over selection
 vim.keymap.set("v", "p", "p`[v`]y", { noremap = true, desc = "Go to start of line" })
