@@ -140,3 +140,20 @@ vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { noremap = true, desc = "Search
 
 vim.keymap.set("n", "gh", "<C>diffget //2<CR>")
 vim.keymap.set("n", "gl", "<C>diffget //3<CR>")
+
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<leader>m", mark.add_file, { desc = "Harpoon mark" })
+vim.keymap.set("n", "<leader>n", ui.toggle_quick_menu, { desc = "Harpoon menu" })
+vim.keymap.set("n", "<leader>cc", mark.clear_all, { desc = "Harpoon clear marks" })
+
+vim.keymap.set("n", "<leader>h", function()
+	ui.nav_file(1)
+end, { desc = "Navigate mark 1" })
+vim.keymap.set("n", "<leader>j", function()
+	ui.nav_file(2)
+end, { desc = "Navigate mark 2" })
+vim.keymap.set("n", "<leader>k", function()
+	ui.nav_file(3)
+end, { desc = "Navigate mark 3" })
