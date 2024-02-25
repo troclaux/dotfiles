@@ -17,6 +17,12 @@
     state: absent
   tags: nvim
 
+- name: Deletes nvim cache folder
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.cache/nvim"
+    state: absent
+  tags: nvim
+
 - name: Install neovim requirements
   package:
     name:
@@ -45,19 +51,12 @@
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
-- name: Remove after folder
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim/after"
-    state: absent
-  tags: nvim
-  when: ansible_pkg_mgr == 'dnf'
-
-- name: Remove folder plugins
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/custom/plugins"
-    state: absent
-  tags: nvim
-  when: ansible_pkg_mgr == 'dnf'
+# - name: Remove keymaps.lua file
+#   ansible.builtin.file:
+#     path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/config/keymaps.lua"
+#     state: absent
+#   tags: nvim
+#   when: ansible_pkg_mgr == 'dnf'
 
 # - name: Symlink init.lua
 #   ansible.builtin.shell: ln -s $HOME/dotfiles/init.lua $HOME/.config/nvim/init.lua
@@ -78,7 +77,6 @@
   package:
     name: 
       - neovim
-      - python3-neovim
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
@@ -114,33 +112,14 @@
     - nvim
   when: ansible_pkg_mgr == 'apt'
 
-- name: Symlink init.lua
-  become: true
-  file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/init.lua"
-    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.lua"
-    state: link
-  tags:
-    - nvim
-    - stow_nvim_configs
+- name: Git clone LazyVim starter
+  ansible.builtin.git:
+    repo: 'https://github.com/LazyVim/starter'
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+  tags: nvim
 
-- name: Symlink folder after
-  become: true
-  file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/after"
-    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/after"
-    state: link
-  tags:
-    - nvim
-    - stow_nvim_configs
-
-- name: Symlink folder plugins
-  become: true
-  file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/lua"
-    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua"
-    state: link
-  tags:
-    - nvim
-    - stow_nvim_configs
-
+- name: Remove LazyVim's .git folder
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/.git"
+    state: absent
+  tags: nvim
