@@ -127,6 +127,10 @@ vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { noremap = true, desc = "Open vim f
 
 -- Open shell to insert command
 vim.keymap.set("n", "<Leader><CR>", ":!", { noremap = true })
+
+-- Select all
+vim.keymap.set("v", "<Leader>a", "VGgg", { noremap = true, desc = "Select all" })
+
 -- Change to current buffer's parent directory and run command
 vim.keymap.set(
 	"n",
