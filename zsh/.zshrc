@@ -113,31 +113,21 @@ fi
 
 alias up="sudo dnf upgrade"
 
-alias zshconfig="nvim ~/.zshrc"
 alias sozsh="source ~/.zshrc"
-alias def="nvim ~/dotfiles/after/plugin/defaults.lua"
 
-alias doc="cd ~/Documents"
-alias dow="cd ~/Downloads"
-alias tcc="cd ~/Documents/tcc_machine_teaching"
-alias dot="cd ~/dotfiles"
-alias pro="cd ~/Documents/programs"
 alias cdv="cd ~/.config/nvim"
-alias art="cd ~/arthur"
 
 alias py="python3"
 alias vi="nvim"
 alias vim="nvim"
+alias open="xdg-open"
 
 alias clipboard="xclip -selection clipboard"
 # alias markdown="glow -p \$(find . -type f -name '*.md' | fzf)"
 
-alias open="xdg-open"
-
 alias vf="nvim -c 'Telescope find_files'"
 alias vp="nvim -c 'Telescope git_files'"
 alias vg='nvim -c "Git"'
-alias vgrep='nvim -c "Telescope live_grep"'
 alias ve="nvim -c Ex"
 alias vb="nvim -c \"normal '0\""
 
