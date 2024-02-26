@@ -73,6 +73,8 @@ vim.keymap.set(
 vim.keymap.set("n", "n", "nzzzv", { noremap = true })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
 
+vim.keymap.set("n", "<Leader>b", "<C-^>", { noremap = true, desc = "Go to previous buffer" })
+
 -- Keep viewport centralized when using ctrl+d and ctrl+u
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
