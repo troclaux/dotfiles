@@ -54,6 +54,9 @@ vim.keymap.set("n", "J", "mzJ`z", { noremap = true })
 -- Reselect pasted text
 vim.keymap.set("n", "gp", "`[v`]", { noremap = true, desc = "Reselect pasted text" })
 
+-- Go to previous buffer
+vim.keymap.set("n", "<C-b>", "<C-^>", { noremap = true, desc = "Go to previous buffer" })
+
 -- Select all
 vim.keymap.set("n", "<Leader>a", "GVgg", { noremap = true, desc = "Select all text" })
 
