@@ -146,7 +146,6 @@ alias vif="nvim \$(find /home/\$USER -type f | fzf)"
 
 alias ta="tmux kill-session -a"
 alias tk="tmux kill-server"
-alias ts="tmux-sessionizer"
 
 bindkey -s '^f' "tmux-sessionizer\n"
 # bindkey -s '^[f' "tmux-vimionizer\n"
