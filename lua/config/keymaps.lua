@@ -96,7 +96,7 @@ vim.keymap.set("n", "<Leader>t", ":@:<CR>", { noremap = true, silent = true, des
 vim.keymap.set("n", "<Leader>rr", "*``cgn", { noremap = true, desc = "Replace word and go to next instance" })
 
 -- Search and replace
-vim.keymap.set("n", "<Leader>ss", ":%s/", { noremap = true, desc = "Search and replace command" })
+vim.keymap.set("n", "<Leader>se", ":%s/", { noremap = true, desc = "Search and replace command" })
 
 -- Split/Join line of code
 -- vim.keymap.set("n", "<Leader>T", ":TSJToggle<CR>", { noremap = true, desc = "Split/Join line of code" })
