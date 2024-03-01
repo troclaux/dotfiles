@@ -1,12 +1,5 @@
 -- Deleted lazyvim keymaps
 
-vim.keymap.del("n", "<Leader>bd")
-vim.keymap.del("n", "<Leader>bD")
-vim.keymap.del("n", "<Leader>gs")
-vim.keymap.del("n", "<Leader>ww")
-vim.keymap.del("n", "<Leader>w-")
-vim.keymap.del("n", "<Leader>w|")
-vim.keymap.del("n", "<Leader>wd")
 vim.keymap.del("n", "<Leader>l")
 
 -- Insert mode remaps --
