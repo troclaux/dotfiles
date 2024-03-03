@@ -32,7 +32,9 @@
       package:
         name: fzf
         state: present
-      tags: nvim
+      tags:
+        - nvim
+        - scripts
 
     # zsh should be installed first so that other packages can add key bindings
     - include_tasks: tasks/zsh.yml
