@@ -5,8 +5,6 @@ RUN apt-get update && \
 
 RUN apt install -y ansible
 
-# RUN echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc 
-
 WORKDIR /root/dotfiles
 
 CMD ["/bin/bash"]
