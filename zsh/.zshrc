@@ -113,9 +113,9 @@ fi
 
 alias up="sudo dnf upgrade"
 
-alias sozsh="source ~/.zshrc"
+alias sozsh="source $HOME/.zshrc"
 
-alias cdv="cd ~/.config/nvim"
+alias cdv="cd $HOME/.config/nvim"
 
 alias py="python3"
 alias vi="nvim"
@@ -131,8 +131,8 @@ alias vg='nvim -c "Git"'
 alias ve="nvim -c Ex"
 alias vb="nvim -c \"normal '0\""
 
-alias cdf="cd \$(find /home/\$USER -type d | fzf)"
-alias vif="nvim \$(find /home/\$USER -type f | fzf)"
+alias cdf="cd \$(find \$HOME -type d | fzf)"
+alias vif="nvim \$(find \$HOME -type f | fzf)"
 alias vid="sudo nvim /etc/dnf/dnf.conf"
 
 alias ta="tmux kill-session -a"
