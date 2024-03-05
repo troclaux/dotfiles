@@ -133,6 +133,7 @@ alias vb="nvim -c \"normal '0\""
 
 alias cdf="cd \$(find /home/\$USER -type d | fzf)"
 alias vif="nvim \$(find /home/\$USER -type f | fzf)"
+alias vid="sudo nvim /etc/dnf/dnf.conf"
 
 alias ta="tmux kill-session -a"
 alias tk="tmux kill-server"
