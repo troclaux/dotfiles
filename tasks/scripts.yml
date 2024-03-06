@@ -32,7 +32,7 @@
 - name: Create symlink to tmux-windowizer
   become: true
   file:
-    src: "~/dotfiles/bin/tmux-windowizer"
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/tmux-windowizer"
     dest: "/usr/local/bin/tmux-windowizer"
     state: link
   tags: scripts
@@ -40,7 +40,7 @@
 - name: Create symlink to tmux-sessionizer 
   become: true
   file:
-    src: "~/dotfiles/bin/tmux-sessionizer"
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/tmux-sessionizer"
     dest: "/usr/local/bin/tmux-sessionizer"
     state: link
   tags: scripts
@@ -48,7 +48,7 @@
 - name: Create symlink to tmux-vimionizer 
   become: true
   file:
-    src: "~/dotfiles/bin/tmux-vimionizer"
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/tmux-vimionizer"
     dest: "/usr/local/bin/tmux-vimionizer"
     state: link
   tags: scripts
@@ -56,7 +56,7 @@
 - name: Create symlink to tmux-cht.sh
   become: true
   file:
-    src: "~/dotfiles/bin/tmux-cht.sh"
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/tmux-cht.sh"
     dest: "/usr/local/bin/tmux-cht.sh"
     state: link
   tags: scripts
@@ -64,7 +64,7 @@
 - name: Create symlink to gclone
   become: true
   file:
-    src: "~/dotfiles/bin/gclone"
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/gclone"
     dest: "/usr/local/bin/gclone"
     state: link
   tags: scripts
