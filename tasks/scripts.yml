@@ -1,4 +1,34 @@
 ---
+- name: Remove tmux-windowizer
+  ansible.builtin.file:
+    path: "/usr/local/bin/tmux-windowizer"
+    state: absent
+  tags: scripts
+
+- name: Remove tmux-sessionizer
+  ansible.builtin.file:
+    path: "/usr/local/bin/tmux-sessionizer"
+    state: absent
+  tags: scripts
+
+- name: Remove tmux-vimionizer
+  ansible.builtin.file:
+    path: "/usr/local/bin/tmux-vimionizer"
+    state: absent
+  tags: scripts
+
+- name: Remove tmux-cht.sh
+  ansible.builtin.file:
+    path: "/usr/local/bin/tmux-cht.sh"
+    state: absent
+  tags: scripts
+
+- name: Remove gclone script
+  ansible.builtin.file:
+    path: "/usr/local/bin/gclone"
+    state: absent
+  tags: scripts
+
 - name: Create symlink to tmux-windowizer
   become: true
   file:
