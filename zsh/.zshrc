@@ -121,6 +121,7 @@ alias up="sudo dnf upgrade"
 alias sozsh="source $HOME/.zshrc"
 
 alias cdv="cd $HOME/.config/nvim"
+alias dot="cd $HOME/dotfiles"
 
 alias py="python3"
 alias vi="nvim"
