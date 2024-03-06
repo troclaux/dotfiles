@@ -1,5 +1,5 @@
 ---
-- name: Deletes lazy.vim config file
+- name: Deletes ~/.config/nvim
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: absent
@@ -81,11 +81,17 @@
   when: ansible_pkg_mgr == 'dnf'
 
 - name: Remove .config/nvim folder
-  shell: "rm -rdf {{ lookup('env', 'HOME') }}/.config/nvim"
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim"
+    state: absent
   tags: nvim
 
 - name: Create .config/nvim folder
-  shell: "mkdir -p {{ lookup('env', 'HOME') }}/.config/nvim"
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim"
+    state: directory
+    recurse: true
+    mode: 0775
   tags: nvim
 
 - name: Clone neovim from source for Debian-based distro
