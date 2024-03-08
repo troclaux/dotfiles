@@ -24,9 +24,6 @@ vim.keymap.set("v", "p", "p`[v`]y", { noremap = true, desc = "Go to start of lin
 -- Select until end of line in visual mode
 vim.keymap.set("v", "L", "$h", { noremap = true, desc = "Go to end of line" })
 
--- Paste system clipboard on visual mode
--- vim.keymap.set("v", "<Leader>p", '"+pgv=_', { noremap = true, desc = "Paste with System clipboard" })
-
 -- Align text in visual mode around equals sign
 vim.keymap.set("v", "<Leader>=", ":!column -t<CR>gv=", { noremap = true, desc = "Column Align" })
 
