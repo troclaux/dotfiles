@@ -30,6 +30,12 @@ vim.keymap.set("v", "<Leader>=", ":!column -t<CR>gv=", { noremap = true, desc = 
 -- Select all
 vim.keymap.set("v", "<Leader>a", "<Esc>GVgg", { noremap = true, desc = "Select all" })
 
+-- Search and replace
+vim.keymap.set("v", "<Leader>se", ":s/", { noremap = true, desc = "Search and replace command" })
+
+-- run normal command on visual selection
+vim.keymap.set("v", "<Leader>n", ":normal ", { noremap = true, desc = "Run normal mode command" })
+
 -- Normal mode remaps --
 
 -- Go to start of line

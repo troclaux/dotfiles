@@ -118,7 +118,7 @@ export DOTFILES=$HOME/.dotfiles
 
 alias up="sudo dnf upgrade"
 
-alias sozsh="source $HOME/.zshrc"
+alias soz="source $HOME/.zshrc"
 
 alias cdv="cd $HOME/.config/nvim"
 alias dot="cd $HOME/dotfiles"
