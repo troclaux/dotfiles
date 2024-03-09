@@ -1,11 +1,9 @@
 golang
-solidity
 nodejs
 javascript
-tmux
 typescript
+tmux
 zsh
-cpp
 c
 lua
 rust
@@ -14,3 +12,4 @@ bash
 php
 css
 html
+sql
