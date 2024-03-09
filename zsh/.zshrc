@@ -132,7 +132,6 @@ alias clipboard="xclip -selection clipboard"
 # alias markdown="glow -p \$(find . -type f -name '*.md' | fzf)"
 
 alias vf="nvim -c 'Telescope find_files'"
-alias vp="nvim -c 'Telescope git_files'"
 alias vg='nvim -c "Git"'
 alias ve="nvim -c Ex"
 alias vb="nvim -c \"normal '0\""
@@ -140,9 +139,6 @@ alias vb="nvim -c \"normal '0\""
 alias cdf="cd \$(find \$HOME -type d | fzf)"
 alias vif="nvim \$(find \$HOME -type f | fzf)"
 alias vid="sudo nvim /etc/dnf/dnf.conf"
-
-alias ta="tmux kill-session -a"
-alias tk="tmux kill-server"
 
 bindkey -s '^f' "tmux-sessionizer\n"
 # bindkey -s '^[f' "tmux-vimionizer\n"
