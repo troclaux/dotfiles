@@ -1,4 +1,10 @@
 ---
+- name: Install procps
+  package:
+    name: procps
+    state: present
+  tags: scripts
+
 - name: Remove tmux-windowizer
   ansible.builtin.file:
     path: "/usr/local/bin/tmux-windowizer"
