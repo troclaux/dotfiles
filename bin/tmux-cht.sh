@@ -11,6 +11,7 @@ if [[ -z $selected ]]; then
 	exit 0
 fi
 
+echo "Selected: $selected"
 read -p "Enter Query: " query
 
 if echo "$languages" | grep -qs "$selected"; then
