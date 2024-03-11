@@ -119,7 +119,7 @@ export DOTFILES=$HOME/.dotfiles
 alias up="sudo dnf upgrade"
 
 alias soz="source $HOME/.zshrc"
-
+alias sot="tmux source-file ~/.tmux.conf"
 alias cdv="cd $HOME/.config/nvim"
 alias dot="cd $HOME/dotfiles"
 
