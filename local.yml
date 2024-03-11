@@ -27,7 +27,7 @@
       tags: 
         - tmux
 
-    # fzf comes before zsh so that zsh can use fuzzy command history search
+    # install fzf before zsh (prerequisite for zsh's history search)
     - name: Install fzf package
       package:
         name: fzf
