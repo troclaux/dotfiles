@@ -76,16 +76,6 @@ vim.keymap.set("n", "<C-b>", "<C-^>", { noremap = true, desc = "Go to previous b
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 
--- Replace line with yanked line and keep saved line in register
--- vim.keymap.set("n", "dp", "pkddyy==", { noremap = true })
-
--- Paste and indent pasted text
--- vim.keymap.set("n", "p", "p`[v`]=", { noremap = true })
--- vim.keymap.set("n", "P", "P`[v`]=", { noremap = true })
-
--- Add semicolon to end of line in normal mode and return to previous position
-vim.keymap.set("n", "<Leader>;", "mzA;<Esc>`z", { noremap = true, desc = "Add semicolon to end of line" })
-
 -- Run last terminal command
 vim.keymap.set("n", "<Leader>t", ":@:<CR>", { noremap = true, silent = true, desc = "Run last terminal cmd" })
 
