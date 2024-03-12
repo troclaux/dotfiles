@@ -95,8 +95,8 @@ vim.keymap.set("n", "<Leader>o", ":q<CR>", { noremap = true, desc = "Quit vim" }
 vim.keymap.set("n", "<Leader>w", ":w<CR>", { noremap = true, desc = "Save current buffer" })
 
 -- Add blank line above or below
-vim.keymap.set("n", "[ ", "mzO<Esc>`z", { noremap = true, desc = "Add blank line above" })
-vim.keymap.set("n", "] ", "mzo<Esc>`z", { noremap = true, desc = "Add blank line below" })
+vim.keymap.set("n", "[ ", "mzO<Esc>0D`z", { noremap = true, desc = "Add blank line above" })
+vim.keymap.set("n", "] ", "mzo<Esc>0D`z", { noremap = true, desc = "Add blank line below" })
 
 -- Make a script executable
 vim.keymap.set(
