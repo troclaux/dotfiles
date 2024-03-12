@@ -53,9 +53,6 @@ vim.keymap.set("n", "J", "mzJ`z", { noremap = true })
 -- Reselect pasted text
 vim.keymap.set("n", "gp", "`[v`]", { noremap = true, desc = "Reselect pasted text" })
 
--- Go to previous buffer
-vim.keymap.set("n", "<C-b>", "<C-^>", { noremap = true, desc = "Go to previous buffer" })
-
 -- Select all
 vim.keymap.set("n", "<Leader>a", "GVgg", { noremap = true, desc = "Select all text" })
 
@@ -72,7 +69,8 @@ vim.keymap.set(
 vim.keymap.set("n", "n", "nzzzv", { noremap = true })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
 
-vim.keymap.set("n", "<Leader>b", "<C-^>", { noremap = true, desc = "Go to previous buffer" })
+-- Go to previous buffer
+vim.keymap.set("n", "<C-b>", "<C-^>", { noremap = true, desc = "Go to previous buffer" })
 
 -- Keep viewport centralized when using ctrl+d and ctrl+u
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
