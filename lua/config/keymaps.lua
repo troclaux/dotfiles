@@ -103,30 +103,25 @@ vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { noremap = true, desc = "Open vim f
 -- vim.keymap.set("n", "<F8>", ":TagbarToggle<CR>", { noremap = true })
 
 -- Open shell to insert command
-vim.keymap.set("n", "<Leader><CR>", ":!", { noremap = true })
+vim.keymap.set("n", "<Leader><CR>", ":!")
 
 -- Select all
-vim.keymap.set("v", "<Leader>a", "VGgg", { noremap = true, desc = "Select all" })
+vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
 
 -- Change to current buffer's parent directory and run command
-vim.keymap.set(
-	"n",
-	"<Leader>cd",
-	":!cd %:p:h && ",
-	{ noremap = true, desc = "Change to current buffer's parent directory" }
-)
+vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
 
 -- Source current file
-vim.keymap.set("n", "<Leader>so", ":source<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>so", ":source<CR>")
 
 -- Plugin keymaps
 
 vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
 vim.keymap.set("n", "<leader>v", vim.cmd.Git, { desc = "Git Status" })
 -- vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git Status" })
-vim.keymap.set("n", "<Leader>gp", ":Git push<CR>", { noremap = true, desc = "Git Push" })
-vim.keymap.set("n", "<Leader>gu", ":Git pull<CR>", { noremap = true, desc = "Git Pull" })
-vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { noremap = true, desc = "Search git commit messages" })
+vim.keymap.set("n", "<Leader>gp", ":Git push<CR>", { desc = "Git Push" })
+vim.keymap.set("n", "<Leader>gu", ":Git pull<CR>", { desc = "Git Pull" })
+vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { desc = "Search git commit messages" })
 
 vim.keymap.set("n", "gh", "<C>diffget //2<CR>")
 vim.keymap.set("n", "gl", "<C>diffget //3<CR>")
