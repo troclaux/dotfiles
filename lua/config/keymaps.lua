@@ -116,6 +116,15 @@ vim.keymap.set("n", "<Leader>so", ":source<CR>")
 
 -- Plugin keymaps
 
+-- Access lazy.vim menu
+vim.keymap.set("n", "<Leader>L", ":Lazy<CR>", { desc = "Access lazy.vim menu" })
+
+-- Access Mason menu
+vim.keymap.set("n", "<Leader>M", ":Mason<CR>", { desc = "Access Mason menu" })
+
+-- Update nvim plugins
+vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugins" })
+
 vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
 -- vim.keymap.set("n", "<leader>gi", ":G | on<CR>", { desc = "Git Status" })
 -- vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git Status" })
@@ -136,12 +145,16 @@ vim.keymap.set("n", "<leader>cc", mark.clear_all, { desc = "Harpoon clear marks"
 vim.keymap.set("n", "<leader>h", function()
 	ui.nav_file(1)
 end, { desc = "Navigate mark 1" })
+
 vim.keymap.set("n", "<leader>j", function()
 	ui.nav_file(2)
 end, { desc = "Navigate mark 2" })
+
 vim.keymap.set("n", "<leader>k", function()
 	ui.nav_file(3)
 end, { desc = "Navigate mark 3" })
+
 vim.keymap.set("n", "<leader>l", function()
 	ui.nav_file(4)
 end, { desc = "Navigate mark 4" })
+
