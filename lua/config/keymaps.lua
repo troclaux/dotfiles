@@ -117,7 +117,7 @@ vim.keymap.set("n", "<Leader>so", ":source<CR>")
 -- Plugin keymaps
 
 vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
-vim.keymap.set("n", "<leader>v", vim.cmd.Git, { desc = "Git Status" })
+-- vim.keymap.set("n", "<leader>gi", ":G | on<CR>", { desc = "Git Status" })
 -- vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git Status" })
 vim.keymap.set("n", "<Leader>gp", ":Git push<CR>", { desc = "Git Push" })
 vim.keymap.set("n", "<Leader>gu", ":Git pull<CR>", { desc = "Git Pull" })
