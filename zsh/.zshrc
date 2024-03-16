@@ -122,6 +122,8 @@ alias soz="source $HOME/.zshrc"
 alias sot="tmux source-file ~/.tmux.conf"
 alias cdv="cd $HOME/.config/nvim"
 alias dot="cd $HOME/dotfiles"
+alias cs="tmux-cht.sh"
+alias lr="ls -R"
 
 alias py="python3"
 alias vi="nvim"
