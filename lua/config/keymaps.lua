@@ -7,7 +7,6 @@ vim.keymap.del("n", "<Leader>l")
 -- Map jk and kj to go to normal mode
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")
--- vim.keymap.set("v", "S", "<nop>", { noremap = true })
 
 -- Visual mode remaps --
 
@@ -58,7 +57,6 @@ vim.keymap.set("n", "<Leader>a", "GVgg", { desc = "Select all text" })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
--- vim.keymap.set('n', '<Leader>t', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
 
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv")
@@ -80,9 +78,6 @@ vim.keymap.set("n", "<Leader>r", "*``cgn", { desc = "Replace word and go to next
 -- Search and replace
 vim.keymap.set("n", "<Leader>se", ":%s/", { desc = "Search and replace command" })
 
--- Split/Join line of code
--- vim.keymap.set("n", "<Leader>T", ":TSJToggle<CR>", { desc = "Split/Join line of code" })
-
 -- Quit vim
 vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
 
@@ -90,29 +85,17 @@ vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
 vim.keymap.set("n", "<Leader>i", ":w<CR>", { desc = "Save current buffer" })
 
 -- Add blank line above or below
-vim.keymap.set("n", "[ ", "mzO<Esc>0D`z", { desc = "Add blank line above" })
-vim.keymap.set("n", "] ", "mzo<Esc>0D`z", { desc = "Add blank line below" })
-
 -- Make a script executable
 vim.keymap.set("n", "<Leader>xx", ":w<bar>!chmod +x %<cr>", { desc = "Make script executable", silent = true })
 
 -- Open vim file explorer
 vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { noremap = true, desc = "Open vim file explorer" })
 
--- Toggle Tagbar extension
--- vim.keymap.set("n", "<F8>", ":TagbarToggle<CR>", { noremap = true })
-
 -- Open shell to insert command
 vim.keymap.set("n", "<Leader><CR>", ":!")
 
 -- Select all
 vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
-
--- Change to current buffer's parent directory and run command
-vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
-
--- Source current file
-vim.keymap.set("n", "<Leader>so", ":source<CR>")
 
 -- Plugin keymaps
 
@@ -126,10 +109,7 @@ vim.keymap.set("n", "<Leader>M", ":Mason<CR>", { desc = "Access Mason menu" })
 vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugins" })
 
 vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
--- vim.keymap.set("n", "<leader>gi", ":G | on<CR>", { desc = "Git Status" })
--- vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git Status" })
 vim.keymap.set("n", "<Leader>gp", ":Git push<CR>", { desc = "Git Push" })
-vim.keymap.set("n", "<Leader>gu", ":Git pull<CR>", { desc = "Git Pull" })
 vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { desc = "Search git commit messages" })
 
 vim.keymap.set("n", "gh", "<C>diffget //2<CR>")
@@ -158,3 +138,19 @@ vim.keymap.set("n", "<leader>l", function()
 	ui.nav_file(4)
 end, { desc = "Navigate mark 4" })
 
+-- Toggle Tagbar extension
+-- vim.keymap.set("n", "<F8>", ":TagbarToggle<CR>")
+
+-- Make a script executable
+-- vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<cr>", { desc = "Make script executable", silent = true })
+
+-- Change to current buffer's parent directory and run command
+-- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
+
+-- Split/Join line of code
+-- vim.keymap.set("n", "<Leader>T", ":TSJToggle<CR>", { desc = "Split/Join line of code" })
+
+-- vim.keymap.set("n", "<leader>gi", ":G | on<CR>", { desc = "Git Status" })
+-- vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git Status" })
+
+-- vim.keymap.set("v", "S", "<nop>", { noremap = true })
