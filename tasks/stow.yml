@@ -45,22 +45,6 @@
     - stow
     - tmux
 
-- name: Remove tmux-cht-languages
-  file:
-    path: $HOME/.tmux-cht-languages
-    state: absent
-  tags:
-    - stow
-    - tmux
-
-- name: Remove tmux-cht-command
-  file:
-    path: $HOME/.tmux-cht-command
-    state: absent
-  tags:
-    - stow
-    - tmux
-
 - name: Stow tmux
   shell: stow tmux
   tags:

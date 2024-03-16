@@ -29,18 +29,6 @@
     state: absent
   tags: scripts
 
-- name: Remove tmux-cht commands list
-  ansible.builtin.file:
-    path: "$HOME/.tmux-cht-command"
-    state: absent
-  tags: scripts
-
-- name: Remove tmux-cht commands list
-  ansible.builtin.file:
-    path: "$HOME/.tmux-cht-languages"
-    state: absent
-  tags: scripts
-
 - name: Remove gclone script
   ansible.builtin.file:
     path: "/usr/local/bin/gclone"
