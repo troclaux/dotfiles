@@ -1,4 +1,4 @@
--- Deleted lazyvim keymaps
+-- Delete lazyvim keymaps --
 
 vim.keymap.del("n", "<Leader>l")
 
@@ -100,7 +100,7 @@ vim.keymap.set("n", "<Leader><CR>", ":!")
 -- Select all
 vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
 
--- Plugin keymaps
+-- Plugin keymaps --
 
 -- Access lazy.vim menu
 vim.keymap.set("n", "<Leader>L", ":Lazy<CR>", { desc = "Access lazy.vim menu" })
