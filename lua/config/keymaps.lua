@@ -55,6 +55,9 @@ vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
 -- Select all
 vim.keymap.set("n", "<Leader>a", "GVgg", { desc = "Select all text" })
 
+-- Insert a line break before pasting register content
+vim.keymap.set("n", "<Leader>p", 'o<Esc>0"_Dp', { desc = "Select all text" })
+
 -- Keybind for tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
 
