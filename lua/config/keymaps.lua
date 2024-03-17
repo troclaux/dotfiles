@@ -18,7 +18,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 vim.keymap.set("v", "H", "_", { desc = "Go to start of line" })
 
 -- Keep buffer after pasting over selection
-vim.keymap.set("v", "p", "p`[v`]y", { desc = "Go to start of line" })
+vim.keymap.set("v", "p", "p`[v`]y")
 
 -- Select until end of line in visual mode
 vim.keymap.set("v", "L", "$h", { desc = "Go to end of line" })
