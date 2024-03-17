@@ -92,7 +92,7 @@ vim.keymap.set("n", "[ ", 'mzO<Esc>0"_D`z', { desc = "Add blank line above" })
 vim.keymap.set("n", "] ", 'mzo<Esc>0"_D`z', { desc = "Add blank line below" })
 
 -- Open vim file explorer
-vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { noremap = true, desc = "Open vim file explorer" })
+vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
 
 -- Open shell to insert command
 vim.keymap.set("n", "<Leader><CR>", ":!")
