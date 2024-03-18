@@ -31,12 +31,6 @@
     state: present
   tags: optional_packages
 
-- name: Install xclip
-  package:
-    name: xclip
-    state: present
-  tags: optional_packages
-
 - name: Install tldr
   package:
     name: tldr

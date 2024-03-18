@@ -16,9 +16,17 @@
       package:
         name: git
         state: present
-      tags: 
+      tags:
         - zsh
         - nvim
+
+    - name: Install xclip
+      package:
+        name: xclip
+        state: present
+      tags:
+        - nvim
+        - tmux
 
     - name: Install tmux
       package:
