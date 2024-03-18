@@ -5,33 +5,23 @@
     state: present
   tags: scripts
 
+- name: Remove sl
+  ansible.builtin.file:
+    path: "/usr/local/bin/sl"
+    state: absent
+  tags: scripts
+
+- name: Create symlink to sl
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/sl"
+    dest: "/usr/local/bin/sl"
+    state: link
+  tags: scripts
+
 - name: Remove tmux-windowizer
   ansible.builtin.file:
     path: "/usr/local/bin/tmux-windowizer"
-    state: absent
-  tags: scripts
-
-- name: Remove tmux-sessionizer
-  ansible.builtin.file:
-    path: "/usr/local/bin/tmux-sessionizer"
-    state: absent
-  tags: scripts
-
-- name: Remove tmux-vimionizer
-  ansible.builtin.file:
-    path: "/usr/local/bin/tmux-vimionizer"
-    state: absent
-  tags: scripts
-
-- name: Remove tmux-cht.sh
-  ansible.builtin.file:
-    path: "/usr/local/bin/tmux-cht.sh"
-    state: absent
-  tags: scripts
-
-- name: Remove gclone script
-  ansible.builtin.file:
-    path: "/usr/local/bin/gclone"
     state: absent
   tags: scripts
 
@@ -43,12 +33,24 @@
     state: link
   tags: scripts
 
+- name: Remove tmux-sessionizer
+  ansible.builtin.file:
+    path: "/usr/local/bin/tmux-sessionizer"
+    state: absent
+  tags: scripts
+
 - name: Create symlink to tmux-sessionizer 
   become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/tmux-sessionizer"
     dest: "/usr/local/bin/tmux-sessionizer"
     state: link
+  tags: scripts
+
+- name: Remove tmux-vimionizer
+  ansible.builtin.file:
+    path: "/usr/local/bin/tmux-vimionizer"
+    state: absent
   tags: scripts
 
 - name: Create symlink to tmux-vimionizer 
@@ -59,12 +61,24 @@
     state: link
   tags: scripts
 
+- name: Remove tmux-cht.sh
+  ansible.builtin.file:
+    path: "/usr/local/bin/tmux-cht.sh"
+    state: absent
+  tags: scripts
+
 - name: Create symlink to tmux-cht.sh
   become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/tmux-cht.sh"
     dest: "/usr/local/bin/tmux-cht.sh"
     state: link
+  tags: scripts
+
+- name: Remove gclone script
+  ansible.builtin.file:
+    path: "/usr/local/bin/gclone"
+    state: absent
   tags: scripts
 
 - name: Create symlink to gclone
@@ -74,4 +88,3 @@
     dest: "/usr/local/bin/gclone"
     state: link
   tags: scripts
-
