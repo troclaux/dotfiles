@@ -1,0 +1,18 @@
+#!/bin/bash
+
+script_name=$(ls $HOME/dotfiles/bin | grep -v "$(basename "$0")" | fzf --prompt="Select a script: ")
+
+if [[ -z "$script_name" ]]; then
+	echo "No script selected. Exiting."
+	exit 1
+fi
+
+if [[ -e "/usr/local/bin/$script_name" ]]; then
+	echo "Removing existing $script_name from /usr/local/bin..."
+	sudo rm "/usr/local/bin/$script_name" || {
+		echo "Error: Failed to remove existing $script_name."
+		exit 1
+	}
+fi
+
+sudo ln -s $HOME/dotfiles/bin/$script_name /usr/local/bin/$script_name
