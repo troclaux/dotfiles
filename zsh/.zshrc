@@ -116,7 +116,7 @@ export DOTFILES=$HOME/.dotfiles
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias up="sudo dnf upgrade"
+alias up="sudo dnf upgrade -y"
 
 alias soz="source $HOME/.zshrc"
 alias sot="tmux source-file ~/.tmux.conf"
