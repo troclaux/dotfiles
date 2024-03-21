@@ -10,11 +10,11 @@ return {
 			debounce = 75,
 			keymap = {
 				accept = "<C-y>",
-				accept_word = false,
+				accept_word = "<C-v>",
 				accept_line = false,
 				next = "<C-j>",
 				prev = "<C-l>",
-				dismiss = "<C-b>",
+				dismiss = "<C-]>",
 			},
 		},
 		panel = {
@@ -27,7 +27,7 @@ return {
 				-- jump_next = "]]",
 				accept = "<CR>",
 				refresh = "gr",
-				open = "<C-v>",
+				open = "<C-q>",
 			},
 			layout = {
 				position = "right", -- bottom | top | left | right
