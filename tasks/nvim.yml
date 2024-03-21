@@ -237,3 +237,21 @@
   tags:
     - nvim
     - stow_nvim_configs
+
+- name: Remove plugins/copilot.lua
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/copilot.lua"
+    state: absent
+  tags:
+    - nvim
+    - stow_nvim_configs
+
+- name: Create symbolic link for plugins/copilot.lua
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/lua/plugins/copilot.lua"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/copilot.lua"
+    state: link
+  tags:
+    - nvim
+    - stow_nvim_configs
