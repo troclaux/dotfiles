@@ -15,4 +15,5 @@ if [[ -e "/usr/local/bin/$script_name" ]]; then
 	}
 fi
 
-sudo ln -s $HOME/dotfiles/bin/$script_name /usr/local/bin/$script_name
+sudo ln -s $HOME/dotfiles/bin/$script_name /usr/local/bin/$script_name &&
+	echo "Linked $script_name to /usr/local/bin/$script_name"
