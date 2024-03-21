@@ -1,12 +1,42 @@
--- local suggestion = require('copilot.suggestion')
-
--- vim.keymap.set('i', '<C-ç>', suggestion.accept_word(), { desc = 'Copilot Accept Word' } )
-
--- require("copilot.suggestion").is_visible()
--- require("copilot.suggestion").accept(modifier)
--- require("copilot.suggestion").accept_word()
--- require("copilot.suggestion").accept_line()
--- require("copilot.suggestion").next()
--- require("copilot.suggestion").prev()
--- require("copilot.suggestion").dismiss()
--- require("copilot.suggestion").toggle_auto_trigger()
+return {
+	"zbirenbaum/copilot.lua",
+	cmd = "Copilot",
+	build = ":Copilot auth",
+	opts = {
+		-- suggestion = { enabled = false },
+		suggestion = {
+			enabled = true,
+			auto_trigger = true,
+			debounce = 75,
+			keymap = {
+				accept = "<C-y>",
+				accept_word = false,
+				accept_line = false,
+				next = "<C-j>",
+				prev = "<C-l>",
+				dismiss = "<C-b>",
+			},
+		},
+		panel = {
+			enabled = true,
+			auto_refresh = false,
+			keymap = {
+				jump_prev = "<",
+				jump_next = ">",
+				-- jump_prev = "[[",
+				-- jump_next = "]]",
+				accept = "<CR>",
+				refresh = "gr",
+				open = "<C-v>",
+			},
+			layout = {
+				position = "right", -- bottom | top | left | right
+				ratio = 0.4,
+			},
+		},
+		filetypes = {
+			markdown = true,
+			help = true,
+		},
+	},
+}
