@@ -103,7 +103,10 @@ vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
 -- Plugin keymaps --
 
 -- Access lazy.vim menu
-vim.keymap.set("n", "<Leader>L", ":Lazy<CR>", { desc = "Access lazy.vim menu" })
+vim.keymap.set("n", "<Leader>L", ":Lazy<CR>", { desc = "Lazy.nvim menu" })
+
+-- Access lazy.vim menu
+vim.keymap.set("n", "<Leader>E", ":LazyExtras<CR>", { desc = "Lazy.nvim extra plugins" })
 
 -- Access Mason menu
 vim.keymap.set("n", "<Leader>M", ":Mason<CR>", { desc = "Access Mason menu" })
