@@ -1,6 +1,6 @@
 #!/bin/bash
 
-script_name=$(ls $HOME/dotfiles/bin | grep -v "$(basename "$0")" | fzf --prompt="Select a script: ")
+script_name=$(ls "$HOME/dotfiles/bin" | grep -v "$(basename "$0")" | fzf --prompt="Select a script: ")
 
 if [[ -z "$script_name" ]]; then
 	echo "No script selected. Exiting."
@@ -15,5 +15,5 @@ if [[ -e "/usr/local/bin/$script_name" ]]; then
 	}
 fi
 
-sudo ln -s $HOME/dotfiles/bin/$script_name /usr/local/bin/$script_name &&
+sudo ln -s "$HOME/dotfiles/bin/$script_name" "/usr/local/bin/$script_name" &&
 	echo "Linked $script_name to /usr/local/bin/$script_name"

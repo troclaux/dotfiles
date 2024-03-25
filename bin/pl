@@ -1,6 +1,6 @@
 #!/bin/bash
 
-plugin_config_file=$(ls $HOME/dotfiles/lua/plugins | fzf --prompt="Select a neovim plugin config file: ")
+plugin_config_file=$(ls "$HOME/dotfiles/lua/plugins" | fzf --prompt="Select a neovim plugin config file: ")
 
 if [[ -z "$plugin_config_file" ]]; then
 	echo "No neovim plugin config file was selected. Exiting."
@@ -8,12 +8,12 @@ if [[ -z "$plugin_config_file" ]]; then
 fi
 
 if [[ -e "$HOME/.config/nvim/$plugin_config_file" ]]; then
-	echo "Removing existing $plugin_config_file from $HOME/.config/nvim..."
+	echo "Removing existing $plugin_config_file from $HOME/.config/nvim/lua/plugins/..."
 	sudo rm "$HOME/.config/nvim/$plugin_config_file" || {
 		echo "Error: Failed to remove existing $plugin_config_file."
 		exit 1
 	}
 fi
 
-sudo ln -s $HOME/dotfiles/lua/plugins/$plugin_config_file $HOME/.config/nvim/$plugin_config_file &&
+sudo ln -s "$HOME/dotfiles/lua/plugins/$plugin_config_file" "$HOME/.config/nvim/$plugin_config_file" &&
 	echo "Linked $plugin_config_file to $HOME/dotfiles/lua/plugins/$plugin_config_file"
