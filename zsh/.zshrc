@@ -146,6 +146,7 @@ bindkey -s '^f' "tmux-sessionizer\n"
 # bindkey -s '^[f' "tmux-vimionizer\n"
 bindkey -s '^p' "nvim -c 'Telescope git_files'\n"
 bindkey -s '^b' "!!\n\n"
+bindkey '^[[Z' autosuggest-accept
 
 export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
