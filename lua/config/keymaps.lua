@@ -148,7 +148,7 @@ end, { desc = "Navigate mark 4" })
 -- vim.keymap.set("n", "<F8>", ":TagbarToggle<CR>")
 
 -- Make a script executable
--- vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<cr>", { desc = "Make script executable", silent = true })
+vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<cr>", { desc = "Make script executable", silent = true })
 
 -- Change to current buffer's parent directory and run command
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
