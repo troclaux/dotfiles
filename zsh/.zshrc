@@ -117,13 +117,17 @@ export DOTFILES=$HOME/.dotfiles
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias up="sudo dnf upgrade -y"
+alias fu="flatpak update -y"
 
 alias soz="source $HOME/.zshrc"
 alias sot="tmux source-file ~/.tmux.conf"
 alias cdv="cd $HOME/.config/nvim"
 alias dot="cd $HOME/dotfiles"
+alias trn="tree $HOME/.config/nvim/lua"
+alias trb="tree /usr/local/bin"
 alias cs="tmux-cht.sh"
 alias lr="ls -R"
+alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
 
 alias py="python3"
 alias vi="nvim"
@@ -138,8 +142,9 @@ alias vg='nvim -c "Git"'
 alias ve="nvim -c Ex"
 alias vb="nvim -c \"normal '0\""
 
-alias cdf="cd \$(find \$HOME -type d | fzf)"
-alias vif="nvim \$(find \$HOME -type f | fzf)"
+alias cdf='cd "$(find "$HOME" -type d | fzf)"'
+alias cdb="cd /usr/local/bin/"
+alias vif='nvim "$(find "$HOME" -type d | fzf)"'
 alias vid="sudo nvim /etc/dnf/dnf.conf"
 
 bindkey -s '^f' "tmux-sessionizer\n"
