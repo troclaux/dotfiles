@@ -1,6 +1,10 @@
+---
+- name: Remove node version manager Volta
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.volta"
+    state: absent
+  tags: node
 
-- name: Install nvm
-  ansible.builtin.shell: >
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-  args:
-    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+- name: Install node version manager Volta
+  ansible.builtin.shell: curl https://get.volta.sh | bash -s -- --skip-setup
+  tags: node
