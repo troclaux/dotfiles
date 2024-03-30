@@ -87,7 +87,7 @@ source /usr/share/fzf/shell/key-bindings.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$HOME/go/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -154,7 +154,7 @@ bindkey -s '^b' "!!\n\n"
 bindkey '^[[Z' autosuggest-accept
 
 export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$PATH:$VOLTA_HOME/bin"
 
 eval "$(gh copilot alias -- zsh)"
 
