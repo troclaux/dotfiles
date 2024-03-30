@@ -153,9 +153,8 @@ bindkey -s '^p' "nvim -c 'Telescope git_files'\n"
 bindkey -s '^b' "!!\n\n"
 bindkey '^[[Z' autosuggest-accept
 
-# fnm
-export PATH="/home/troclaux/.local/share/fnm:$PATH"
-eval "`fnm env --use-on-cd`"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 eval "$(gh copilot alias -- zsh)"
 
