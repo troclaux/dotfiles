@@ -20,13 +20,19 @@
         - zsh
         - nvim
 
-    - name: Install xclip
+    - name: Install essential packages
       package:
-        name: xclip
+        name:
+          - xclip
+          - unzip
+          - curl
+          - wget
+          - gh
         state: present
       tags:
         - nvim
         - tmux
+        - node
 
     - name: Install tmux
       package:
