@@ -255,3 +255,21 @@
   tags:
     - nvim
     - stow_nvim_configs
+
+- name: Remove plugins/cmp.lua
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/cmp.lua"
+    state: absent
+  tags:
+    - nvim
+    - stow_nvim_configs
+
+- name: Create symbolic link for plugins/cmp.lua
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/lua/plugins/cmp.lua"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/cmp.lua"
+    state: link
+  tags:
+    - nvim
+    - stow_nvim_configs
