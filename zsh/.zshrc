@@ -156,5 +156,3 @@ bindkey '^[[Z' autosuggest-accept
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$PATH:$VOLTA_HOME/bin"
 
-eval "$(gh copilot alias -- zsh)"
-
