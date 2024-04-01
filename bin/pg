@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $# -eq 1 ]]; then
+	process_name=$1
+else
+	read -p "Enter the process name: " process_name
+fi
+
+ps -eo %cpu,%mem,cmd | grep -v grep | grep "$process_name" | awk '{cpu+=$1; mem+=$2} END {print "Total CPU usage: " cpu "%", "Total MEM usage: " mem "%"}'
