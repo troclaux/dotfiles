@@ -138,52 +138,20 @@
     - nvim
     - stow_nvim_configs
 
-- name: Remove config/options.lua
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/config/options.lua"
-    state: absent
-  tags:
-    - nvim
-    - stow_nvim_configs
-
-- name: Remove plugins/disabled.lua
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/disabled.lua"
-    state: absent
-  tags:
-    - nvim
-    - stow_nvim_configs
-
-- name: Remove plugins/extras.lua
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/extras.lua"
-    state: absent
-  tags:
-    - nvim
-    - stow_nvim_configs
-
-- name: Remove plugins/lualine.lua
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/lualine.lua"
-    state: absent
-  tags:
-    - nvim
-    - stow_nvim_configs
-
-- name: Remove plugins/telescope.lua
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/telescope.lua"
-    state: absent
-  tags:
-    - nvim
-    - stow_nvim_configs
-
 - name: Create symbolic link for config/keymaps.lua
   become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/lua/config/keymaps.lua"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/config/keymaps.lua"
     state: link
+  tags:
+    - nvim
+    - stow_nvim_configs
+
+- name: Remove config/options.lua
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/config/options.lua"
+    state: absent
   tags:
     - nvim
     - stow_nvim_configs
@@ -198,12 +166,28 @@
     - nvim
     - stow_nvim_configs
 
+- name: Remove plugins/disabled.lua
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/disabled.lua"
+    state: absent
+  tags:
+    - nvim
+    - stow_nvim_configs
+
 - name: Create symbolic link for plugins/disabled.lua
   become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/lua/plugins/disabled.lua"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/disabled.lua"
     state: link
+  tags:
+    - nvim
+    - stow_nvim_configs
+
+- name: Remove plugins/extras.lua
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/extras.lua"
+    state: absent
   tags:
     - nvim
     - stow_nvim_configs
@@ -218,12 +202,28 @@
     - nvim
     - stow_nvim_configs
 
+- name: Remove plugins/lualine.lua
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/lualine.lua"
+    state: absent
+  tags:
+    - nvim
+    - stow_nvim_configs
+
 - name: Create symbolic link for plugins/lualine.lua
   become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/lua/plugins/lualine.lua"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/lualine.lua"
     state: link
+  tags:
+    - nvim
+    - stow_nvim_configs
+
+- name: Remove plugins/telescope.lua
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/telescope.lua"
+    state: absent
   tags:
     - nvim
     - stow_nvim_configs
