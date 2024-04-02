@@ -111,6 +111,9 @@ vim.keymap.set("n", "<Leader>E", ":LazyExtras<CR>", { desc = "Lazy.nvim extra pl
 -- Access Mason menu
 vim.keymap.set("n", "<Leader>M", ":Mason<CR>", { desc = "Access Mason menu" })
 
+-- Show nvim's startup time
+vim.keymap.set("n", "<Leader>S", ":StartupTime<CR>", { desc = "Show nvim's startup time" })
+
 -- Update nvim plugins
 vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugins" })
 
