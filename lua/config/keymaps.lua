@@ -114,7 +114,8 @@ vim.keymap.set("n", "<Leader>M", ":Mason<CR>", { desc = "Access Mason menu" })
 -- Update nvim plugins
 vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugins" })
 
-vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
+-- vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
+vim.keymap.set("n", "<leader>gi", ":vert Git<CR>", { desc = "Git Status" })
 vim.keymap.set("n", "<Leader>gp", ":Git push<CR>", { desc = "Git Push" })
 vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { desc = "Search git commit messages" })
 
@@ -152,7 +153,6 @@ vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<cr>", { desc = "Make script
 
 -- Change to current buffer's parent directory and run command
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
-
 
 -- vim.keymap.set("n", "<leader>gi", ":G | on<CR>", { desc = "Git Status" })
 -- vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git Status" })
