@@ -137,10 +137,12 @@ alias open="xdg-open"
 alias clipboard="xclip -selection clipboard"
 # alias markdown="glow -p \$(find . -type f -name '*.md' | fzf)"
 
-alias vf="nvim -c 'Telescope find_files'"
-alias vg='nvim -c "Git"'
-alias ve="nvim -c Ex"
+alias vf="nvim . -c 'Telescope find_files'"
+alias vg="nvim -c 'Git | only'"
+alias ve="nvim ."
 alias vb="nvim -c \"normal '0\""
+alias vt="nvim \$HOME/arthur/TODO.md"
+alias vm="nvim \$(find ~/Documents/markdown-learning -maxdepth 1 -mindepth 1 -type f -name '*.md' | fzf)"
 
 alias cdf='cd "$(find "$HOME" -type d | fzf)"'
 alias cdb="cd /usr/local/bin/"
@@ -149,7 +151,8 @@ alias vid="sudo nvim /etc/dnf/dnf.conf"
 
 bindkey -s '^f' "tmux-sessionizer\n"
 # bindkey -s '^[f' "tmux-vimionizer\n"
-bindkey -s '^p' "nvim -c 'Telescope git_files'\n"
+bindkey -s '^p' "nvim . -c 'Telescope git_files'\n"
+bindkey -s '^h' "nvim . -c 'Telescope find_files'\n"
 bindkey -s '^b' "!!\n\n"
 bindkey '^[[Z' autosuggest-accept
 
