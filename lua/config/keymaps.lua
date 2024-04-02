@@ -144,8 +144,8 @@ vim.keymap.set("n", "<leader>l", function()
 	ui.nav_file(4)
 end, { desc = "Navigate mark 4" })
 
--- Toggle Tagbar extension
--- vim.keymap.set("n", "<F8>", ":TagbarToggle<CR>")
+-- Split/Join line of code
+vim.keymap.set("n", "<Leader>t", require("treesj").toggle, { desc = "Split/Join line of code" })
 
 -- Make a script executable
 vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<cr>", { desc = "Make script executable", silent = true })
@@ -153,8 +153,6 @@ vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<cr>", { desc = "Make script
 -- Change to current buffer's parent directory and run command
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
 
--- Split/Join line of code
--- vim.keymap.set("n", "<Leader>T", ":TSJToggle<CR>", { desc = "Split/Join line of code" })
 
 -- vim.keymap.set("n", "<leader>gi", ":G | on<CR>", { desc = "Git Status" })
 -- vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git Status" })
