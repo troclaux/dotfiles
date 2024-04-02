@@ -7,6 +7,7 @@
       package:
         update_cache: true
       tags:
+        - always
         - zsh
         - nvim
 
@@ -27,12 +28,12 @@
           - unzip
           - curl
           - wget
-          - gh
         state: present
       tags:
         - nvim
         - tmux
         - node
+        - zsh
 
     - name: Install tmux
       package:
