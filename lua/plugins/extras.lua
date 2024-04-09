@@ -2,6 +2,7 @@ return {
 	"tpope/vim-fugitive",
 	"ThePrimeagen/harpoon",
 	"tpope/vim-surround",
+	"tpope/vim-sleuth",
 	{
 		"Wansmer/treesj",
 		lazy = true,
