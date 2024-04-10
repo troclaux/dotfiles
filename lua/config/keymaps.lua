@@ -73,7 +73,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 
 -- Run last terminal command
-vim.keymap.set("n", "<Leader>t", ":@:<CR>", { silent = true, desc = "Run last terminal cmd" })
+vim.keymap.set("n", "<Leader>T", ":@:<CR>", { silent = true, desc = "Run last terminal cmd" })
 
 -- Change word and go to next instance
 vim.keymap.set("n", "<Leader>r", "*``cgn", { desc = "Replace word and go to next instance" })
