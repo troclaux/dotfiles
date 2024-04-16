@@ -3,6 +3,7 @@ return {
 	"ThePrimeagen/harpoon",
 	"tpope/vim-surround",
 	"tpope/vim-sleuth",
+	"preservim/tagbar",
 	{
 		"Wansmer/treesj",
 		lazy = true,
