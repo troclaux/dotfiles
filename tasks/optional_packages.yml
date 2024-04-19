@@ -37,6 +37,12 @@
     state: present
   tags: optional_packages
 
+- name: Install github cli
+  package:
+    name: gh
+    state: present
+  tags: optional_packages
+
 - name: Install xkill for Fedora
   dnf:
     name: xkill
