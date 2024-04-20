@@ -153,6 +153,8 @@ vim.keymap.set("n", "<Leader>t", require("treesj").toggle, { desc = "Split/Join 
 
 -- Make a script executable
 vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<cr>", { desc = "Make script executable", silent = true })
+-- Show current buffer summary
+vim.keymap.set("n", "<F8>", ":TagbarToggle<CR>", { desc = "Show current buffer summary" })
 
 -- Change to current buffer's parent directory and run command
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
