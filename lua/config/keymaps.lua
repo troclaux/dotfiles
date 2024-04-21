@@ -57,6 +57,12 @@ vim.keymap.set("n", "<Leader>a", "GVgg", { desc = "Select all text" })
 
 -- Insert a line break before pasting register content
 vim.keymap.set("n", "<Leader>p", 'o<Esc>0"_Dp', { desc = "Select all text" })
+-- Select line without newline
+vim.keymap.set("n", "vil", "^vg_", { desc = "Select line without newline" })
+
+-- Yank line without newline
+vim.keymap.set("n", "yil", "^vg_y", { desc = "Yank line without newline" })
+
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
