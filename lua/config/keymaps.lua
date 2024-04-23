@@ -21,7 +21,7 @@ vim.keymap.set("v", "H", "_", { desc = "Go to start of line" })
 vim.keymap.set("v", "p", "p`[v`]y")
 
 -- Select until end of line in visual mode
-vim.keymap.set("v", "L", "$h", { desc = "Go to end of line" })
+vim.keymap.set("v", "L", "g_", { desc = "Go to end of line" })
 
 -- Align text in visual mode around equals sign
 vim.keymap.set("v", "<Leader>=", ":!column -t<CR>gv=", { desc = "Column Align" })
@@ -37,6 +37,9 @@ vim.keymap.set("v", "<Leader>n", ":normal ", { desc = "Run normal mode command" 
 
 -- run macro on visual selection
 vim.keymap.set("v", "<Leader>m", ":normal @q<CR>", { desc = "Run macro on visual selection" })
+
+-- Select all
+vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
 
 -- Normal mode remaps --
 
@@ -55,14 +58,14 @@ vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
 -- Select all
 vim.keymap.set("n", "<Leader>a", "GVgg", { desc = "Select all text" })
 
--- Insert a line break before pasting register content
-vim.keymap.set("n", "<Leader>p", 'o<Esc>0"_Dp', { desc = "Select all text" })
 -- Select line without newline
 vim.keymap.set("n", "vil", "^vg_", { desc = "Select line without newline" })
 
 -- Yank line without newline
 vim.keymap.set("n", "yil", "^vg_y", { desc = "Yank line without newline" })
 
+-- Insert a newline before pasting register content
+vim.keymap.set("n", "<Leader>p", 'o<Esc>0"_Dp==', { desc = "Select all text" })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
@@ -103,8 +106,6 @@ vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
 -- Open shell to insert command
 vim.keymap.set("n", "<Leader><CR>", ":!")
 
--- Select all
-vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
 
 -- Plugin keymaps --
 
@@ -158,7 +159,8 @@ end, { desc = "Navigate mark 4" })
 vim.keymap.set("n", "<Leader>t", require("treesj").toggle, { desc = "Split/Join line of code" })
 
 -- Make a script executable
-vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<cr>", { desc = "Make script executable", silent = true })
+vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<CR>", { desc = "Make script executable", silent = true })
+
 -- Show current buffer summary
 vim.keymap.set("n", "<F8>", ":TagbarToggle<CR>", { desc = "Show current buffer summary" })
 
