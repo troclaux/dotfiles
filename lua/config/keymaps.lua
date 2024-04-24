@@ -7,6 +7,7 @@ vim.keymap.del("n", "<Leader>l")
 -- Map jk and kj to go to normal mode
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")
+vim.keymap.set("i", "{<CR>", "{<CR>}<ESC>O")
 
 -- Visual mode remaps --
 
