@@ -42,6 +42,9 @@ vim.keymap.set("v", "<Leader>m", ":normal @q<CR>", { desc = "Run macro on visual
 -- Select all
 vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
 
+-- Wrap selection in triple backticks
+vim.keymap.set("v", "<Leader>3", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
+
 -- Normal mode remaps --
 
 -- Go to start of line
@@ -107,6 +110,8 @@ vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
 -- Open shell to insert command
 vim.keymap.set("n", "<Leader><CR>", ":!")
 
+-- Surround with triple backticks
+vim.keymap.set("n", "<Leader>3", "mzO```<Esc>jo```<Esc>`z", { desc = "Surround with ```" })
 
 -- Plugin keymaps --
 
