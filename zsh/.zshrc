@@ -137,8 +137,7 @@ alias open="xdg-open"
 alias clipboard="xclip -selection clipboard"
 alias pc="cat \$(find ~/Documents/markdown-learning/prompts -type f | fzf ) | xclip -selection clipboard"
 
-alias up="sudo dnf upgrade -y"
-alias fu="flatpak update -y"
+alias up="sudo dnf upgrade -y && flatpak update -y"
 
 alias soz="source $HOME/.zshrc"
 alias cdn="cd $HOME/.config/nvim"
