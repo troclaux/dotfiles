@@ -2,6 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	keys = {
 		{ "<C-p>", "<cmd>Telescope git_files<CR>", desc = "Find Git Files" },
+		{ "<C-h>", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
 	},
 }
 
