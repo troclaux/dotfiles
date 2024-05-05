@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Retrieve content from system clipboard
+clipboard_content=$(xclip -selection clipboard -o)
+
+# Check if clipboard content is a valid URL
+if [[ $clipboard_content =~ ^https?:// ]]; then
+	# Run youtube-dl command
+	youtube-dl -f bestaudio -x --audio-format mp3 -o "~/Music/%(title)s.%(ext)s" --restrict-filenames "$clipboard_content" --no-playlist
+else
+	echo "Clipboard does not contain a valid URL."
+fi
