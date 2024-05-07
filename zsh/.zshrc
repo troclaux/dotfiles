@@ -147,7 +147,8 @@ alias lr="ls -R"
 alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
 
 alias cdf='cd "$(find "$HOME" -type d | fzf)"'
-alias cdb="cd /usr/local/bin/"
+alias cdr='cd /etc/yum.repos.d'
+alias cdb="cd /usr/local/bin"
 alias vif='nvim "$(find "$HOME" -type d | fzf)"'
 alias vid="sudo nvim /etc/dnf/dnf.conf"
 
