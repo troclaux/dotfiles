@@ -144,6 +144,7 @@ alias dot="cd $HOME/dotfiles"
 alias trn="tree $HOME/.config/nvim/lua"
 alias trb="tree /usr/local/bin"
 alias lr="ls -R"
+alias ds="du -sh --block-size=M"
 alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
 
 alias cdf='cd "$(find "$HOME" -type d | fzf)"'
