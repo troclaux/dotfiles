@@ -134,7 +134,7 @@ alias vi="nvim"
 alias vim="nvim"
 alias open="xdg-open"
 alias clipboard="xclip -selection clipboard"
-alias pc="cat \$(find ~/Documents/markdown-learning/prompts -type f | fzf ) | xclip -selection clipboard"
+alias pc="cat \$(find ~/Documents/cheat-sheets/prompts -type f | fzf ) | xclip -selection clipboard"
 
 alias up="sudo dnf upgrade -y && flatpak update -y"
 
