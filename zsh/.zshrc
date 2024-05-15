@@ -133,6 +133,7 @@ alias py="python3"
 alias vi="nvim"
 alias vim="nvim"
 alias open="xdg-open"
+alias ggraph="git log --oneline --decorate --graph"
 alias clipboard="xclip -selection clipboard"
 alias pc="cat \$(find ~/Documents/cheat-sheets/prompts -type f | fzf ) | xclip -selection clipboard"
 
