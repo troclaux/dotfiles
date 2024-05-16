@@ -1,8 +1,8 @@
-# set -x
 
 if [ -z "$TMUX" ]; then
     tmux attach -d || tmux
 fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -109,7 +109,7 @@ VIM="nvim"
 export GIT_EDITOR=$VIM
 export DOTFILES=$HOME/.dotfiles
 
-# bindkey -s '^[f' "tmux-vimionizer\n"
+# Zsh key-bindings
 bindkey -s '^f' "tmux-sessionizer\n"
 bindkey -s '^p' "nvim . -c 'Telescope git_files'\n"
 bindkey -s '^h' "nvim . -c 'Telescope find_files'\n"
@@ -162,5 +162,3 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$PATH:$VOLTA_HOME/bin"
 
 eval "$(gh copilot alias -- zsh)"
-
-# set +x
