@@ -125,19 +125,22 @@ bindkey '^Y' autosuggest-accept
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vi="nvim"
+alias vim="nvim"
 alias vf="nvim . -c 'Telescope find_files'"
 alias vg="nvim -c 'Git | only'"
 alias ve="nvim ."
 alias vb="nvim -c \"normal '0\""
-alias vm="nvim \$(find ~/Documents/cheat-sheets -maxdepth 1 -mindepth 1 -type f -name '*.md' | fzf)"
+
+alias vif='nvim "$(find "$HOME" -type d | fzf)"'
+alias vid="sudo nvim /etc/dnf/dnf.conf"
 
 alias py="python3"
-alias vi="nvim"
-alias vim="nvim"
 alias open="xdg-open"
+alias dgrep='grep -r --include=".*"'
 alias ggraph="git --no-pager log --oneline --graph --all"
 alias clipboard="xclip -selection clipboard"
-alias pc="cat \$(find ~/Documents/cheat-sheets/prompts -type f | fzf ) | xclip -selection clipboard"
+alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | xclip -selection clipboard"
 
 alias up="sudo dnf upgrade -y && flatpak update -y"
 
@@ -153,8 +156,6 @@ alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b043
 alias cdf='cd "$(find "$HOME" -type d | fzf)"'
 alias cdr='cd /etc/yum.repos.d'
 alias cdb="cd /usr/local/bin"
-alias vif='nvim "$(find "$HOME" -type d | fzf)"'
-alias vid="sudo nvim /etc/dnf/dnf.conf"
 
 # Set environment variables
 
