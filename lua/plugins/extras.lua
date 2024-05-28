@@ -1,6 +1,7 @@
 return {
 	"tpope/vim-fugitive",
 	"ThePrimeagen/harpoon",
+	"andrewradev/sideways.vim",
 	"tpope/vim-surround",
 	"tpope/vim-sleuth",
 	"preservim/tagbar",
