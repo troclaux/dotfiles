@@ -94,7 +94,7 @@ vim.keymap.set("n", "<Leader>r", "*``cgn", { desc = "Replace word and go to next
 -- Search and replace
 vim.keymap.set("n", "<Leader>se", ":%s/", { desc = "Search and replace command" })
 
--- Quit vim
+-- Quit nvim
 vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
 
 -- Save current buffer
