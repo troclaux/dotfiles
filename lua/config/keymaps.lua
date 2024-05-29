@@ -43,7 +43,7 @@ vim.keymap.set("v", "<Leader>m", ":normal @q<CR>", { desc = "Run macro on visual
 vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
 
 -- Wrap selection in triple backticks
-vim.keymap.set("v", "<Leader>3", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
+vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
 
 -- Normal mode remaps --
 
@@ -69,7 +69,7 @@ vim.keymap.set("n", "vil", "^vg_", { desc = "Select line without newline" })
 vim.keymap.set("n", "yil", "^vg_y", { desc = "Yank line without newline" })
 
 -- Insert a newline before pasting register content
-vim.keymap.set("n", "<Leader>p", 'o<Esc>0"_Dp==', { desc = "Select all text" })
+vim.keymap.set("n", "<Leader>pp", 'o<Esc>0"_Dp==', { desc = "Add newline and paste" })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
@@ -111,7 +111,7 @@ vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
 vim.keymap.set("n", "<Leader><CR>", ":!")
 
 -- Surround with triple backticks
-vim.keymap.set("n", "<Leader>3", "mzO```<Esc>jo```<Esc>`z", { desc = "Surround with ```" })
+vim.keymap.set("n", "<Leader>pc", "mzO```<Esc>jo```<Esc>`z", { desc = "Surround with ```" })
 
 -- Plugin keymaps --
 
