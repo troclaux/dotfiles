@@ -110,8 +110,18 @@ vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
 -- Open shell to insert command
 vim.keymap.set("n", "<Leader><CR>", ":!")
 
--- Surround with triple backticks
+-- My snippets --
+
+-- Markdown heading
 vim.keymap.set("n", "<Leader>pc", "mzO```<Esc>jo```<Esc>`z", { desc = "Surround with ```" })
+vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
+
+vim.keymap.set("n", "<Leader>1", "o# ", { desc = "Insert markdown heading #" })
+vim.keymap.set("n", "<Leader>2", "o## ", { desc = "Insert markdown heading ##" })
+vim.keymap.set("n", "<Leader>3", "o### ", { desc = "Insert markdown heading ###" })
+
+vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
+
 
 -- Plugin keymaps --
 
