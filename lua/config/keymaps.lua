@@ -37,7 +37,7 @@ vim.keymap.set("v", "<Leader>se", ":s/", { desc = "Search and replace command" }
 vim.keymap.set("v", "<Leader>n", ":normal ", { desc = "Run normal mode command" })
 
 -- run macro on visual selection
-vim.keymap.set("v", "<Leader>m", ":normal @q<CR>", { desc = "Run macro on visual selection" })
+vim.keymap.set("v", "<Leader>m", ":normal @w<CR>", { desc = "Run macro on visual selection" })
 
 -- Select all
 vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
