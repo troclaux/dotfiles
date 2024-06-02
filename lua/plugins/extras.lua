@@ -6,6 +6,7 @@ return {
 	"tpope/vim-surround",
 	"tpope/vim-sleuth",
 	"preservim/tagbar",
+	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 	{
 		"Wansmer/treesj",
 		lazy = true,
