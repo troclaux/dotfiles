@@ -2,6 +2,7 @@ return {
 	"tpope/vim-fugitive",
 	"ThePrimeagen/harpoon",
 	"andrewradev/sideways.vim",
+	"chrisbra/csv.vim",
 	"mbbill/undotree",
 	"tpope/vim-surround",
 	"tpope/vim-sleuth",
