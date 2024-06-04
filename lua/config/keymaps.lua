@@ -42,9 +42,6 @@ vim.keymap.set("v", "<Leader>m", ":normal @w<CR>", { desc = "Run macro on visual
 -- Select all
 vim.keymap.set("v", "<Leader>a", "VGgg", { desc = "Select all" })
 
--- Wrap selection in triple backticks
-vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
-
 -- Normal mode remaps --
 
 -- Go to start of line
