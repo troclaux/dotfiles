@@ -1,13 +1,11 @@
 -- Delete lazyvim keymaps --
 
-vim.keymap.del("n", "<Leader>l")
+-- vim.keymap.del("n", "<Leader>l")
 
 -- Insert mode remaps --
 
--- Map jk and kj to go to normal mode
-vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("i", "kj", "<Esc>")
-vim.keymap.set("i", "{<CR>", "{<CR>}<ESC>O")
+-- Automatically closes curly braces
+vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 
 -- Visual mode remaps --
 
