@@ -129,8 +129,9 @@ vim.keymap.set("n", "<Leader>S", ":StartupTime<CR>", { desc = "Show nvim's start
 -- Update nvim plugins
 vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugins" })
 
--- vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
+-- Vim-fugitive plugin
 vim.keymap.set("n", "<leader>gi", ":vert Git<CR>", { desc = "Git Status" })
+-- vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
 vim.keymap.set("n", "<Leader>gp", ":Git push<CR>", { desc = "Git Push" })
 vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { desc = "Search git commit messages" })
 
