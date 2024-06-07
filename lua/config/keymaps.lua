@@ -169,6 +169,10 @@ vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<CR>", { desc = "Make script
 -- Show current buffer summary
 vim.keymap.set("n", "<F8>", ":TagbarToggle<CR>", { desc = "Show current buffer summary" })
 
+-- Move argument/parameter left/right
+vim.keymap.set("n", "cl", ":SidewaysRight<CR>", { desc = "Move argument/parameter right" })
+vim.keymap.set("n", "ch", ":SidewaysLeft<CR>", { desc = "Move argument/parameter left" })
+
 -- Change to current buffer's parent directory and run command
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
 
