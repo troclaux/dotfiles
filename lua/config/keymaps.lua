@@ -108,6 +108,9 @@ vim.keymap.set("n", "<Leader><CR>", ":!")
 vim.keymap.set("n", "<Leader>pc", "mzO```<Esc>jo```<Esc>`z", { desc = "Surround with ```" })
 vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
 
+vim.keymap.set("n", "<Leader>1", "o<Esc>0Di# ", { desc = "Insert markdown heading #" })
+vim.keymap.set("n", "<Leader>2", "o<Esc>0Di## ", { desc = "Insert markdown heading ##" })
+vim.keymap.set("n", "<Leader>3", "o<Esc>0Di### ", { desc = "Insert markdown heading ###" })
 
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 
