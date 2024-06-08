@@ -25,8 +25,6 @@ vim.keymap.set("v", "L", "g_", { desc = "Go to end of line" })
 -- Align text in visual mode around equals sign
 vim.keymap.set("v", "<Leader>=", ":!column -t<CR>gv=", { desc = "Column Align" })
 
--- Select all
-vim.keymap.set("v", "<Leader>a", "<Esc>GVgg", { desc = "Select all" })
 
 -- Search and replace
 vim.keymap.set("v", "<Leader>se", ":s/", { desc = "Search and replace command" })
@@ -52,7 +50,7 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
 
 -- Select all
-vim.keymap.set("n", "<Leader>a", "GVgg", { desc = "Select all text" })
+vim.keymap.set("n", "<Leader>al", "GVgg", { desc = "Select all text" })
 
 -- Select line without newline
 vim.keymap.set("n", "vil", "^vg_", { desc = "Select line without newline" })
