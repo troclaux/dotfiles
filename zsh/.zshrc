@@ -156,6 +156,12 @@ alias cdf='cd "$(find "$HOME" -type d | fzf)"'
 alias cdp='cd "$(find . -path "./.git" -prune -o -type d | fzf)"'
 alias cdr='cd /etc/yum.repos.d'
 alias cdb="cd /usr/local/bin"
+## Set shell functions
+
+touchd() {
+    dir_path=$(dirname "$1")
+    mkdir -p "$dir_path" && touch "$1"
+}
 
 # Set environment variables
 
