@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-languages=$(echo "golang nodejs javascript typescript tmux zsh c lua rust python bash css html sql" | tr " " "\n")
+languages=$(echo "golang java nodejs javascript typescript tmux zsh c lua rust python bash css html sql" | tr " " "\n")
 core_utils1=$(echo "ps grep curl find awk tr mv kill lsof less head tail kubectl" | tr " " "\n")
 core_utils2=$(echo "tar cp rm jq cat ssh cargo chown make xargs stow chmod" | tr " " "\n")
 core_utils3=$(echo "git git-worktree git-status git-commit git-rebase docker docker-compose" | tr " " "\n")
