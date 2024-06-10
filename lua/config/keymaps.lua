@@ -116,19 +116,22 @@ vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 -- Plugin keymaps --
 
 -- Access lazy.vim menu
-vim.keymap.set("n", "<Leader>L", ":Lazy<CR>", { desc = "Lazy.nvim menu" })
+vim.keymap.set("n", "<Leader>L", vim.cmd.Lazy, { desc = "Lazy.nvim menu" })
 
--- Access lazy.vim menu
-vim.keymap.set("n", "<Leader>E", ":LazyExtras<CR>", { desc = "Lazy.nvim extra plugins" })
+-- View lazy.vim extra plugins
+vim.keymap.set("n", "<Leader>E", vim.cmd.LazyExtras, { desc = "Lazy.nvim extra plugins" })
 
 -- Access Mason menu
-vim.keymap.set("n", "<Leader>M", ":Mason<CR>", { desc = "Access Mason menu" })
+vim.keymap.set("n", "<Leader>M", vim.cmd.Mason, { desc = "Access Mason menu" })
 
 -- Show nvim's startup time
-vim.keymap.set("n", "<Leader>S", ":StartupTime<CR>", { desc = "Show nvim's startup time" })
+vim.keymap.set("n", "<Leader>S", vim.cmd.StartupTime, { desc = "Show nvim's startup time" })
 
 -- Update nvim plugins
 vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugins" })
+
+-- Undotree plugin
+vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree panel" })
 
 -- Vim-fugitive plugin
 vim.keymap.set("n", "<leader>gi", ":vert Git<CR>", { desc = "Git Status" })
@@ -169,11 +172,14 @@ vim.keymap.set("n", "<Leader>t", require("treesj").toggle, { desc = "Split/Join 
 vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<CR>", { desc = "Make script executable", silent = true })
 
 -- Show current buffer summary
-vim.keymap.set("n", "<F8>", ":TagbarToggle<CR>", { desc = "Show current buffer summary" })
+vim.keymap.set("n", "<F8>", vim.cmd.TagbarToggle, { desc = "Show current buffer summary" })
 
 -- Move argument/parameter left/right
-vim.keymap.set("n", "cl", ":SidewaysRight<CR>", { desc = "Move argument/parameter right" })
-vim.keymap.set("n", "ch", ":SidewaysLeft<CR>", { desc = "Move argument/parameter left" })
+vim.keymap.set("n", "cl", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
+vim.keymap.set("n", "ch", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
+
+-- View markdown file with glow plugin
+vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
 
 -- Change to current buffer's parent directory and run command
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
