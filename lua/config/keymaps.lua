@@ -25,7 +25,6 @@ vim.keymap.set("v", "L", "g_", { desc = "Go to end of line" })
 -- Align text in visual mode around equals sign
 vim.keymap.set("v", "<Leader>=", ":!column -t<CR>gv=", { desc = "Column Align" })
 
-
 -- Search and replace
 vim.keymap.set("v", "<Leader>se", ":s/", { desc = "Search and replace command" })
 
@@ -115,6 +114,8 @@ vim.keymap.set("n", "<Leader>3", "o<Esc>0Di### ", { desc = "Insert markdown head
 
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 
+-- golang error handling
+vim.keymap.set("n", "<leader>pe", "oif err != nil {<cr>}<esc>ko", { desc = "insert golang error statement" })
 
 -- Plugin keymaps --
 
