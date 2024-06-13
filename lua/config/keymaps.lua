@@ -146,6 +146,7 @@ vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { desc = "Search git commit mess
 vim.keymap.set("n", "gh", "<C>diffget //2<CR>")
 vim.keymap.set("n", "gl", "<C>diffget //3<CR>")
 
+-- Harpoon plugin
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
@@ -181,6 +182,11 @@ vim.keymap.set("n", "<F8>", vim.cmd.TagbarToggle, { desc = "Show current buffer 
 -- Move argument/parameter left/right
 vim.keymap.set("n", "cl", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
 vim.keymap.set("n", "ch", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
+
+-- Copilot chat plugin
+vim.keymap.set("v", "<Leader>ae", ":CopilotChat explain<CR>", { desc = "Explain (CopilotChat)" })
+vim.keymap.set("v", "<Leader>af", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
+vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
 
 -- View markdown file with glow plugin
 vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
