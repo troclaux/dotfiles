@@ -1,0 +1,79 @@
+3*6a4
+3*20
+3*7a5
+1*12
+3*12
+3(6+6)
+(8 5 3)
+(8 5 3+MAX+MAX)
+3+MAX+MAX
+5*(12||MAX)
+## PEITO (COM AEROBICO)
+- supino reto
+  - barra cinza
+  - barra preta
+  - descanso
+- supino inclinado
+  - banco 4
+- crucifixo fly
+  - banco 4, amplitude 3
+- desenvolvimento articulado
+  - banco 5, mão 3
+- tríceps na polia alta
+  - desce 4s sobe 2s
+- elevação frontal na polia
+## COSTAS (COM AEROBICO)
+- puxada articulada pronada
+  - banco 4, mão 1/2
+- remada articulada baixa neutra
+  - banco 4, mão 3
+- remada livre curvada com barra supinada
+- puxada articulada supinada
+- biceps com barra W
+- biceps alternado com halteres (c/ rotação)
+- abdominal infra no banco 1 declinado
+- prancha lateral em decubito lateral
+## INFERIORES (SEM AEROBICO)
+- aquecimento cócoras
+- 10 agachamentos com barra
+- agachamento livre com barra
+- cadeira extensora
+  - sem descanso
+- mesa flexora
+- leg press horizontal
+  - descer em 4s
+- flexao plantar na maquina
+  - banco 3
+- supino inclinado maquina articulada
+  1. aquecimento
+  2. 3*6a4
+- supino inclinado com halteres
+  - banco 5
+- flexao de braço no solo
+- paralela fechada no graviton
+  - intervalos 15s/30s/45s/60s
+- cross over
+  - altura
+- desenvolvimento com halteres
+- triceps testa barra W
+- elevacao lateral com halteres
+- barra no graviton neutra (livre)
+- remada na maquina
+  - banco 5, apoio 4, drop set
+- remada cavalo
+- rosca biceps banco scott (invertido - barra W)
+- pulldown
+- rosca biceps na polia baixa
+- plank 3*40s
+- abdominal infra no solo (segurando no espaldar)
+## PERNA (SEM AEROBICO)
+  - joelho 11, pé M, drop set
+  1. aquecimento 1*12
+  2. 3*(6+6)
+- cadeira flexora
+  - banco 2, joelho 2, pé 2, drop set
+- afundo no smith
+- agachamento livre (com kettlebell)
+- flexão plantar no banco romano
+  - N repetições completas + N repetições parciais
+END
