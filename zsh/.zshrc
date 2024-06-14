@@ -140,22 +140,24 @@ alias open="xdg-open"
 alias dgrep='grep -r --include=".*"'
 alias ggraph="git --no-pager log --oneline --graph --all"
 alias clipboard="xclip -selection clipboard"
-alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | xclip -selection clipboard"
 
 alias up="sudo dnf upgrade -y && flatpak update -y"
 
 alias soz="source $HOME/.zshrc"
-alias cdn="cd $HOME/.config/nvim"
 alias dot="cd $HOME/dotfiles"
 alias trn="tree $HOME/.config/nvim/lua"
 alias trb="tree /usr/local/bin"
 alias lr="ls -R"
+
+alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | xclip -selection clipboard"
 alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
 
 alias cdf='cd "$(find "$HOME" -type d | fzf)"'
 alias cdp='cd "$(find . -path "./.git" -prune -o -type d | fzf)"'
 alias cdr='cd /etc/yum.repos.d'
 alias cdb="cd /usr/local/bin"
+alias cdn="cd $HOME/.config/nvim"
+
 ## Set shell functions
 
 touchd() {
