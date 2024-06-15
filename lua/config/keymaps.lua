@@ -48,9 +48,6 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- Reselect pasted text
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
 
--- Select all
-vim.keymap.set("n", "<Leader>al", "GVgg", { desc = "Select all text" })
-
 -- Select line without newline
 vim.keymap.set("n", "vil", "^vg_", { desc = "Select line without newline" })
 
@@ -76,9 +73,6 @@ vim.keymap.set("n", "<C-b>", "<C-^>", { desc = "Go to previous buffer" })
 -- Keep viewport centralized when using ctrl+d and ctrl+u
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
-
--- Run last terminal command
-vim.keymap.set("n", "<Leader>T", ":@:<CR>", { silent = true, desc = "Run last terminal cmd" })
 
 -- Change word and go to next instance
 vim.keymap.set("n", "<Leader>r", "*``cgn", { desc = "Replace word and go to next instance" })
@@ -195,6 +189,5 @@ vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
 
 -- vim.keymap.set("n", "<leader>gi", ":G | on<CR>", { desc = "Git Status" })
--- vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git Status" })
 
 -- vim.keymap.set("v", "S", "<nop>", { noremap = true })
