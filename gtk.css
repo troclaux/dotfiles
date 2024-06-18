@@ -1,0 +1,21 @@
+
+/* reduce the height of gnome terminal's title bar */
+/* copy this file to ~/.config/gtk-3.0/gtk.css */
+/* cp ~/dotfiles/gtk.css ~/.config/gtk-3.0 */
+/* source: https://devprogramming.medium.com/reduce-huge-title-bar-on-ubuntu-20-04-ef48041706f9 */
+
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+    margin-top: 0px; /* same as headerbar side padding for nicer proportions */
+    margin-bottom: 0px;
+}
+
+headerbar {
+    min-height: 24px;
+    padding-left: 2px; /* same as childrens vertical margins for nicer proportions */
+    padding-right: 2px;
+    margin: 0px; /* same as headerbar side padding for nicer proportions */
+    padding: 0px;
+}
