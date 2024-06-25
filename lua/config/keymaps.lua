@@ -45,6 +45,9 @@ vim.keymap.set("n", "L", "$", { desc = "Go to end of line" })
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Easy vim search
+vim.keymap.set("n", "ç", "/")
+
 -- Reselect pasted text
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
 
