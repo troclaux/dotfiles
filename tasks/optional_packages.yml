@@ -43,6 +43,12 @@
     state: present
   tags: optional_packages
 
+- name: Install gnome-tweaks
+  package:
+    name: gnome-tweaks
+    state: present
+  tags: optional_packages
+
 - name: Install xkill for Fedora
   dnf:
     name: xkill
