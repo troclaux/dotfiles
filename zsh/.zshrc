@@ -168,6 +168,12 @@ touchd() {
     mkdir -p "$dir_path" && touch "$1"
 }
 
+mvs() {
+    for file in *\ *; do
+        mv "$file" "${file// /_}"
+    done
+}
+
 # Set environment variables
 
 export VOLTA_HOME="$HOME/.volta"
