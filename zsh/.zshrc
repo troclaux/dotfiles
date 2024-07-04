@@ -153,6 +153,7 @@ alias lr="ls -R"
 
 alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | xclip -selection clipboard"
 alias off='xdg-open $(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf)'
+alias yto='youtube-dl -f bestaudio -x --audio-format flac -o "~/Music/%(title)s.%(ext)s" --restrict-filenames $(xclip -selection clipboard -o) --no-playlist'
 alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
 
 alias cdf='cd "$(find "$HOME" -type d | fzf)"'
