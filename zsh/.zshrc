@@ -169,7 +169,13 @@ touchd() {
     mkdir -p "$dir_path" && touch "$1"
 }
 
-mvs() {
+rmvs() {
+    local file="$1"
+    local new_file="${file// /_}"
+    mv "$file" "$new_file"
+}
+
+rmvsa() {
     for file in *\ *; do
         mv "$file" "${file// /_}"
     done
