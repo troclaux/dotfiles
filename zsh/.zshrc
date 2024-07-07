@@ -137,6 +137,7 @@ alias vid="sudo nvim /etc/dnf/dnf.conf"
 
 alias py="python3"
 alias open="xdg-open"
+alias du="du -h --max-depth=1"
 alias dgrep='grep -r --include=".*"'
 alias fin='find "$(pwd -P)" | grep -v ".git"'
 alias ggraph="git --no-pager log --oneline --graph --all"
