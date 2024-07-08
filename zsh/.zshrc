@@ -142,7 +142,7 @@ alias dgrep='grep -r --include=".*"'
 alias fin='find "$(pwd -P)" | grep -v ".git"'
 alias ggraph="git --no-pager log --oneline --graph --all"
 alias clipboard="xclip -selection clipboard"
-alias cps="fc -ln -100 | fzf | xclip -selection clipboard"
+alias cps="fc -ln -1000 | sort | uniq | fzf | xclip -selection clipboard"
 
 alias up="sudo dnf upgrade -y && flatpak update -y"
 
