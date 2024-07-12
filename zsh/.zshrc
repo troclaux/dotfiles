@@ -139,9 +139,9 @@ alias py="python3"
 alias open="xdg-open"
 alias du="du -h --max-depth=1"
 alias dgrep='grep -r --include=".*"'
+alias clipboard="xclip -selection clipboard"
 alias fin='find "$(pwd -P)" | grep -v ".git"'
 alias ggraph="git --no-pager log --oneline --graph --all"
-alias clipboard="xclip -selection clipboard"
 alias cps="fc -ln -1000 | sort | uniq | fzf | xclip -selection clipboard"
 
 alias up="sudo dnf upgrade -y && flatpak update -y"
