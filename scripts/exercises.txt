@@ -3,11 +3,15 @@
 3*7a5
 1*12
 3*12
+3*14
 3(6+6)
 (8 5 3)
 (8 5 3+MAX+MAX)
+(12 8 5 3)
 3+MAX+MAX
 5*(12||MAX)
+3*(7a5+7a5)
+4*7a5
 ## PEITO (COM AEROBICO)
 - supino reto
   - barra cinza
