@@ -135,6 +135,7 @@ alias vb="nvim -c \"normal '0\""
 alias vif='nvim "$(find "$HOME" -type d | fzf)"'
 alias vid="sudo nvim /etc/dnf/dnf.conf"
 
+alias lr="ls -R"
 alias py="python3"
 alias open="xdg-open"
 alias du="du -h --max-depth=1"
@@ -150,7 +151,6 @@ alias soz="source $HOME/.zshrc"
 alias dot="cd $HOME/dotfiles"
 alias trn="tree $HOME/.config/nvim/lua"
 alias trb="tree /usr/local/bin"
-alias lr="ls -R"
 
 alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | xclip -selection clipboard"
 alias off='file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf) && xdg-open "$file" 2>/dev/null'
