@@ -4,6 +4,7 @@
 1*12
 3*12
 3*14
+3*40s
 3(6+6)
 (8 5 3)
 (8 5 3+MAX+MAX)
@@ -36,6 +37,7 @@
 - biceps com barra W
 - biceps alternado com halteres (c/ rotação)
 - abdominal infra no banco 1 declinado
+- abdominal infra no solo (segurando no espaldar)
 - prancha lateral em decubito lateral
 ## INFERIORES (SEM AEROBICO)
 - aquecimento cócoras
@@ -59,6 +61,9 @@
 - cross over
   - altura
 - desenvolvimento com halteres
+- desenvolvimento barra
+- desenvolvimento arnold
+- remada cavalo
 - triceps testa barra W
 - elevacao lateral com halteres
 - barra no graviton neutra (livre)
@@ -68,7 +73,7 @@
 - rosca biceps banco scott (invertido - barra W)
 - pulldown
 - rosca biceps na polia baixa
-- plank 3*40s
+- plank
 - abdominal infra no solo (segurando no espaldar)
 ## PERNA (SEM AEROBICO)
   - joelho 11, pé M, drop set
@@ -77,6 +82,9 @@
 - cadeira flexora
   - banco 2, joelho 2, pé 2, drop set
 - afundo no smith
+- v squat
+- abdominal canivete
+- abdominal bosu máquina
 - agachamento livre (com kettlebell)
 - flexão plantar no banco romano
   - N repetições completas + N repetições parciais
