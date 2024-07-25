@@ -83,6 +83,9 @@ vim.keymap.set("n", "<Leader>r", "*``cgn", { desc = "Replace word and go to next
 -- Search and replace
 vim.keymap.set("n", "<Leader>se", ":%s/", { desc = "Search and replace command" })
 
+-- Apply title case
+vim.keymap.set("n", "<Leader>T", [[:s/\<./\u&/g<CR>:nohlsearch<CR>]], { desc = "Convert to title case" })
+
 -- Quit nvim
 vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
 
