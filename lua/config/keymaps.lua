@@ -84,7 +84,7 @@ vim.keymap.set("n", "<Leader>r", "*``cgn", { desc = "Replace word and go to next
 vim.keymap.set("n", "<Leader>se", ":%s/", { desc = "Search and replace command" })
 
 -- Apply title case
-vim.keymap.set("n", "<Leader>T", [[:s/\<./\u&/g<CR>:nohlsearch<CR>]], { desc = "Convert to title case" })
+vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to title case" })
 
 -- Quit nvim
 vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
@@ -101,6 +101,13 @@ vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
 
 -- Open shell to insert command
 vim.keymap.set("n", "<Leader><CR>", ":!")
+
+-- Open new tmux window in the parent folder of current buffer
+vim.keymap.set("n", "<Leader>tm", function()
+	local parent_dir = vim.fn.expand("%:p:h")
+	local cmd = "tmux neww -c " .. parent_dir
+	vim.fn.system(cmd)
+end, { desc = "Open tmux window in parent directory" })
 
 -- My snippets --
 
@@ -172,7 +179,7 @@ vim.keymap.set("n", "<leader>l", function()
 end, { desc = "Navigate mark 4" })
 
 -- Split/Join line of code
-vim.keymap.set("n", "<Leader>t", require("treesj").toggle, { desc = "Split/Join line of code" })
+vim.keymap.set("n", "<Leader>tt", require("treesj").toggle, { desc = "Split/Join line of code" })
 
 -- Make a script executable
 vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<CR>", { desc = "Make script executable", silent = true })
