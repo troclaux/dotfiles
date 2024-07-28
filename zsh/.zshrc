@@ -175,7 +175,7 @@ touchd() {
 
 rmvs() {
     local file="$1"
-    local new_file="${file// /_}"
+    local new_file="$(echo "$file" | tr ' ,[]{}()<>' '_')"
     mv "$file" "$new_file"
 }
 
