@@ -127,7 +127,6 @@ bindkey '^Y' autosuggest-accept
 
 alias vi="nvim"
 alias vim="nvim"
-alias vf="nvim . -c 'Telescope find_files'"
 alias ve="nvim ."
 alias vg="nvim -c 'Git | only'"
 alias vb="nvim -c \"normal '0\""
