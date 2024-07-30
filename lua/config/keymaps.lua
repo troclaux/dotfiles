@@ -9,10 +9,6 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 
 -- Visual mode remaps --
 
--- Move visual selection up or down in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
-
 -- Select until start of line in visual mode
 vim.keymap.set("v", "H", "_", { desc = "Go to start of line" })
 
