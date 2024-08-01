@@ -108,7 +108,7 @@ end, { desc = "Open tmux window in parent directory" })
 -- My snippets --
 
 -- Markdown heading
-vim.keymap.set("n", "<Leader>pc", "mzO```<Esc>jo```<Esc>`z", { desc = "Surround with ```" })
+vim.keymap.set("n", "<Leader>pc", "o```<Esc>kO```<Esc>", { desc = "Surround with ```" })
 vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
 vim.keymap.set("v", "<Leader>pi", "omzo<Esc>a```<Esc>mx`zi```<Esc>`x", { desc = "Inline surround with ```" })
 
