@@ -148,9 +148,9 @@ alias cps="fc -ln -1000 | sort | uniq | fzf | xclip -selection clipboard"
 
 alias up="sudo dnf upgrade -y && flatpak update -y"
 
-alias soz="source $HOME/.zshrc"
 alias dot="cd $HOME/dotfiles"
 alias trn="tree $HOME/.config/nvim/lua"
+alias soz="source $HOME/.zshrc"
 alias trb="tree /usr/local/bin"
 
 alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | xclip -selection clipboard"
