@@ -39,7 +39,7 @@
     state: absent
   tags: scripts
 
-- name: Create symlink to tmux-sessionizer 
+- name: Create symlink to tmux-sessionizer
   become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/tmux-sessionizer"
