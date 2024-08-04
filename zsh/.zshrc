@@ -179,8 +179,14 @@ rmvs() {
 }
 
 rmvsa() {
-    for file in *\ *; do
-        mv "$file" "${file// /_}"
+    for file in *; do
+        if [ -f "$file" ]; then
+            new_name=$(echo "$file" | tr " ,'[]{}()<>" '_')
+            if [ "$file" != "$new_name" ]; then
+                mv "$file" "$new_name"
+                echo "Renamed: $file -> $new_name"
+            fi
+        fi
     done
 }
 
