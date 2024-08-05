@@ -174,8 +174,11 @@ touchd() {
 
 rmvs() {
     local file="$1"
-    local new_file="$(echo "$file" | tr ' ,[]{}()<>' '_')"
-    mv "$file" "$new_file"
+    if [ -f "$file" ]; then
+        local new_name="$(echo "$file" | tr " ,'[]{}()<>" '_')"
+        mv "$file" "$new_name"
+        echo "Renamed: $file -> $new_name"
+    fi
 }
 
 rmvsa() {
