@@ -53,7 +53,7 @@
     state: absent
   tags: scripts
 
-- name: Create symlink to tmux-vimionizer 
+- name: Create symlink to tmux-vimionizer
   become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/bin/tmux-vimionizer"
