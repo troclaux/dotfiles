@@ -149,9 +149,9 @@ alias cps="fc -ln -1000 | sort | uniq | fzf | xclip -selection clipboard"
 alias up="sudo dnf upgrade -y && flatpak update -y"
 
 alias dot="cd $HOME/dotfiles"
-alias trn="tree $HOME/.config/nvim/lua"
 alias soz="source $HOME/.zshrc"
 alias trb="tree /usr/local/bin"
+alias trn="tree $HOME/.config/nvim/lua"
 
 alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | xclip -selection clipboard"
 alias off='file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf) && xdg-open "$file" 2>/dev/null'
