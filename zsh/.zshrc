@@ -132,7 +132,6 @@ alias vg="nvim -c 'Git | only'"
 alias vb="nvim -c \"normal '0\""
 alias vl="nvim . -c 'Telescope live_grep'"
 
-alias vif='nvim "$(find "$HOME" -type d | fzf)"'
 alias vid="sudo nvim /etc/dnf/dnf.conf"
 
 alias lr="ls -R"
