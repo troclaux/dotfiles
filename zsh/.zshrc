@@ -171,7 +171,7 @@ touchd() {
     mkdir -p "$dir_path" && touch "$1"
 }
 
-rmvs() {
+rms() {
     local file="$1"
     if [ -f "$file" ]; then
         local new_name="$(echo "$file" | tr " ,'[]{}()<>" '_')"
@@ -180,7 +180,7 @@ rmvs() {
     fi
 }
 
-rmvsa() {
+rmsa() {
     for file in *; do
         if [ -f "$file" ]; then
             new_name=$(echo "$file" | tr " ,'[]{}()<>" '_')
