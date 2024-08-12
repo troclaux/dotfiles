@@ -108,6 +108,7 @@ end, { desc = "Open tmux window in parent directory" })
 -- My snippets --
 
 -- Markdown heading
+vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 vim.keymap.set("n", "<Leader>pc", "o```<Esc>kO```<Esc>", { desc = "Surround with ```" })
 vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
 vim.keymap.set("v", "<Leader>pi", "mxomzo<Esc>a```<Esc>`zi```<Esc>`xlll", { desc = "Inline surround with ```" })
@@ -115,8 +116,6 @@ vim.keymap.set("v", "<Leader>pi", "mxomzo<Esc>a```<Esc>`zi```<Esc>`xlll", { desc
 vim.keymap.set("n", "<Leader>1", 'o<Esc>0"_Di# ', { desc = "Insert markdown heading #" })
 vim.keymap.set("n", "<Leader>2", 'o<Esc>0"_Di## ', { desc = "Insert markdown heading ##" })
 vim.keymap.set("n", "<Leader>3", 'o<Esc>0"_Di### ', { desc = "Insert markdown heading ###" })
-
-vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 
 -- golang error handling
 vim.keymap.set("n", "<leader>pe", "oif err != nil {<cr>}<esc>ko", { desc = "insert golang error statement" })
