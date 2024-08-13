@@ -111,7 +111,6 @@ end, { desc = "Open tmux window in parent directory" })
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 vim.keymap.set("n", "<Leader>pc", "o```<Esc>kO```<Esc>", { desc = "Surround with ```" })
 vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
-vim.keymap.set("v", "<Leader>pi", "mxomzo<Esc>a```<Esc>`zi```<Esc>`xlll", { desc = "Inline surround with ```" })
 
 vim.keymap.set("n", "<Leader>1", 'o<Esc>0"_Di# ', { desc = "Insert markdown heading #" })
 vim.keymap.set("n", "<Leader>2", 'o<Esc>0"_Di## ', { desc = "Insert markdown heading ##" })
