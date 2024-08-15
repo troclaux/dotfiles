@@ -27,9 +27,6 @@ vim.keymap.set("v", "<Leader>se", ":s/", { desc = "Search and replace command" }
 -- run normal command on visual selection
 vim.keymap.set("v", "<Leader>n", ":normal ", { desc = "Run normal mode command" })
 
--- run macro on visual selection
-vim.keymap.set("v", "<Leader>m", ":normal @w<CR>", { desc = "Run macro on visual selection" })
-
 -- Normal mode remaps --
 
 -- Go to start of line
