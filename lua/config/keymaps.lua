@@ -10,7 +10,7 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 -- Visual mode remaps --
 
 -- Select until start of line in visual mode
-vim.keymap.set("v", "H", "_", { desc = "Go to start of line" })
+vim.keymap.set("v", "H", "^", { desc = "Go to start of line" })
 
 -- Keep buffer after pasting over selection
 vim.keymap.set("v", "p", "p`[v`]y")
