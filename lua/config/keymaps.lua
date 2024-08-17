@@ -30,7 +30,7 @@ vim.keymap.set("v", "<Leader>n", ":normal ", { desc = "Run normal mode command" 
 -- Normal mode remaps --
 
 -- Go to start of line
-vim.keymap.set("n", "H", "_", { desc = "Go to start of line" })
+vim.keymap.set("n", "H", "^", { desc = "Go to start of line" })
 
 -- Go to end of line
 vim.keymap.set("n", "L", "$", { desc = "Go to end of line" })
