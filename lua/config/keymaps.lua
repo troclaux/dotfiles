@@ -170,7 +170,7 @@ vim.keymap.set("n", "<leader>l", function()
 end, { desc = "Navigate mark 4" })
 
 -- Split/Join line of code
-vim.keymap.set("n", "<Leader>tt", require("treesj").toggle, { desc = "Split/Join line of code" })
+vim.keymap.set("n", "<Leader>tr", require("treesj").toggle, { desc = "Split/Join line of code" })
 
 -- Make a script executable
 vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<CR>", { desc = "Make script executable", silent = true })
