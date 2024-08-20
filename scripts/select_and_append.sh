@@ -33,4 +33,4 @@ while true; do
 	echo "Added '$selected_option' to $output_file"
 done
 
-echo "Selection process completed."
+echo "Completed $output_path"
