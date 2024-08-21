@@ -1,10 +1,14 @@
 3*6a4
-3*20
 3*7a5
+3*10a8
 1*12
 3*12
 3*14
+3*15
+3*20
 3*40s
+4*7a5
+4*10a8
 3(6+6)
 (8 5 3)
 (8 5 3+MAX+MAX)
@@ -12,80 +16,101 @@
 3+MAX+MAX
 5*(12||MAX)
 3*(7a5+7a5)
-4*7a5
-## PEITO (COM AEROBICO)
-- supino reto
+3*(10a8+10a8)
+(6 8 10)
+  - banco 2, joelho 2, pe 2
+  - banco 3
+  - banco 4
+  - banco 4, mao 1/2
+  - banco 4, mao 3
+  - banco 4, amplitude 3
+  - banco 5
+  - banco 5 mao 1/2
+  - banco 5, mao 3
+  - banco 5, apoio 4
+  - apoio 5
+  - banco reto
   - barra cinza
   - barra preta
+  - intervalos 15s/30s/45s/60s
+  - aquecimento 1x15
+  - joelho 11, pe M
   - descanso
-- supino inclinado
-  - banco 4
-- crucifixo fly
-  - banco 4, amplitude 3
-- desenvolvimento articulado
-  - banco 5, mão 3
-- tríceps na polia alta
+  - sem descanso
   - desce 4s sobe 2s
+  - descer em 4s
+  1. aquecimento
+  2. 3*6a4
+  1. aquecimento 1*12
+  2. 3*(6+6)
+  - N repetições completas + N repetições parciais
+  - sprint 16
+  - 1min sprint + 8x(20s sprint + 10s intervalo passivo)
+## PEITO (COM AEROBICO)
+- supino reto
+- supino reto com halteres
+- supino reto máquina articulada
+- supino inclinado
+- crucifixo fly
+- desenvolvimento articulado
+- tríceps na polia alta
 - elevação frontal na polia
+- elevação lateral com halteres
 ## COSTAS (COM AEROBICO)
 - puxada articulada pronada
-  - banco 4, mão 1/2
+- puxada na polia neutra
 - remada articulada baixa neutra
-  - banco 4, mão 3
+- remada articulada alta pronada
 - remada livre curvada com barra supinada
 - puxada articulada supinada
 - biceps com barra W
+- biceps com halteres banco inclinado
 - biceps alternado com halteres (c/ rotação)
 - abdominal infra no banco 1 declinado
 - abdominal infra no solo (segurando no espaldar)
 - prancha lateral em decubito lateral
 ## INFERIORES (SEM AEROBICO)
 - aquecimento cócoras
-- 10 agachamentos com barra
+- agachamento com barra
 - agachamento livre com barra
+- agachamento livre com kettlebell
+- agachamento sumo com halter
 - cadeira extensora
-  - sem descanso
 - mesa flexora
 - leg press horizontal
-  - descer em 4s
 - flexao plantar na maquina
-  - banco 3
+- flexao plantar em pe na maquina
 - supino inclinado maquina articulada
-  1. aquecimento
-  2. 3*6a4
 - supino inclinado com halteres
-  - banco 5
 - flexao de braço no solo
 - paralela fechada no graviton
-  - intervalos 15s/30s/45s/60s
 - cross over
-  - altura
-- desenvolvimento com halteres
 - desenvolvimento barra
 - desenvolvimento arnold
+- desenvolvimento maquina
+- desenvolvimento com halteres
 - remada cavalo
 - triceps testa barra W
+- triceps na maquina testa
 - elevacao lateral com halteres
 - barra no graviton neutra (livre)
+- barra no graviton pronada
 - remada na maquina
-  - banco 5, apoio 4, drop set
+- remada na polia life neutra
 - remada cavalo
 - rosca biceps banco scott (invertido - barra W)
 - pulldown
 - rosca biceps na polia baixa
 - plank
 - abdominal infra no solo (segurando no espaldar)
-## PERNA (SEM AEROBICO)
-  - joelho 11, pé M, drop set
-  1. aquecimento 1*12
-  2. 3*(6+6)
+## PERNAS (SEM AEROBICO)
 - cadeira flexora
-  - banco 2, joelho 2, pé 2, drop set
 - afundo no smith
 - v squat
 - abdominal canivete
-- abdominal bosu máquina
-- agachamento livre (com kettlebell)
-- flexão plantar no banco romano
-  - N repetições completas + N repetições parciais
+- abdominal bosu maquina
+- abdominal remador solo
+- abdominal maquina sentado life fitness
+- flexao plantar no banco romano
+- esteira
 END
