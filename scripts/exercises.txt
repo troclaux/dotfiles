@@ -40,8 +40,8 @@
   - desce 4s sobe 2s
   - descer em 4s
   1. aquecimento
-  2. 3*6a4
   1. aquecimento 1*12
+  2. 3*6a4
   2. 3*(6+6)
   - N repetições completas + N repetições parciais
   - sprint 16
@@ -53,9 +53,9 @@
 - supino inclinado
 - crucifixo fly
 - desenvolvimento articulado
-- tríceps na polia alta
-- elevação frontal na polia
-- elevação lateral com halteres
+- triceps na polia alta
+- elevaçao frontal na polia
+- elevaçao lateral com halteres
 ## COSTAS (COM AEROBICO)
 - puxada articulada pronada
 - puxada na polia neutra
@@ -65,7 +65,7 @@
 - puxada articulada supinada
 - biceps com barra W
 - biceps com halteres banco inclinado
-- biceps alternado com halteres (c/ rotação)
+- biceps alternado com halteres (c/ rotaçao)
 - abdominal infra no banco 1 declinado
 - abdominal infra no solo (segurando no espaldar)
 - prancha lateral em decubito lateral
