@@ -1,6 +1,7 @@
 return {
 	"tpope/vim-fugitive",
 	"ThePrimeagen/harpoon",
+	"tommcdo/vim-exchange",
 	"andrewradev/sideways.vim",
 	"chrisbra/csv.vim",
 	"mbbill/undotree",
