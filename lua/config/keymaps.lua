@@ -1,13 +1,16 @@
 -- Delete lazyvim keymaps --
 
 -- vim.keymap.del("n", "<Leader>l")
-
--- Insert mode remaps --
+-------------------------
+-- INSERT MODE KEYMAPS --
+-------------------------
 
 -- Automatically closes curly braces
 vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 
--- Visual mode remaps --
+-------------------------
+-- VISUAL MODE KEYMAPS --
+-------------------------
 
 -- Select until start of line in visual mode
 vim.keymap.set("v", "H", "^", { desc = "Go to start of line" })
@@ -27,7 +30,9 @@ vim.keymap.set("v", "<Leader>se", ":s/", { desc = "Search and replace command" }
 -- run normal command on visual selection
 vim.keymap.set("v", "<Leader>n", ":normal ", { desc = "Run normal mode command" })
 
--- Normal mode remaps --
+-------------------------
+-- NORMAL MODE KEYMAPS --
+-------------------------
 
 -- Go to start of line
 vim.keymap.set("n", "H", "^", { desc = "Go to start of line" })
@@ -102,7 +107,9 @@ vim.keymap.set("n", "<Leader>tm", function()
 	vim.fn.system(cmd)
 end, { desc = "Open tmux window in parent directory" })
 
--- My snippets --
+----------------------
+-- SNIPPETS KEYMAPS --
+----------------------
 
 -- Markdown heading
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
@@ -116,7 +123,9 @@ vim.keymap.set("n", "<Leader>3", 'o<Esc>0"_Di### ', { desc = "Insert markdown he
 -- golang error handling
 vim.keymap.set("n", "<leader>pe", "oif err != nil {<cr>}<esc>ko", { desc = "insert golang error statement" })
 
--- Plugin keymaps --
+--------------------
+-- PLUGIN KEYMAPS --
+--------------------
 
 -- Access lazy.vim menu
 vim.keymap.set("n", "<Leader>L", vim.cmd.Lazy, { desc = "Lazy.nvim menu" })
@@ -189,6 +198,10 @@ vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write com
 
 -- View markdown file with glow plugin
 vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
+
+---------------------
+-- BACK UP KEYMAPS --
+---------------------
 
 -- Change to current buffer's parent directory and run command
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
