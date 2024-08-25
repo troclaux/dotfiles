@@ -76,7 +76,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 
 -- Change word and go to next instance
-vim.keymap.set("n", "<Leader>r", "*``cgn", { desc = "Replace word and go to next instance" })
+vim.keymap.set("n", "<Leader>R", "*``cgn", { desc = "Replace word and go to next instance" })
 
 -- Search and replace
 
