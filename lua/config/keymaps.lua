@@ -99,6 +99,8 @@ vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
 
 -- Open shell to insert command
 vim.keymap.set("n", "<Leader><CR>", ":!")
+-- Apply title case
+vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to title case" })
 
 -- Open new tmux window in the parent folder of current buffer
 vim.keymap.set("n", "<Leader>tm", function()
