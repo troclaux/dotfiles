@@ -97,8 +97,6 @@ vim.keymap.set("n", "] ", 'mzo<Esc>0"_D`z', { desc = "Add blank line below" })
 -- Open vim file explorer
 vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
 
--- Open shell to insert command
-vim.keymap.set("n", "<Leader><CR>", ":!")
 -- Apply title case
 vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to title case" })
 
