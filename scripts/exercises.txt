@@ -49,7 +49,7 @@
 ## PEITO (COM AEROBICO)
 - supino reto
 - supino reto com halteres
-- supino reto máquina articulada
+- supino reto maquina articulada
 - supino inclinado
 - crucifixo fly
 - desenvolvimento articulado
@@ -92,7 +92,6 @@
 - remada cavalo
 - triceps testa barra W
 - triceps na maquina testa
-- elevacao lateral com halteres
 - barra no graviton neutra (livre)
 - barra no graviton pronada
 - remada na maquina
