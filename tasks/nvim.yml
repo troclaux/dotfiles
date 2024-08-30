@@ -202,6 +202,24 @@
     - nvim
     - stow_nvim_configs
 
+- name: Remove plugins/avante.lua
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/avante.lua"
+    state: absent
+  tags:
+    - nvim
+    - stow_nvim_configs
+
+- name: Create symbolic link for plugins/avante.lua
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/lua/plugins/avante.lua"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/avante.lua"
+    state: link
+  tags:
+    - nvim
+    - stow_nvim_configs
+
 - name: Remove plugins/lualine.lua
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/lualine.lua"
