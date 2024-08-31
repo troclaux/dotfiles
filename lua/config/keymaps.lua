@@ -50,7 +50,7 @@ vim.keymap.set("n", "ç", "/")
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
 
 -- Select line without newline
-vim.keymap.set("n", "vil", "^vg_", { desc = "Select line without newline" })
+vim.keymap.set("n", "vil", "<Esc>^vg_", { desc = "Select line without newline" })
 
 -- Delete line without newline
 vim.keymap.set("n", "dil", "^vg_d", { desc = "Delete line without newline" })
