@@ -188,8 +188,8 @@ vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<CR>", { desc = "Make script
 vim.keymap.set("n", "<F8>", vim.cmd.TagbarToggle, { desc = "Show current buffer summary" })
 
 -- Move argument/parameter left/right
-vim.keymap.set("n", "cl", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
-vim.keymap.set("n", "ch", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
+vim.keymap.set("n", "<A-l>", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
+vim.keymap.set("n", "<A-h>", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
 
 -- Copilot chat plugin
 vim.keymap.set("v", "<Leader>ae", ":CopilotChat explain<CR>", { desc = "Explain (CopilotChat)" })
