@@ -5,7 +5,7 @@ return {
 	build = "make",
 	opts = {
 		mappings = {
-			ask = "<leader>aa",
+			ask = "<leader>ai",
 			edit = "<leader>ae",
 			refresh = "<leader>ar",
 			--- @class AvanteConflictMappings
