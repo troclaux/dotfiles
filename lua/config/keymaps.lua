@@ -25,7 +25,7 @@ vim.keymap.set("v", "L", "g_", { desc = "Go to end of line" })
 vim.keymap.set("v", "<Leader>=", ":!column -t<CR>gv=", { desc = "Column Align" })
 
 -- Search and replace
-vim.keymap.set("v", "<Leader>se", ":s/", { desc = "Search and replace command" })
+vim.keymap.set("v", "<Leader>r", ":s/", { desc = "Search and replace command" })
 
 -- run normal command on visual selection
 vim.keymap.set("v", "<Leader>n", ":normal ", { desc = "Run normal mode command" })
