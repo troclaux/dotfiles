@@ -28,6 +28,7 @@ return {
 				hint = "<leader>ah",
 			},
 		},
+		hints = { enabled = false },
 		windows = {
 			wrap = true, -- similar to vim.o.wrap
 			width = 50, -- default % based on available width
@@ -37,9 +38,9 @@ return {
 			},
 		},
 	},
-	-- if you want to download pre-built binary, then pass source=false. Make sure to follow instruction above.
-	-- Also note that downloading prebuilt binary is a lot faster comparing to compiling from source.
-	build = ":AvanteBuild source=false",
+	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+	build = "make",
+	-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
 	dependencies = {
 		"stevearc/dressing.nvim",
 		"nvim-lua/plenary.nvim",
