@@ -144,6 +144,7 @@ alias fin='find "$(pwd -P)" | grep -v ".git"'
 alias fgl='glow -p $(find . -type f | grep ".md" | fzf )'
 alias ggraph="git --no-pager log --oneline --graph --all"
 alias cps="fc -ln -1000 | sort | uniq | fzf | xclip -selection clipboard"
+alias rmp='rm $(find ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins -name "*.lua" | fzf) 2> /dev/null'
 
 alias up="sudo dnf upgrade -y && flatpak update -y"
 
