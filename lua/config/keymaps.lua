@@ -28,7 +28,8 @@ vim.keymap.set("v", "<Leader>=", ":!column -t<CR>gv=", { desc = "Column Align" }
 vim.keymap.set("v", "<Leader>r", ":s/", { desc = "Search and replace command" })
 
 -- run normal command on visual selection
-vim.keymap.set("v", "<Leader>n", ":normal ", { desc = "Run normal mode command" })
+vim.keymap.set("v", "<Leader>n", ":norm ", { desc = "Run normal mode command" })
+vim.keymap.set("v", "<Leader>m", ":norm @w<CR>", { desc = "Run normal mode command" })
 
 -------------------------
 -- NORMAL MODE KEYMAPS --
