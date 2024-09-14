@@ -1,6 +1,3 @@
--- Delete lazyvim keymaps --
-
--- vim.keymap.del("n", "<Leader>l")
 -------------------------
 -- INSERT MODE KEYMAPS --
 -------------------------
@@ -113,7 +110,7 @@ end, { desc = "Open tmux window in parent directory" })
 -- SNIPPETS KEYMAPS --
 ----------------------
 
--- Markdown heading
+-- Markdown
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 vim.keymap.set("n", "<Leader>pc", "o```<Esc>kO```<Esc>", { desc = "Surround with ```" })
 vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```<Esc>A", { desc = "Surround with ```" })
@@ -122,7 +119,7 @@ vim.keymap.set("n", "<Leader>1", 'o<Esc>0"_Di# ', { desc = "Insert markdown head
 vim.keymap.set("n", "<Leader>2", 'o<Esc>0"_Di## ', { desc = "Insert markdown heading ##" })
 vim.keymap.set("n", "<Leader>3", 'o<Esc>0"_Di### ', { desc = "Insert markdown heading ###" })
 
--- golang error handling
+-- Golang
 vim.keymap.set("n", "<leader>pe", "oif err != nil {<cr>}<esc>ko", { desc = "insert golang error statement" })
 
 --------------------
@@ -200,6 +197,11 @@ vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write com
 
 -- View markdown file with glow plugin
 vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
+--------------------
+-- DELETE KEYMAPS --
+--------------------
+
+-- vim.keymap.del("n", "<Leader>l")
 
 ---------------------
 -- BACK UP KEYMAPS --
