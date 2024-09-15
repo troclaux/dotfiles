@@ -1,5 +1,6 @@
 return {
 	"tpope/vim-fugitive",
+	"tpope/vim-repeat",
 	"ThePrimeagen/harpoon",
 	"tommcdo/vim-exchange",
 	"andrewradev/sideways.vim",
