@@ -4,28 +4,14 @@ return {
 	lazy = false,
 	opts = {
 		mappings = {
-			ask = "<leader>ai",
-			edit = "<leader>ae",
-			refresh = "<leader>ar",
+			-- ask = "<leader>ai",
+			-- edit = "<leader>ae",
+			-- refresh = "<leader>ar",
 			--- @class AvanteConflictMappings
 			diff = {
 				ours = "<Leader>ao",
 				theirs = "<Leader>at",
 				both = "<Leader>ab",
-				next = "]x",
-				prev = "[x",
-			},
-			jump = {
-				next = "]]",
-				prev = "[[",
-			},
-			submit = {
-				normal = "<CR>",
-				insert = "<C-s>",
-			},
-			toggle = {
-				debug = "<leader>ad",
-				hint = "<leader>ah",
 			},
 		},
 		hints = { enabled = false },
