@@ -11,11 +11,6 @@ return {
 	"preservim/tagbar",
 	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 	{
-		"chrisgrieser/nvim-various-textobjs",
-		event = "UIEnter",
-		opts = { useDefaultKeymaps = true },
-	},
-	{
 		"Wansmer/treesj",
 		lazy = true,
 		-- keys = { '<space>m', '<space>j', '<space>s' },
