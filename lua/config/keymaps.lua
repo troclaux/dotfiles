@@ -41,20 +41,8 @@ vim.keymap.set("n", "L", "g_", { desc = "Go to end of line" })
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Easy vim search
-vim.keymap.set("n", "ç", "/")
-
 -- Reselect pasted text
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
-
--- Select line without newline
-vim.keymap.set("n", "vil", "<Esc>^vg_", { desc = "Select line without newline" })
-
--- Delete line without newline
-vim.keymap.set("n", "dl", '^D"_dd', { desc = "Delete line without newline" })
-
--- Yank line without newline
-vim.keymap.set("n", "yl", "^vg_y", { desc = "Yank line without newline" })
 
 -- Insert a newline before pasting register content
 vim.keymap.set("n", "<Leader>pp", 'o<Esc>0"_Dp==', { desc = "Add newline and paste" })
