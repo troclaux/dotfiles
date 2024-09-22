@@ -36,7 +36,7 @@ vim.keymap.set("v", "<Leader>m", ":norm @w<CR>", { desc = "Run normal mode comma
 vim.keymap.set("n", "H", "^", { desc = "Go to start of line" })
 
 -- Go to end of line
-vim.keymap.set("n", "L", "$", { desc = "Go to end of line" })
+vim.keymap.set("n", "L", "g_", { desc = "Go to end of line" })
 
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set("n", "J", "mzJ`z")
