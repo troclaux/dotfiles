@@ -12,14 +12,12 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 -- Select until start of line in visual mode
 vim.keymap.set("v", "H", "^", { desc = "Go to start of line" })
 
--- Keep buffer after pasting over selection
-vim.keymap.set("v", "p", "p`[v`]y")
 
 -- Select until end of line in visual mode
 vim.keymap.set("v", "L", "g_", { desc = "Go to end of line" })
 
--- Align text in visual mode around equals sign
-vim.keymap.set("v", "<Leader>=", ":!column -t<CR>gv=", { desc = "Column Align" })
+-- Keep buffer after pasting over selection
+vim.keymap.set("v", "p", "p`[v`]y")
 
 -- Search and replace
 vim.keymap.set("v", "<Leader>r", ":s/", { desc = "Search and replace command" })
@@ -46,9 +44,6 @@ vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
 
 -- Insert a newline before pasting register content
 vim.keymap.set("n", "<Leader>pp", 'o<Esc>0"_Dp==', { desc = "Add newline and paste" })
-
--- Keybind for tmux-sessionizer
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
 
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv")
@@ -86,6 +81,9 @@ vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
 
 -- Apply title case
 vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to title case" })
+
+-- Keybind for tmux-sessionizer
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
 
 -- Open new tmux window in the parent folder of current buffer
 vim.keymap.set("n", "<Leader>tm", function()
@@ -132,6 +130,9 @@ vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugi
 -- Undotree plugin
 vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree panel" })
 
+-- Show current buffer summary
+vim.keymap.set("n", "<F8>", vim.cmd.TagbarToggle, { desc = "Show current buffer summary" })
+
 -- Vim-fugitive plugin
 vim.keymap.set("n", "<leader>gi", ":vert Git<CR>", { desc = "Git Status" })
 -- vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
@@ -171,33 +172,31 @@ vim.keymap.set("n", "<Leader>tr", require("treesj").toggle, { desc = "Split/Join
 -- Make a script executable
 vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<CR>", { desc = "Make script executable", silent = true })
 
--- Show current buffer summary
-vim.keymap.set("n", "<F8>", vim.cmd.TagbarToggle, { desc = "Show current buffer summary" })
-
 -- Move argument/parameter left/right
 vim.keymap.set("n", "<A-l>", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
 vim.keymap.set("n", "<A-h>", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
+
+-- View markdown file with glow plugin
+vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
 
 -- Copilot chat plugin
 vim.keymap.set("v", "<Leader>ae", ":CopilotChat explain<CR>", { desc = "Explain (CopilotChat)" })
 vim.keymap.set("v", "<Leader>af", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
 vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
 
--- View markdown file with glow plugin
-vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
---------------------
--- DELETE KEYMAPS --
---------------------
+-------------------------
+---- DELETE KEYMAPS -----
+-------------------------
 
 -- vim.keymap.del("n", "<Leader>l")
 
----------------------
--- BACK UP KEYMAPS --
----------------------
+-------------------------
+---- BACK UP KEYMAPS ----
+-------------------------
+
+-- vim.keymap.set("v", "S", "<nop>", { noremap = true })
 
 -- Change to current buffer's parent directory and run command
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
 
 -- vim.keymap.set("n", "<leader>gi", ":G | on<CR>", { desc = "Git Status" })
-
--- vim.keymap.set("v", "S", "<nop>", { noremap = true })
