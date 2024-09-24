@@ -108,6 +108,7 @@ vim.keymap.set("n", "<Leader>4", 'o<Esc>0"_Di#### ', { desc = "Insert markdown h
 
 -- Golang
 vim.keymap.set("n", "<leader>pe", "oif err != nil {<cr>}<esc>ko", { desc = "insert golang error statement" })
+vim.keymap.set("n", "<leader>pi", 'oimport (<CR>"fmt"<CR>)<Esc>ko""<Esc>i', { desc = "insert golang import statement" })
 
 --------------------
 -- PLUGIN KEYMAPS --
