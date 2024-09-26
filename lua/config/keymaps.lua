@@ -182,7 +182,7 @@ vim.keymap.set("n", "<A-h>", vim.cmd.SidewaysLeft, { desc = "Move argument/param
 vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
 
 -- Copilot chat plugin
-vim.keymap.set("v", "<Leader>ae", ":CopilotChat explain<CR>", { desc = "Explain (CopilotChat)" })
+vim.keymap.set("v", "<Leader>an", ":CopilotChat explain<CR>", { desc = "Analyze (CopilotChat)" })
 vim.keymap.set("v", "<Leader>af", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
 vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
 
