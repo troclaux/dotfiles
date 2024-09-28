@@ -142,6 +142,7 @@ alias clipboard="xclip -selection clipboard"
 alias fin='find "$(pwd -P)" | grep -v ".git"'
 alias fgl='glow -p $(find . -type f | grep ".md" | fzf )'
 alias ggraph="git --no-pager log --oneline --graph --all"
+alias sta="vim-startuptime -vimpath nvim | head -n 4 | tail -n 1"
 alias cps="fc -ln -1000 | sort | uniq | fzf | xclip -selection clipboard"
 alias rmp='rm $(find ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins -name "*.lua" | fzf) 2> /dev/null'
 
@@ -151,7 +152,6 @@ alias dot="cd $HOME/dotfiles"
 alias soz="source $HOME/.zshrc"
 alias trb="tree /usr/local/bin"
 alias trn="tree $HOME/.config/nvim/lua"
-
 alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | xclip -selection clipboard"
 alias off='file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf) && xdg-open "$file" 2>/dev/null'
 alias fop='file=$(find ~/ ~/Documents ~/Downloads ~/learning -mindepth 1 -maxdepth 2 -type d | fzf) && xdg-open "$file" 2>/dev/null'
