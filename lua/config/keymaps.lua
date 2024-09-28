@@ -60,9 +60,6 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<Leader>R", "*``cgn", { desc = "Replace word and go to next instance" })
 
 -- Search and replace
-
--- Apply title case
-vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to title case" })
 vim.keymap.set("n", "<Leader>r", ":%s/", { desc = "Search and replace command" })
 
 -- Quit nvim
@@ -78,6 +75,9 @@ vim.keymap.set("n", "<CR> ", 'mzO<Esc>0"_D`zo<Esc>0"_D`z', { desc = "Add blank l
 
 -- Open vim file explorer
 vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
+
+-- Go to left window and close all other windows
+vim.keymap.set("n", "<Leader>wp", "<C-w>h<C-w>h<C-w>o", { desc = "Go to left window and close all other windows" })
 
 -- Apply title case
 vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to title case" })
