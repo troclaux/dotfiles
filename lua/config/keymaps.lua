@@ -12,7 +12,6 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 -- Select until start of line in visual mode
 vim.keymap.set("v", "H", "^", { desc = "Go to start of line" })
 
-
 -- Select until end of line in visual mode
 vim.keymap.set("v", "L", "g_", { desc = "Go to end of line" })
 
