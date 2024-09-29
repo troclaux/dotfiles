@@ -133,7 +133,7 @@ vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugi
 vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree panel" })
 
 -- Show current buffer summary
-vim.keymap.set("n", "<F8>", vim.cmd.TagbarToggle, { desc = "Show current buffer summary" })
+vim.keymap.set("n", "<F8>", vim.cmd.TagbarOpenAutoClose, { desc = "Show current buffer summary" })
 
 -- Vim-fugitive plugin
 vim.keymap.set("n", "<leader>gi", ":vert Git<CR>", { desc = "Git Status" })
