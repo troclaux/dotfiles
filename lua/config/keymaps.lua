@@ -1,13 +1,11 @@
 -------------------------
 -- INSERT MODE KEYMAPS --
--------------------------
 
 -- Automatically closes curly braces
 vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 
 -------------------------
 -- VISUAL MODE KEYMAPS --
--------------------------
 
 -- Select until start of line in visual mode
 vim.keymap.set("v", "H", "^", { desc = "Go to start of line" })
@@ -27,7 +25,6 @@ vim.keymap.set("v", "<Leader>m", ":norm @w<CR>", { desc = "Run normal mode comma
 
 -------------------------
 -- NORMAL MODE KEYMAPS --
--------------------------
 
 -- Go to start of line
 vim.keymap.set("n", "H", "^", { desc = "Go to start of line" })
@@ -188,13 +185,11 @@ vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write com
 
 -------------------------
 ---- DELETE KEYMAPS -----
--------------------------
 
 -- vim.keymap.del("n", "<Leader>l")
 
 -------------------------
 ---- BACK UP KEYMAPS ----
--------------------------
 
 -- vim.keymap.set("v", "S", "<nop>", { noremap = true })
 
