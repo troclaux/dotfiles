@@ -140,7 +140,7 @@ alias du="du -h --max-depth=1"
 alias dgrep='grep -r --include=".*"'
 alias clipboard="xclip -selection clipboard"
 alias fin='find "$(pwd -P)" | grep -v ".git"'
-alias fgl='glow -p $(find . -type f | grep ".md" | fzf )'
+alias fgl='glow -p $(find . | grep ".md" | fzf )'
 alias ggraph="git --no-pager log --oneline --graph --all"
 alias sta="vim-startuptime -vimpath nvim | head -n 4 | tail -n 1"
 alias cps="fc -ln -1000 | sort | uniq | fzf | xclip -selection clipboard"
