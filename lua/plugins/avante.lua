@@ -12,6 +12,7 @@ return {
 				ours = "<Leader>ao",
 				theirs = "<Leader>at",
 				both = "<Leader>ab",
+				cursor = "<Leader>ac",
 			},
 		},
 		hints = { enabled = false },
