@@ -11,6 +11,7 @@ return {
 			diff = {
 				ours = "<Leader>ao",
 				theirs = "<Leader>at",
+				all_theirs = "<Leader>aT",
 				both = "<Leader>ab",
 				cursor = "<Leader>ac",
 			},
