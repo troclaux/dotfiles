@@ -32,7 +32,6 @@
       tags:
         - nvim
         - tmux
-        - node
         - zsh
 
     - name: Install tmux
@@ -54,12 +53,6 @@
     # zsh should be installed first so that other packages can add key bindings
     - include_tasks: tasks/zsh.yml
       tags: zsh
-
-    # node should be installed after zsh and before nvim
-    - include_tasks: tasks/node_setup.yml
-      tags:
-        - nvim
-        - node
 
     - include_tasks: tasks/nvim.yml
       tags: nvim
