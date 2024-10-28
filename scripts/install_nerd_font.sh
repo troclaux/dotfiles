@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# extract JetBrainsMono on Downloads directory
-# if the JetBrainsMono nerd mono font is not rendering correctly, try installing another font
-# it may fix the problem with JetBrainsMono
+# if gnome terminal is not rendering the font correctly, try installing another font
 
-sudo cp -r ~/Downloads/JetBrainsMono /usr/share/fonts
-fc-cache -f -v
+latest_url=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | grep -o 'https://.*JetBrainsMono.zip') &&
+	curl -fLo ~/Downloads/JetBrainsMono.zip "$latest_url" &&
+	unzip -o ~/Downloads/JetBrainsMono.zip -d ~/Downloads/JetBrainsMono &&
+	sudo cp -r ~/Downloads/JetBrainsMono /usr/share/fonts &&
+	fc-cache -f -v
