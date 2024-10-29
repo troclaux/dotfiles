@@ -58,6 +58,9 @@ vim.keymap.set("n", "<Leader>R", "*``cgn", { desc = "Replace word and go to next
 -- Search and replace
 vim.keymap.set("n", "<Leader>r", ":%s/", { desc = "Search and replace command" })
 
+-- Search and replace
+vim.keymap.set("n", "<Leader>W", [[mz:%s/\s\+$//e<CR>`z]], { desc = "Remove Trailing Whitespace" })
+
 -- Quit nvim
 vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
 
