@@ -3,15 +3,15 @@
   package:
     name: golang
     state: present
-  tags: optional_packages
   when: ansible_pkg_mgr == 'apt'
+  tags: optional_packages
 
 - name: Install go for Fedora
   package:
     name: go
     state: present
-  tags: optional_packages
   when: ansible_pkg_mgr == 'dnf'
+  tags: optional_packages
 
 - name: Install bat
   package:
@@ -52,5 +52,29 @@
 - name: Install xkill for Fedora
   dnf:
     name: xkill
-  tags: optional_packages
   when: ansible_pkg_mgr == 'dnf'
+  tags: optional_packages
+
+- name: Install ffmpeg
+  package:
+    name: ffmpeg
+    state: present
+  tags: optional_packages
+
+- name: Install yt-dlp
+  package:
+    name: yt-dlp
+    state: present
+  tags: optional_packages
+
+- name: Install rsync
+  package:
+    name: rsync
+    state: present
+  tags: optional_packages
+
+- name: Install rclone
+  package:
+    name: rclone
+    state: present
+  tags: optional_packages
