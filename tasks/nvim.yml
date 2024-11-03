@@ -28,6 +28,8 @@
     name:
       - ripgrep
       - fd-find
+      - lua
+      - luarocks
   tags: nvim
 
 - name: Install more neovim requirements for Ubuntu
