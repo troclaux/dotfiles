@@ -216,3 +216,31 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# ------------------------------------------
+# CUSTOM KEYS START
+# ------------------------------------------
+
+# Assign workspaces to outputs
+workspace 1 output eDP-1
+workspace 2 output HDMI-A-1
+
+# Assign display positioning
+output eDP1-1 pos 0 0
+output HDMI-A-1 pos 1366 0
+
+
+bindsym $mod+Control+Shift+Right move workspace to output right
+bindsym $mod+Control+Shift+Left move workspace to output left
+bindsym $mod+Control+Shift+Down move workspace to output down
+bindsym $mod+Control+Shift+Up move workspace to output up
+
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+z exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+x exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+bindsym $mod+n exec nautilus
+bindsym $mod+p exec systemctl suspend
