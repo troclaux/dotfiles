@@ -247,6 +247,10 @@ bindsym $mod+z exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+Shift+x exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
 bindsym $mod+Shift+z exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 
+# Control brightness with F3 and F4
+bindsym F4 exec light -A 5  # Increase brightness by 5%
+bindsym F3 exec light -U 5  # Decrease brightness by 5%
+
 # Application shortcuts
 bindsym $mod+n exec nautilus
 bindsym $mod+p exec wdisplays
