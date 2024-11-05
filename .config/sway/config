@@ -261,4 +261,6 @@ bindsym $mod+t exec flatpak run org.telegram.desktop
 bindsym Print exec grimshot copy area
 bindsym Shift+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 
+# Assign default workspace for applications
 assign [app_id="^gnome-terminal-server$"] workspace number 1
+assign [app_id="^rhythmbox$"] workskace number 1
