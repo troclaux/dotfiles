@@ -225,10 +225,12 @@ include /etc/sway/config.d/*
 workspace 1 output eDP-1
 workspace 2 output HDMI-A-1
 
-# Assign display positioning
-output eDP1-1 pos 0 0
-output HDMI-A-1 pos 1366 0
+workspace 1 layout tabbed
+workspace 2 layout stacking
 
+# Display positioning
+output eDP1-1 pos 0 250
+output HDMI-A-1 pos 1366 0
 
 bindsym $mod+Control+Shift+Right move workspace to output right
 bindsym $mod+Control+Shift+Left move workspace to output left
