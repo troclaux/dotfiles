@@ -258,5 +258,7 @@ bindsym $mod+n exec nautilus
 bindsym $mod+p exec wdisplays
 bindsym $mod+o exec systemctl suspend
 bindsym $mod+t exec flatpak run org.telegram.desktop
+bindsym Print exec grimshot copy area
+bindsym Shift+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 
 assign [app_id="^gnome-terminal-server$"] workspace number 1
