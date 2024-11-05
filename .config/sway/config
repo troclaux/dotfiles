@@ -221,6 +221,9 @@ include /etc/sway/config.d/*
 # CUSTOM CONFIGS
 # ------------------------------------------
 
+# Display positioning
+exec_always "pkill kanshi; kanshi"
+
 # Assign workspaces to outputs
 workspace 1 output eDP-1
 workspace 2 output HDMI-A-1
