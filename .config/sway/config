@@ -245,6 +245,10 @@ bindsym $mod+z exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+Shift+x exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
 bindsym $mod+Shift+z exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 
+bindsym Mod1+j exec playerctl previous
+bindsym Mod1+k exec playerctl play-pause
+bindsym Mod1+l exec playerctl next
+
 # Control brightness with F3 and F4
 bindsym F4 exec light -A 5  # Increase brightness by 5%
 bindsym F3 exec light -U 5  # Decrease brightness by 5%
