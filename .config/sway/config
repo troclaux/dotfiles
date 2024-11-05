@@ -224,6 +224,7 @@ include /etc/sway/config.d/*
 # Display positioning
 exec_always "pkill kanshi; kanshi"
 exec_always "nm-applet --indicator"
+exec_always "blueman-applet"
 
 # Assign workspaces to outputs
 workspace 1 output eDP-1
