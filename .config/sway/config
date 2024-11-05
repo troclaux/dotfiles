@@ -257,3 +257,4 @@ bindsym $mod+p exec wdisplays
 bindsym $mod+o exec systemctl suspend
 bindsym $mod+t exec flatpak run org.telegram.desktop
 
+assign [app_id="^gnome-terminal-server$"] workspace number 1
