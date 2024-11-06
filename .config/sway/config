@@ -225,6 +225,13 @@ include /etc/sway/config.d/*
 # Title bar padding configuration
 titlebar_padding 10 2
 
+# Set default layout for all workspaces
+workspace_layout stacking
+
+# Force all new windows to start in stacking layout
+for_window [class=".*"] layout stacking
+for_window [app_id=".*"] layout stacking
+
 # Display positioning
 exec_always "pkill kanshi; kanshi"
 exec_always "nm-applet --indicator"
@@ -233,8 +240,6 @@ exec_always "blueman-applet"
 # Assign workspaces to outputs
 workspace 1 output eDP-1
 workspace 2 output HDMI-A-1
-
-workspace_layout stacking
 
 bindsym $mod+Control+Shift+Right move workspace to output right
 bindsym $mod+Control+Shift+Left move workspace to output left
