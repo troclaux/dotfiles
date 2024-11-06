@@ -222,6 +222,9 @@ include /etc/sway/config.d/*
 # CUSTOM CONFIGS
 # ------------------------------------------
 
+# Title bar padding configuration
+titlebar_padding 10 2
+
 # Display positioning
 exec_always "pkill kanshi; kanshi"
 exec_always "nm-applet --indicator"
