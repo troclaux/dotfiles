@@ -232,6 +232,11 @@ workspace_layout stacking
 for_window [class=".*"] layout stacking
 for_window [app_id=".*"] layout stacking
 
+# Assign default workspace for applications
+assign [app_id="^gnome-terminal-server$"] workspace number 1
+assign [app_id="^org.telegram.desktop$"] workspace number 3
+assign [app_id="^rhythmbox$"] workspace number 3
+
 # Display positioning
 exec_always "pkill kanshi; kanshi"
 exec_always "nm-applet --indicator"
