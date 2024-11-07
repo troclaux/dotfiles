@@ -240,6 +240,9 @@ assign [app_id="^rhythmbox$"] workspace number 3
 # Launch at startup
 exec swaymsg "workspace 1; exec $term"
 
+exec systemd-inhibit --what=handle-power-key sleep infinity
+bindsym XF86PowerOff exec "sh -c 'swaylock -f & systemctl suspend'"
+
 # Display positioning
 exec_always "pkill kanshi; kanshi"
 exec_always "nm-applet --indicator"
