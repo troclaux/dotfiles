@@ -257,6 +257,9 @@ bindsym $mod+Control+Shift+Left move workspace to output left
 bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 
+# Attach to last workspace
+bindsym $mod+Tab workspace back_and_forth
+
 mode "Num_Lock" {
     bindsym Num_Lock mode "default"
 }
