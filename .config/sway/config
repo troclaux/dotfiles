@@ -258,6 +258,9 @@ bindsym $mod+Control+Shift+Left move workspace to output left
 bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 
+# Launch at startup
+exec swaymsg "workspace 1; exec $term"
+
 # Create marks and focus on marked windows
 bindsym Mod1+Shift+h mark --add mark1
 bindsym Mod1+Shift+j mark --add mark2
