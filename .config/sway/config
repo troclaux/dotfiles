@@ -283,11 +283,10 @@ bindsym Mod1+l exec playerctl next
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 
-# Application shortcuts
-bindsym $mod+n exec nautilus
+# System shortcuts
 bindsym $mod+p exec wdisplays
-bindsym $mod+o exec systemctl suspend
-bindsym $mod+t exec flatpak run org.telegram.desktop
+bindsym $mod+F1 exec swaylock & systemctl suspend
+
 bindsym Print exec grimshot copy area
 bindsym Shift+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 
