@@ -222,13 +222,13 @@ include /etc/sway/config.d/*
 # CUSTOM CONFIGS
 # ------------------------------------------
 
-# Title bar padding configuration
+# Title bar padding size
 titlebar_padding 10 2
 
-# Set default layout for all workspaces
+# Set stacking layout for all workspaces
 workspace_layout stacking
 
-# Force all new windows to start in stacking layout
+# Force all new windows to start with stacking layout
 for_window [class=".*"] layout stacking
 for_window [app_id=".*"] layout stacking
 
@@ -240,6 +240,7 @@ assign [app_id="^rhythmbox$"] workspace number 3
 # Launch at startup
 exec swaymsg "workspace 1; exec $term"
 
+# Disable XF86PowerOff key and assign it to suspend machine
 exec systemd-inhibit --what=handle-power-key sleep infinity
 bindsym XF86PowerOff exec "sh -c 'swaylock -f & systemctl suspend'"
 
@@ -248,7 +249,7 @@ exec_always "pkill kanshi; kanshi"
 exec_always "nm-applet --indicator"
 exec_always "blueman-applet"
 
-# Assign workspaces to outputs
+# Workspaces management
 workspace 1 output eDP-1
 workspace 2 output HDMI-A-1
 
@@ -273,6 +274,7 @@ bindsym Mod1+c unmark
 # Attach to last workspace
 bindsym $mod+Tab workspace back_and_forth
 
+# Add Num_Lock warning to waybar
 mode "Num_Lock" {
     bindsym Num_Lock mode "default"
 }
