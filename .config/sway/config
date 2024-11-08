@@ -257,6 +257,19 @@ bindsym $mod+Control+Shift+Left move workspace to output left
 bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 
+# Create marks and focus on marked windows
+bindsym Mod1+Shift+h mark --add mark1
+bindsym Mod1+Shift+j mark --add mark2
+bindsym Mod1+Shift+k mark --add mark3
+bindsym Mod1+Shift+l mark --add mark4
+
+bindsym Mod1+h [con_mark="mark1"] focus
+bindsym Mod1+j [con_mark="mark2"] focus
+bindsym Mod1+k [con_mark="mark3"] focus
+bindsym Mod1+l [con_mark="mark4"] focus
+
+bindsym Mod1+c unmark
+
 # Attach to last workspace
 bindsym $mod+Tab workspace back_and_forth
 
