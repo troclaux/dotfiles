@@ -296,3 +296,9 @@ assign [app_id="^rhythmbox$"] workskace number 1
 # Script shortcuts
 bindsym Mod1+f exec ~/dotfiles/bin/finder.sh
 
+# Application shortcuts
+# swaymsg -t get_tree | fzf | wl-copy
+bindsym Mod1+f exec --no-startup-id swaymsg [app_id="^org.gnome.Nautilus$"] focus || exec nautilus
+bindsym Mod1+r exec --no-startup-id swaymsg [app_id="^rhythmbox$"] focus || exec rhythmbox
+bindsym Mod1+b exec --no-startup-id swaymsg [class="^Brave-browser$"] focus || exec flatpak run com.brave.Browser
+bindsym Mod1+w exec --no-startup-id swaymsg [app_id="^org.telegram.desktop$"] focus || exec flatpak run org.telegram.desktop
