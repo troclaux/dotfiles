@@ -232,14 +232,6 @@ workspace_layout stacking
 for_window [class=".*"] layout stacking
 for_window [app_id=".*"] layout stacking
 
-# Assign default workspace for applications
-assign [app_id="^gnome-terminal-server$"] workspace number 1
-assign [app_id="^org.telegram.desktop$"] workspace number 3
-assign [app_id="^rhythmbox$"] workspace number 3
-
-# Launch at startup
-exec swaymsg "workspace 1; exec $term"
-
 # Disable XF86PowerOff key and assign it to suspend machine
 exec systemd-inhibit --what=handle-power-key sleep infinity
 bindsym XF86PowerOff exec "sh -c 'swaylock -f & systemctl suspend'"
@@ -264,6 +256,15 @@ bindsym $mod+c exec "wlr-randr --output HDMI-A-1 --off"
 
 # Launch at startup
 exec swaymsg "workspace 1; exec $term"
+
+# Assign default workspace for applications
+# Use command below to get app id
+# swaymsg -t get_tree | fzf | wl-copy
+assign [app_id="^gnome-terminal-server$"] workspace number 1
+assign [app_id="^org.telegram.desktop$"] workspace number 4
+assign [class="^Brave-browser$"] workspace number 2
+assign [app_id="^evince$"] workspace number 2
+assign [app_id="^rhythmbox$"] workspace number 3
 
 # Create marks and focus on marked windows
 bindsym Mod1+Shift+h mark --add mark1
