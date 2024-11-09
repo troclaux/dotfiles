@@ -244,6 +244,8 @@ exec_always "blueman-applet"
 # Workspaces management
 workspace 1 output eDP-1
 workspace 2 output HDMI-A-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
 
 bindsym $mod+Control+Shift+Right move workspace to output right
 bindsym $mod+Control+Shift+Left move workspace to output left
