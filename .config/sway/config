@@ -260,7 +260,7 @@ bindsym Mod1+2 exec "wlr-randr --output eDP-1 --off"
 # bindsym $mod+p exec wdisplays
 
 # Launch at startup
-exec swaymsg "workspace 1; exec $term"
+exec swaymsg "workspace 1; exec $term; exec 'sleep 1 && swaymsg [app_id="^kitty$"] mark mark1'"
 
 # Assign default workspace for applications
 # Use command below to get app id
