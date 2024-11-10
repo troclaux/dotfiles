@@ -306,9 +306,10 @@ bindsym $mod+z exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+Shift+x exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
 bindsym $mod+Shift+z exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 
-bindsym Mod1+j exec playerctl previous
-bindsym Mod1+k exec playerctl play-pause
-bindsym Mod1+l exec playerctl next
+# Control audio playback with alt gr key shortcuts
+bindsym Mod5+j exec playerctl previous
+bindsym Mod5+k exec playerctl play-pause
+bindsym Mod5+l exec playerctl next
 
 # Control brightness with Fn+F3 and Fn+F4
 bindsym XF86MonBrightnessUp exec light -A 5
