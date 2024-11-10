@@ -77,7 +77,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec kitty -1; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
+    bindsym $mod+Return exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
 
     # Kill focused window
     bindsym $mod+Shift+q kill
