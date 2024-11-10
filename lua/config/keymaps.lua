@@ -95,6 +95,9 @@ end, { desc = "Open tmux window in parent directory" })
 -- SNIPPETS KEYMAPS --
 ----------------------
 
+-- Bash
+vim.keymap.set("n", "<Leader>ps", "mzO#!/bin/bash<CR><Esc>`z", { desc = "Insert shebang statement" })
+
 -- Markdown
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 vim.keymap.set("n", "<Leader>pc", "p`[v`]omzo<Esc>o```<Esc>`zO```", { desc = "Paste and surround with ```" })
