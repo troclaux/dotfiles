@@ -237,6 +237,8 @@ for_window [app_id=".*"] layout stacking
 # Disable XF86PowerOff key and assign it to suspend machine
 exec systemd-inhibit --what=handle-power-key sleep infinity
 bindsym XF86PowerOff exec "sh -c 'swaylock -f & systemctl suspend'"
+bindsym $mod+XF86PowerOff exec poweroff
+bindsym Mod1+XF86PowerOff exec reboot
 
 # Display positioning
 exec_always "pkill kanshi; kanshi"
