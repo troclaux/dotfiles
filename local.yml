@@ -25,6 +25,7 @@
       package:
         name:
           - xclip
+          - wl-clipboard
           - unzip
           - curl
           - wget
