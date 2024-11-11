@@ -275,10 +275,10 @@ assign [app_id="^evince$"] workspace number 2
 assign [app_id="^rhythmbox$"] workspace number 3
 
 # Create marks and focus on marked windows
-bindsym Mod1+Shift+h mark --add mark1
-bindsym Mod1+Shift+j mark --add mark2
-bindsym Mod1+Shift+k mark --add mark3
-bindsym Mod1+Shift+l mark --add mark4
+bindsym $mod+Mod1+h mark --add mark1
+bindsym $mod+Mod1+j mark --add mark2
+bindsym $mod+Mod1+k mark --add mark3
+bindsym $mod+Mod1+l mark --add mark4
 
 bindsym Mod1+h [con_mark="mark1"] focus
 bindsym Mod1+j [con_mark="mark2"] focus
