@@ -178,8 +178,8 @@ vim.keymap.set("n", "<Leader>tr", require("treesj").toggle, { desc = "Split/Join
 vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<CR>", { desc = "Make script executable", silent = true })
 
 -- Move argument/parameter left/right
-vim.keymap.set("n", "<A-l>", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
-vim.keymap.set("n", "<A-h>", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
+vim.keymap.set("n", "<A-L>", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
+vim.keymap.set("n", "<A-H>", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
 
 -- View markdown file with glow plugin
 vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
