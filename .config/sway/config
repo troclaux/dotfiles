@@ -316,14 +316,12 @@ bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 
 # System shortcuts
-bindsym $mod+p exec wdisplays
 bindsym $mod+F1 exec swaylock & systemctl suspend
 
+# Screenshot shortcuts
 bindsym Print exec grimshot copy area
 bindsym Shift+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 
-# Assign default workspace for applications
-assign [app_id="^rhythmbox$"] workskace number 1
 # Script shortcuts
 bindsym Mod1+d exec ~/dotfiles/bin/finder.sh
 # bindsym Mod1+Shift+d exec wofi --show drun
