@@ -325,7 +325,8 @@ bindsym Shift+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%
 # Assign default workspace for applications
 assign [app_id="^rhythmbox$"] workskace number 1
 # Script shortcuts
-bindsym Mod1+f exec ~/dotfiles/bin/finder.sh
+bindsym Mod1+d exec ~/dotfiles/bin/finder.sh
+# bindsym Mod1+Shift+d exec wofi --show drun
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
