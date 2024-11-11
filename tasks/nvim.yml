@@ -77,7 +77,7 @@
 
 - name: Install neovim package for Fedora
   package:
-    name: 
+    name:
       - neovim
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
