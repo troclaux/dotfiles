@@ -1,0 +1,23 @@
+---
+
+- name: Install kitty package
+  package:
+    name: kitty
+    state: present
+  tags:
+    - kitty
+    - sway
+
+- name: Deletes ~/.config/kitty
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/kitty"
+    state: absent
+  tags:
+    - kitty
+    - sway
+
+- name: Stow kitty
+  shell: stow --target=~/.config kitty
+  tags:
+    - kitty
+    - sway
