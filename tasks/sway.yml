@@ -1,0 +1,77 @@
+---
+- name: Deletes ~/.config/sway
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/sway"
+    state: absent
+  tags: sway
+
+- name: Deletes ~/.config/kanshi
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/kanshi"
+    state: absent
+  tags: sway
+
+- name: Deletes ~/.config/kitty
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/kitty"
+    state: absent
+  tags: sway
+
+- name: Deletes ~/.config/waybar
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/waybar"
+    state: absent
+  tags: sway
+
+- name: Install packages for sway
+  package:
+    name:
+      - sway
+      - kanshi
+      - wlr-randr
+      - pulseaudio-utils
+      - playerctl
+      - light
+      - waybar
+      - wofi
+      - fuzzel
+      - wdisplays
+      - swaylock
+      - pavucontrol
+      - grimshot
+    state: present
+  tags:
+    - sway
+
+- name: Install font awesome for Debian-based distro
+  apt:
+    name:
+      - network-manager-gnome
+      - fonts-font-awesome
+  tags:
+    - sway
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Install font awesome for Fedora linux
+  dnf:
+    name:
+      - network-manager-applet
+      - fontawesome-fonts
+  tags:
+    - sway
+  when: ansible_pkg_mgr == 'dnf'
+
+- name: Stow sway
+  shell: stow --target=~/.config sway
+  tags:
+    - sway
+
+- name: Stow waybar
+  shell: stow --target=~/.config waybar
+  tags:
+    - sway
+
+- name: Stow kanshi
+  shell: stow --target=~/.config kanshi
+  tags:
+    - sway
