@@ -299,6 +299,11 @@ mode "Num_Lock" {
 }
 bindsym Num_Lock mode "Num_Lock"
 
+mode "Caps_Lock" {
+    bindsym Caps_Lock mode "default"
+}
+bindsym Caps_Lock mode "Caps_Lock"
+
 # Volume control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
