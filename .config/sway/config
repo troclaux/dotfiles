@@ -287,6 +287,9 @@ bindsym Mod1+l [con_mark="mark4"] focus
 
 bindsym Mod1+c unmark
 
+# Cancel vertical/horizontal split
+bindsym $mod+n split none
+
 # Attach to last workspace
 bindsym $mod+Tab workspace back_and_forth
 
