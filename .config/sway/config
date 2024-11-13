@@ -225,6 +225,9 @@ include /etc/sway/config.d/*
 # CUSTOM CONFIGS
 # ------------------------------------------
 
+# Disable sway from automatically moving when focusing on another output
+mouse_warping none
+
 # Title bar padding size
 titlebar_padding 10 2
 
