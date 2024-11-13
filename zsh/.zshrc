@@ -139,12 +139,12 @@ alias py="python3"
 alias open="xdg-open"
 alias du="du -h --max-depth=1"
 alias dgrep='grep -r --include=".*"'
-alias clipboard="xclip -selection clipboard"
+alias clipboard="wl-copy"
 alias fin='find "$(pwd -P)" | grep -v ".git"'
 alias fgl='glow -p $(find . | grep ".md" | fzf )'
 alias ggraph="git --no-pager log --oneline --graph --all"
 alias sta="vim-startuptime -vimpath nvim | head -n 4 | tail -n 1"
-alias cps="fc -ln -1000 | sort | uniq | fzf | xclip -selection clipboard"
+alias cps="fc -ln -1000 | sort | uniq | fzf | wl-copy"
 alias rmp='rm $(find ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins -name "*.lua" | fzf) 2> /dev/null'
 
 alias up="sudo dnf upgrade -y && flatpak update -y"
@@ -153,7 +153,7 @@ alias dot="cd $HOME/dotfiles"
 alias soz="source $HOME/.zshrc"
 alias trb="tree /usr/local/bin"
 alias trn="tree $HOME/.config/nvim/lua"
-alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | xclip -selection clipboard"
+alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | wl-copy"
 alias off='file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf) && xdg-open "$file" 2>/dev/null'
 alias fop='file=$(find ~/ ~/Documents ~/Downloads ~/learning -mindepth 1 -maxdepth 2 -type d | fzf) && xdg-open "$file" 2>/dev/null'
 alias ytp='yt-dlp -x --audio-format flac -o "~/Music/playlist/%(title)s.%(ext)s" --restrict-filenames $(xclip -selection clipboard -o)'
