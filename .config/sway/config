@@ -302,6 +302,7 @@ mode "Num_Lock" {
 }
 bindsym Num_Lock mode "Num_Lock"
 
+# Add Caps_Lock warning to waybar
 mode "Caps_Lock" {
     bindsym Caps_Lock mode "default"
 }
