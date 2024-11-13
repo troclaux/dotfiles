@@ -130,7 +130,7 @@ alias vim="nvim"
 alias ve="nvim ."
 alias vg="nvim -c 'Git | only'"
 alias vb="nvim -c \"normal '0\""
-alias vid="sudo nvim /etc/dnf/dnf.conf"
+alias vd="sudo nvim /etc/dnf/dnf.conf"
 alias vl="nvim . -c 'Telescope live_grep'"
 alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$file"'
 
