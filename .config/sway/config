@@ -234,20 +234,18 @@ titlebar_padding 10 2
 # Set stacking layout for all workspaces
 workspace_layout stacking
 
-# Force all new windows to start with stacking layout
+# Force windows to start with stacking layout
 for_window [class=".*"] layout stacking
 for_window [app_id=".*"] layout stacking
+
+# Define exceptions for stacking layout
+for_window [app_id="copyq$"] floating enable
 
 # Disable XF86PowerOff key and assign it to suspend machine
 exec systemd-inhibit --what=handle-power-key sleep infinity
 bindsym XF86PowerOff exec "sh -c 'swaylock -f & systemctl suspend'"
 bindsym $mod+XF86PowerOff exec poweroff
 bindsym Mod1+XF86PowerOff exec reboot
-
-# Display positioning
-exec_always "pkill kanshi; kanshi"
-exec_always "nm-applet --indicator"
-exec_always "blueman-applet"
 
 # Workspaces management
 workspace 1 output eDP-1
@@ -265,8 +263,14 @@ bindsym Mod1+1 exec "wlr-randr --output HDMI-A-1 --off"
 bindsym Mod1+2 exec "wlr-randr --output eDP-1 --off"
 # bindsym $mod+p exec wdisplays
 
-# Launch at startup
+# Execute command at startup
 exec swaymsg "workspace 1; exec $term; exec 'sleep 1 && swaymsg [app_id="^kitty$"] mark mark1'"
+exec "copyq"
+
+# Execute program every time Sway configuration is reloaded
+exec_always "pkill kanshi; kanshi"
+exec_always "nm-applet --indicator"
+exec_always "blueman-applet"
 
 # Assign default workspace for applications
 # Use command below to get app id
@@ -344,3 +348,4 @@ bindsym Mod1+f exec --no-startup-id swaymsg [app_id="^org.gnome.Nautilus$"] focu
 bindsym Mod1+r exec --no-startup-id swaymsg [app_id="^rhythmbox$"] focus || exec rhythmbox
 bindsym Mod1+b exec --no-startup-id swaymsg [class="^Brave-browser$"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="^Brave-browser$"] mark mark2"
 bindsym Mod1+w exec --no-startup-id swaymsg [app_id="^org.telegram.desktop$"] focus || exec flatpak run org.telegram.desktop
+bindsym Mod1+v exec copyq menu
