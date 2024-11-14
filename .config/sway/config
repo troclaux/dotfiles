@@ -259,9 +259,10 @@ bindsym $mod+Control+Shift+Left move workspace to output left
 bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 
-# Turn off secondary display
-bindsym Mod1+1 exec "wlr-randr --output HDMI-A-1 --off"
-bindsym Mod1+2 exec "wlr-randr --output eDP-1 --off"
+# Switch display configuration
+bindsym Mod1+1 exec "wlr-randr --output eDP-1 --on --output HDMI-A-1 --off"
+bindsym Mod1+2 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --on"
+bindsym Mod1+3 exec "wlr-randr --output eDP-1 --pos 0,0 --output HDMI-A-1 --pos 1366,0 --on"
 # bindsym $mod+p exec wdisplays
 
 # Execute command at startup
