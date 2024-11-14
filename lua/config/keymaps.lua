@@ -21,7 +21,7 @@ vim.keymap.set("v", "<Leader>r", ":s/", { desc = "Search and replace command" })
 
 -- run normal command on visual selection
 vim.keymap.set("v", "<Leader>n", ":norm ", { desc = "Run normal mode command" })
-vim.keymap.set("v", "<Leader>m", ":norm @w<CR>", { desc = "Run normal mode command" })
+vim.keymap.set("v", "<Leader>m", ":norm @w<CR>", { desc = "Run macro" })
 
 -------------------------
 -- NORMAL MODE KEYMAPS --
@@ -125,9 +125,6 @@ vim.keymap.set("n", "<Leader>E", vim.cmd.LazyExtras, { desc = "Lazy.nvim extra p
 
 -- Access Mason menu
 vim.keymap.set("n", "<Leader>M", vim.cmd.Mason, { desc = "Access Mason menu" })
-
--- Show nvim's startup time
-vim.keymap.set("n", "<Leader>S", vim.cmd.StartupTime, { desc = "Show nvim's startup time" })
 
 -- Update nvim plugins
 vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugins" })
