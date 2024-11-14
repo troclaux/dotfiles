@@ -24,9 +24,10 @@
         "temperature",
         "backlight",
         "sway/language",
+        "tray",
         "battery",
-        "clock",
-        "tray"
+        "clock#date",
+        "clock"
     ],
     // Modules configuration
     // "sway/workspaces": {
@@ -100,6 +101,12 @@
     "tray": {
         // "icon-size": 21,
         "spacing": 10
+    },
+    "clock#date": {
+        "interval": 20,
+        "format": "{:%e %b %Y}",
+        "tooltip": false
+        //"tooltip-format": "{:%e %B %Y}"
     },
     "clock": {
         // "timezone": "America/New_York",
