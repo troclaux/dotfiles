@@ -6,6 +6,3 @@ if [ -n "$selected_window" ]; then
   swaymsg [app_id="$selected_window"] focus
   swaymsg [class="$selected_window"] focus
 fi
-
-swaymsg [class="Brave-browser"] focus
-# swaymsg [pid="72640"] focus
