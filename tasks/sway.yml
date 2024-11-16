@@ -39,6 +39,7 @@
       - swaylock
       - pavucontrol
       - grimshot
+      - copyq
     state: present
   tags:
     - sway
