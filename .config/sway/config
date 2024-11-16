@@ -248,7 +248,7 @@ bindsym XF86PowerOff exec "sh -c 'swaylock -f & systemctl suspend'"
 bindsym $mod+XF86PowerOff exec poweroff
 bindsym Mod1+XF86PowerOff exec reboot
 
-# Workspaces management
+# Workspace management
 workspace 1 output eDP-1
 workspace 2 output HDMI-A-1
 workspace 3 output eDP-1
@@ -342,8 +342,9 @@ bindsym Shift+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%
 
 # Script shortcuts
 bindsym Mod1+s exec ~/dotfiles/bin/finder.sh
-# bindsym Mod1+Shift+d exec wofi --show drun
 bindsym Mod5+s exec ~/dotfiles/bin/focus_window.sh
+bindsym Mod1+v exec copyq menu
+# bindsym Mod5+d exec wofi --show drun --allow-images -i --matching=fuzzy
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
