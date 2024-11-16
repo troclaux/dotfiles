@@ -343,6 +343,7 @@ bindsym Shift+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%
 # Script shortcuts
 bindsym Mod1+s exec ~/dotfiles/bin/finder.sh
 # bindsym Mod1+Shift+d exec wofi --show drun
+bindsym Mod5+s exec ~/dotfiles/bin/focus_window.sh
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
