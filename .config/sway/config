@@ -321,8 +321,8 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+x exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $mod+z exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym $mod+Shift+x exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
-bindsym $mod+Shift+z exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
+bindsym Mod5+x exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
+bindsym Mod5+z exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 
 # Control audio playback with alt gr key shortcuts
 bindsym Mod5+j exec playerctl previous
