@@ -268,11 +268,11 @@ bindsym Mod1+3 exec "wlr-randr --output eDP-1 --pos 0,0 --on --output HDMI-A-1 -
 # Execute command at startup
 exec swaymsg "workspace 1; exec $term; exec 'sleep 1 && swaymsg [app_id="^kitty$"] mark mark1'"
 exec "copyq"
+exec "blueman-applet"
 
 # Execute program every time Sway configuration is reloaded
 exec_always "pkill kanshi; kanshi"
 exec_always "nm-applet --indicator"
-exec_always "blueman-applet"
 
 # Assign default workspace for applications
 # Use command below to get app id
