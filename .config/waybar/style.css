@@ -276,7 +276,7 @@ label:focus {
     background: #00b093;
     color: #740864;
     padding: 0 5px;
-    margin: 0 5px;
+    margin: 0 0px;
     min-width: 25px;
 }
 
