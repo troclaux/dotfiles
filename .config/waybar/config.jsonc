@@ -4,7 +4,7 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 5, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 2, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "sway/workspaces",
@@ -17,13 +17,13 @@
     "modules-right": [
         // "idle_inhibitor",
         "pulseaudio",
-        "network",
-        "power-profiles-daemon",
+        // "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
-        "backlight",
         "sway/language",
+        "backlight",
+        "network",
         "tray",
         "battery",
         "clock#date",
@@ -164,7 +164,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{essid} {signalStrength}% ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",

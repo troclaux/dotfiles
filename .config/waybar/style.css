@@ -1,11 +1,15 @@
+@define-color foreground #eff0f1;
+@define-color foreground-inactive #7f8c8d;
+@define-color background #232629;
+@define-color background-alt #31363b;
+
 * {
     font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
     font-size: 15px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.9);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: #000000;
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -49,7 +53,7 @@ button:hover {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: #a37800;
+    background-color: #357ec7;
 }
 
 #workspaces button {
@@ -113,12 +117,11 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: @background-alt;
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: @background-alt;
 }
 
 #battery.charging, #battery.plugged {
@@ -154,7 +157,7 @@ button:hover {
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2980b9;
+    background-color: @background-alt;
     color: #ffffff;
 }
 
@@ -168,12 +171,12 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    background-color: @background-alt;
+    color: #ffffff;
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: @background-alt;
 }
 
 #disk {
@@ -181,25 +184,24 @@ label:focus {
 }
 
 #backlight {
-    background-color: #90b1b1;
+    background-color: @background-alt;
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: @background-alt;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: #000000;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    background-color: @background-alt;
 }
 
 #pulseaudio.muted {
     background-color: #90b1b1;
-    color: #2a5c45;
+    color: #000000;
 }
 
 #wireplumber {
@@ -234,7 +236,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: @background-alt;
 }
 
 #tray > .passive {
@@ -273,8 +275,7 @@ label:focus {
 }
 
 #language {
-    background: #00b093;
-    color: #740864;
+    background: @background-alt;
     padding: 0 5px;
     margin: 0 0px;
     min-width: 25px;
