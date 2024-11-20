@@ -1,44 +1,56 @@
 3*6a4
 3*7a5
+3*8a6
 3*10a8
 1*12
+2*12
 3*12
 3*14
 3*15
 3*20
 3*40s
 4*7a5
+4*8a6
 4*10a8
-3(6+6)
+3*(6+6)
+3*(8+6+6)
 (8 5 3)
 (8 5 3+MAX+MAX)
 (12 8 5 3)
 3+MAX+MAX
 5*(12||MAX)
 3*(7a5+7a5)
+3*(8a6+8a6)
 3*(10a8+10a8)
 (6 8 10)
   - banco 2, joelho 2, pe 2
   - banco 3
   - banco 4
   - banco 4, mao 1/2
+  - banco 4, mao 2
   - banco 4, mao 3
   - banco 4, amplitude 3
   - banco 5
   - banco 5 mao 1/2
   - banco 5, mao 3
   - banco 5, apoio 4
+  - banco 6
   - apoio 5
   - banco reto
   - barra cinza
   - barra preta
+  - cadencia 40:20
+  - cadencia 20:10
   - intervalos 15s/30s/45s/60s
   - aquecimento 1x15
   - joelho 11, pe M
+  - joelho 12, pe M
   - descanso
   - sem descanso
+  - excentrica 4s
   - desce 4s sobe 2s
   - descer em 4s
+  - drop set 2 quedas na última série
   1. aquecimento
   1. aquecimento 1*12
   2. 3*6a4
@@ -46,24 +58,31 @@
   - N repetições completas + N repetições parciais
   - sprint 16
   - 1min sprint + 8x(20s sprint + 10s intervalo passivo)
+  - 6*(1min sprint + 2min recuperação)
 ## PEITO (COM AEROBICO)
 - supino reto
 - supino reto com halteres
 - supino reto maquina articulada
-- supino inclinado
+- supino inclinado barra livre
+- barra livre pronada
 - crucifixo fly
+- crucifixo com halteres banco inclinado
 - desenvolvimento articulado
 - triceps na polia alta
+- triceps na polia alta com barra (supinada + neutra)
 - elevaçao frontal na polia
 - elevaçao lateral com halteres
 ## COSTAS (COM AEROBICO)
 - puxada articulada pronada
 - puxada na polia neutra
+- puxada na polia dupla com rotação
 - remada articulada baixa neutra
 - remada articulada alta pronada
+- remada articulada alta neutra
 - remada livre curvada com barra supinada
 - puxada articulada supinada
 - biceps com barra W
+- biceps com barra reta
 - biceps com halteres banco inclinado
 - biceps alternado com halteres (c/ rotaçao)
 - abdominal infra no banco 1 declinado
@@ -76,6 +95,7 @@
 - agachamento livre com kettlebell
 - agachamento sumo com halter
 - cadeira extensora
+- cadeira abdutora
 - mesa flexora
 - leg press horizontal
 - flexao plantar na maquina
@@ -88,6 +108,7 @@
 - desenvolvimento barra
 - desenvolvimento arnold
 - desenvolvimento maquina
+- desenvolvimento maquina (pronada + neutra)
 - desenvolvimento com halteres
 - remada cavalo
 - triceps testa barra W
@@ -104,12 +125,18 @@
 - abdominal infra no solo (segurando no espaldar)
 ## PERNAS (SEM AEROBICO)
 - cadeira flexora
+- flexora ajoelhado na maquina (polia)
 - afundo no smith
 - v squat
 - abdominal canivete
 - abdominal bosu maquina
 - abdominal remador solo
 - abdominal maquina sentado life fitness
+- abdominal maquina sentado frente e laterais
 - flexao plantar no banco romano
 - esteira
+- escada
+- rotaçao externa de ombro na polia
+REPLACE WITH NEW EXERCISE
+REPLACE WITH NEW INFO
 END
