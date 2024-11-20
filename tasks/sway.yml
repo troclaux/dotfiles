@@ -1,50 +1,26 @@
 ---
-- name: Deletes ~/.config/sway
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/sway"
-    state: absent
-  tags: sway
-
-- name: Deletes ~/.config/kanshi
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/kanshi"
-    state: absent
-  tags: sway
-
-- name: Deletes ~/.config/kitty
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/kitty"
-    state: absent
-  tags: sway
-
-- name: Deletes ~/.config/waybar
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/waybar"
-    state: absent
-  tags: sway
-
 - name: Install packages for sway
   package:
     name:
       - sway
       - kanshi
-      - wlr-randr
-      - pulseaudio-utils
-      - playerctl
       - light
+      - swaylock
       - waybar
       - wofi
       - fuzzel
       - wdisplays
-      - swaylock
+      - wlr-randr
+      - pulseaudio-utils
       - pavucontrol
+      - playerctl
       - grimshot
       - copyq
     state: present
   tags:
     - sway
 
-- name: Install font awesome for Debian-based distro
+- name: Install font awesome and network management tool for Debian-based distro
   apt:
     name:
       - network-manager-gnome
@@ -53,7 +29,7 @@
     - sway
   when: ansible_pkg_mgr == 'apt'
 
-- name: Install font awesome for Fedora linux
+- name: Install font awesome and network management tool for Fedora linux
   dnf:
     name:
       - network-manager-applet
@@ -62,17 +38,96 @@
     - sway
   when: ansible_pkg_mgr == 'dnf'
 
-- name: Stow sway
-  shell: stow --target=~/.config sway
+- name: Deletes ~/.config/sway
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/sway"
+    state: absent
+  tags: sway
+
+- name: Create ~/.config/sway
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/sway"
+    state: directory
+  tags: sway
+
+- name: Creates symbolic link for sway config
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/sway/config"
+    dest: "{{ lookup('env', 'HOME') }}/.config/sway/config"
+    state: link
   tags:
     - sway
 
-- name: Stow waybar
-  shell: stow --target=~/.config waybar
+- name: Deletes ~/.config/kanshi
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/kanshi"
+    state: absent
+  tags: sway
+
+- name: Creates ~/.config/kanshi
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/kanshi"
+    state: directory
+  tags: sway
+
+- name: Creates symbolic link for kanshi config
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/kanshi/config"
+    dest: "{{ lookup('env', 'HOME') }}/.config/kanshi/config"
+    state: link
   tags:
     - sway
 
-- name: Stow kanshi
-  shell: stow --target=~/.config kanshi
+- name: Deletes ~/.config/waybar
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/waybar"
+    state: absent
+  tags: sway
+
+- name: Creates ~/.config/waybar
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/waybar"
+    state: directory
+  tags: sway
+
+- name: Creates symbolic link for waybar config
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/waybar/config.jsonc"
+    dest: "{{ lookup('env', 'HOME') }}/.config/waybar/config.jsonc"
+    state: link
+  tags:
+    - sway
+
+
+- name: Creates symbolic link for waybar css
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/waybar/style.css"
+    dest: "{{ lookup('env', 'HOME') }}/.config/waybar/style.css"
+    state: link
+  tags:
+    - sway
+
+- name: Deletes ~/.config/fuzzel
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/fuzzel"
+    state: absent
+  tags: sway
+
+- name: Creates ~/.config/fuzzel
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/fuzzel"
+    state: directory
+  tags: sway
+
+- name: Creates symbolic link for fuzzel's config file
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/fuzzel/fuzzel.ini"
+    dest: "{{ lookup('env', 'HOME') }}/.config/fuzzel/fuzzel.ini"
+    state: link
   tags:
     - sway
