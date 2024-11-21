@@ -6,18 +6,28 @@
     state: present
   tags:
     - kitty
-    - sway
 
-- name: Deletes ~/.config/kitty
+- name: Deletes ~/.config/kitty directory
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/.config/kitty"
     state: absent
   tags:
     - kitty
-    - sway
+    - stow_kitty_conf
 
-- name: Stow kitty
-  shell: stow --target=~/.config kitty
+- name: Creates ~/.config/kitty directory
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/kitty"
+    state: directory
   tags:
     - kitty
-    - sway
+    - stow_kitty_conf
+
+- name: Create symbolic link for kitty.conf
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/kitty/kitty.conf"
+    dest: "{{ lookup('env', 'HOME') }}/.config/kitty/kitty.conf"
+    state: link
+  tags:
+    - kitty
+    - stow_kitty_conf
