@@ -21,10 +21,11 @@
         "cpu",
         "memory",
         "temperature",
-        "sway/language",
         "backlight",
         "network",
         "tray",
+        "sway/language",
+        "custom/power",
         "battery",
         "clock#date",
         "clock"
