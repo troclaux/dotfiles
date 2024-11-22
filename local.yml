@@ -68,5 +68,11 @@
     - include_tasks: tasks/scripts.yml
       tags: scripts
 
+    - include_tasks: tasks/kitty.yml
+      tags: kitty
+
     - include_tasks: tasks/optional_packages.yml
       tags: optional_packages
+
+    - include_tasks: tasks/sway.yml
+      tags: sway
