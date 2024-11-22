@@ -106,19 +106,22 @@
     "clock#date": {
         "interval": 20,
         "format": "{:%e %b %Y}",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "gnome-calendar"
         //"tooltip-format": "{:%e %B %Y}"
     },
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        // "format-alt": "{:%Y %b %d}"
     },
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
     },
     "memory": {
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
         "format": "{}% "
     },
     "temperature": {
@@ -167,10 +170,15 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} {signalStrength}% ",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        // "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "Disconnected ⚠"
+        // "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    },
+    "sway/window": {
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -204,10 +212,10 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "⏻",
         "tooltip": false,
         "menu": "on-click",
-        "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+        "menu-file": "$HOME/dotfiles/.config/waybar/power_menu.xml", // Menu file in resources folder
         "menu-actions": {
             "shutdown": "shutdown",
             "reboot": "reboot",

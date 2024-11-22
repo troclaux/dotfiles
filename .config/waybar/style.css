@@ -106,6 +106,11 @@ button:hover {
     margin: 0 4px;
 }
 
+#window {
+    font-weight: bold;
+    color: #00bfff;
+}
+
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
@@ -126,7 +131,7 @@ button:hover {
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: #26A65B;
+    background-color: @background-alt;
 }
 
 @keyframes blink {
@@ -185,6 +190,10 @@ label:focus {
 
 #backlight {
     background-color: @background-alt;
+}
+
+#backlight:hover {
+    background-color: tomato;
 }
 
 #network {
@@ -324,4 +333,19 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
+}
+
+#custom-power {
+    background-color: @background-alt;
+    padding: 0 5px;
+}
+
+#custom-power:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#clock.date:hover {
+    background-color: #ffffff;
+    color: #000000;
 }
