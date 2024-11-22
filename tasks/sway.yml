@@ -102,6 +102,15 @@
     - sway
 
 
+- name: Creates symbolic link for sway's power button menu
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/waybar/power_menu.xml"
+    dest: "{{ lookup('env', 'HOME') }}/.config/waybar/power_menu.xml"
+    state: link
+  tags:
+    - sway
+
 - name: Creates symbolic link for waybar css
   become: true
   file:
@@ -128,6 +137,27 @@
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/fuzzel/fuzzel.ini"
     dest: "{{ lookup('env', 'HOME') }}/.config/fuzzel/fuzzel.ini"
+    state: link
+  tags:
+    - sway
+
+- name: Deletes ~/.config/wofi
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/wofi"
+    state: absent
+  tags: sway
+
+- name: Creates ~/.config/wofi
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/wofi"
+    state: directory
+  tags: sway
+
+- name: Creates symbolic link for wofi's css
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/wofi/style.css"
+    dest: "{{ lookup('env', 'HOME') }}/.config/wofi/style.css"
     state: link
   tags:
     - sway
