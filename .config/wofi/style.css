@@ -1,0 +1,20 @@
+window {
+  background-color: rgba(50, 50, 50, 1);
+  color: white;
+}
+
+#input {
+  margin: 5px;
+  background-color: rgba(50, 50, 50, 1);
+  color: white;
+  font-weight: bold;
+}
+
+#entry:selected {
+  background-color: #bbccdd;
+  color: #333333;
+}
+
+#text:selected {
+  color: #333333;
+}
