@@ -14,8 +14,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="eastwood"
-ZVM_LAZY_KEYBINDINGS=false
-ZSH_SYSTEM_CLIPBOARD_METHOD="wlc"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -81,8 +79,6 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
-    zsh-vi-mode
-    zsh-system-clipboard
     # kubectl
 )
 
@@ -115,20 +111,12 @@ export DOTFILES=$HOME/.dotfiles
 
 # Zsh key-bindings
 
-bindkey -v
-
 bindkey -s '^f' "tmux-sessionizer\n"
 bindkey -s '^p' "nvim . -c 'Telescope git_files'\n"
 bindkey -s '^h' "nvim . -c 'Telescope find_files'\n"
 bindkey -s '^b' "!!\n\n"
 
 bindkey '^Y' autosuggest-accept
-
-bindkey -M vicmd y zsh-system-clipboard-vicmd-vi-yank
-bindkey -M vicmd Y zsh-system-clipboard-vicmd-vi-yank-eol
-
-bindkey -M vicmd p zsh-system-clipboard-vicmd-vi-put-after
-bindkey -M vicmd P zsh-system-clipboard-vicmd-vi-put-before
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
