@@ -140,6 +140,7 @@ alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$fil
 alias lr="ls -R"
 alias py="python3"
 alias open="xdg-open"
+alias clipboard="wl-copy"
 alias du="du -h --max-depth=1"
 alias dgrep='grep -r --include=".*"'
 alias clipboard="wl-copy"
