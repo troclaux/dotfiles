@@ -261,8 +261,8 @@ bindsym $mod+Control+Shift+Up move workspace to output up
 
 # Switch display configuration
 bindsym Mod1+1 exec "wlr-randr --output eDP-1 --on --output HDMI-A-1 --off"
-bindsym Mod1+2 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --on"
-bindsym Mod1+3 exec "wlr-randr --output eDP-1 --pos 0,0 --on --output HDMI-A-1 --pos 1366,0 --on"
+bindsym Mod1+2 exec "wlr-randr --output eDP-1 --pos 0,0 --on --output HDMI-A-1 --pos 1366,0 --on"
+bindsym Mod1+3 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --on"
 # bindsym $mod+p exec wdisplays
 
 # Execute command at startup
@@ -340,7 +340,7 @@ bindsym $mod+F1 exec swaylock & systemctl suspend
 
 # Screenshot shortcuts
 bindsym Print exec grimshot copy area
-bindsym Shift+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
+bindsym $mod+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 
 # Script shortcuts
 bindsym Mod1+s exec ~/dotfiles/bin/finder.sh
@@ -353,5 +353,5 @@ bindsym Mod1+v exec copyq menu
 bindsym Mod1+e exec --no-startup-id swaymsg [app_id="^evince$"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="^evince$"] mark mark3"
 bindsym Mod1+r exec --no-startup-id swaymsg [app_id="^rhythmbox$"] focus || exec rhythmbox
 bindsym Mod1+n exec --no-startup-id swaymsg [app_id="^org.gnome.Nautilus$"] focus || exec nautilus
-bindsym Mod1+a exec --no-startup-id swaymsg [class="^Brave-browser$"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="^Brave-browser$"] mark mark2"
-bindsym Mod1+t exec --no-startup-id swaymsg [app_id="^org.telegram.desktop$"] focus || exec flatpak run org.telegram.desktop
+bindsym Mod1+q exec --no-startup-id swaymsg [class="^Brave-browser$"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="^Brave-browser$"] mark mark2"
+bindsym Mod1+z exec --no-startup-id swaymsg [app_id="^org.telegram.desktop$"] focus || exec flatpak run org.telegram.desktop
