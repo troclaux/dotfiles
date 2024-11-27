@@ -270,10 +270,11 @@ exec swaymsg "workspace 1; exec $term; exec 'sleep 1 && swaymsg [app_id="^kitty$
 exec "copyq"
 exec "blueman-applet"
 exec "playerctld daemon"
+exec "nm-applet --indicator"
+exec "dunst"
 
 # Execute program every time Sway configuration is reloaded
 exec_always "pkill kanshi; kanshi"
-exec_always "nm-applet --indicator"
 
 # Assign default workspace for applications
 # Use command below to get app id
