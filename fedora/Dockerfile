@@ -10,4 +10,6 @@ RUN dnf -y install ansible
 
 WORKDIR /root/dotfiles
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
+
+CMD ["ansible-playbook", "local.yml", "-K"]

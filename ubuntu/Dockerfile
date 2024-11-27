@@ -7,4 +7,6 @@ RUN apt install -y ansible
 
 WORKDIR /root/dotfiles
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
+
+CMD ["ansible-playbook", "local.yml", "-K"]

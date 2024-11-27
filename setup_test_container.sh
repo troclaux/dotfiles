@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo -e "Select action:\n(1)Build image\n(2)Run container"
 read action
 echo -e "\nSelect Dockerfile distro:\n(1)Ubuntu\n(2)Fedora"
