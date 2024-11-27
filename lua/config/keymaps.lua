@@ -100,8 +100,9 @@ vim.keymap.set("n", "<Leader>ps", "mzO#!/bin/bash<CR><Esc>`z", { desc = "Insert 
 
 -- Markdown
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
-vim.keymap.set("n", "<Leader>pc", "p`[v`]omzo<Esc>o```<Esc>`zO```", { desc = "Paste and surround with ```" })
+vim.keymap.set("n", "<Leader>pc", "p`[v`]omzo<Esc>o<Esc>S```<Esc>`zO```", { desc = "Paste and surround with ```" })
 vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```", { desc = "Surround with ```" })
+vim.keymap.set("n", "<Leader>pi", "pmz`[v`]o<Esc>i`<Esc>`zla`<Esc>", { desc = "Paste and surround with `" })
 
 vim.keymap.set("n", "<Leader>1", 'o<Esc>0"_Di# ', { desc = "Insert markdown heading #" })
 vim.keymap.set("n", "<Leader>2", 'o<Esc>0"_Di## ', { desc = "Insert markdown heading ##" })
@@ -110,8 +111,8 @@ vim.keymap.set("n", "<Leader>4", 'o<Esc>0"_Di#### ', { desc = "Insert markdown h
 
 -- Golang
 vim.keymap.set("n", "<leader>pe", "oif err != nil {<CR>return , err<CR>}<Esc>kf,i", { desc = "golang error" })
-vim.keymap.set("n", "<leader>pi", 'oimport "fmt"<Esc>hhh', { desc = "golang import single package" })
-vim.keymap.set("n", "<leader>pI", 'oimport (<CR>"fmt"<CR>)<Esc>ko""<Esc>i', { desc = "golang import packages" })
+vim.keymap.set("n", "<leader>pg", 'oimport "fmt"<Esc>hhh', { desc = "golang import single package" })
+vim.keymap.set("n", "<leader>pG", 'oimport (<CR>"fmt"<CR>)<Esc>ko""<Esc>i', { desc = "golang import packages" })
 
 --------------------
 -- PLUGIN KEYMAPS --
