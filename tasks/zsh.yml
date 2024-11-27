@@ -35,31 +35,3 @@
 #   shell: chsh -s $(which zsh)
 #   tags: zsh
 #   when: ansible_pkg_mgr == 'dnf'
-
-- name: Check if Oh My Zsh is installed
-  stat:
-    path: ~/.oh-my-zsh
-  register: oh_my_zsh_installed
-  tags: zsh
-
-- name: Install Oh My Zsh
-  shell: yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  args:
-    creates: ~/.oh-my-zsh
-  tags: zsh
-  when: oh_my_zsh_installed.stat.exists == false
-
-- name: Clone and install zsh-syntax-highlighting
-  ansible.builtin.git:
-    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
-    dest: '{{ ansible_env.ZSH_CUSTOM | default("~/.oh-my-zsh/custom") }}/plugins/zsh-syntax-highlighting'
-  become: true
-  tags:
-    - zsh_plugins
-
-- name: Install zsh-autosuggestions plugin
-  ansible.builtin.git:
-    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
-    dest: '~/.oh-my-zsh/plugins/zsh-autosuggestions'
-  tags:
-    - zsh_plugins
