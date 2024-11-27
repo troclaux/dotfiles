@@ -16,6 +16,8 @@
       - playerctl
       - grimshot
       - copyq
+      - dunst
+      - wshowkeys
     state: present
   tags:
     - sway
