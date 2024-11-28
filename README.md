@@ -25,6 +25,15 @@ chmod +x setup_test_container.sh && \
 ./setup_test_container.sh
 ```
 
+## scripts to run after ansible-playbook to finish setting up linux
+
+- `./scripts/fix_nvim_permissions.sh`
+- `./scripts/install_flatpaks.sh`
+- `./scripts/install_nerd_font.sh`
+- `./scripts/install_node.sh`
+- `./scripts/go_install.sh`
+- `./scripts/ohmyzsh.sh`
+
 ## Software without automated installation
 
 - VS Code
