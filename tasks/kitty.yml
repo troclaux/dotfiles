@@ -1,5 +1,4 @@
 ---
-
 - name: Install kitty package
   package:
     name: kitty
