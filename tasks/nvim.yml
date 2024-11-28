@@ -28,7 +28,6 @@
     name:
       - ripgrep
       - fd-find
-      - lua
       - luarocks
   tags: nvim
 
@@ -42,6 +41,7 @@
       - cmake
       - unzip
       - curl
+      - lua5.4
   tags: nvim
   when: ansible_pkg_mgr == 'apt'
 
@@ -50,6 +50,7 @@
     name:
       - gcc
       - gcc-c++
+      - lua
   tags: nvim
   when: ansible_pkg_mgr == 'dnf'
 
