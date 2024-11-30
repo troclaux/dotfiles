@@ -193,7 +193,7 @@ vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write com
 -- vim.keymap.del("n", "<Leader>l")
 
 -------------------------
----- BACK UP KEYMAPS ----
+---- BACKUP KEYMAPS -----
 
 -- vim.keymap.set("v", "S", "<nop>", { noremap = true })
 
