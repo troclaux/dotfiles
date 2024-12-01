@@ -142,9 +142,10 @@ alias lr="ls -R"
 alias py="python3"
 alias open="xdg-open"
 alias clipboard="wl-copy"
+alias im="kitty +kitten icat"
 alias du="du -h --max-depth=1"
 alias dgrep='grep -r --include=".*"'
-alias clipboard="wl-copy"
+alias ssh="TERM=xterm-256color ssh"
 alias fin='find "$(pwd -P)" | grep -v ".git"'
 alias fgl='glow -p $(find . | grep ".md" | fzf )'
 alias ggraph="git --no-pager log --oneline --graph --all"
