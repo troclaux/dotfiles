@@ -245,6 +245,7 @@ for_window [app_id="copyq$"] floating enable
 # Disable XF86PowerOff key and assign it to suspend machine
 exec systemd-inhibit --what=handle-power-key sleep infinity
 bindsym XF86PowerOff exec "sh -c 'swaylock -f & systemctl suspend'"
+bindsym Mod5+F1 exec "sh -c 'swaylock -f & systemctl suspend'"
 bindsym $mod+XF86PowerOff exec poweroff
 bindsym Mod1+XF86PowerOff exec reboot
 
@@ -268,11 +269,11 @@ bindsym Mod1+3 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --on"
 
 # Execute command at startup
 exec swaymsg "workspace 1; exec $term; exec 'sleep 1 && swaymsg [app_id="^kitty$"] mark mark1'"
+exec "dunst"
 exec "copyq"
 exec "blueman-applet"
 exec "playerctld daemon"
 exec "nm-applet --indicator"
-exec "dunst"
 
 # Execute program every time Sway configuration is reloaded
 exec_always "pkill kanshi; kanshi"
@@ -336,17 +337,9 @@ bindsym Mod5+l exec playerctl next
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 
-# System shortcuts
-bindsym $mod+F1 exec swaylock & systemctl suspend
-
 # Screenshot shortcuts
 bindsym Print exec grimshot copy area
 bindsym $mod+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
-
-# Paste snippet
-bindsym Mod5+e exec "wtype 'arthur.albuquerque.1995@gmail.com'"
-bindsym Mod5+g exec "wtype 'github.com/troclaux'"
-bindsym Mod5+i exec "wtype 'linkedin.com/in/arthur-moreira-de-albuquerque'"
 
 # Script shortcuts
 bindsym Mod1+s exec ~/dotfiles/bin/finder.sh
