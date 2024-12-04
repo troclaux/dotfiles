@@ -244,10 +244,10 @@ for_window [app_id="copyq$"] floating enable
 
 # Disable XF86PowerOff key and assign it to suspend machine
 exec systemd-inhibit --what=handle-power-key sleep infinity
-bindsym XF86PowerOff exec "sh -c 'swaylock -f -e -l -c 00ffff & systemctl suspend'"
-bindsym Mod5+F1 exec "sh -c 'swaylock -f -e -l -c 00ffff & systemctl suspend'"
-bindsym $mod+XF86PowerOff exec poweroff
-bindsym Mod1+XF86PowerOff exec reboot
+bindsym --locked XF86PowerOff exec "sh -c 'swaylock -f -e -l -c 00ffff & systemctl suspend'"
+bindsym --locked Mod5+F1 exec "sh -c 'swaylock -f -e -l -c 00ffff & systemctl suspend'"
+bindsym --locked $mod+XF86PowerOff exec poweroff
+bindsym --locked Mod1+XF86PowerOff exec reboot
 
 # Workspace management
 workspace 1 output eDP-1
