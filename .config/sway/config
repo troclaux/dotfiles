@@ -319,12 +319,15 @@ mode "Caps_Lock" {
 bindsym Caps_Lock mode "Caps_Lock"
 
 # Volume control
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym $mod+m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym $mod+x exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym $mod+z exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked F9 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked F11 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked F10 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked $mod+m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked $mod+x exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked $mod+z exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym Mod5+x exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
 bindsym Mod5+z exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 
