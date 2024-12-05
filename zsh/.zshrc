@@ -116,8 +116,12 @@ bindkey -s '^p' "nvim . -c 'Telescope git_files'\n"
 bindkey -s '^h' "nvim . -c 'Telescope find_files'\n"
 bindkey -s '^b' "!!\n\n"
 
-bindkey '^Y' autosuggest-accept
 bindkey "^[y" forward-word
+bindkey '^Y' autosuggest-accept
+bindkey "^I" up-line-or-beginning-search
+bindkey "^O" down-line-or-beginning-search
+bindkey "^G" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
