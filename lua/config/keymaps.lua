@@ -32,8 +32,14 @@ vim.keymap.set("n", "H", "^", { desc = "Go to start of line" })
 -- Go to end of line
 vim.keymap.set("n", "L", "$", { desc = "Go to end of line" })
 
+-- Go to middle of line
+vim.keymap.set("n", "M", "gM", { desc = "Go to middle of line" })
+
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set("n", "J", "mzJ`z")
+
+-- Search
+vim.keymap.set("n", "<A-f>", "/", { desc = "Search" })
 
 -- Reselect pasted text
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
