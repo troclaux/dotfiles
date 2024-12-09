@@ -309,14 +309,21 @@ bindsym $mod+Tab workspace back_and_forth
 # Add Num_Lock warning to waybar
 mode "Num_Lock" {
     bindsym Num_Lock mode "default"
+    bindsym Caps_Lock mode "Caps_Num_Lock"
 }
 bindsym Num_Lock mode "Num_Lock"
 
 # Add Caps_Lock warning to waybar
 mode "Caps_Lock" {
     bindsym Caps_Lock mode "default"
+    bindsym Num_Lock mode "Caps_Num_Lock"
 }
 bindsym Caps_Lock mode "Caps_Lock"
+
+mode "Caps_Num_Lock" {
+    bindsym Num_Lock mode "Caps_Lock"
+    bindsym Caps_Lock mode "Num_Lock"
+}
 
 # Volume control
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
