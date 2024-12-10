@@ -118,8 +118,6 @@ bindkey -s '^b' "!!\n\n"
 
 bindkey "^[y" forward-word
 bindkey '^Y' autosuggest-accept
-bindkey "^I" up-line-or-beginning-search
-bindkey "^O" down-line-or-beginning-search
 bindkey "^G" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
 
