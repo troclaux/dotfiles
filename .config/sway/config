@@ -285,6 +285,8 @@ assign [app_id="^kitty$"] workspace number 1
 assign [app_id="^org.telegram.desktop$"] workspace number 4
 assign [class="^Brave-browser$"] workspace number 2
 assign [app_id="^evince$"] workspace number 2
+assign [class="^Docker Desktop$"] workspace number 3
+assign [app_id="^org.qbittorrent.qBittorrent$"] workspace number 3
 assign [app_id="^rhythmbox$"] workspace number 3
 
 # Create marks and focus on marked windows
