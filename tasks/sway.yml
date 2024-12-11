@@ -18,6 +18,7 @@
       - copyq
       - dunst
       - wtype
+      - blueman
     state: present
   tags:
     - sway
