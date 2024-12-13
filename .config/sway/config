@@ -279,7 +279,7 @@ exec "nm-applet --indicator"
 exec_always "pkill kanshi; kanshi"
 
 # Assign default workspace for applications
-# Use command below to get app id
+# Use command below to get class or app id
 # swaymsg -t get_tree | fzf | wl-copy
 assign [app_id="^kitty$"] workspace number 1
 assign [app_id="^org.telegram.desktop$"] workspace number 4
