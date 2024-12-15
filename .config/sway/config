@@ -229,6 +229,8 @@ include /etc/sway/config.d/*
 # Disable sway from automatically moving when focusing on another output
 mouse_warping none
 
+# fix vimium's command visitPreviousTab
+focus_on_window_activation smart
 # Title bar padding size
 titlebar_padding 10 2
 
