@@ -207,7 +207,3 @@ rmsa() {
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$PATH:$VOLTA_HOME/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
-
-if [ -f ~/dotfiles/.env ]; then
-    source ~/dotfiles/.env
-fi
