@@ -135,13 +135,13 @@ vim.keymap.set("n", "<Leader>b", ":bprev<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>so", ":source<CR>", { noremap = true })
 
 -- Copy into system clipboard
-vim.keymap.set("n", "<Leader>y", '"+yy', { noremap = true }, { desc = "Yank to system clipboard n" })
-vim.keymap.set("v", "<Leader>y", '"+y', { noremap = true }, { desc = "Yank to system clipboard v" })
+vim.keymap.set("n", "<Leader>y", '"+yy', { noremap = true, desc = "Yank to system clipboard n" })
+vim.keymap.set("v", "<Leader>y", '"+y', { noremap = true, desc = "Yank to system clipboard v" })
 
 -- Manage Registers
-vim.keymap.set("n", "<Leader>pr", ":reg<CR>", { noremap = true }, { desc = "List Registers" })
-vim.keymap.set("n", "<Leader>pp", '"+p==', { noremap = true }, { desc = "Paste with system clipboard" })
-vim.keymap.set("n", "<Leader>PP", '"+P==', { noremap = true }, { desc = "Paste with system clipboard" })
+vim.keymap.set("n", "<Leader>pr", ":reg<CR>", { noremap = true, desc = "List Registers" })
+vim.keymap.set("n", "<Leader>pp", '"+p==', { noremap = true, desc = "Paste with system clipboard" })
+vim.keymap.set("n", "<Leader>PP", '"+P==', { noremap = true, desc = "Paste with system clipboard" })
 
 vim.keymap.set("n", "<Leader>p0", '"0p', { noremap = true })
 vim.keymap.set("n", "<Leader>p1", '"1p', { noremap = true })
