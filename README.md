@@ -1,31 +1,42 @@
 
 # Dotfiles
 
-> Automatically configure a fresh Linux workstation by installing all required packages and dotfiles
+> Automatically configure a fresh Linux workstation by installing all required packages and configuration files
+
+## Prerequisites
+
+- Git
+- Ansible
 
 ## Installation
 
 Clone Github repository:
 
-```
+```bash
 git clone https://github.com/troclaux/dotfiles ~/dotfiles
 ```
 
-- Install Ansible
-- Run Ansible playbook with the command below:
+Run Ansible playbook to setup a new linux machine:
 
-```
-ansible-playbook local.yml -K
+```bash
+ansible-playbook -K ~/dotfiles/local.yml
 ```
 
-## To test Ansible playbook, run the script that builds the Docker image and runs the container
+## Testing Ansible playbook
 
+Make the script `setup_test_container.sh` executable:
+
+```bash
+chmod +x ~/dotfiles/setup_test_container.sh
 ```
-chmod +x setup_test_container.sh && \
+
+Run the script to setup a Docker container where you can test the Ansible playbook:
+
+```bash
 ./setup_test_container.sh
 ```
 
-## scripts to run after ansible-playbook to finish setting up linux
+## Scripts to run after using Ansible playbook
 
 - `./scripts/fix_nvim_permissions.sh`
 - `./scripts/install_flatpaks.sh`
