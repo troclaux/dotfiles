@@ -79,7 +79,7 @@ vim.keymap.set("n", "] ", 'mzo<Esc>0"_D`z', { desc = "Add blank line after" })
 vim.keymap.set("n", "<CR> ", 'mzO<Esc>0"_D`zo<Esc>0"_D`z', { desc = "Add blank line below and after" })
 
 -- Open vim file explorer
-vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { desc = "Open vim file explorer" })
+vim.keymap.set("n", "<Leader>e", "<CMD>Oil<CR>", { desc = "Open file explorer" })
 
 -- Go to left window and close all other windows
 vim.keymap.set("n", "<Leader>wp", "<C-w>h<C-w>h<C-w>o", { desc = "Go to left window and close all other windows" })
@@ -192,6 +192,7 @@ vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with
 vim.keymap.set("v", "<Leader>an", ":CopilotChat explain<CR>", { desc = "Analyze (CopilotChat)" })
 vim.keymap.set("v", "<Leader>af", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
 vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open file explorer" })
 
 -------------------------
 ---- DELETE KEYMAPS -----

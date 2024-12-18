@@ -5,6 +5,7 @@ return {
 	opts = {
 		keymaps = {
 			["<C-p>"] = false,
+			["<C-h>"] = false,
 		},
 	},
 	-- Optional dependencies
