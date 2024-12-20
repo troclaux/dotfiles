@@ -205,5 +205,5 @@ rmsa() {
 # Set environment variables
 
 export VOLTA_HOME="$HOME/.volta"
-export PATH="$PATH:$VOLTA_HOME/bin"
+export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
