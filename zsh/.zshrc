@@ -135,6 +135,7 @@ alias ve="nvim ."
 alias vg="nvim -c 'Git | only'"
 alias vb="nvim -c \"normal '0\""
 alias vd="sudo nvim /etc/dnf/dnf.conf"
+alias vo="nvim . -c 'Telescope oldfiles'"
 alias vl="nvim . -c 'Telescope live_grep'"
 alias vs="vim-startuptime -vimpath nvim | head -4 | tail -1"
 alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$file"'
@@ -174,11 +175,6 @@ alias cdf='cd "$(find "$HOME" -type d | fzf)"'
 alias cdp='cd "$(find . -path "./.git" -prune -o -type d | fzf)"'
 
 ## Set shell functions
-
-touchd() {
-    dir_path=$(dirname "$1")
-    mkdir -p "$dir_path" && touch "$1"
-}
 
 rms() {
     local file="$1"
