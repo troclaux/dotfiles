@@ -104,9 +104,8 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-VIM="nvim"
-
-export GIT_EDITOR=$VIM
+export EDITOR="nvim"
+export GIT_EDITOR="$EDITOR"
 export DOTFILES=$HOME/.dotfiles
 
 # Zsh key-bindings
