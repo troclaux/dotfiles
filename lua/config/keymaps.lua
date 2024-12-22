@@ -108,8 +108,7 @@ vim.keymap.set("n", "<Leader>ps", "mzO#!/bin/bash<CR><Esc>`z", { desc = "Insert 
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 vim.keymap.set("n", "<Leader>pc", "p`[v`]omzo<Esc>o<Esc>S```<Esc>`zO```", { desc = "Paste and surround with ```" })
 vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```", { desc = "Surround with ```" })
-vim.keymap.set("n", "<Leader>pi", "pmz`[v`]o<Esc>i`<Esc>`zla`<Esc>", { desc = "Paste and surround with `" })
-vim.keymap.set("n", "<leader>pI", function()
+vim.keymap.set("n", "<leader>pi", function()
 	local text = vim.fn.getreg('"')
 	text = text:gsub("^%s+", ""):gsub("%s+$", "")
 	local surrounded = "`" .. text .. "`"
