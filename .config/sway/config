@@ -13,7 +13,7 @@ set $down j
 set $up k
 set $right l
 # Your sway variables
-set $term "kitty -1"
+set $term "kitty"
 set $display1 eDP-1
 set $display1_position 0,0
 set $display2 HDMI-A-1
