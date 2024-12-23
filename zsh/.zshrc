@@ -106,7 +106,8 @@ fi
 
 export EDITOR="nvim"
 export GIT_EDITOR="$EDITOR"
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES="$HOME/.dotfiles"
+export NOTES="$HOME/Documents/notes"
 
 # Zsh key-bindings
 
