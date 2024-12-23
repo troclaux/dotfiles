@@ -41,6 +41,12 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- Search
 vim.keymap.set("n", "<A-f>", "/", { desc = "Search" })
 
+-- Switch window
+vim.keymap.set("n", "<Tab>", "<C-w>w", { desc = "Switch window" })
+
+-- Close all other windows
+vim.keymap.set("n", "ç", "<C-w>o", { desc = "Close all other windows" })
+
 -- Reselect pasted text
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
 
@@ -74,9 +80,9 @@ vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
 vim.keymap.set("n", "<Leader>i", ":w<CR>", { desc = "Save current buffer" })
 
 -- Add blank line above/below
-vim.keymap.set("n", "[ ", 'mzO<Esc>0"_D`z', { desc = "Add blank line before" })
-vim.keymap.set("n", "] ", 'mzo<Esc>0"_D`z', { desc = "Add blank line after" })
-vim.keymap.set("n", "<CR> ", 'mzO<Esc>0"_D`zo<Esc>0"_D`z', { desc = "Add blank line below and after" })
+vim.keymap.set("n", "<Leader>[", 'mzO<Esc>0"_D`z', { desc = "Add blank line before" })
+vim.keymap.set("n", "<Leader>]", 'mzo<Esc>0"_D`z', { desc = "Add blank line after" })
+vim.keymap.set("n", "<Leader><CR>", 'mzO<Esc>0"_D`zo<Esc>0"_D`z', { desc = "Add blank line below and after" })
 
 -- Open vim file explorer
 vim.keymap.set("n", "<Leader>e", "<CMD>Oil<CR>", { desc = "Open file explorer" })
@@ -112,7 +118,7 @@ vim.keymap.set("n", "<leader>pi", function()
 	local text = vim.fn.getreg("+")
 	text = text:gsub("^%s+", ""):gsub("%s+$", "")
 	local surrounded = "`" .. text .. "`"
-	vim.api.nvim_put({ surrounded }, "c", false, true)
+	vim.api.nvim_put({ surrounded }, "c", true, true)
 end, { desc = "Paste text and surround with backticks" })
 
 vim.keymap.set("n", "<Leader>1", 'o<Esc>0"_Di# ', { desc = "Insert markdown heading #" })
@@ -146,6 +152,9 @@ vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree pa
 
 -- Show current buffer summary
 vim.keymap.set("n", "<F8>", vim.cmd.TagbarOpenAutoClose, { desc = "Show current buffer summary" })
+
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open file explorer" })
 
 -- Vim-fugitive plugin
 vim.keymap.set("n", "<leader>gi", ":vert Git<CR>", { desc = "Git Status" })
@@ -197,7 +206,9 @@ vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with
 vim.keymap.set("v", "<Leader>an", ":CopilotChat explain<CR>", { desc = "Analyze (CopilotChat)" })
 vim.keymap.set("v", "<Leader>af", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
 vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open file explorer" })
+
+-- Avante plugin
+vim.keymap.set("v", "<Leader>ak", ":AvanteAsk<CR>", { desc = "avante: ask" })
 
 -------------------------
 ---- DELETE KEYMAPS -----
