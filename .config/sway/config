@@ -18,8 +18,8 @@ set $term kitty -1
 
 input "type:keyboard" {
     xkb_layout br
-    xkb_options caps:swapescape
-    # xkb_options caps:escape
+    # xkb_options caps:swapescape
+    xkb_options caps:escape
 }
 
 input "type:touchpad" {
@@ -83,6 +83,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # Kill focused window
     bindsym $mod+Shift+q kill
     bindsym $mod+q kill
+    bindsym Mod1+F4 kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -263,11 +264,11 @@ bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 
 # Switch display configuration
-bindsym --locked Mod1+0 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --off"
-bindsym --locked Mod1+1 exec "wlr-randr --output eDP-1 --on --output HDMI-A-1 --off"
-bindsym --locked Mod1+2 exec "wlr-randr --output eDP-1 --pos 0,0 --on --output HDMI-A-1 --pos 1366,0 --on"
-bindsym --locked Mod1+3 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --on"
-# bindsym $mod+p exec wdisplays
+bindsym --locked Mod5+0 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --off"
+bindsym --locked Mod5+1 exec "wlr-randr --output eDP-1 --on --output HDMI-A-1 --off"
+bindsym --locked Mod5+2 exec "wlr-randr --output eDP-1 --pos 0,0 --on --output HDMI-A-1 --pos 1366,0 --on"
+bindsym --locked Mod5+3 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --on"
+bindsym $mod+p exec ~/dotfiles/bin/change_display_configuration.sh
 
 # Execute command at startup
 exec swaymsg "workspace 1; exec $term; exec 'sleep 1 && swaymsg [app_id="^kitty$"] mark mark1'"
