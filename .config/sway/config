@@ -12,9 +12,12 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-# set $term gnome-terminal
-set $term kitty -1
+# Your sway variables
+set $term "kitty -1"
+set $display1 eDP-1
+set $display1_position 0,0
+set $display2 HDMI-A-1
+set $display2_position 1366,0
 
 input "type:keyboard" {
     xkb_layout br
@@ -232,6 +235,7 @@ mouse_warping none
 
 # fix vimium's command visitPreviousTab
 focus_on_window_activation smart
+
 # Title bar padding size
 titlebar_padding 10 2
 
@@ -265,10 +269,10 @@ bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 
 # Switch display configuration
-bindsym --locked Mod5+0 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --off"
-bindsym --locked Mod5+1 exec "wlr-randr --output eDP-1 --on --output HDMI-A-1 --off"
-bindsym --locked Mod5+2 exec "wlr-randr --output eDP-1 --pos 0,0 --on --output HDMI-A-1 --pos 1366,0 --on"
-bindsym --locked Mod5+3 exec "wlr-randr --output eDP-1 --off --output HDMI-A-1 --on"
+bindsym --locked Mod5+0 exec "wlr-randr --output $display1 --off --output $display2 --off"
+bindsym --locked Mod5+1 exec "wlr-randr --output $display1 --on --output $display2 --off"
+bindsym --locked Mod5+2 exec "wlr-randr --output $display1 --pos $display1_position --on --output $display2 --pos $display2_position --on"
+bindsym --locked Mod5+3 exec "wlr-randr --output $display1 --off --output $display2 --on"
 bindsym $mod+p exec ~/dotfiles/bin/change_display_configuration.sh
 
 # Execute command at startup
