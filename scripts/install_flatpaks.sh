@@ -16,6 +16,7 @@ flatpak install -y flathub org.qbittorrent.qBittorrent
 flatpak install -y flathub com.getpostman.Postman
 flatpak install -y flathub org.gimp.GIMP
 flatpak install -y flathub it.mijorus.gearlever
+flatpak install -y flathub it.mijorus.smile
 
 # flatpak install -y flathub md.obsidian.Obsidian
 # flatpak install -y flathub org.audacityteam.Audacity
