@@ -3,6 +3,7 @@ return {
 	---@module 'oil'
 	---@type oil.SetupOpts
 	opts = {
+		delete_to_trash = true,
 		keymaps = {
 			["<C-p>"] = false,
 			["<C-h>"] = false,
