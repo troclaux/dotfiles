@@ -3,7 +3,6 @@
   package:
     name:
       - sway
-      - kanshi
       - light
       - swaylock
       - waybar
@@ -59,27 +58,6 @@
   file:
     src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/sway/config"
     dest: "{{ lookup('env', 'HOME') }}/.config/sway/config"
-    state: link
-  tags:
-    - sway
-
-- name: Deletes ~/.config/kanshi
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/kanshi"
-    state: absent
-  tags: sway
-
-- name: Creates ~/.config/kanshi
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/kanshi"
-    state: directory
-  tags: sway
-
-- name: Creates symbolic link for kanshi config
-  become: true
-  file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/kanshi/config"
-    dest: "{{ lookup('env', 'HOME') }}/.config/kanshi/config"
     state: link
   tags:
     - sway

@@ -283,8 +283,8 @@ exec "blueman-applet"
 exec "playerctld daemon"
 exec "nm-applet --indicator"
 
-# Execute program every time Sway configuration is reloaded
-exec_always "pkill kanshi; kanshi"
+# Execute command every time Sway configuration is reloaded
+exec_always "wlr-randr --output $display1 --pos $display1_position --on --output $display2 --pos $display2_position --on"
 
 # Assign default workspace for applications
 # Use command below to get class or app id
