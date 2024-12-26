@@ -277,6 +277,24 @@
     - nvim
     - stow_nvim_configs
 
+- name: Remove plugins/blink.lua
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/blink.lua"
+    state: absent
+  tags:
+    - nvim
+    - stow_nvim_configs
+
+- name: Create symbolic link for plugins/blink.lua
+  become: true
+  file:
+    src: "{{ lookup('env', 'HOME') }}/dotfiles/lua/plugins/blink.lua"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/blink.lua"
+    state: link
+  tags:
+    - nvim
+    - stow_nvim_configs
+
 - name: Remove plugins/oil.lua
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/plugins/oil.lua"
