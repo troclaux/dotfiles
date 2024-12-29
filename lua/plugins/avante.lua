@@ -4,7 +4,7 @@ return {
 	lazy = true,
 	opts = {
 		mappings = {
-			-- ask = "<leader>ai",
+			ask = "<leader>ai",
 			-- edit = "<leader>ae",
 			-- refresh = "<leader>ar",
 			--- @class AvanteConflictMappings
