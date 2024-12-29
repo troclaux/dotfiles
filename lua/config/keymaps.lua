@@ -175,19 +175,19 @@ vim.keymap.set("n", "<leader>C", mark.clear_all, { desc = "Harpoon clear marks" 
 
 vim.keymap.set("n", "<leader>h", function()
 	ui.nav_file(1)
-end, { desc = "Navigate mark 1" })
-
+end, { desc = "Harpoon go to mark 1" })
 vim.keymap.set("n", "<leader>j", function()
 	ui.nav_file(2)
-end, { desc = "Navigate mark 2" })
-
+end, { desc = "Harpoon go to mark 2" })
 vim.keymap.set("n", "<leader>k", function()
 	ui.nav_file(3)
-end, { desc = "Navigate mark 3" })
-
+end, { desc = "Harpoon go to mark 3" })
 vim.keymap.set("n", "<leader>l", function()
 	ui.nav_file(4)
-end, { desc = "Navigate mark 4" })
+end, { desc = "Harpoon go to mark 4" })
+vim.keymap.set("n", "<leader>ç", function()
+	ui.nav_file(5)
+end, { desc = "Harpoon go to mark 5" })
 
 -- Split/Join line of code
 vim.keymap.set("n", "<Leader>tr", require("treesj").toggle, { desc = "Split/Join line of code" })
