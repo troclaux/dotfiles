@@ -371,10 +371,10 @@ bindsym Mod1+period exec flatpak run it.mijorus.smile
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
-bindsym Mod1+e exec --no-startup-id swaymsg [app_id="^evince$"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="^evince$"] mark mark3"
-bindsym Mod1+r exec --no-startup-id swaymsg [app_id="^rhythmbox$"] focus || exec rhythmbox
-bindsym Mod1+n exec --no-startup-id swaymsg [app_id="^org.gnome.Nautilus$"] focus || exec nautilus
 bindsym Mod1+q exec --no-startup-id swaymsg [class="^Brave-browser$"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="^Brave-browser$"] mark mark2"
+bindsym Mod1+e exec --no-startup-id swaymsg [app_id="^evince$"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="^evince$"] mark mark3"
+bindsym Mod1+n exec --no-startup-id swaymsg [app_id="^org.gnome.Nautilus$"] focus || exec nautilus
+bindsym Mod1+r exec --no-startup-id swaymsg [app_id="^rhythmbox$"] focus || exec rhythmbox
 bindsym Mod1+z exec --no-startup-id swaymsg [app_id="^org.telegram.desktop$"] focus || exec flatpak run org.telegram.desktop
 
 # wtype keyboard bindings
