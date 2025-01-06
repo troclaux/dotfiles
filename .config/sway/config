@@ -247,8 +247,10 @@ for_window [class=".*"] layout stacking
 for_window [app_id=".*"] layout stacking
 
 # Define exceptions for stacking layout
-for_window [app_id="^copyq$"] floating enable
+# swaymsg -t get_tree | fzf | wl-copy
+for_window [app_id="^com.github.hluk.copyq$"] floating enable
 for_window [app_id="^it.mijorus.smile$"] floating enable
+for_window [app_id="^org.gnome.Calculator$"] floating enable
 
 # Disable XF86PowerOff key and assign it to suspend machine
 exec systemd-inhibit --what=handle-power-key sleep infinity
