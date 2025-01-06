@@ -141,6 +141,7 @@ alias vl="nvim . -c 'Telescope live_grep'"
 alias vs="vim-startuptime -vimpath nvim | head -4 | tail -1"
 alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$file"'
 
+alias dnf="dnf5"
 alias lr="ls -R"
 alias py="python3"
 alias open="xdg-open"
@@ -156,7 +157,7 @@ alias sta="vim-startuptime -vimpath nvim | head -n 4 | tail -n 1"
 alias cps="fc -ln -1000 | sort | uniq | fzf | wl-copy"
 alias rmp='rm $(find ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins -name "*.lua" | fzf) 2> /dev/null'
 
-alias up="sudo dnf upgrade -y && flatpak update -y"
+alias up="sudo dnf5 upgrade -y && flatpak update -y"
 
 alias dot="cd $HOME/dotfiles"
 alias soz="source $HOME/.zshrc"
