@@ -152,9 +152,9 @@ alias dgrep='grep -r --include=".*"'
 alias ssh="TERM=xterm-256color ssh"
 alias fin='find "$(pwd -P)" | grep -v ".git"'
 alias fgl='glow -p $(find . | grep ".md" | fzf )'
+alias cps="fc -ln -1000 | sort | uniq | fzf | wl-copy"
 alias ggraph="git --no-pager log --oneline --graph --all"
 alias sta="vim-startuptime -vimpath nvim | head -n 4 | tail -n 1"
-alias cps="fc -ln -1000 | sort | uniq | fzf | wl-copy"
 alias rmp='rm $(find ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins -name "*.lua" | fzf) 2> /dev/null'
 
 alias up="sudo dnf5 upgrade -y && flatpak update -y"
