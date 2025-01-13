@@ -78,3 +78,9 @@
     name: rclone
     state: present
   tags: optional_packages
+
+- name: Install openssl
+  package:
+    name: openssl
+    state: present
+  tags: optional_packages
