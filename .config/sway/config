@@ -248,9 +248,9 @@ for_window [app_id=".*"] layout stacking
 
 # Define exceptions for stacking layout
 # swaymsg -t get_tree | fzf | wl-copy
-for_window [app_id="^com.github.hluk.copyq$"] floating enable
-for_window [app_id="^it.mijorus.smile$"] floating enable
-for_window [app_id="^org.gnome.Calculator$"] floating enable
+for_window [app_id="com.github.hluk.copyq"] floating enable
+for_window [app_id="it.mijorus.smile"] floating enable
+for_window [app_id="org.gnome.Calculator"] floating enable
 
 # Disable XF86PowerOff key and assign it to suspend machine
 exec systemd-inhibit --what=handle-power-key sleep infinity
@@ -291,14 +291,13 @@ exec_always "wlr-randr --output $display1 --pos $display1_position --on --output
 # Assign default workspace for applications
 # Use command below to get class or app id
 # swaymsg -t get_tree | fzf | wl-copy
-assign [app_id="^kitty$"] workspace number 1
-assign [app_id="^evince$"] workspace number 2
-assign [class="^Brave-browser$"] workspace number 2
-assign [class="^steam$"] workspace number 3
-assign [app_id="^rhythmbox$"] workspace number 3
-assign [class="^Docker Desktop$"] workspace number 3
-assign [app_id="^org.qbittorrent.qBittorrent$"] workspace number 3
-assign [app_id="^org.telegram.desktop$"] workspace number 4
+assign [app_id="kitty"] workspace number 1
+assign [class="Brave-browser"] workspace number 2
+assign [class="steam"] workspace number 3
+assign [app_id="rhythmbox"] workspace number 3
+assign [class="Docker Desktop"] workspace number 3
+assign [app_id="org.qbittorrent.qBittorrent"] workspace number 3
+assign [app_id=".*telegram.*"] workspace number 4
 
 # Create marks and focus on marked windows
 bindsym Mod1+Mod5+h mark --add mark1
@@ -373,11 +372,11 @@ bindsym Mod1+period exec flatpak run it.mijorus.smile
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
-bindsym Mod1+x exec --no-startup-id swaymsg [class="^Brave-browser$"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="^Brave-browser$"] mark mark2"
-bindsym Mod1+e exec --no-startup-id swaymsg [app_id="^evince$"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="^evince$"] mark mark3"
-bindsym Mod1+z exec --no-startup-id swaymsg [app_id="^org.telegram.desktop$"] focus || exec flatpak run org.telegram.desktop
-bindsym Mod1+n exec --no-startup-id swaymsg [app_id="^org.gnome.Nautilus$"] focus || exec nautilus
-bindsym Mod1+r exec --no-startup-id swaymsg [app_id="^rhythmbox$"] focus || exec rhythmbox
+bindsym Mod1+x exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
+bindsym Mod1+e exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
+bindsym Mod1+z exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
+bindsym Mod1+n exec --no-startup-id swaymsg [app_id="org.gnome.Nautilus"] focus || exec nautilus
+bindsym Mod1+r exec --no-startup-id swaymsg [app_id="rhythmbox"] focus || exec rhythmbox
 
 # wtype keyboard bindings
 bindsym Menu+ exec zsh -c 'wtype /'
