@@ -88,7 +88,7 @@ vim.keymap.set("n", "<Leader><CR>", 'mzO<Esc>0"_D`zo<Esc>0"_D`z', { desc = "Add 
 vim.keymap.set("n", "<Leader>e", "<CMD>Oil<CR>", { desc = "Open file explorer" })
 
 -- Go to left window and close all other windows
-vim.keymap.set("n", "<Leader>wp", "<C-w>h<C-w>h<C-w>o", { desc = "Go to left window and close all other windows" })
+vim.keymap.set("n", "\\", "<C-w>h<C-w>h<C-w>o", { desc = "Go to left window and close all other windows" })
 
 -- Apply title case
 vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to title case" })
@@ -208,7 +208,7 @@ vim.keymap.set("v", "<Leader>af", ":CopilotChat fix<CR>", { desc = "Fix (Copilot
 vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
 
 -- Avante plugin
-vim.keymap.set("v", "<Leader>ak", ":AvanteAsk<CR>", { desc = "avante: ask" })
+-- vim.keymap.set("n", "<Leader>ak", ":AvanteAsk<CR>", { desc = "avante: ask" })
 
 -------------------------
 ---- DELETE KEYMAPS -----
