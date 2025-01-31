@@ -208,7 +208,7 @@ vim.keymap.set("v", "<Leader>af", ":CopilotChat fix<CR>", { desc = "Fix (Copilot
 vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
 
 -- Avante plugin
--- vim.keymap.set("n", "<Leader>ak", ":AvanteAsk<CR>", { desc = "avante: ask" })
+vim.keymap.set("n", "<Leader>ai", ":AvanteAsk ", { desc = "avante: ask" })
 
 -------------------------
 ---- DELETE KEYMAPS -----
