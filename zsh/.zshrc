@@ -113,8 +113,8 @@ export PERSONAL="$HOME/Documents/personal"
 # Zsh key-bindings
 
 bindkey -s '^f' "tmux-sessionizer\n"
-bindkey -s '^p' "nvim . -c 'Telescope git_files'\n"
-bindkey -s '^h' "nvim . -c 'Telescope find_files'\n"
+bindkey -s '^p' "nvim -c 'Telescope git_files'\n"
+bindkey -s '^h' "nvim -c 'Telescope find_files'\n"
 bindkey -s '^b' "!!\n\n"
 
 bindkey "^[y" forward-word
@@ -137,8 +137,8 @@ alias ve="nvim ."
 alias vg="nvim -c 'Git | only'"
 alias vb="nvim -c \"normal '0\""
 alias vd="sudo nvim /etc/dnf/dnf.conf"
-alias vo="nvim . -c 'Telescope oldfiles'"
-alias vl="nvim . -c 'Telescope live_grep'"
+alias vo="nvim -c 'Telescope oldfiles'"
+alias vl="nvim -c 'Telescope live_grep'"
 alias vs="vim-startuptime -vimpath nvim | head -4 | tail -1"
 alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$file"'
 
