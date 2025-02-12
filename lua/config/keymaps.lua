@@ -64,6 +64,13 @@ vim.keymap.set("n", "<C-b>", "<C-^>", { desc = "Go to previous buffer" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 
+-- Copy path of current buffer to clipboard
+vim.keymap.set("n", "<leader>yp", function()
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	print("Copied path: " .. path)
+end, { desc = "Copy file path to clipboard" })
+
 -- Change word and go to next instance
 vim.keymap.set("n", "<Leader>R", "*``cgn", { desc = "Replace word and go to next instance" })
 
