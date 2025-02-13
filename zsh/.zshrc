@@ -145,7 +145,7 @@ alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$fil
 alias dnf="dnf5"
 alias lr="ls -R"
 alias py="python3"
-alias open="xdg-open"
+alias open="nohup xdg-open "$@" >/dev/null 2>&1 &"
 alias clipboard="wl-copy"
 alias im="kitty +kitten icat"
 alias du="du -h --max-depth=1"
@@ -165,8 +165,8 @@ alias soz="source $HOME/.zshrc"
 alias trb="tree /usr/local/bin"
 alias trn="tree $HOME/.config/nvim/lua"
 alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | wl-copy"
-alias off='file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf) && xdg-open "$file" 2>/dev/null'
-alias fop='file=$(find ~/ ~/Documents ~/Downloads ~/learning -mindepth 1 -maxdepth 2 -type d | fzf) && xdg-open "$file" 2>/dev/null'
+alias off='file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf); [ -n "$file" ] && nohup xdg-open "$file" >/dev/null 2>&1 &'
+alias fop='file=$(find ~/ ~/Documents ~/Downloads ~/learning -mindepth 1 -maxdepth 2 -type d | fzf); [ -n "$file" ] && nohup xdg-open "$file" >/dev/null 2>&1 &'
 alias ytp='yt-dlp -x --audio-format flac -o "~/Music/playlist/%(title)s.%(ext)s" --restrict-filenames $(xclip -selection clipboard -o)'
 alias yt='yt-dlp -x --audio-format flac -o "~/Music/%(title)s.%(ext)s" --restrict-filenames $(xclip -selection clipboard -o) --no-playlist'
 alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
