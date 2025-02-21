@@ -16,8 +16,8 @@ vim.keymap.set("v", "L", "g_", { desc = "Go to end of line" })
 -- Keep buffer after pasting over selection
 vim.keymap.set("v", "p", "p`[v`]y")
 
--- Search and replace
-vim.keymap.set("v", "<Leader>r", ":s/", { desc = "Search and replace command" })
+-- Replace occurrences
+vim.keymap.set("v", "<Leader>rr", ":s/", { desc = "Replace occurrences" })
 
 -- run normal command on visual selection
 vim.keymap.set("v", "<Leader>n", ":norm ", { desc = "Run normal mode command" })
@@ -72,13 +72,17 @@ vim.keymap.set("n", "<leader>yp", function()
 end, { desc = "Copy file path to clipboard" })
 
 -- Change word and go to next instance
-vim.keymap.set("n", "<Leader>R", "*``cgn", { desc = "Replace word and go to next instance" })
+vim.keymap.set("n", "<Leader>rn", "*``cgn", { desc = "Replace word and go to next instance" })
 
--- Search and replace
-vim.keymap.set("n", "<Leader>r", ":%s/", { desc = "Search and replace command" })
+-- Replace occurrences
+vim.keymap.set("n", "<Leader>rr", ":%s/", { desc = "Replace occurrences" })
 
--- Search and replace
-vim.keymap.set("n", "<Leader>W", [[mz:%s/\s\+$//e<CR>`z]], { desc = "Remove Trailing Whitespace" })
+-- Remove Trailing Whitespace
+vim.keymap.set("n", "<Leader>rw", [[mz:%s/\s\+$//e<CR>`z]], { desc = "Remove Trailing Whitespace" })
+
+-- Remove asterisks
+vim.keymap.set("v", "<Leader>ra", ":s/\\*//g<CR>", { desc = "Remove asterisks in selection" })
+vim.keymap.set("n", "<Leader>ra", ":s/\\*//g<CR>", { desc = "Remove asterisks in current line" })
 
 -- Quit nvim
 vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
@@ -119,7 +123,12 @@ vim.keymap.set("n", "<Leader>ps", "mzO#!/bin/bash<CR><Esc>`z", { desc = "Insert 
 
 -- Markdown
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
-vim.keymap.set("n", "<Leader>pc", "p`[v`]omzo<Esc>o<Esc>S```<Esc>`zO```", { desc = "Paste and surround with ```" })
+vim.keymap.set(
+	"n",
+	"<Leader>pc",
+	"o<Esc>p`[v`]omzo<Esc>o<Esc>S```<Esc>`zO```",
+	{ desc = "Paste and surround with ```" }
+)
 vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```", { desc = "Surround with ```" })
 vim.keymap.set("n", "<leader>pi", function()
 	local text = vim.fn.getreg("+")
