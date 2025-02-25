@@ -200,8 +200,20 @@ rmsa() {
     done
 }
 
+tsr() {
+  if [ -z "$1" ]; then
+    echo "Usage: run_ts <filename.ts>"
+    return 1
+  fi
+
+  tsc "$1" && node "${1%.ts}.js" && rm -f "${1%.ts}.js"
+}
+
 # Set environment variables
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
+
+# Turso
+export PATH="$PATH:/home/troclaux/.turso"
