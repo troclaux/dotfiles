@@ -1,8 +1,8 @@
 #!/bin/bash
 
-pdf_files=$(ls ~/Documents/*/pdfs/*.pdf 2>/dev/null || echo "")
+pdf_files=$(find ~/Documents/*/pdfs -maxdepth 1 -type f -name "*.pdf" 2>/dev/null)
 
-find_files=$(find -L ~/Videos ~/Downloads ~/books ~/Documents -mindepth 1 -maxdepth 4 -type f 2>/dev/null)
+find_files=$(find -L ~/Videos ~/Downloads ~/books ~/Documents -mindepth 1 -maxdepth 3 -type f 2>/dev/null)
 
 combined_output=$(printf "%s\n%s" "$pdf_files" "$find_files")
 
