@@ -219,12 +219,12 @@ vim.keymap.set("n", "<A-H>", vim.cmd.SidewaysLeft, { desc = "Move argument/param
 vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
 
 -- Copilot chat plugin
-vim.keymap.set("v", "<Leader>an", ":CopilotChat explain<CR>", { desc = "Analyze (CopilotChat)" })
-vim.keymap.set("v", "<Leader>af", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
-vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
+-- vim.keymap.set("v", "<Leader>ax", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
+-- vim.keymap.set("v", "<Leader>an", ":CopilotChat explain<CR>", { desc = "Analyze (CopilotChat)" })
+-- vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
 
 -- Avante plugin
-vim.keymap.set("n", "<Leader>ai", ":AvanteAsk ", { desc = "avante: ask" })
+vim.keymap.set("n", "<Leader>af", ":AvanteAsk position=right fix<CR>", { desc = "avante: fix" })
 
 -------------------------
 ---- DELETE KEYMAPS -----
