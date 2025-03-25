@@ -2,8 +2,11 @@
 3*7a5
 3*8a6
 3*10a8
+3*12a10
 1*12
+2*6
 2*12
+3*6
 3*12
 3*14
 3*15
@@ -12,24 +15,30 @@
 4*7a5
 4*8a6
 4*10a8
+2*(6+6)
 3*(6+6)
 3*(8+6+6)
 (8 5 3)
 (8 5 3+MAX+MAX)
 (12 8 5 3)
 3+MAX+MAX
+3*(8||MAX)
 5*(12||MAX)
+3*(6a4+6a4)
 3*(7a5+7a5)
 3*(8a6+8a6)
 3*(10a8+10a8)
 (6 8 10)
+  - banco 2, amplitude 3
   - banco 2, joelho 2, pe 2
   - banco 3
   - banco 4
   - banco 4, mao 1/2
   - banco 4, mao 2
+  - banco 4, mao 2, dedo 2
   - banco 4, mao 3
   - banco 4, amplitude 3
+  - banco 4, joelho 2, pe 3
   - banco 5
   - banco 5 mao 1/2
   - banco 5, mao 3
@@ -43,14 +52,18 @@
   - cadencia 20:10
   - intervalos 15s/30s/45s/60s
   - aquecimento 1x15
+  - aquecimento 1x10
+  - aquecimento 1x12
   - joelho 11, pe M
   - joelho 12, pe M
   - descanso
   - sem descanso
   - excentrica 4s
-  - desce 4s sobe 2s
   - descer em 4s
+  - desce 4s sobe 2s
+  - rest pause 15s
   - drop set 2 quedas na última série
+  - pico de contracao 2s em todas as repeticoes
   1. aquecimento
   1. aquecimento 1*12
   2. 3*6a4
@@ -62,10 +75,12 @@
 ## PEITO (COM AEROBICO)
 - supino reto
 - supino reto com halteres
+- supino reto maquina
 - supino reto maquina articulada
 - supino inclinado barra livre
 - barra livre pronada
 - crucifixo fly
+- crucifixo maquina
 - crucifixo com halteres banco inclinado
 - desenvolvimento articulado
 - triceps na polia alta
@@ -75,11 +90,14 @@
 ## COSTAS (COM AEROBICO)
 - puxada articulada pronada
 - puxada na polia neutra
+- puxada na polia life pronada
+- puxada na polia life supinada
 - puxada na polia dupla com rotação
 - remada articulada baixa neutra
 - remada articulada alta pronada
 - remada articulada alta neutra
 - remada livre curvada com barra supinada
+- remada livre curvada com barra pronada
 - puxada articulada supinada
 - biceps com barra W
 - biceps com barra reta
@@ -93,6 +111,7 @@
 - agachamento com barra
 - agachamento livre com barra
 - agachamento livre com kettlebell
+- agachamento sumo com barra
 - agachamento sumo com halter
 - cadeira extensora
 - cadeira abdutora
@@ -104,6 +123,7 @@
 - supino inclinado com halteres
 - flexao de braço no solo
 - paralela fechada no graviton
+- paralela/barra livre
 - cross over
 - desenvolvimento barra
 - desenvolvimento arnold
@@ -112,12 +132,14 @@
 - desenvolvimento com halteres
 - remada cavalo
 - triceps testa barra W
+- triceps frances bilateral
 - triceps na maquina testa
 - barra no graviton neutra (livre)
 - barra no graviton pronada
 - remada na maquina
 - remada na polia life neutra
 - remada cavalo
+- rosca biceps maquina scott
 - rosca biceps banco scott (invertido - barra W)
 - pulldown
 - rosca biceps na polia baixa
@@ -131,12 +153,14 @@
 - abdominal canivete
 - abdominal bosu maquina
 - abdominal remador solo
+- abdominal maquina deitado
 - abdominal maquina sentado life fitness
 - abdominal maquina sentado frente e laterais
+- rotaçao externa de ombro na polia
 - flexao plantar no banco romano
 - esteira
 - escada
-- rotaçao externa de ombro na polia
+- todos cadencia 40:20
 REPLACE WITH NEW EXERCISE
 REPLACE WITH NEW INFO
 END
