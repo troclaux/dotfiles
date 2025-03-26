@@ -82,6 +82,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # Start a terminal
     bindsym $mod+Return exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
     bindsym Mod1+Return exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
+    bindsym Mod1+1 exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -364,7 +365,7 @@ bindsym Print exec grimshot copy area
 bindsym $mod+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 
 # Script shortcuts
-bindsym Mod1+s exec ~/dotfiles/bin/finder.sh
+bindsym Mod1+f exec ~/dotfiles/bin/finder.sh
 bindsym Mod5+s exec ~/dotfiles/bin/focus_window.sh
 bindsym Mod1+v exec copyq menu
 bindsym Mod1+period exec flatpak run it.mijorus.smile
@@ -372,14 +373,12 @@ bindsym Mod1+period exec flatpak run it.mijorus.smile
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
-bindsym Mod1+x exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
-bindsym Mod1+e exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
-bindsym Mod1+z exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
+bindsym Mod1+2 exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
+bindsym Mod1+3 exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
+bindsym Mod1+4 exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
 bindsym Mod1+n exec --no-startup-id swaymsg [app_id="org.gnome.Nautilus"] focus || exec nautilus
 bindsym Mod1+r exec --no-startup-id swaymsg [app_id="rhythmbox"] focus || exec rhythmbox
 
 # wtype keyboard bindings
 bindsym Menu+ exec zsh -c 'wtype /'
 bindsym Mod5+g exec "wtype 'github.com/troclaux'"
-bindsym Mod5+e exec zsh -c 'wtype \"$MY_EMAIL\"'
-bindsym Mod5+i exec zsh -c 'wtype \"$MY_LINKEDIN\"'

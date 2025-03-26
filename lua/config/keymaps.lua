@@ -38,9 +38,6 @@ vim.keymap.set("n", "M", "gM", { desc = "Go to middle of line" })
 -- Join current line with line below and keep cursor on same position
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Search
-vim.keymap.set("n", "<A-f>", "/", { desc = "Search" })
-
 -- Switch window
 vim.keymap.set("n", "<Tab>", "<C-w>w", { desc = "Switch window" })
 
