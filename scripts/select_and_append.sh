@@ -34,3 +34,4 @@ while true; do
 done
 
 echo "Completed $output_path"
+nvim "$output_path"
