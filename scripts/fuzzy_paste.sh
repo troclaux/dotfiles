@@ -10,5 +10,4 @@ selected_line=$(cat "$file" | wofi -i --matching=fuzzy --show dmenu -p "Select t
 
 if [ -n "$selected_line" ]; then
 	echo -n "$selected_line" | wl-copy
-	wtype "$selected_line"
 fi
