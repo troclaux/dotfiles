@@ -366,6 +366,7 @@ bindsym $mod+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y
 
 # Script shortcuts
 bindsym Mod1+f exec ~/dotfiles/bin/finder.sh
+bindsym Mod5+v exec ~/dotfiles/scripts/fuzzy_paste.sh
 bindsym Mod5+s exec ~/dotfiles/bin/focus_window.sh
 bindsym Mod1+v exec copyq menu
 bindsym Mod1+period exec flatpak run it.mijorus.smile
