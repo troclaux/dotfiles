@@ -146,7 +146,7 @@ alias dnf="dnf5"
 alias lr="ls -R"
 alias py="python3"
 alias open="xdg-open"
-alias clipboard="wl-copy"
+alias clipboard="wl-copy && echo '📋 Copied to clipboard!'"
 alias im="kitty +kitten icat"
 alias du="du -h --max-depth=1"
 alias dgrep='grep -r --include=".*"'
