@@ -134,6 +134,7 @@ bindkey "^N" down-line-or-beginning-search
 alias vi="nvim"
 alias vim="nvim"
 alias ve="nvim ."
+alias venv="nvim ~/.env.zsh"
 alias vg="nvim -c 'Git | only'"
 alias vb="nvim -c \"normal '0\""
 alias vd="sudo nvim /etc/dnf/dnf.conf"
