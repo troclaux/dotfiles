@@ -82,7 +82,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # Start a terminal
     bindsym $mod+Return exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
     bindsym Mod1+Return exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
-    bindsym Mod1+1 exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
+    bindsym Mod1+h exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -301,17 +301,17 @@ assign [app_id="org.qbittorrent.qBittorrent"] workspace number 3
 assign [app_id=".*telegram.*"] workspace number 4
 
 # Create marks and focus on marked windows
-bindsym Mod1+Mod5+h mark --add mark1
-bindsym Mod1+Mod5+j mark --add mark2
-bindsym Mod1+Mod5+k mark --add mark3
-bindsym Mod1+Mod5+l mark --add mark4
-
-bindsym Mod1+h [con_mark="mark1"] focus
-bindsym Mod1+j [con_mark="mark2"] focus
-bindsym Mod1+k [con_mark="mark3"] focus
-bindsym Mod1+l [con_mark="mark4"] focus
-
-bindsym Mod1+c unmark
+# bindsym Mod1+Mod5+h mark --add mark1
+# bindsym Mod1+Mod5+j mark --add mark2
+# bindsym Mod1+Mod5+k mark --add mark3
+# bindsym Mod1+Mod5+l mark --add mark4
+#
+# bindsym Mod1+h [con_mark="mark1"] focus
+# bindsym Mod1+j [con_mark="mark2"] focus
+# bindsym Mod1+k [con_mark="mark3"] focus
+# bindsym Mod1+l [con_mark="mark4"] focus
+#
+# bindsym Mod1+c unmark
 
 # Cancel vertical/horizontal split
 bindsym $mod+n split none
@@ -374,9 +374,9 @@ bindsym Mod1+period exec flatpak run it.mijorus.smile
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
-bindsym Mod1+2 exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
-bindsym Mod1+3 exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
-bindsym Mod1+4 exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
+bindsym Mod1+j exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
+bindsym Mod1+k exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
+bindsym Mod1+l exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
 bindsym Mod1+n exec --no-startup-id swaymsg [app_id="org.gnome.Nautilus"] focus || exec nautilus
 bindsym Mod1+r exec --no-startup-id swaymsg [app_id="rhythmbox"] focus || exec rhythmbox
 
