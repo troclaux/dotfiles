@@ -294,6 +294,7 @@ exec_always "wlr-randr --output $display1 --pos $display1_position --on --output
 # swaymsg -t get_tree | fzf | wl-copy
 assign [app_id="kitty"] workspace number 1
 assign [class="Brave-browser"] workspace number 2
+assign [app_id="evince"] workspace number 2
 assign [class="steam"] workspace number 3
 assign [app_id="rhythmbox"] workspace number 3
 assign [class="Docker Desktop"] workspace number 3
