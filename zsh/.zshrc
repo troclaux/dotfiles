@@ -104,7 +104,6 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-export EDITOR="nvim"
 export GIT_EDITOR="$EDITOR"
 export DOTFILES="$HOME/dotfiles"
 export NOTES="$HOME/Documents/notes"
