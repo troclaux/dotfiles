@@ -5,6 +5,7 @@
       - sway
       - light
       - swaylock
+      - swayidle
       - waybar
       - wofi
       - fuzzel
