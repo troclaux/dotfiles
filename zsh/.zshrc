@@ -145,7 +145,6 @@ alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$fil
 alias dnf="dnf5"
 alias lr="ls -R"
 alias py="python3"
-alias open="xdg-open"
 alias clipboard="wl-copy && echo '📋 Copied to clipboard!'"
 alias im="kitty +kitten icat"
 alias du="du -h --max-depth=1"
@@ -207,6 +206,10 @@ tsr() {
   fi
 
   tsc "$1" && node "${1%.ts}.js" && rm -f "${1%.ts}.js"
+}
+
+op() {
+  nohup xdg-open "$1" &
 }
 
 # Set environment variables
