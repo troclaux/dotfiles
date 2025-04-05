@@ -150,12 +150,11 @@ alias im="kitty +kitten icat"
 alias du="du -h --max-depth=1"
 alias dgrep='grep -r --include=".*"'
 alias ssh="TERM=xterm-256color ssh"
-alias fin='find "$(pwd -P)" | grep -v ".git"'
 alias fgl='glow -p $(find . | grep ".md" | fzf )'
 alias cps="fc -ln -1000 | sort | uniq | fzf | wl-copy"
 alias ggraph="git --no-pager log --oneline --graph --all"
 alias sta="vim-startuptime -vimpath nvim | head -n 4 | tail -n 1"
-alias rmp='rm $(find ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins -name "*.lua" | fzf) 2> /dev/null'
+alias rmp='rm $(find ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins -name "*.lua" | fzf) && echo "🗑️ Plugin removed" 2> /dev/null'
 
 alias up="sudo dnf5 upgrade -y && flatpak update -y"
 
@@ -164,8 +163,6 @@ alias soz="source $HOME/.zshrc"
 alias trb="tree /usr/local/bin"
 alias trn="tree $HOME/.config/nvim/lua"
 alias pc="cat \$(find ~/Documents/notes/prompts -type f | fzf ) | wl-copy"
-alias off='file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf); [ -n "$file" ] && xdg-open "$file"'
-alias fop='file=$(find ~/ ~/Documents ~/Downloads ~/learning -mindepth 1 -maxdepth 2 -type d | fzf); [ -n "$file" ] && xdg-open "$file"'
 alias ytp='yt-dlp -x --audio-format flac -o "~/Music/playlist/%(title)s.%(ext)s" --restrict-filenames $(xclip -selection clipboard -o)'
 alias yt='yt-dlp -x --audio-format flac -o "~/Music/%(title)s.%(ext)s" --restrict-filenames $(xclip -selection clipboard -o) --no-playlist'
 alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
@@ -209,7 +206,12 @@ tsr() {
 }
 
 op() {
-  nohup xdg-open "$1" &
+  file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf)
+  if [ -n "$file" ]; then
+    echo "📂✅ Opening file..." && nohup xdg-open "$file" &
+  else
+    echo "📂❌ No file selected"
+  fi
 }
 
 # Set environment variables
