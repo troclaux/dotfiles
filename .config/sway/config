@@ -50,7 +50,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 ### Idle configuration
 #
 exec swayidle -w \
-         before-sleep 'swaylock -f -c 000000' \
+         before-sleep 'playerctl pause; swaylock -f -c 000000' \
          after-resume 'swaymsg "output * power on"' \
          lid:toggle 'test `cat /proc/acpi/button/lid/LID0/state | cut -d ":" -f 2 | tr -d " "` = "closed" && systemctl suspend' \
          lid:on 'swaymsg "output * power on"'
