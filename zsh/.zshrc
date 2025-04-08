@@ -210,7 +210,7 @@ tsr() {
 op() {
   file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf)
   if [ -n "$file" ]; then
-    echo "📂✅ Opening file..." && nohup xdg-open "$file" &
+    echo "📂✅ Opening file..." && nohup xdg-open "$file" > /dev/null 2>&1 &
   else
     echo "📂❌ No file selected"
   fi
