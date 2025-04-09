@@ -199,6 +199,35 @@ vim.keymap.set("n", "vo", function()
 	vim.api.nvim_win_set_cursor(0, { end_line, 0 })
 end, { desc = "Visually select indentation block" })
 
+vim.keymap.set("n", "yc", function()
+	local start_line, end_line
+
+	local curr_line = vim.fn.line(".")
+
+	for i = curr_line, 1, -1 do
+		if vim.fn.getline(i):match("^```") then
+			start_line = i
+			break
+		end
+	end
+
+	for i = curr_line, vim.fn.line("$") do
+		if vim.fn.getline(i):match("^```") then
+			if start_line and i > start_line then
+				end_line = i
+				break
+			end
+		end
+	end
+
+	if start_line and end_line then
+		vim.cmd(start_line + 1 .. "," .. (end_line - 1) .. "yank")
+		print("✅ Yanked code block content!")
+	else
+		print("❌ Not inside a fenced code block.")
+	end
+end, { desc = "Yank Markdown Code Block", noremap = true, silent = true })
+
 ----------------------
 -- SNIPPETS KEYMAPS --
 ----------------------
