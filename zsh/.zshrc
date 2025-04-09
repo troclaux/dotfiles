@@ -110,6 +110,7 @@ export GIT_EDITOR="$EDITOR"
 export DOTFILES="$HOME/dotfiles"
 export NOTES="$HOME/Documents/notes"
 export PERSONAL="$HOME/Documents/personal"
+export XDG_CURRENT_DESKTOP=sway
 
 # Zsh key-bindings
 
