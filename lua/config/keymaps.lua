@@ -99,7 +99,7 @@ vim.keymap.set("n", "<Leader>e", "<CMD>Oil<CR>", { desc = "Open file explorer" }
 vim.keymap.set("n", "\\", "<C-w>h<C-w>h<C-w>o", { desc = "Go to left window and close all other windows" })
 
 -- Apply title case
-vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to title case" })
+vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to Title Case" })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
@@ -281,7 +281,7 @@ vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugi
 vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree panel" })
 
 -- Show current buffer summary
-vim.keymap.set("n", "<F8>", vim.cmd.TagbarOpenAutoClose, { desc = "Show current buffer summary" })
+vim.keymap.set("n", "<Leader><Leader>", ":TagbarToggle fjc<CR>", { desc = "Show current buffer summary" })
 
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open file explorer" })
