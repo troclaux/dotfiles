@@ -199,6 +199,33 @@ vim.keymap.set("n", "vo", function()
 	vim.api.nvim_win_set_cursor(0, { end_line, 0 })
 end, { desc = "Visually select indentation block" })
 
+vim.keymap.set("n", "yo", function()
+	local curr_line = vim.fn.line(".")
+	local curr_indent = vim.fn.indent(curr_line)
+	local start_line = curr_line
+	local end_line = curr_line
+	local total_lines = vim.fn.line("$")
+
+	while start_line > 1 do
+		local line = vim.fn.getline(start_line - 1)
+		if line:match("^%s*$") or vim.fn.indent(start_line - 1) < curr_indent then
+			break
+		end
+		start_line = start_line - 1
+	end
+
+	while end_line < total_lines do
+		local line = vim.fn.getline(end_line + 1)
+		if line:match("^%s*$") or vim.fn.indent(end_line + 1) < curr_indent then
+			break
+		end
+		end_line = end_line + 1
+	end
+
+	vim.cmd(start_line .. "," .. end_line .. "yank")
+	print("Yanked lines " .. start_line .. " to " .. end_line)
+end, { desc = "Yank current indentation block" })
+
 ----------------------
 -- SNIPPETS KEYMAPS --
 ----------------------
