@@ -5,7 +5,6 @@ return {
 	"tpope/vim-fugitive",
 	"mbbill/undotree",
 	"preservim/tagbar",
-	"chrisbra/csv.vim",
 	"tommcdo/vim-exchange",
 	"ThePrimeagen/harpoon",
 	"andrewradev/sideways.vim",
