@@ -200,21 +200,26 @@ rmsa() {
 }
 
 tsr() {
-  if [ -z "$1" ]; then
-    echo "Usage: run_ts <filename.ts>"
-    return 1
-  fi
+    if [ -z "$1" ]; then
+        echo "Usage: run_ts <filename.ts>"
+        return 1
+    fi
 
-  tsc "$1" && node "${1%.ts}.js" && rm -f "${1%.ts}.js"
+    tsc "$1" && node "${1%.ts}.js" && rm -f "${1%.ts}.js"
 }
 
 op() {
-  file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf)
-  if [ -n "$file" ]; then
-    echo "📂✅ Opening file..." && nohup xdg-open "$file" > /dev/null 2>&1 &
-  else
-    echo "📂❌ No file selected"
-  fi
+    if [ -n "$1" ]; then
+        file="$1"
+    else
+        file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf)
+    fi
+
+    if [ -n "$file" ]; then
+        echo "📂✅ Opening file..." && nohup xdg-open "$file" > /dev/null 2>&1 &
+    else
+        echo "📂❌ No file selected"
+    fi
 }
 
 # Set environment variables
@@ -225,3 +230,6 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 # Turso
 export PATH="$PATH:/home/troclaux/.turso"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
