@@ -23,6 +23,11 @@
   tags: zsh
   when: ansible_pkg_mgr == 'dnf'
 
+- name: install trash-cli command
+  package:
+    name: trash-cli
+  tags: zsh
+
 # - name: Set default shell to zsh on Ubuntu
 #   become: true
 #   shell: chsh -s $(which zsh)
