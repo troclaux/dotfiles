@@ -292,7 +292,7 @@ exec_always "wlr-randr --output $display1 --pos $display1_position --on --output
 # Use command below to get class or app id
 # swaymsg -t get_tree | fzf | wl-copy
 assign [app_id="kitty"] workspace number 1
-assign [app_id="brave-browser"] workspace number 2
+assign [class="Brave-browser"] workspace number 2
 assign [app_id="evince"] workspace number 2
 assign [class="steam"] workspace number 3
 assign [app_id="rhythmbox"] workspace number 3
@@ -374,7 +374,7 @@ bindsym Mod1+period exec flatpak run it.mijorus.smile
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
-bindsym Mod1+j exec --no-startup-id swaymsg [app_id="brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [app_id="brave-browser"] mark mark2"
+bindsym Mod1+j exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
 bindsym Mod1+k exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
 bindsym Mod1+l exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
 bindsym Mod1+n exec --no-startup-id swaymsg [app_id="org.gnome.Nautilus"] focus || exec nautilus
