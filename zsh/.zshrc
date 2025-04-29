@@ -3,6 +3,17 @@ if [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ]; then
     tmux attach -d || tmux
 fi
 
+setopt append_history
+setopt inc_append_history
+setopt extended_history
+setopt hist_verify
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_reduce_blanks
+HISTSIZE=5000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
