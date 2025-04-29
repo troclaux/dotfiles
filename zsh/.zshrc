@@ -85,8 +85,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/.env.zsh
-
+[ -f "$HOME/.env.zsh" ] && source "$HOME/.env.zsh"
 # source /usr/share/fzf/shell/key-bindings.zsh
 
 # User configuration
