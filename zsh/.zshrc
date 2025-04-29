@@ -1,6 +1,6 @@
 
 if [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ]; then
-    tmux attach -d || tmux
+  tmux attach -d || tmux
 fi
 
 setopt append_history
@@ -87,11 +87,10 @@ zstyle ':omz:update' frequency 15
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    fzf
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    # kubectl
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  # kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -190,47 +189,47 @@ alias cdp='cd "$(find . -path "./.git" -prune -o -type d | fzf)"'
 ## Set shell functions
 
 rms() {
-    local file="$1"
-    if [ -f "$file" ]; then
-        local new_name="$(echo "$file" | tr " ,'[]{}()<>" '_')"
-        mv "$file" "$new_name"
-        echo "Renamed: $file -> $new_name"
-    fi
+  local file="$1"
+  if [ -f "$file" ]; then
+    local new_name="$(echo "$file" | tr " ,'[]{}()<>" '_')"
+    mv "$file" "$new_name"
+    echo "Renamed: $file -> $new_name"
+  fi
 }
 
 rmsa() {
-    for file in *; do
-        if [ -f "$file" ]; then
-            new_name=$(echo "$file" | tr " ,'[]{}()<>" '_')
-            if [ "$file" != "$new_name" ]; then
-                mv "$file" "$new_name"
-                echo "Renamed: $file -> $new_name"
-            fi
-        fi
-    done
+  for file in *; do
+    if [ -f "$file" ]; then
+      new_name=$(echo "$file" | tr " ,'[]{}()<>" '_')
+      if [ "$file" != "$new_name" ]; then
+        mv "$file" "$new_name"
+        echo "Renamed: $file -> $new_name"
+      fi
+    fi
+  done
 }
 
 tsr() {
-    if [ -z "$1" ]; then
-        echo "Usage: run_ts <filename.ts>"
-        return 1
-    fi
+  if [ -z "$1" ]; then
+    echo "Usage: run_ts <filename.ts>"
+    return 1
+  fi
 
-    tsc "$1" && node "${1%.ts}.js" && rm -f "${1%.ts}.js"
+  tsc "$1" && node "${1%.ts}.js" && rm -f "${1%.ts}.js"
 }
 
 op() {
-    if [ -n "$1" ]; then
-        file="$1"
-    else
-        file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf)
-    fi
+  if [ -n "$1" ]; then
+    file="$1"
+  else
+    file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf)
+  fi
 
-    if [ -n "$file" ]; then
-        echo "📂✅ Opening file..." && nohup xdg-open "$file" > /dev/null 2>&1 &
-    else
-        echo "📂❌ No file selected"
-    fi
+  if [ -n "$file" ]; then
+    echo "📂✅ Opening file..." && nohup xdg-open "$file" > /dev/null 2>&1 &
+  else
+    echo "📂❌ No file selected"
+  fi
 }
 
 # Set environment variables
@@ -244,3 +243,4 @@ export PATH="$PATH:/home/troclaux/.turso"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
