@@ -1,5 +1,5 @@
 
-if [ -z "$TMUX" ]; then
+if [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ]; then
     tmux attach -d || tmux
 fi
 
