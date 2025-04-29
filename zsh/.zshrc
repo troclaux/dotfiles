@@ -77,6 +77,7 @@ zstyle ':omz:update' frequency 15
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    fzf
     zsh-autosuggestions
     zsh-syntax-highlighting
     # kubectl
@@ -86,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/.env.zsh
 
-source /usr/share/fzf/shell/key-bindings.zsh
+# source /usr/share/fzf/shell/key-bindings.zsh
 
 # User configuration
 
