@@ -96,7 +96,24 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 [ -f "$HOME/.env.zsh" ] && source "$HOME/.env.zsh"
-# source /usr/share/fzf/shell/key-bindings.zsh
+
+# Load fzf key bindings and completion if available
+
+# Ctrl+R => Fuzzy reverse search through shell history
+# Ctrl+T => Fuzzy file/path insertion
+# Alt+C => Fuzzy cd into a subdirectory
+
+if [ -f /usr/share/fzf/shell/key-bindings.zsh ]; then
+  source /usr/share/fzf/shell/key-bindings.zsh
+elif [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
+
+if [ -f /usr/share/fzf/shell/completion.zsh ]; then
+  source /usr/share/fzf/shell/completion.zsh
+elif [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
+  source /usr/share/doc/fzf/examples/completion.zsh
+fi
 
 # User configuration
 
