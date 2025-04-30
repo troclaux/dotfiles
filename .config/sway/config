@@ -7,6 +7,7 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -80,13 +81,13 @@ exec swayidle -w \
 #
     # Start a terminal
     bindsym $mod+Return exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
-    bindsym Mod1+Return exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
-    bindsym Mod1+h exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
+    bindsym $alt+Return exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
+    bindsym $alt+h exec --no-startup-id swaymsg [app_id="^kitty$"] focus || exec $term; exec "sleep 0.5 && swaymsg [app_id="^kitty$"] mark mark1"
 
     # Kill focused window
     bindsym $mod+Shift+q kill
     bindsym $mod+q kill
-    bindsym Mod1+F4 kill
+    bindsym $alt+F4 kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -257,7 +258,7 @@ exec systemd-inhibit --what=handle-power-key sleep infinity
 bindsym --locked XF86PowerOff exec "sh -c 'swaylock -f -e -l -c 00ffff & systemctl suspend'"
 bindsym --locked Mod5+F1 exec "sh -c 'swaylock -f -e -l -c 00ffff & systemctl suspend'"
 bindsym --locked $mod+XF86PowerOff exec poweroff
-bindsym --locked Mod1+XF86PowerOff exec reboot
+bindsym --locked $alt+XF86PowerOff exec reboot
 
 # Workspace management
 workspace 1 output eDP-1
@@ -302,17 +303,17 @@ assign [app_id="org.qbittorrent.qBittorrent"] workspace number 3
 assign [app_id=".*telegram.*"] workspace number 4
 
 # Create marks and focus on marked windows
-# bindsym Mod1+Mod5+h mark --add mark1
-# bindsym Mod1+Mod5+j mark --add mark2
-# bindsym Mod1+Mod5+k mark --add mark3
-# bindsym Mod1+Mod5+l mark --add mark4
+# bindsym $alt+Mod5+h mark --add mark1
+# bindsym $alt+Mod5+j mark --add mark2
+# bindsym $alt+Mod5+k mark --add mark3
+# bindsym $alt+Mod5+l mark --add mark4
 #
-# bindsym Mod1+h [con_mark="mark1"] focus
-# bindsym Mod1+j [con_mark="mark2"] focus
-# bindsym Mod1+k [con_mark="mark3"] focus
-# bindsym Mod1+l [con_mark="mark4"] focus
+# bindsym $alt+h [con_mark="mark1"] focus
+# bindsym $alt+j [con_mark="mark2"] focus
+# bindsym $alt+k [con_mark="mark3"] focus
+# bindsym $alt+l [con_mark="mark4"] focus
 #
-# bindsym Mod1+c unmark
+# bindsym $alt+c unmark
 
 # Cancel vertical/horizontal split
 bindsym $mod+n split none
@@ -366,20 +367,20 @@ bindsym Print exec grimshot copy area
 bindsym $mod+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 
 # Script shortcuts
-bindsym Mod1+f exec ~/dotfiles/bin/finder.sh
+bindsym $alt+f exec ~/dotfiles/bin/finder.sh
 bindsym Mod5+v exec ~/dotfiles/scripts/fuzzy_paste.sh
 bindsym Mod5+s exec ~/dotfiles/bin/focus_window.sh
-bindsym Mod1+v exec copyq menu
-bindsym Mod1+period exec flatpak run it.mijorus.smile
+bindsym $alt+v exec copyq menu
+bindsym $alt+period exec flatpak run it.mijorus.smile
 # bindsym Mod5+d exec wofi --show drun --allow-images -i --matching=fuzzy
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
-bindsym Mod1+j exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
-bindsym Mod1+k exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
-bindsym Mod1+l exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
-bindsym Mod1+n exec --no-startup-id swaymsg [app_id="org.gnome.Nautilus"] focus || exec nautilus
-bindsym Mod1+r exec --no-startup-id swaymsg [app_id="rhythmbox"] focus || exec rhythmbox
+bindsym $alt+j exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
+bindsym $alt+k exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
+bindsym $alt+l exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
+bindsym $alt+n exec --no-startup-id swaymsg [app_id="org.gnome.Nautilus"] focus || exec nautilus
+bindsym $alt+r exec --no-startup-id swaymsg [app_id="rhythmbox"] focus || exec rhythmbox
 
 # wtype keyboard bindings
 bindsym Menu exec zsh -c 'wtype /'
