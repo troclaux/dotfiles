@@ -50,10 +50,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 ### Idle configuration
 #
 exec swayidle -w \
-         before-sleep 'playerctl pause; swaylock -f -c 000000' \
-         after-resume 'swaymsg "output * power on"' \
-         lid:toggle 'test `cat /proc/acpi/button/lid/LID0/state | cut -d ":" -f 2 | tr -d " "` = "closed" && systemctl suspend' \
-         lid:on 'swaymsg "output * power on"'
+    before-sleep 'playerctl pause; swaylock -f -c 000000' \
+    after-resume "sh -c 'swaymsg output $display1 enable; swaymsg output $display1 power on'" \
+    lid:toggle 'test `cat /proc/acpi/button/lid/LID0/state | cut -d ":" -f 2 | tr -d " "` = "closed" && systemctl suspend' \
+    lid:on "sh -c 'swaymsg output $display1 power on'"
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -271,6 +271,7 @@ bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 
 # Switch display configuration
+bindsym --locked Mod5+5 exec swaymsg "output eDP-1 power on"
 bindsym --locked Mod5+0 exec "wlr-randr --output $display1 --off --output $display2 --off"
 bindsym --locked Mod5+1 exec "wlr-randr --output $display1 --on --output $display2 --off"
 bindsym --locked Mod5+2 exec "wlr-randr --output $display1 --pos $display1_position --on --output $display2 --pos $display2_position --on"
