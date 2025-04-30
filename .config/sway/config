@@ -368,7 +368,7 @@ bindsym Print exec grimshot copy area
 bindsym $mod+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 
 # Script shortcuts
-bindsym $alt+f exec ~/dotfiles/bin/finder.sh
+bindsym $mod+c exec ~/dotfiles/bin/finder.sh
 bindsym $altgr+v exec ~/dotfiles/scripts/fuzzy_paste.sh
 bindsym $altgr+s exec ~/dotfiles/bin/focus_window.sh
 bindsym $alt+v exec copyq menu
