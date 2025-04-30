@@ -256,7 +256,7 @@ for_window [app_id="org.gnome.Calculator"] floating enable
 # Disable XF86PowerOff key and assign it to suspend machine
 exec systemd-inhibit --what=handle-power-key sleep infinity
 bindsym --locked XF86PowerOff exec "sh -c 'swaylock -f -e -l -c 00ffff & systemctl suspend'"
-bindsym --locked Mod5+F1 exec "sh -c 'swaylock -f -e -l -c 00ffff & systemctl suspend'"
+bindsym --locked $altgr+F1 exec "sh -c 'swaylock -f -e -l -c 00ffff & systemctl suspend'"
 bindsym --locked $mod+XF86PowerOff exec poweroff
 bindsym --locked $alt+XF86PowerOff exec reboot
 
@@ -272,11 +272,11 @@ bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 
 # Switch display configuration
-bindsym --locked Mod5+5 exec swaymsg "output eDP-1 power on"
-bindsym --locked Mod5+0 exec "wlr-randr --output $display1 --off --output $display2 --off"
-bindsym --locked Mod5+1 exec "wlr-randr --output $display1 --on --output $display2 --off"
-bindsym --locked Mod5+2 exec "wlr-randr --output $display1 --pos $display1_position --on --output $display2 --pos $display2_position --on"
-bindsym --locked Mod5+3 exec "wlr-randr --output $display1 --off --output $display2 --on"
+bindsym --locked $altgr+5 exec swaymsg "output eDP-1 power on"
+bindsym --locked $altgr+0 exec "wlr-randr --output $display1 --off --output $display2 --off"
+bindsym --locked $altgr+1 exec "wlr-randr --output $display1 --on --output $display2 --off"
+bindsym --locked $altgr+2 exec "wlr-randr --output $display1 --pos $display1_position --on --output $display2 --pos $display2_position --on"
+bindsym --locked $altgr+3 exec "wlr-randr --output $display1 --off --output $display2 --on"
 bindsym $mod+p exec ~/dotfiles/bin/change_display_configuration.sh
 
 # Execute command at startup
@@ -303,10 +303,10 @@ assign [app_id="org.qbittorrent.qBittorrent"] workspace number 3
 assign [app_id=".*telegram.*"] workspace number 4
 
 # Create marks and focus on marked windows
-# bindsym $alt+Mod5+h mark --add mark1
-# bindsym $alt+Mod5+j mark --add mark2
-# bindsym $alt+Mod5+k mark --add mark3
-# bindsym $alt+Mod5+l mark --add mark4
+# bindsym $alt+$altgr+h mark --add mark1
+# bindsym $alt+$altgr+j mark --add mark2
+# bindsym $alt+$altgr+k mark --add mark3
+# bindsym $alt+$altgr+l mark --add mark4
 #
 # bindsym $alt+h [con_mark="mark1"] focus
 # bindsym $alt+j [con_mark="mark2"] focus
@@ -350,13 +350,13 @@ bindsym --locked F10 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym --locked $mod+m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked $mod+x exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym --locked $mod+z exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym Mod5+x exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
-bindsym Mod5+z exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
+bindsym $altgr+x exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
+bindsym $altgr+z exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 
 # Control audio playback with alt gr key shortcuts
-bindsym Mod5+j exec playerctl previous
-bindsym Mod5+k exec playerctl play-pause
-bindsym Mod5+l exec playerctl next
+bindsym $altgr+j exec playerctl previous
+bindsym $altgr+k exec playerctl play-pause
+bindsym $altgr+l exec playerctl next
 
 # Control brightness with Fn+F3 and Fn+F4
 bindsym XF86MonBrightnessUp exec light -A 5
@@ -368,11 +368,11 @@ bindsym $mod+Print exec grimshot savecopy area ~/Pictures/screenshot_$(date +'%Y
 
 # Script shortcuts
 bindsym $alt+f exec ~/dotfiles/bin/finder.sh
-bindsym Mod5+v exec ~/dotfiles/scripts/fuzzy_paste.sh
-bindsym Mod5+s exec ~/dotfiles/bin/focus_window.sh
+bindsym $altgr+v exec ~/dotfiles/scripts/fuzzy_paste.sh
+bindsym $altgr+s exec ~/dotfiles/bin/focus_window.sh
 bindsym $alt+v exec copyq menu
 bindsym $alt+period exec flatpak run it.mijorus.smile
-# bindsym Mod5+d exec wofi --show drun --allow-images -i --matching=fuzzy
+# bindsym $altgr+d exec wofi --show drun --allow-images -i --matching=fuzzy
 
 # Application shortcuts
 # swaymsg -t get_tree | fzf | wl-copy
@@ -384,4 +384,4 @@ bindsym $alt+r exec --no-startup-id swaymsg [app_id="rhythmbox"] focus || exec r
 
 # wtype keyboard bindings
 bindsym Menu exec zsh -c 'wtype /'
-bindsym Mod5+g exec "wtype 'github.com/troclaux'"
+bindsym $altgr+g exec "wtype 'github.com/troclaux'"
