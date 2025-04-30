@@ -240,11 +240,11 @@ focus_on_window_activation smart
 titlebar_padding 10 2
 
 # Set stacking layout for all workspaces
-workspace_layout stacking
+workspace_layout tabbed
 
 # Force windows to start with stacking layout
-for_window [class=".*"] layout stacking
-for_window [app_id=".*"] layout stacking
+# for_window [class=".*"] layout tabbed
+# for_window [app_id=".*"] layout tabbed
 
 # Define exceptions for stacking layout
 # swaymsg -t get_tree | fzf | wl-copy
