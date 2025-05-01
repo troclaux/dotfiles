@@ -367,6 +367,7 @@ bindsym XF86MonBrightnessDown exec light -U 5
 bindsym Print exec grimshot --notify copy area
 bindsym $mod+Print exec grimshot --notify savecopy area ~/Pictures/screenshot_$(date +%F_%H-%M-%S).png
 bindsym $alt+Print exec bash -c 'grimshot savecopy area ~/Pictures/screenshot_$(date +%F_%H-%M-%S).png && xdg-open $(ls -t ~/Pictures/screenshot_*.png | head -n1)'
+bindsym $altgr+Print exec grimshot --notify savecopy active ~/Pictures/screenshot_$(date +%F_%H-%M-%S).png
 
 # Script shortcuts
 bindsym $mod+c exec ~/dotfiles/bin/finder.sh
