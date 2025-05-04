@@ -299,6 +299,7 @@ assign [app_id="rhythmbox"] workspace number 3
 assign [class="Docker Desktop"] workspace number 3
 assign [app_id="org.qbittorrent.qBittorrent"] workspace number 3
 assign [app_id=".*telegram.*"] workspace number 4
+assign [app_id="org.kde.okular"] workspace number 5
 
 # Create marks and focus on marked windows
 # bindsym $alt+$altgr+h mark --add mark1
