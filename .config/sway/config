@@ -235,9 +235,6 @@ include /etc/sway/config.d/*
 # Disable sway from automatically moving when focusing on another output
 mouse_warping none
 
-# fix vimium's command visitPreviousTab
-focus_on_window_activation smart
-
 # Title bar padding size
 titlebar_padding 10 2
 
@@ -249,7 +246,7 @@ workspace_layout tabbed
 # for_window [app_id=".*"] layout tabbed
 
 # Define exceptions for stacking layout
-# swaymsg -t get_tree | fzf | wl-copy
+# swaymsg -t get_tree | less
 for_window [app_id="com.github.hluk.copyq"] floating enable
 for_window [app_id="it.mijorus.smile"] floating enable
 for_window [app_id="org.gnome.Calculator"] floating enable
@@ -371,20 +368,23 @@ bindsym $altgr+Print exec grimshot --notify savecopy active ~/Pictures/screensho
 
 # Script shortcuts
 bindsym $mod+c exec ~/dotfiles/bin/finder.sh
+bindsym $mod+o exec ~/dotfiles/bin/open_pdf.sh
 bindsym $altgr+v exec ~/dotfiles/scripts/fuzzy_paste.sh
-bindsym $altgr+s exec ~/dotfiles/bin/focus_window.sh
+bindsym $mod+g exec ~/dotfiles/bin/focus_window.sh
 bindsym $alt+v exec copyq menu
 bindsym $alt+period exec flatpak run it.mijorus.smile
 # bindsym $altgr+d exec wofi --show drun --allow-images -i --matching=fuzzy
 
 # Application shortcuts
-# swaymsg -t get_tree | fzf | wl-copy
+# swaymsg -t get_tree | less
 bindsym $alt+j exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
 bindsym $alt+k exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
-bindsym $alt+l exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
+bindsym $alt+l exec --no-startup-id swaymsg [app_id="org.kde.okular"] focus || exec flatpak run org.kde.okular; exec "sleep 1 && swaymsg [app_id="org.kde.okular"] mark mark4"
+bindsym $alt+z exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
 bindsym $alt+n exec --no-startup-id swaymsg [app_id="org.gnome.Nautilus"] focus || exec nautilus
 bindsym $alt+r exec --no-startup-id swaymsg [app_id="rhythmbox"] focus || exec rhythmbox
 
 # wtype keyboard bindings
 bindsym Menu exec zsh -c 'wtype /'
 bindsym $altgr+g exec "wtype 'github.com/troclaux'"
+
