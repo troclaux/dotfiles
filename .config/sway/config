@@ -321,6 +321,9 @@ bindsym $mod+n split none
 # Attach to last workspace
 bindsym $mod+Tab workspace back_and_forth
 
+# Switch focus to urgent window
+bindsym $mod+u [urgent=latest] focus
+
 # Add Num_Lock warning to waybar
 mode "Num_Lock" {
     bindsym Num_Lock mode "default"
