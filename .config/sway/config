@@ -264,6 +264,7 @@ workspace 1 output $display1
 workspace 2 output $display2
 workspace 3 output $display1
 workspace 4 output $display1
+workspace 5 output $display1
 
 bindsym $mod+Control+Shift+Right move workspace to output right
 bindsym $mod+Control+Shift+Left move workspace to output left
