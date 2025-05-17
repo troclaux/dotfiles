@@ -319,9 +319,6 @@ assign [app_id="org.kde.okular"] workspace number 5
 # Cancel vertical/horizontal split
 bindsym $mod+n split none
 
-# Attach to last workspace
-bindsym $mod+Tab workspace back_and_forth
-
 # Switch focus to urgent window
 bindsym $alt+u [urgent=latest] focus
 
@@ -375,11 +372,13 @@ bindsym $altgr+Print exec grimshot --notify savecopy active ~/Pictures/screensho
 # Script shortcuts
 bindsym $mod+c exec ~/dotfiles/bin/finder.sh
 bindsym $mod+o exec ~/dotfiles/bin/open_pdf.sh
+bindsym $mod+Tab exec ~/dotfiles/bin/focus_window.sh
 bindsym $altgr+v exec ~/dotfiles/scripts/fuzzy_paste.sh
-bindsym $mod+g exec ~/dotfiles/bin/focus_window.sh
-bindsym $alt+v exec copyq menu
-bindsym $alt+period exec flatpak run it.mijorus.smile
 # bindsym $altgr+d exec wofi --show drun --allow-images -i --matching=fuzzy
+
+bindsym $alt+v exec copyq menu
+bindsym $alt+Tab workspace back_and_forth
+bindsym $alt+period exec flatpak run it.mijorus.smile
 
 # Application shortcuts
 # swaymsg -t get_tree | less
