@@ -302,6 +302,7 @@ assign [class="Docker Desktop"] workspace number 3
 assign [app_id="org.qbittorrent.qBittorrent"] workspace number 3
 assign [app_id=".*telegram.*"] workspace number 4
 assign [app_id="org.kde.okular"] workspace number 5
+assign [app_id="org.mozilla.firefox"] workspace number 6
 
 # Create marks and focus on marked windows
 # bindsym $alt+$altgr+h mark --add mark1
@@ -388,6 +389,7 @@ bindsym $alt+l exec --no-startup-id swaymsg [app_id="org.kde.okular"] focus || e
 bindsym $alt+t exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
 bindsym $alt+n exec --no-startup-id swaymsg [app_id="org.gnome.Nautilus"] focus || exec nautilus
 bindsym $alt+r exec --no-startup-id swaymsg [app_id="rhythmbox"] focus || exec rhythmbox
+bindsym $alt+i exec --no-startup-id swaymsg [app_id="org.mozilla.firefox"] focus || exec flatpak run org.mozilla.firefox
 
 # wtype keyboard bindings
 bindsym Menu exec zsh -c 'wtype /'
