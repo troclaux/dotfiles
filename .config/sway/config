@@ -53,10 +53,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 ### Idle configuration
 #
 exec swayidle -w \
-    before-sleep 'playerctl pause; swaylock -f -c 000000' \
-    after-resume "sh -c 'swaymsg output $display1 enable; swaymsg output $display1 power on'" \
+    before-sleep 'swaymsg "output * dpms on"; playerctl pause; swaylock -f -c 000000' \
+    after-resume "sleep 1; swaymsg output '*' dpms on; swaymsg output $display1 enable; swaymsg output $display1 power on" \
     lid:toggle 'test `cat /proc/acpi/button/lid/LID0/state | cut -d ":" -f 2 | tr -d " "` = "closed" && systemctl suspend' \
-    lid:on "sh -c 'swaymsg output $display1 power on'"
+    lid:on "swaymsg output '*' dpms on; swaymsg output $display1 enable; swaymsg output $display1 power on"
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -105,7 +105,8 @@ exec swayidle -w \
     bindsym --locked $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaymsg exit
 #
 # Moving around:
 #
