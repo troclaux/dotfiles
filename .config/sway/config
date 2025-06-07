@@ -54,7 +54,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 exec swayidle -w \
     before-sleep 'swaymsg "output * dpms on"; playerctl pause; swaylock -f -c 000000' \
-    after-resume "sleep 1; swaymsg output '*' dpms on; swaymsg output $display1 enable" \
+    after-resume "sleep 1; swaymsg output '*' dpms on; swaymsg output $display1 enable; swaymsg output $display1 power on" \
     lid:toggle 'test `cat /proc/acpi/button/lid/LID0/state | cut -d ":" -f 2 | tr -d " "` = "closed" && systemctl suspend' \
     lid:on "swaymsg output '*' dpms on; swaymsg output $display1 enable; swaymsg output $display1 power on"
 #
