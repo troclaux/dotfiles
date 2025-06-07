@@ -169,6 +169,7 @@ alias vb="nvim -c \"normal '0\""
 alias vd="sudo nvim /etc/dnf/dnf.conf"
 alias vo="nvim -c 'Telescope oldfiles'"
 alias vl="nvim -c 'Telescope live_grep'"
+alias vh='fc $(history | fzf --tac | awk "{print \$1}")'
 alias vs="vim-startuptime -vimpath nvim | head -4 | tail -1"
 alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$file"'
 
