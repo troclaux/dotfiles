@@ -87,11 +87,6 @@ vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
 -- Save current buffer
 vim.keymap.set("n", "<Leader>i", ":w<CR>", { desc = "Save current buffer" })
 
--- Add blank line above/below
-vim.keymap.set("n", "<Leader>[", 'mzO<Esc>0"_D`z', { desc = "Add blank line before" })
-vim.keymap.set("n", "<Leader>]", 'mzo<Esc>0"_D`z', { desc = "Add blank line after" })
-vim.keymap.set("n", "<Leader><CR>", 'mzO<Esc>0"_D`zo<Esc>0"_D`z', { desc = "Add blank line below and after" })
-
 -- Open vim file explorer
 vim.keymap.set("n", "<Leader>e", "<CMD>Oil<CR>", { desc = "Open file explorer" })
 
