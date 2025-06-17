@@ -77,10 +77,6 @@ vim.keymap.set("n", "<Leader>rr", ":%s/", { desc = "Replace occurrences" })
 -- Remove Trailing Whitespace
 vim.keymap.set("n", "<Leader>rw", [[mz:%s/\s\+$//e<CR>`z]], { desc = "Remove Trailing Whitespace" })
 
--- Remove asterisks
-vim.keymap.set("v", "<Leader>ra", ":s/\\*//g<CR>", { desc = "Remove asterisks in selection" })
-vim.keymap.set("n", "<Leader>ra", ":s/\\*//g<CR>", { desc = "Remove asterisks in current line" })
-
 -- Quit nvim
 vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
 
@@ -248,6 +244,14 @@ vim.keymap.set("n", "<Leader>1", 'o<Esc>0"_Di# ', { desc = "Insert markdown head
 vim.keymap.set("n", "<Leader>2", 'o<Esc>0"_Di## ', { desc = "Insert markdown heading ##" })
 vim.keymap.set("n", "<Leader>3", 'o<Esc>0"_Di### ', { desc = "Insert markdown heading ###" })
 vim.keymap.set("n", "<Leader>4", 'o<Esc>0"_Di#### ', { desc = "Insert markdown heading ####" })
+
+-- Remove bold notation in markdown (**)
+vim.keymap.set("v", "<Leader>rb", ":s/\\*//g<CR>", { desc = "Remove asterisks in selection" })
+vim.keymap.set("n", "<Leader>rb", ":s/\\*//g<CR>", { desc = "Remove asterisks in current line" })
+
+-- Insert anchor link
+vim.keymap.set("n", "<Leader>pa", "ciW[](#)<Esc>F[pf#a", { desc = "Insert anchor link" })
+vim.keymap.set("v", "<Leader>pa", "c[](#)<Esc>F[pf#a", { desc = "Insert anchor link" })
 
 -- Golang
 vim.keymap.set("n", "<leader>pe", "oif err != nil {<CR>return , err<CR>}<Esc>kf,i", { desc = "golang error" })
