@@ -8,20 +8,20 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 -- VISUAL MODE KEYMAPS --
 
 -- Select until start of line in visual mode
-vim.keymap.set("v", "H", "^", { desc = "Go to start of line" })
+vim.keymap.set("x", "H", "^", { desc = "Go to start of line" })
 
 -- Select until end of line in visual mode
-vim.keymap.set("v", "L", "g_", { desc = "Go to end of line" })
+vim.keymap.set("x", "L", "g_", { desc = "Go to end of line" })
 
 -- Keep buffer after pasting over selection
-vim.keymap.set("v", "p", "p`[v`]y")
+vim.keymap.set("x", "p", "p`[v`]y")
 
 -- Replace occurrences
-vim.keymap.set("v", "<Leader>rr", ":s/", { desc = "Replace occurrences" })
+vim.keymap.set("x", "<Leader>rr", ":s/", { desc = "Replace occurrences" })
 
 -- run normal command on visual selection
-vim.keymap.set("v", "<Leader>n", ":norm ", { desc = "Run normal mode command" })
-vim.keymap.set("v", "<Leader>m", ":norm @w<CR>", { desc = "Run macro" })
+vim.keymap.set("x", "<Leader>n", ":norm ", { desc = "Run normal mode command" })
+vim.keymap.set("x", "<Leader>m", ":norm @w<CR>", { desc = "Run macro" })
 
 -------------------------
 -- NORMAL MODE KEYMAPS --
@@ -91,6 +91,7 @@ vim.keymap.set("n", "\\", "<C-w>h<C-w>h<C-w>o", { desc = "Go to left window and 
 
 -- Apply title case
 vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to Title Case" })
+vim.keymap.set("x", "<Leader>tc", [[:s/\<./\u&/g<CR>:nohlsearch<CR>]], { desc = "Convert to Title Case" })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
@@ -232,7 +233,7 @@ vim.keymap.set(
 	"o<Esc>p`[v`]omzo<Esc>o<Esc>S```<Esc>`zO```",
 	{ desc = "Paste and surround with ```" }
 )
-vim.keymap.set("v", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```", { desc = "Surround with ```" })
+vim.keymap.set("x", "<Leader>pc", "omzo<Esc>o```<Esc>`zO```", { desc = "Surround with ```" })
 vim.keymap.set("n", "<leader>pi", function()
 	local text = vim.fn.getreg("+")
 	text = text:gsub("^%s+", ""):gsub("%s+$", "")
@@ -246,12 +247,12 @@ vim.keymap.set("n", "<Leader>3", 'o<Esc>0"_Di### ', { desc = "Insert markdown he
 vim.keymap.set("n", "<Leader>4", 'o<Esc>0"_Di#### ', { desc = "Insert markdown heading ####" })
 
 -- Remove bold notation in markdown (**)
-vim.keymap.set("v", "<Leader>rb", ":s/\\*//g<CR>", { desc = "Remove asterisks in selection" })
+vim.keymap.set("x", "<Leader>rb", ":s/\\*//g<CR>", { desc = "Remove asterisks in selection" })
 vim.keymap.set("n", "<Leader>rb", ":s/\\*//g<CR>", { desc = "Remove asterisks in current line" })
 
 -- Insert anchor link
 vim.keymap.set("n", "<Leader>pa", "ciW[](#)<Esc>F[pf#a", { desc = "Insert anchor link" })
-vim.keymap.set("v", "<Leader>pa", "c[](#)<Esc>F[pf#a", { desc = "Insert anchor link" })
+vim.keymap.set("x", "<Leader>pa", "c[](#)<Esc>F[pf#a", { desc = "Insert anchor link" })
 
 -- Golang
 vim.keymap.set("n", "<leader>pe", "oif err != nil {<CR>return , err<CR>}<Esc>kf,i", { desc = "golang error" })
@@ -330,9 +331,9 @@ vim.keymap.set("n", "<A-H>", vim.cmd.SidewaysLeft, { desc = "Move argument/param
 vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
 
 -- Copilot chat plugin
--- vim.keymap.set("v", "<Leader>ax", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
--- vim.keymap.set("v", "<Leader>an", ":CopilotChat explain<CR>", { desc = "Analyze (CopilotChat)" })
--- vim.keymap.set("v", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
+-- vim.keymap.set("x", "<Leader>ax", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
+-- vim.keymap.set("x", "<Leader>an", ":CopilotChat explain<CR>", { desc = "Analyze (CopilotChat)" })
+-- vim.keymap.set("x", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
 
 -- Avante plugin
 vim.keymap.set("n", "<Leader>af", ":AvanteAsk position=right fix<CR>", { desc = "avante: fix" })
@@ -345,7 +346,7 @@ vim.keymap.set("n", "<Leader>af", ":AvanteAsk position=right fix<CR>", { desc = 
 -------------------------
 ---- BACKUP KEYMAPS -----
 
--- vim.keymap.set("v", "S", "<nop>", { noremap = true })
+-- vim.keymap.set("x", "S", "<nop>", { noremap = true })
 
 -- Change to current buffer's parent directory and run command
 -- vim.keymap.set("n", "<Leader>cd", ":!cd %:p:h && ", { desc = "Change to current buffer's parent directory" })
