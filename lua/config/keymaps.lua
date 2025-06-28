@@ -78,7 +78,7 @@ vim.keymap.set("n", "<Leader>rr", ":%s/", { desc = "Replace occurrences" })
 vim.keymap.set("n", "<Leader>rw", [[mz:%s/\s\+$//e<CR>`z]], { desc = "Remove Trailing Whitespace" })
 
 -- Quit nvim
-vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit vim" })
+vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit nvim" })
 
 -- Save current buffer
 vim.keymap.set("n", "<Leader>i", ":w<CR>", { desc = "Save current buffer" })
