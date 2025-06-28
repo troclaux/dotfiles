@@ -91,7 +91,6 @@ vim.keymap.set("n", "\\", "<C-w>h<C-w>h<C-w>o", { desc = "Go to left window and 
 
 -- Apply title case
 vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to Title Case" })
-vim.keymap.set("x", "<Leader>tc", [[:s/\<./\u&/g<CR>:nohlsearch<CR>]], { desc = "Convert to Title Case" })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
@@ -320,23 +319,17 @@ end, { desc = "Harpoon go to mark 5" })
 -- Split/Join line of code
 vim.keymap.set("n", "<Leader>tr", require("treesj").toggle, { desc = "Split/Join line of code" })
 
--- Make a script executable
-vim.keymap.set("n", "<Leader>X", ":w<bar>!chmod +x %<CR>", { desc = "Make script executable", silent = true })
-
 -- Move argument/parameter left/right
 vim.keymap.set("n", "<A-L>", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
 vim.keymap.set("n", "<A-H>", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
 
--- View markdown file with glow plugin
-vim.keymap.set("n", "<Leader>G", vim.cmd.Glow, { desc = "View markdown file with glow" })
+-- Avante plugin
+vim.keymap.set("n", "<Leader>af", ":AvanteAsk position=right fix<CR>", { desc = "avante: fix" })
 
 -- Copilot chat plugin
 -- vim.keymap.set("x", "<Leader>ax", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
 -- vim.keymap.set("x", "<Leader>an", ":CopilotChat explain<CR>", { desc = "Analyze (CopilotChat)" })
 -- vim.keymap.set("x", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
-
--- Avante plugin
-vim.keymap.set("n", "<Leader>af", ":AvanteAsk position=right fix<CR>", { desc = "avante: fix" })
 
 -------------------------
 ---- DELETE KEYMAPS -----
