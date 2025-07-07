@@ -178,7 +178,6 @@ alias lr="ls -R"
 alias py="python3"
 alias clipboard="wl-copy && echo '📋 Copied to clipboard!'"
 alias im="kitty +kitten icat"
-alias du="du -h --max-depth=1"
 alias dgrep='grep -r --include=".*"'
 alias ssh="TERM=xterm-256color ssh"
 alias fgl='glow -p $(find . | grep ".md" | fzf )'
