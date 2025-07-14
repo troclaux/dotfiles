@@ -302,7 +302,7 @@ assign [class="Docker Desktop"] workspace number 3
 assign [app_id="org.qbittorrent.qBittorrent"] workspace number 3
 assign [app_id=".*telegram.*"] workspace number 4
 assign [app_id="org.kde.okular"] workspace number 5
-assign [app_id="org.mozilla.firefox"] workspace number 6
+assign [app_id="org.mozilla.firefox"] workspace number 7
 
 # Create marks and focus on marked windows
 # bindsym $alt+$altgr+h mark --add mark1
@@ -386,7 +386,7 @@ bindsym $alt+period exec flatpak run it.mijorus.smile
 bindsym $alt+j exec --no-startup-id swaymsg [class="Brave-browser"] focus || exec flatpak run com.brave.Browser; exec "sleep 3 && swaymsg [class="Brave-browser"] mark mark2"
 bindsym $alt+k exec --no-startup-id swaymsg [app_id="evince"] focus || exec evince; exec "sleep 1 && swaymsg [app_id="evince"] mark mark3"
 bindsym $alt+o exec --no-startup-id swaymsg [app_id="org.kde.okular"] focus || exec flatpak run org.kde.okular; exec "sleep 1 && swaymsg [app_id="org.kde.okular"] mark mark4"
-bindsym $alt+t exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
+bindsym $alt+z exec --no-startup-id swaymsg [app_id="org.telegram.desktop"] focus || exec flatpak run org.telegram.desktop
 bindsym $alt+i exec --no-startup-id swaymsg [app_id="org.mozilla.firefox"] focus || exec firefox
 bindsym $alt+n exec --no-startup-id swaymsg [app_id="org.gnome.Nautilus"] focus || exec nautilus
 bindsym $alt+r exec --no-startup-id swaymsg [app_id="rhythmbox"] focus || exec rhythmbox
