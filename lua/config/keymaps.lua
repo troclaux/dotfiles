@@ -221,6 +221,8 @@ end, { desc = "Yank current indentation block" })
 -- SNIPPETS KEYMAPS --
 ----------------------
 
+vim.keymap.set("n", "<Leader>pd", [[:r !date "+\%d-\%m-\%Y"<CR>kJ]], { desc = "Insert current date" })
+
 -- Bash
 vim.keymap.set("n", "<Leader>ps", "mzO#!/bin/bash<CR><Esc>`z", { desc = "Insert shebang statement" })
 
