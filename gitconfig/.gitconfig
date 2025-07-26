@@ -9,3 +9,9 @@
 	rebase = true
 [push]
 	autoSetupRemote = true
+[commit]
+	verbose = true
+[help]
+	autocorrect = prompt
+[core]
+	whitespace = trailing-space
