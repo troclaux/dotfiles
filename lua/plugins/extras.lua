@@ -7,7 +7,7 @@ return {
 	"preservim/tagbar",
 	"tommcdo/vim-exchange",
 	"ThePrimeagen/harpoon",
-	"andrewradev/sideways.vim",
+	"AndrewRadev/sideways.vim",
 	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 	{
 		"Wansmer/treesj",
