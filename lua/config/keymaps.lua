@@ -47,9 +47,6 @@ vim.keymap.set("n", "ç", "<C-w>o", { desc = "Close all other windows" })
 -- Reselect pasted text
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Reselect pasted text" })
 
--- Insert a newline before pasting register content
-vim.keymap.set("n", "<Leader>pp", 'o<Esc>0"_Dp==', { desc = "Add newline and paste" })
-
 -- Center viewport on highlighted search
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
