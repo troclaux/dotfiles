@@ -133,17 +133,20 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+unset NVIM_LOG_LEVEL
+
 export GIT_EDITOR="$EDITOR"
 export DOTFILES="$HOME/dotfiles"
 export NOTES="$HOME/Documents/notes"
 export PERSONAL="$HOME/Documents/personal"
 export XDG_CURRENT_DESKTOP=sway
+export DOCKER_BUILDKIT=1
 
 # Zsh key-bindings
 
 bindkey -s '^f' "tmux-sessionizer\n"
-bindkey -s '^p' "nvim -c 'Telescope git_files'\n"
-bindkey -s '^h' "nvim -c 'Telescope find_files'\n"
+bindkey -s '^P' 'nvim -c "set verbose=0"\n'
+bindkey -s '^H' 'nvim -c "set verbose=0"\n'
 bindkey -s '^b' "!!\n\n"
 
 bindkey "^[y" forward-word
@@ -160,9 +163,9 @@ bindkey "^N" down-line-or-beginning-search
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi="nvim"
-alias vim="nvim"
-alias ve="nvim ."
+alias vi='nvim -c "set verbose=0"'
+alias vim='nvim -c "set verbose=0"'
+alias ve='nvim -c "set verbose=0" .'
 alias vv="nvim ~/.env.zsh"
 alias vg="nvim -c 'Git | only'"
 alias vb="nvim -c \"normal '0\""
@@ -255,6 +258,7 @@ op() {
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Turso
 export PATH="$PATH:/home/troclaux/.turso"
