@@ -13,5 +13,9 @@
 	verbose = true
 [help]
 	autocorrect = prompt
+[rerere]
+	enabled = true
+	autoupdate = true
 [core]
 	whitespace = trailing-space
+	editor = nvim
