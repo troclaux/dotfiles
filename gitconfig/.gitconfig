@@ -9,6 +9,8 @@
 	rebase = true
 [push]
 	autoSetupRemote = true
+	default = simple
+	followTags = true
 [commit]
 	verbose = true
 [help]
@@ -19,3 +21,12 @@
 [core]
 	whitespace = trailing-space
 	editor = nvim
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
