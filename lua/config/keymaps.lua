@@ -18,6 +18,7 @@ vim.keymap.set("x", "p", "p`[v`]y")
 
 -- Replace occurrences
 vim.keymap.set("x", "<Leader>rr", ":s/", { desc = "Replace occurrences" })
+vim.keymap.set("n", "<Leader>rm", "mz:%s/\\r//g<CR>`z", { desc = "Remove ^M" })
 
 -- run normal command on visual selection
 vim.keymap.set("x", "<Leader>n", ":norm ", { desc = "Run normal mode command" })
