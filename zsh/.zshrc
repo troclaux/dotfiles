@@ -177,6 +177,7 @@ alias vs="vim-startuptime -vimpath nvim | head -4 | tail -1"
 alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$file"'
 
 alias dnf="dnf5"
+alias fd="fdfind"
 alias lr="ls -R"
 alias py="python3"
 alias clipboard="wl-copy && echo '📋 Copied to clipboard!'"
@@ -201,8 +202,10 @@ alias ytp='yt-dlp -x --audio-format flac -o "~/Music/playlist/%(title)s.%(ext)s"
 alias yt='yt-dlp -x --audio-format flac -o "~/Music/%(title)s.%(ext)s" --restrict-filenames $(xclip -selection clipboard -o) --no-playlist'
 alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
 
+alias cds="cd ~/.ssh"
 alias cdb="cd /usr/local/bin"
 alias cdr='cd /etc/yum.repos.d'
+alias cas="cat ~/.ssh/id_rsa.pub"
 alias cdn="cd $HOME/.config/nvim"
 alias cdf='cd "$(find "$HOME" -type d | fzf)"'
 alias cdp='cd "$(find . -path "./.git" -prune -o -type d | fzf)"'
