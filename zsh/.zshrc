@@ -134,6 +134,7 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 unset NVIM_LOG_LEVEL
+export NVIM_LOG_FILE=/dev/null
 
 export GIT_EDITOR="$EDITOR"
 export DOTFILES="$HOME/dotfiles"
