@@ -1,3 +1,5 @@
+vim.opt.fileformats = { "unix", "dos" }
+vim.opt.fileformat = "unix"
 vim.g.snacks_animate = false
 vim.opt.laststatus = 3
 vim.opt.whichwrap = "lh"
