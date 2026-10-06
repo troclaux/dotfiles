@@ -289,8 +289,8 @@ vim.keymap.set("n", "<leader>gi", ":vert Git<CR>", { desc = "Git Status" })
 vim.keymap.set("n", "<Leader>gp", ":Git push<CR>", { desc = "Git Push" })
 vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { desc = "Search git commit messages" })
 
-vim.keymap.set("n", "gh", "<C>diffget //2<CR>")
-vim.keymap.set("n", "gl", "<C>diffget //3<CR>")
+vim.keymap.set("n", "gh", "<cmd>diffget //2<CR>")
+vim.keymap.set("n", "gl", "<cmd>diffget //3<CR>")
 
 -- Harpoon plugin
 local mark = require("harpoon.mark")
@@ -325,11 +325,6 @@ vim.keymap.set("n", "<A-H>", vim.cmd.SidewaysLeft, { desc = "Move argument/param
 
 -- Avante plugin
 vim.keymap.set("n", "<Leader>af", ":AvanteAsk position=right fix<CR>", { desc = "avante: fix" })
-
--- Copilot chat plugin
--- vim.keymap.set("x", "<Leader>ax", ":CopilotChat fix<CR>", { desc = "Fix (CopilotChat)" })
--- vim.keymap.set("x", "<Leader>an", ":CopilotChat explain<CR>", { desc = "Analyze (CopilotChat)" })
--- vim.keymap.set("x", "<Leader>ac", ":CopilotChat commit<CR>", { desc = "Write commit message (CopilotChat)" })
 
 -------------------------
 ---- DELETE KEYMAPS -----

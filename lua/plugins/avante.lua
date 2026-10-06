@@ -37,7 +37,6 @@ return {
 		"nvim-mini/mini.pick", -- for file_selector provider mini.pick
 		"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
 		"nvim-mini/mini.icons", -- or nvim-tree/nvim-web-devicons
-		"zbirenbaum/copilot.lua", -- for providers='copilot'
 		{
 			-- support for image pasting
 			"HakonHarnes/img-clip.nvim",

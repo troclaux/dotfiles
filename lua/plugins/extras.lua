@@ -6,7 +6,7 @@ return {
 	"mbbill/undotree",
 	"preservim/tagbar",
 	"tommcdo/vim-exchange",
-	"ThePrimeagen/harpoon",
+	{ "ThePrimeagen/harpoon", branch = "master" },
 	"AndrewRadev/sideways.vim",
 	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 	{
