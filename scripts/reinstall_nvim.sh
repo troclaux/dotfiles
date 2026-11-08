@@ -1,43 +1,67 @@
 #!/bin/bash
+#
+# Clean Neovim install from the distro's package manager. Safe to re-run.
+#
+# Removes the Neovim package, any source-built copy in /usr/local, and all
+# config, plugins and caches, then reinstalls and links the config with stow.
+# Keeps undo history, swap files and shada, since those are your data.
 
 set -euo pipefail
 
-HOME_DIR="$HOME"
-NVIM_CONFIG="$HOME_DIR/.config/nvim"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+STATE_DIR="$HOME/.local/state/nvim"
 
-echo "[*] Removing old Neovim config and cache..."
-rm -rf "$NVIM_CONFIG"
-rm -rf "$HOME_DIR/.local/share/nvim"
-rm -rf "$HOME_DIR/.local/state/nvim/lazy"
-rm -rf "$HOME_DIR/.cache/nvim"
-
-echo "[*] Detecting package manager..."
-if command -v apt >/dev/null 2>&1; then
-	PKG_MGR="apt"
+if command -v apt-get >/dev/null 2>&1; then
+	PKG_MGR=apt
 elif command -v dnf >/dev/null 2>&1; then
-	PKG_MGR="dnf"
+	PKG_MGR=dnf
 else
-	echo "Unsupported package manager. Exiting."
+	echo "Unsupported distro: no apt-get or dnf found." >&2
 	exit 1
 fi
 
-echo "[*] Installing Neovim dependencies..."
+echo "[*] Removing old Neovim install..."
+sudo rm -rf /usr/local/bin/nvim /usr/local/share/nvim /usr/local/lib/nvim
 if [[ "$PKG_MGR" == "apt" ]]; then
-	sudo apt update
-	sudo apt install -y ripgrep fd-find luarocks build-essential libssl-dev ninja-build gettext cmake unzip curl lua5.4 git make stow
-
-	echo "[*] Building Neovim from source..."
-	git clone --depth 1 --branch stable https://github.com/neovim/neovim "$HOME_DIR/neovim"
-	(cd "$HOME_DIR/neovim" && make -j"$(nproc)")
-	sudo make -C "$HOME_DIR/neovim" install
-
-elif [[ "$PKG_MGR" == "dnf" ]]; then
-	sudo dnf install -y ripgrep fd-find luarocks gcc gcc-c++ lua neovim git make stow tree-sitter-cli
+	sudo apt-get purge -y neovim neovim-runtime
+else
+	sudo dnf remove -y neovim
 fi
 
-echo "[*] Linking dotfiles Neovim config..."
-mkdir -p "$HOME_DIR/.config"
-(cd "$HOME_DIR/dotfiles" && stow nvim)
+echo "[*] Removing old Neovim config, plugins and caches..."
+rm -rf "$HOME/.config/nvim" "$HOME/.local/share/nvim" "$HOME/.cache/nvim"
+if [[ -d "$STATE_DIR" ]]; then
+	find "$STATE_DIR" -mindepth 1 -maxdepth 1 \
+		! -name undo ! -name swap ! -name shada -exec rm -rf {} +
+fi
 
-echo "[*] Done! Launch Neovim with:"
-echo "    nvim"
+echo "[*] Installing Neovim and its dependencies..."
+if [[ "$PKG_MGR" == "apt" ]]; then
+	sudo apt-get update
+	sudo apt-get install -y neovim ripgrep fd-find luarocks lua5.4 tree-sitter-cli \
+		build-essential git curl unzip stow
+else
+	sudo dnf install -y neovim ripgrep fd-find luarocks lua tree-sitter-cli \
+		gcc gcc-c++ make git curl unzip stow
+fi
+
+echo "[*] Linking Neovim config..."
+# without an existing ~/.config, stow would symlink the whole directory
+mkdir -p "$HOME/.config"
+stow --dir="$DOTFILES_DIR" --target="$HOME" nvim
+
+# nvim-treesitter's main branch needs Neovim 0.12, which some distros don't ship yet
+if ! nvim --clean --headless +'lua os.exit(vim.fn.has("nvim-0.12"))' +q; then
+	echo "[*] Installing plugins at the versions in lazy-lock.json..."
+	# restore can't pin lazy.nvim itself and would rewrite its entry in the lock
+	LAZY_DIR="$HOME/.local/share/nvim/lazy/lazy.nvim"
+	LAZY_COMMIT="$(sed -n 's/.*"lazy.nvim".*"commit": "\([0-9a-f]*\)".*/\1/p' "$DOTFILES_DIR/nvim/.config/nvim/lazy-lock.json")"
+	git clone --quiet --filter=blob:none --branch=main https://github.com/folke/lazy.nvim.git "$LAZY_DIR"
+	git -C "$LAZY_DIR" checkout --quiet "$LAZY_COMMIT"
+	nvim --headless '+Lazy! restore' +qa
+	echo "[*] Done! Launch Neovim with: nvim"
+else
+	echo "[!] $(nvim --version | head -n 1) is older than the 0.12 this config needs." >&2
+	echo "[!] Skipped installing plugins. Your distro's repos don't ship a new enough version." >&2
+	exit 1
+fi

@@ -1,13 +1,14 @@
 #!/bin/bash
 #
 # Manual (non-Ansible) equivalent of `ansible-playbook local.yml --tags
-# nvim,zsh,zshrc,tmux,gitconfig,scripts`.
+# zsh,zshrc,tmux,gitconfig,scripts`, plus Node and Neovim.
 #
-# Sets up: zsh, tmux, gitconfig, Neovim config (via GNU stow), Neovim (built from
-# source on Debian/Ubuntu), ripgrep/fd, and the helper scripts under bin/.
+# Sets up: zsh, tmux, gitconfig, the helper scripts under bin/, Node (if missing)
+# and a clean Neovim install (see scripts/reinstall_nvim.sh).
 #
 # Safe to re-run. Existing dotfiles that would be overwritten are backed up
-# with a timestamp suffix instead of being deleted outright.
+# with a timestamp suffix instead of being deleted outright. Neovim's config,
+# plugins and caches are the exception: each run removes and reinstalls them.
 #
 # Usage: ./setup_workstation.sh
 
@@ -92,41 +93,6 @@ backup_if_present "$HOME/.gitconfig"
 (cd "$DOTFILES_DIR" && stow gitconfig)
 
 # ---------------------------------------------------------------------------
-# Neovim
-# ---------------------------------------------------------------------------
-
-log "Installing Neovim requirements (ripgrep, fd, luarocks)"
-if [ "$PKG_MGR" = apt ]; then
-	install_pkgs ripgrep fd-find luarocks
-	install_pkgs build-essential libssl-dev ninja-build gettext cmake lua5.4
-else
-	install_pkgs ripgrep fd-find luarocks gcc gcc-c++ lua tree-sitter-cli
-fi
-
-log "Cleaning old Neovim state"
-rm -rf "$HOME/.config/nvim" "$HOME/.local/share/nvim/lazy" \
-	"$HOME/.local/state/nvim/lazy" "$HOME/.cache/nvim"
-
-if [ "$PKG_MGR" = apt ]; then
-	log "Building Neovim from source (this can take a few minutes)"
-	if [ -d "$HOME/neovim" ]; then
-		git -C "$HOME/neovim" fetch --depth 1 origin stable
-		git -C "$HOME/neovim" checkout stable
-		git -C "$HOME/neovim" reset --hard origin/stable
-	else
-		git clone --branch stable https://github.com/neovim/neovim "$HOME/neovim"
-	fi
-	make -C "$HOME/neovim" -j"$(nproc)" CMAKE_BUILD_TYPE=Release
-	sudo make -C "$HOME/neovim" install
-else
-	install_pkgs neovim
-fi
-
-log "Stowing Neovim config"
-mkdir -p "$HOME/.config"
-(cd "$DOTFILES_DIR" && stow nvim)
-
-# ---------------------------------------------------------------------------
 # Helper scripts -> /usr/local/bin
 # ---------------------------------------------------------------------------
 
@@ -136,4 +102,20 @@ for name in sl tmux-windowizer tmux-sessionizer tmux-vimionizer tmux-cht.sh gclo
 	sudo ln -s "$DOTFILES_DIR/bin/$name" "/usr/local/bin/$name"
 done
 
-log "Done. Restart your shell (or run 'exec zsh') and open nvim to let lazy.nvim install plugins."
+# ---------------------------------------------------------------------------
+# Node (Mason needs npm to install some language servers)
+# ---------------------------------------------------------------------------
+
+if [ ! -x "$HOME/.volta/bin/node" ]; then
+	log "Installing Node"
+	"$DOTFILES_DIR/scripts/install_node.sh"
+fi
+
+# ---------------------------------------------------------------------------
+# Neovim (last: it exits non-zero on distros that don't ship a new enough version)
+# ---------------------------------------------------------------------------
+
+log "Installing Neovim"
+"$DOTFILES_DIR/scripts/reinstall_nvim.sh"
+
+log "Done. Restart your shell (or run 'exec zsh')."

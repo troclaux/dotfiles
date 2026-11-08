@@ -8,7 +8,6 @@
     - gitconfig
     - zshrc
     - tmux
-    - nvim
 
 - name: Remove gitconfig
   file:
@@ -52,14 +51,6 @@
     - stow
     - tmux
 
-- name: Remove nvim config
-  file:
-    path: $HOME/.config/nvim
-    state: absent
-  tags:
-    - stow
-    - nvim
-
 # without an existing ~/.config, stow would symlink the whole directory
 - name: Create .config folder
   become: false
@@ -68,17 +59,7 @@
     state: directory
   tags:
     - stow
-    - nvim
     - gtk
-
-- name: Stow nvim
-  become: false
-  shell: stow nvim
-  args:
-    chdir: "{{ lookup('env', 'HOME') }}/dotfiles"
-  tags:
-    - stow
-    - nvim
 
 - name: Remove gtk.css
   file:
