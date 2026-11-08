@@ -14,11 +14,11 @@ vim.keymap.set("x", "H", "^", { desc = "Go to start of line" })
 vim.keymap.set("x", "L", "g_", { desc = "Go to end of line" })
 
 -- Keep buffer after pasting over selection
-vim.keymap.set("x", "p", "p`[v`]y")
+vim.keymap.set("x", "p", "P")
 
 -- Replace occurrences
 vim.keymap.set("x", "<Leader>rr", ":s/", { desc = "Replace occurrences" })
-vim.keymap.set("n", "<Leader>rm", "mz:%s/\\r//g<CR>`z", { desc = "Remove ^M" })
+vim.keymap.set("n", "<Leader>rm", "mz:keeppatterns %s/\\r//ge<CR>`z", { desc = "Remove ^M" })
 
 -- run normal command on visual selection
 vim.keymap.set("x", "<Leader>n", ":norm ", { desc = "Run normal mode command" })
@@ -73,7 +73,7 @@ vim.keymap.set("n", "<Leader>rn", "*``cgn", { desc = "Replace word and go to nex
 vim.keymap.set("n", "<Leader>rr", ":%s/", { desc = "Replace occurrences" })
 
 -- Remove Trailing Whitespace
-vim.keymap.set("n", "<Leader>rw", [[mz:%s/\s\+$//e<CR>`z]], { desc = "Remove Trailing Whitespace" })
+vim.keymap.set("n", "<Leader>rw", [[mz:keeppatterns %s/\s\+$//e<CR>`z]], { desc = "Remove Trailing Whitespace" })
 
 -- Quit nvim
 vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit nvim" })
@@ -88,7 +88,7 @@ vim.keymap.set("n", "<Leader>e", "<CMD>Oil<CR>", { desc = "Open file explorer" }
 vim.keymap.set("n", "\\", "<C-w>h<C-w>h<C-w>o", { desc = "Go to left window and close all other windows" })
 
 -- Apply title case
-vim.keymap.set("n", "<Leader>tc", [[mz:s/\<./\u&/g<CR>:nohlsearch<CR>`z]], { desc = "Convert to Title Case" })
+vim.keymap.set("n", "<Leader>tc", [[mz:keeppatterns s/\<./\u&/ge<CR>`z]], { desc = "Convert to Title Case" })
 
 -- Keybind for tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
@@ -96,12 +96,11 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { de
 -- Open new tmux window in the parent folder of current buffer
 vim.keymap.set("n", "<Leader>tm", function()
 	local parent_dir = vim.fn.expand("%:p:h")
-	local cmd = "tmux neww -c " .. parent_dir
-	vim.fn.system(cmd)
+	vim.fn.system({ "tmux", "neww", "-c", parent_dir })
 end, { desc = "Open tmux window in parent directory" })
 
--- Delete current indentation block
-vim.keymap.set("n", "do", function()
+-- First and last line of the indentation block under the cursor
+local function indent_block()
 	local curr_line = vim.fn.line(".")
 	local curr_indent = vim.fn.indent(curr_line)
 	local start_line = curr_line
@@ -124,93 +123,40 @@ vim.keymap.set("n", "do", function()
 		end_line = end_line + 1
 	end
 
+	return start_line, end_line
+end
+
+-- Delete current indentation block (in diff mode, keep vim's diff obtain)
+vim.keymap.set("n", "do", function()
+	if vim.wo.diff then
+		vim.cmd("diffget")
+		return
+	end
+	local start_line, end_line = indent_block()
 	vim.cmd(start_line .. "," .. end_line .. "delete")
 end, { desc = "Delete current indentation block" })
 
 -- Delete indentation block and enter insert mode
 vim.keymap.set("n", "co", function()
-	local curr_line = vim.fn.line(".")
-	local curr_indent = vim.fn.indent(curr_line)
-	local start_line = curr_line
-	local end_line = curr_line
-	local total_lines = vim.fn.line("$")
+	local start_line, end_line = indent_block()
+	-- reuse the line's own whitespace so tab-indented files keep their tabs
+	local indent_str = vim.fn.getline("."):match("^%s*")
 
-	while start_line > 1 do
-		local line = vim.fn.getline(start_line - 1)
-		if line:match("^%s*$") or vim.fn.indent(start_line - 1) < curr_indent then
-			break
-		end
-		start_line = start_line - 1
-	end
-
-	while end_line < total_lines do
-		local line = vim.fn.getline(end_line + 1)
-		if line:match("^%s*$") or vim.fn.indent(end_line + 1) < curr_indent then
-			break
-		end
-		end_line = end_line + 1
-	end
-
-	vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, {})
-
-	local indent_str = string.rep(" ", curr_indent)
-	vim.api.nvim_buf_set_lines(0, start_line - 1, start_line - 1, false, { indent_str })
+	vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, { indent_str })
 
 	vim.api.nvim_win_set_cursor(0, { start_line, 0 })
 	vim.cmd("startinsert!")
 end, { desc = "Delete indentation block and enter insert mode" })
 
 vim.keymap.set("n", "vo", function()
-	local curr_line = vim.fn.line(".")
-	local curr_indent = vim.fn.indent(curr_line)
-	local start_line = curr_line
-	local end_line = curr_line
-	local total_lines = vim.fn.line("$")
-
-	while start_line > 1 do
-		local line = vim.fn.getline(start_line - 1)
-		if line:match("^%s*$") or vim.fn.indent(start_line - 1) < curr_indent then
-			break
-		end
-		start_line = start_line - 1
-	end
-
-	while end_line < total_lines do
-		local line = vim.fn.getline(end_line + 1)
-		if line:match("^%s*$") or vim.fn.indent(end_line + 1) < curr_indent then
-			break
-		end
-		end_line = end_line + 1
-	end
-
+	local start_line, end_line = indent_block()
 	vim.api.nvim_win_set_cursor(0, { start_line, 0 })
 	vim.cmd("normal! V")
 	vim.api.nvim_win_set_cursor(0, { end_line, 0 })
 end, { desc = "Visually select indentation block" })
 
 vim.keymap.set("n", "yo", function()
-	local curr_line = vim.fn.line(".")
-	local curr_indent = vim.fn.indent(curr_line)
-	local start_line = curr_line
-	local end_line = curr_line
-	local total_lines = vim.fn.line("$")
-
-	while start_line > 1 do
-		local line = vim.fn.getline(start_line - 1)
-		if line:match("^%s*$") or vim.fn.indent(start_line - 1) < curr_indent then
-			break
-		end
-		start_line = start_line - 1
-	end
-
-	while end_line < total_lines do
-		local line = vim.fn.getline(end_line + 1)
-		if line:match("^%s*$") or vim.fn.indent(end_line + 1) < curr_indent then
-			break
-		end
-		end_line = end_line + 1
-	end
-
+	local start_line, end_line = indent_block()
 	vim.cmd(start_line .. "," .. end_line .. "yank")
 	print("Yanked lines " .. start_line .. " to " .. end_line)
 end, { desc = "Yank current indentation block" })
@@ -222,7 +168,7 @@ end, { desc = "Yank current indentation block" })
 vim.keymap.set("n", "<Leader>pd", [[:r !date "+\%d-\%m-\%Y"<CR>kJ]], { desc = "Insert current date" })
 
 -- Bash
-vim.keymap.set("n", "<Leader>ps", "mzO#!/bin/bash<CR><Esc>`z", { desc = "Insert shebang statement" })
+vim.keymap.set("n", "<Leader>ps", "mzggO#!/bin/bash<CR><Esc>`z", { desc = "Insert shebang statement" })
 
 -- Markdown
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
@@ -237,7 +183,7 @@ vim.keymap.set("n", "<leader>pi", function()
 	local text = vim.fn.getreg("+")
 	text = text:gsub("^%s+", ""):gsub("%s+$", "")
 	local surrounded = "`" .. text .. "`"
-	vim.api.nvim_put({ surrounded }, "c", true, true)
+	vim.api.nvim_put(vim.split(surrounded, "\n"), "c", true, true)
 end, { desc = "Paste text and surround with backticks" })
 
 vim.keymap.set("n", "<Leader>1", 'o<Esc>0"_Di# ', { desc = "Insert markdown heading #" })
@@ -246,8 +192,8 @@ vim.keymap.set("n", "<Leader>3", 'o<Esc>0"_Di### ', { desc = "Insert markdown he
 vim.keymap.set("n", "<Leader>4", 'o<Esc>0"_Di#### ', { desc = "Insert markdown heading ####" })
 
 -- Remove bold notation in markdown (**)
-vim.keymap.set("x", "<Leader>rb", ":s/\\*//g<CR>", { desc = "Remove asterisks in selection" })
-vim.keymap.set("n", "<Leader>rb", ":s/\\*//g<CR>", { desc = "Remove asterisks in current line" })
+vim.keymap.set("x", "<Leader>rb", ":<C-u>keeppatterns '<,'>s/\\*//ge<CR>", { desc = "Remove asterisks in selection" })
+vim.keymap.set("n", "<Leader>rb", ":keeppatterns s/\\*//ge<CR>", { desc = "Remove asterisks in current line" })
 
 -- Insert anchor link
 vim.keymap.set("n", "<Leader>pa", "ciW[](#)<Esc>F[pf#a", { desc = "Insert anchor link" })
@@ -284,7 +230,7 @@ vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open file explorer" })
 vim.keymap.set("n", "<leader>gi", ":vert Git<CR>", { desc = "Git Status" })
 -- vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
 vim.keymap.set("n", "<Leader>gp", ":Git push<CR>", { desc = "Git Push" })
-vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { desc = "Search git commit messages" })
+vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { desc = "Search commits that changed a string" })
 
 vim.keymap.set("n", "gh", "<cmd>diffget //2<CR>")
 vim.keymap.set("n", "gl", "<cmd>diffget //3<CR>")
@@ -314,7 +260,9 @@ vim.keymap.set("n", "<leader>ç", function()
 end, { desc = "Harpoon go to mark 5" })
 
 -- Split/Join line of code
-vim.keymap.set("n", "<Leader>tr", require("treesj").toggle, { desc = "Split/Join line of code" })
+vim.keymap.set("n", "<Leader>tr", function()
+	require("treesj").toggle()
+end, { desc = "Split/Join line of code" })
 
 -- Move argument/parameter left/right
 vim.keymap.set("n", "<A-L>", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
