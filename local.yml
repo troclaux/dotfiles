@@ -65,6 +65,7 @@
         - gitconfig
         - stow
         - nvim
+        - gtk
 
     - include_tasks: tasks/scripts.yml
       tags: scripts

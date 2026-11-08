@@ -62,15 +62,38 @@
 
 # without an existing ~/.config, stow would symlink the whole directory
 - name: Create .config folder
+  become: false
   file:
-    path: $HOME/.config
+    path: "{{ lookup('env', 'HOME') }}/.config"
     state: directory
   tags:
     - stow
     - nvim
+    - gtk
 
 - name: Stow nvim
+  become: false
   shell: stow nvim
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/dotfiles"
   tags:
     - stow
     - nvim
+
+- name: Remove gtk.css
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.config/gtk-3.0/gtk.css"
+    state: absent
+  tags:
+    - stow
+    - gtk
+
+# no folding: GTK writes other files to this folder, which must stay out of the repo
+- name: Stow gtk
+  become: false
+  shell: stow --no-folding gtk
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/dotfiles"
+  tags:
+    - stow
+    - gtk

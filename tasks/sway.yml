@@ -42,105 +42,23 @@
     - sway
   when: ansible_pkg_mgr == 'dnf'
 
-- name: Deletes ~/.config/sway
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/sway"
-    state: absent
-  tags: sway
-
-- name: Create ~/.config/sway
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/sway"
+- name: Create .config folder for sway configs
+  become: false
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.config"
     state: directory
   tags: sway
 
-- name: Creates symbolic link for sway config
-  become: true
+- name: Remove existing sway configs
   file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/sway/config"
-    dest: "{{ lookup('env', 'HOME') }}/.config/sway/config"
-    state: link
-  tags:
-    - sway
-
-- name: Deletes ~/.config/waybar
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/waybar"
+    path: "{{ lookup('env', 'HOME') }}/.config/{{ item }}"
     state: absent
+  loop: [sway, waybar, fuzzel, wofi, kanshi]
   tags: sway
 
-- name: Creates ~/.config/waybar
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/waybar"
-    state: directory
+- name: Stow sway configs
+  become: false
+  shell: stow sway waybar fuzzel wofi kanshi
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/dotfiles"
   tags: sway
-
-- name: Creates symbolic link for waybar config
-  become: true
-  file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/waybar/config.jsonc"
-    dest: "{{ lookup('env', 'HOME') }}/.config/waybar/config.jsonc"
-    state: link
-  tags:
-    - sway
-
-
-- name: Creates symbolic link for sway's power button menu
-  become: true
-  file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/waybar/power_menu.xml"
-    dest: "{{ lookup('env', 'HOME') }}/.config/waybar/power_menu.xml"
-    state: link
-  tags:
-    - sway
-
-- name: Creates symbolic link for waybar css
-  become: true
-  file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/waybar/style.css"
-    dest: "{{ lookup('env', 'HOME') }}/.config/waybar/style.css"
-    state: link
-  tags:
-    - sway
-
-- name: Deletes ~/.config/fuzzel
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/fuzzel"
-    state: absent
-  tags: sway
-
-- name: Creates ~/.config/fuzzel
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/fuzzel"
-    state: directory
-  tags: sway
-
-- name: Creates symbolic link for fuzzel's config file
-  become: true
-  file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/fuzzel/fuzzel.ini"
-    dest: "{{ lookup('env', 'HOME') }}/.config/fuzzel/fuzzel.ini"
-    state: link
-  tags:
-    - sway
-
-- name: Deletes ~/.config/wofi
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/wofi"
-    state: absent
-  tags: sway
-
-- name: Creates ~/.config/wofi
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/wofi"
-    state: directory
-  tags: sway
-
-- name: Creates symbolic link for wofi's css
-  become: true
-  file:
-    src: "{{ lookup('env', 'HOME') }}/dotfiles/.config/wofi/style.css"
-    dest: "{{ lookup('env', 'HOME') }}/.config/wofi/style.css"
-    state: link
-  tags:
-    - sway

@@ -2,6 +2,9 @@ vim.opt.fileformats = { "unix", "dos" }
 vim.opt.fileformat = "unix"
 vim.lsp.log.set_level("off")
 vim.o.verbose = 0
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.clipboard = "unnamedplus"
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2

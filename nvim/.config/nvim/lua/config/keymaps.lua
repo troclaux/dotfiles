@@ -81,9 +81,6 @@ vim.keymap.set("n", "<Leader>o", ":q<CR>", { desc = "Quit nvim" })
 -- Save current buffer
 vim.keymap.set("n", "<Leader>i", ":w<CR>", { desc = "Save current buffer" })
 
--- Open vim file explorer
-vim.keymap.set("n", "<Leader>e", "<CMD>Oil<CR>", { desc = "Open file explorer" })
-
 -- Go to left window and close all other windows
 vim.keymap.set("n", "\\", "<C-w>h<C-w>h<C-w>o", { desc = "Go to left window and close all other windows" })
 
@@ -204,69 +201,17 @@ vim.keymap.set("n", "<leader>pe", "oif err != nil {<CR>return , err<CR>}<Esc>kf,
 vim.keymap.set("n", "<leader>pg", 'oimport "fmt"<Esc>hhh', { desc = "golang import single package" })
 vim.keymap.set("n", "<leader>pG", 'oimport (<CR>"fmt"<CR>)<Esc>ko""<Esc>i', { desc = "golang import packages" })
 
---------------------
--- PLUGIN KEYMAPS --
---------------------
+-----------------------
+-- LAZY.NVIM KEYMAPS --
+-----------------------
+
+-- Other plugin keymaps live next to their plugin in lua/plugins/
 
 -- Access lazy.vim menu
 vim.keymap.set("n", "<Leader>L", vim.cmd.Lazy, { desc = "Lazy.nvim menu" })
 
--- Access Mason menu
-vim.keymap.set("n", "<Leader>M", vim.cmd.Mason, { desc = "Access Mason menu" })
-
 -- Update nvim plugins
 vim.keymap.set("n", "<Leader>U", ":Lazy update<CR>", { desc = "Update nvim plugins" })
-
--- Undotree plugin
-vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree panel" })
-
--- Show current buffer summary
-vim.keymap.set("n", "<Leader><Leader>", ":TagbarToggle fjc<CR>", { desc = "Show current buffer summary" })
-
--- Oil
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open file explorer" })
-
--- Vim-fugitive plugin
-vim.keymap.set("n", "<leader>gi", ":vert Git<CR>", { desc = "Git Status" })
--- vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "Git Status" })
-vim.keymap.set("n", "<Leader>gp", ":Git push<CR>", { desc = "Git Push" })
-vim.keymap.set("n", "<Leader>gl", ":GcLog -S ", { desc = "Search commits that changed a string" })
-
-vim.keymap.set("n", "gh", "<cmd>diffget //2<CR>")
-vim.keymap.set("n", "gl", "<cmd>diffget //3<CR>")
-
--- Harpoon plugin
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
-
-vim.keymap.set("n", "<leader>m", mark.add_file, { desc = "Harpoon mark" })
-vim.keymap.set("n", "<leader>n", ui.toggle_quick_menu, { desc = "Harpoon menu" })
-vim.keymap.set("n", "<leader>C", mark.clear_all, { desc = "Harpoon clear marks" })
-
-vim.keymap.set("n", "<leader>h", function()
-	ui.nav_file(1)
-end, { desc = "Harpoon go to mark 1" })
-vim.keymap.set("n", "<leader>j", function()
-	ui.nav_file(2)
-end, { desc = "Harpoon go to mark 2" })
-vim.keymap.set("n", "<leader>k", function()
-	ui.nav_file(3)
-end, { desc = "Harpoon go to mark 3" })
-vim.keymap.set("n", "<leader>l", function()
-	ui.nav_file(4)
-end, { desc = "Harpoon go to mark 4" })
-vim.keymap.set("n", "<leader>ç", function()
-	ui.nav_file(5)
-end, { desc = "Harpoon go to mark 5" })
-
--- Split/Join line of code
-vim.keymap.set("n", "<Leader>tr", function()
-	require("treesj").toggle()
-end, { desc = "Split/Join line of code" })
-
--- Move argument/parameter left/right
-vim.keymap.set("n", "<A-L>", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
-vim.keymap.set("n", "<A-H>", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
 
 -------------------------
 ---- DELETE KEYMAPS -----
