@@ -8,6 +8,7 @@
     - gitconfig
     - zshrc
     - tmux
+    - nvim
 
 - name: Remove gitconfig
   file:
@@ -50,3 +51,26 @@
   tags:
     - stow
     - tmux
+
+- name: Remove nvim config
+  file:
+    path: $HOME/.config/nvim
+    state: absent
+  tags:
+    - stow
+    - nvim
+
+# without an existing ~/.config, stow would symlink the whole directory
+- name: Create .config folder
+  file:
+    path: $HOME/.config
+    state: directory
+  tags:
+    - stow
+    - nvim
+
+- name: Stow nvim
+  shell: stow nvim
+  tags:
+    - stow
+    - nvim

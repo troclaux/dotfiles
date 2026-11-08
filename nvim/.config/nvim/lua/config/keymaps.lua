@@ -265,9 +265,6 @@ vim.keymap.set("n", "<leader>pG", 'oimport (<CR>"fmt"<CR>)<Esc>ko""<Esc>i', { de
 -- Access lazy.vim menu
 vim.keymap.set("n", "<Leader>L", vim.cmd.Lazy, { desc = "Lazy.nvim menu" })
 
--- View lazy.vim extra plugins
-vim.keymap.set("n", "<Leader>E", vim.cmd.LazyExtras, { desc = "Lazy.nvim extra plugins" })
-
 -- Access Mason menu
 vim.keymap.set("n", "<Leader>M", vim.cmd.Mason, { desc = "Access Mason menu" })
 
@@ -322,9 +319,6 @@ vim.keymap.set("n", "<Leader>tr", require("treesj").toggle, { desc = "Split/Join
 -- Move argument/parameter left/right
 vim.keymap.set("n", "<A-L>", vim.cmd.SidewaysRight, { desc = "Move argument/parameter right" })
 vim.keymap.set("n", "<A-H>", vim.cmd.SidewaysLeft, { desc = "Move argument/parameter left" })
-
--- Avante plugin
-vim.keymap.set("n", "<Leader>af", ":AvanteAsk position=right fix<CR>", { desc = "avante: fix" })
 
 -------------------------
 ---- DELETE KEYMAPS -----

@@ -64,6 +64,7 @@
         - tmux
         - gitconfig
         - stow
+        - nvim
 
     - include_tasks: tasks/scripts.yml
       tags: scripts

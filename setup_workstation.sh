@@ -3,7 +3,7 @@
 # Manual (non-Ansible) equivalent of `ansible-playbook local.yml --tags
 # nvim,zsh,zshrc,tmux,gitconfig,scripts`.
 #
-# Sets up: zsh, tmux, gitconfig (via GNU stow), Neovim (LazyVim, built from
+# Sets up: zsh, tmux, gitconfig, Neovim config (via GNU stow), Neovim (built from
 # source on Debian/Ubuntu), ripgrep/fd, and the helper scripts under bin/.
 #
 # Safe to re-run. Existing dotfiles that would be overwritten are backed up
@@ -100,7 +100,7 @@ if [ "$PKG_MGR" = apt ]; then
 	install_pkgs ripgrep fd-find luarocks
 	install_pkgs build-essential libssl-dev ninja-build gettext cmake lua5.4
 else
-	install_pkgs ripgrep fd-find luarocks gcc gcc-c++ lua
+	install_pkgs ripgrep fd-find luarocks gcc gcc-c++ lua tree-sitter-cli
 fi
 
 log "Cleaning old Neovim state"
@@ -122,22 +122,9 @@ else
 	install_pkgs neovim
 fi
 
-log "Cloning LazyVim starter"
-mkdir -p "$HOME/.config/nvim"
-git clone https://github.com/LazyVim/starter "$HOME/.config/nvim"
-rm -rf "$HOME/.config/nvim/.git"
-
-log "Linking dotfiles Neovim lua config over the LazyVim starter"
-for f in "$DOTFILES_DIR"/lua/config/*.lua; do
-	name="$(basename "$f")"
-	backup_if_present "$HOME/.config/nvim/lua/config/$name"
-	ln -s "$f" "$HOME/.config/nvim/lua/config/$name"
-done
-for f in "$DOTFILES_DIR"/lua/plugins/*.lua; do
-	name="$(basename "$f")"
-	backup_if_present "$HOME/.config/nvim/lua/plugins/$name"
-	ln -s "$f" "$HOME/.config/nvim/lua/plugins/$name"
-done
+log "Stowing Neovim config"
+mkdir -p "$HOME/.config"
+(cd "$DOTFILES_DIR" && stow nvim)
 
 # ---------------------------------------------------------------------------
 # Helper scripts -> /usr/local/bin
@@ -149,4 +136,4 @@ for name in sl tmux-windowizer tmux-sessionizer tmux-vimionizer tmux-cht.sh gclo
 	sudo ln -s "$DOTFILES_DIR/bin/$name" "/usr/local/bin/$name"
 done
 
-log "Done. Restart your shell (or run 'exec zsh') and open nvim to let LazyVim install plugins."
+log "Done. Restart your shell (or run 'exec zsh') and open nvim to let lazy.nvim install plugins."

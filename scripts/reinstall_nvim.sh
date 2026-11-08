@@ -24,7 +24,7 @@ fi
 echo "[*] Installing Neovim dependencies..."
 if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo apt update
-	sudo apt install -y ripgrep fd-find luarocks build-essential libssl-dev ninja-build gettext cmake unzip curl lua5.4 git make
+	sudo apt install -y ripgrep fd-find luarocks build-essential libssl-dev ninja-build gettext cmake unzip curl lua5.4 git make stow
 
 	echo "[*] Building Neovim from source..."
 	git clone --depth 1 --branch stable https://github.com/neovim/neovim "$HOME_DIR/neovim"
@@ -32,28 +32,12 @@ if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo make -C "$HOME_DIR/neovim" install
 
 elif [[ "$PKG_MGR" == "dnf" ]]; then
-	sudo dnf install -y ripgrep fd-find luarocks gcc gcc-c++ lua neovim git make
+	sudo dnf install -y ripgrep fd-find luarocks gcc gcc-c++ lua neovim git make stow tree-sitter-cli
 fi
 
-echo "[*] Setting up LazyVim starter config..."
-rm -rf "$NVIM_CONFIG"
-mkdir -p "$NVIM_CONFIG"
-
-git clone https://github.com/LazyVim/starter "$NVIM_CONFIG"
-rm -rf "$NVIM_CONFIG/.git"
-
-echo "[*] Linking dotfiles into Neovim config..."
-ln -sf "$HOME_DIR/dotfiles/lua/config/keymaps.lua" "$NVIM_CONFIG/lua/config/keymaps.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/config/options.lua" "$NVIM_CONFIG/lua/config/options.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/plugins/disabled.lua" "$NVIM_CONFIG/lua/plugins/disabled.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/plugins/extras.lua" "$NVIM_CONFIG/lua/plugins/extras.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/plugins/lualine.lua" "$NVIM_CONFIG/lua/plugins/lualine.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/plugins/telescope.lua" "$NVIM_CONFIG/lua/plugins/telescope.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/plugins/copilot.lua" "$NVIM_CONFIG/lua/plugins/copilot.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/plugins/cmp.lua" "$NVIM_CONFIG/lua/plugins/cmp.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/plugins/blink.lua" "$NVIM_CONFIG/lua/plugins/blink.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/plugins/oil.lua" "$NVIM_CONFIG/lua/plugins/oil.lua"
-ln -sf "$HOME_DIR/dotfiles/lua/plugins/avante.lua" "$NVIM_CONFIG/lua/plugins/avante.lua"
+echo "[*] Linking dotfiles Neovim config..."
+mkdir -p "$HOME_DIR/.config"
+(cd "$HOME_DIR/dotfiles" && stow nvim)
 
 echo "[*] Done! Launch Neovim with:"
 echo "    nvim"
