@@ -18,6 +18,11 @@ return {
 			preferred_picker = "telescope",
 			keymap_prefix = "<leader>a",
 			keymap = {
+				-- use the default <leader>o names here, keymap_prefix rewrites them to <leader>a
+				editor = {
+					["<leader>oc"] = { "open_input_new_session", desc = "Open input (new session)" },
+					["<leader>oI"] = false,
+				},
 				input_window = {
 					["<C-s>"] = { "submit_input_prompt", mode = { "n", "i" }, desc = "Submit prompt" },
 				},
