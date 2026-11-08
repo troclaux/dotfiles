@@ -5,6 +5,7 @@
 # Removes the Neovim package, any source-built copy in /usr/local, and all
 # config, plugins and caches, then reinstalls and links the config with stow.
 # Keeps undo history, swap files and shada, since those are your data.
+# Also installs the OpenCode CLI if it's missing, and links its config.
 
 set -euo pipefail
 
@@ -34,6 +35,11 @@ if [[ -d "$STATE_DIR" ]]; then
 	find "$STATE_DIR" -mindepth 1 -maxdepth 1 \
 		! -name undo ! -name swap ! -name shada -exec rm -rf {} +
 fi
+# a broken or stale link would make stow fail; OpenCode's own files stay
+if [[ -L "$HOME/.config/opencode" ]]; then
+	rm "$HOME/.config/opencode"
+fi
+rm -f "$HOME/.config/opencode/opencode.jsonc"
 
 echo "[*] Installing Neovim and its dependencies..."
 if [[ "$PKG_MGR" == "apt" ]]; then
@@ -49,6 +55,15 @@ echo "[*] Linking Neovim config..."
 # without an existing ~/.config, stow would symlink the whole directory
 mkdir -p "$HOME/.config"
 stow --dir="$DOTFILES_DIR" --target="$HOME" nvim
+
+echo "[*] Setting up the OpenCode CLI for opencode.nvim..."
+export PATH="$HOME/.opencode/bin:$PATH"
+if ! command -v opencode >/dev/null 2>&1; then
+	# zsh/.zshrc already adds it to PATH
+	curl -fsSL https://opencode.ai/install | bash -s -- --no-modify-path
+fi
+# without --no-folding, OpenCode's service.json would end up inside this repo
+stow --dir="$DOTFILES_DIR" --target="$HOME" --no-folding opencode
 
 # nvim-treesitter's main branch needs Neovim 0.12, which some distros don't ship yet
 if ! nvim --clean --headless +'lua os.exit(vim.fn.has("nvim-0.12"))' +q; then

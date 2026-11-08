@@ -61,6 +61,7 @@ Each top-level config folder is a [GNU Stow](https://www.gnu.org/software/stow/)
 | `zsh`, `tmux`, `gitconfig` | `~/.zshrc`, `~/.tmux.conf`, `~/.gitconfig` |
 | `nvim`, `kitty`, `sway`, `waybar`, `fuzzel`, `wofi`, `kanshi` | `~/.config/<package>` |
 | `gtk` | `~/.config/gtk-3.0/gtk.css` (use `stow --no-folding gtk`) |
+| `opencode` | `~/.config/opencode/opencode.jsonc` (use `stow --no-folding opencode`) |
 
 To link a package by hand, run `stow <package>` from this directory.
 
@@ -69,6 +70,8 @@ Secrets don't belong in this public repository. Keep them in `~/.env.zsh`, which
 ### Neovim
 
 `./scripts/reinstall_nvim.sh` does a clean install from `dnf` or `apt`. It removes the package, the config, plugins and caches, and keeps undo history, swap files and shada. Each run also reinstalls plugins at the versions in `lazy-lock.json`.
+
+The script also installs the OpenCode CLI if it's missing and links its config for `opencode.nvim`. OpenCode reads `ANTHROPIC_API_KEY` from the environment, so keep the key in `~/.env.zsh`.
 
 > [!NOTE]
 > **Decision pending: Debian and Ubuntu.** This config needs Neovim 0.12 or later because of `nvim-treesitter`'s `main` branch, and of the distros this repo supports, only Fedora ships it so far. As of November 2026, the repos have 0.11.6 (Ubuntu 26.04), 0.10.4 (Debian 13) and 0.9.5 (Ubuntu 24.04). On these distros the script installs the older version, skips plugins and exits 1. Options to decide between:
