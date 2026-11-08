@@ -1,6 +1,30 @@
 return {
 	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 	{
+		"sudo-tee/opencode.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"saghen/blink.cmp",
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					anti_conceal = { enabled = false },
+					file_types = { "opencode_output" },
+				},
+				ft = { "opencode_output" },
+			},
+		},
+		opts = {
+			preferred_picker = "telescope",
+			keymap_prefix = "<leader>a",
+			keymap = {
+				input_window = {
+					["<C-s>"] = { "submit_input_prompt", mode = { "n", "i" }, desc = "Submit prompt" },
+				},
+			},
+		},
+	},
+	{
 		"hat0uma/csvview.nvim",
 		cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
 		---@module "csvview"

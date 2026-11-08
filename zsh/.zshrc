@@ -270,3 +270,6 @@ export PATH="$PATH:/home/troclaux/.turso"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
+
+# opencode
+export PATH=/home/troclaux/.opencode/bin:$PATH
