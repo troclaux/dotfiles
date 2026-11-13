@@ -1,18 +1,30 @@
 return {
 	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" },
+		ft = { "markdown", "opencode_output" },
+		keys = {
+			{ "<Leader>tm", "<cmd>RenderMarkdown buf_toggle<CR>", desc = "Toggle markdown rendering" },
+		},
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {
+			file_types = { "markdown", "opencode_output" },
+			overrides = {
+				filetype = {
+					markdown = { enabled = false },
+					opencode_output = { anti_conceal = { enabled = false } },
+				},
+			},
+		},
+	},
+	{
 		"sudo-tee/opencode.nvim",
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 			"saghen/blink.cmp",
-			{
-				"MeanderingProgrammer/render-markdown.nvim",
-				opts = {
-					anti_conceal = { enabled = false },
-					file_types = { "opencode_output" },
-				},
-				ft = { "opencode_output" },
-			},
+			"MeanderingProgrammer/render-markdown.nvim",
 		},
 		opts = {
 			preferred_picker = "telescope",

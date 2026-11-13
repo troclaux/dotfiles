@@ -91,7 +91,7 @@ vim.keymap.set("n", "<Leader>tc", [[mz:keeppatterns s/\<./\u&/ge<CR>`z]], { desc
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
 
 -- Open new tmux window in the parent folder of current buffer
-vim.keymap.set("n", "<Leader>tm", function()
+vim.keymap.set("n", "<Leader>tw", function()
 	local parent_dir = vim.fn.expand("%:p:h")
 	vim.fn.system({ "tmux", "neww", "-c", parent_dir })
 end, { desc = "Open tmux window in parent directory" })
