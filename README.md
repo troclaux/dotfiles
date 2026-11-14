@@ -43,10 +43,6 @@ The base setup installs common CLI packages, links the zsh, tmux, gitconfig and 
 ./test_setup.sh fedora --nvim-only
 ```
 
-## Optional scripts
-
-- `./scripts/go_install.sh`: Go tools (glow, vim-startuptime). Needs Go, which `--extras` installs
-
 ## Repository layout
 
 Each top-level config folder is a [GNU Stow](https://www.gnu.org/software/stow/) package that mirrors the path under `$HOME`:
