@@ -16,24 +16,27 @@ git clone https://github.com/troclaux/dotfiles ~/dotfiles
 Run the setup script. It's safe to re-run, and it backs up existing dotfiles instead of overwriting them:
 
 ```bash
-~/dotfiles/setup_workstation.sh               # base setup
-~/dotfiles/setup_workstation.sh --sway --kitty  # base setup plus sway and kitty
-~/dotfiles/setup_workstation.sh --nvim-only   # only Neovim and Node
+~/dotfiles/setup_workstation.sh --all          # everything: a complete new machine
+~/dotfiles/setup_workstation.sh                # base setup only
+~/dotfiles/setup_workstation.sh --sway --kitty # base setup plus sway and kitty
+~/dotfiles/setup_workstation.sh --nvim-only    # only Neovim and Node
 ```
 
-The base setup installs common CLI packages, links the zsh, tmux, gitconfig and gtk configs, symlinks the `bin/` scripts into `/usr/local/bin`, and installs Node and Neovim. Options:
+The base setup installs common CLI packages, links the zsh, tmux, gitconfig and gtk configs, installs Oh My Zsh (with the zsh-autosuggestions and zsh-syntax-highlighting plugins) and the JetBrainsMono Nerd Font, symlinks the `bin/` scripts into `/usr/local/bin`, and installs Node and Neovim. Options:
 
 | Option | Adds |
 | --- | --- |
 | `--kitty` | kitty and its config |
 | `--sway` | sway, waybar, wofi, fuzzel and other desktop tools, with their configs |
 | `--extras` | optional CLI tools: go, bat, htop, btop, tldr, gh, ffmpeg, yt-dlp, rsync, rclone and more |
-| `--all` | all three of the above |
+| `--flatpaks` | Flatpak and Flathub, and desktop apps: Brave, Chrome, Discord, Telegram, Bitwarden, VLC, OBS, GIMP, Postman, Gear Lever and more |
+| `--dev` | VS Code, Docker Engine and rustup. Log out and back in to use Docker without `sudo`. On Arch, VS Code is the open-source build, since Microsoft's is only in the AUR |
+| `--all` | all of the above |
 | `--nvim-only` | skips everything else and only installs Neovim and Node (Mason needs npm). Can't be combined with other options |
 
 ## Testing the setup script
 
-`./test_setup.sh` runs `setup_workstation.sh` twice in a fresh `fedora`, `ubuntu` or `arch` container, to check that it works and that a re-run also succeeds. It needs podman or docker, and passes any extra options on to the setup script:
+`./test_setup.sh` runs `setup_workstation.sh` twice in a fresh `fedora`, `ubuntu`, `debian` or `arch` container, to check that it works and that a re-run also succeeds. It needs podman or docker, and passes any extra options on to the setup script:
 
 ```bash
 ./test_setup.sh arch --all
@@ -42,17 +45,7 @@ The base setup installs common CLI packages, links the zsh, tmux, gitconfig and 
 
 ## Optional scripts
 
-- `./scripts/fix_nvim_permissions.sh`
-- `./scripts/install_flatpaks.sh`
-- `./scripts/install_nerd_font.sh`
-- `./scripts/go_install.sh`
-- `./scripts/ohmyzsh.sh`
-
-## Software without automated installation
-
-- VS Code
-- Docker Desktop
-- rustup
+- `./scripts/go_install.sh`: Go tools (glow, vim-startuptime). Needs Go, which `--extras` installs
 
 ## Repository layout
 

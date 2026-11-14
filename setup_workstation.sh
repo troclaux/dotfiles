@@ -2,17 +2,19 @@
 #
 # Sets up a fresh Fedora, Ubuntu/Debian or Arch-based workstation.
 #
-# Always sets up: base packages, zsh, tmux, gitconfig, gtk, the helper scripts
-# under bin/, Node (if missing) and Neovim (if not set up yet, see
-# scripts/reinstall_nvim.sh).
+# Always sets up: base packages, zsh with Oh My Zsh, tmux, gitconfig, gtk, the
+# JetBrainsMono Nerd Font, the helper scripts under bin/, Node (if missing) and
+# Neovim (if not set up yet, see scripts/reinstall_nvim.sh).
 #
 # Safe to re-run. Existing dotfiles that would be overwritten are backed up
 # with a timestamp suffix instead of being deleted outright.
 #
-# Usage: ./setup_workstation.sh [--kitty] [--sway] [--extras] [--all] | [--nvim-only]
+# Usage: ./setup_workstation.sh [--kitty] [--sway] [--extras] [--flatpaks] [--dev] [--all] | [--nvim-only]
 #   --kitty      install kitty and link its config
 #   --sway       install sway and its tools, and link their configs
 #   --extras     install optional CLI tools (go, bat, btop, gh, ffmpeg, ...)
+#   --flatpaks   install Flatpak, Flathub and desktop apps (browsers, Discord, GIMP, ...)
+#   --dev        install VS Code, Docker Engine and rustup
 #   --all        all of the above
 #   --nvim-only  only install Neovim and Node (Mason needs npm)
 
@@ -21,24 +23,28 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP_SUFFIX=".bak.$(date +%Y%m%d%H%M%S)"
 
-usage() { sed -n '12,17s/^# \{0,1\}//p' "$0"; }
+usage() { sed -n '12,19s/^# \{0,1\}//p' "$0"; }
 
 WITH_KITTY=false
 WITH_SWAY=false
 WITH_EXTRAS=false
+WITH_FLATPAKS=false
+WITH_DEV=false
 NVIM_ONLY=false
 for arg in "$@"; do
 	case "$arg" in
 	--kitty) WITH_KITTY=true ;;
 	--sway) WITH_SWAY=true ;;
 	--extras) WITH_EXTRAS=true ;;
-	--all) WITH_KITTY=true WITH_SWAY=true WITH_EXTRAS=true ;;
+	--flatpaks) WITH_FLATPAKS=true ;;
+	--dev) WITH_DEV=true ;;
+	--all) WITH_KITTY=true WITH_SWAY=true WITH_EXTRAS=true WITH_FLATPAKS=true WITH_DEV=true ;;
 	--nvim-only) NVIM_ONLY=true ;;
 	-h | --help) usage && exit 0 ;;
 	*) echo "Unknown option: $arg" >&2 && usage >&2 && exit 1 ;;
 	esac
 done
-if $NVIM_ONLY && { $WITH_KITTY || $WITH_SWAY || $WITH_EXTRAS; }; then
+if $NVIM_ONLY && { $WITH_KITTY || $WITH_SWAY || $WITH_EXTRAS || $WITH_FLATPAKS || $WITH_DEV; }; then
 	echo "--nvim-only can't be combined with other options" >&2
 	exit 1
 fi
@@ -121,7 +127,7 @@ if $NVIM_ONLY; then
 	exit 0
 fi
 
-install_pkgs git xclip wl-clipboard unzip curl wget tmux fzf stow
+install_pkgs git xclip wl-clipboard unzip curl wget tmux fzf stow fontconfig
 case "$PKG_MGR" in
 pacman) install_pkgs procps-ng ;;
 *) install_pkgs procps ;;
@@ -140,6 +146,18 @@ esac
 backup_if_present "$HOME/.zshrc"
 (cd "$DOTFILES_DIR" && stow zsh)
 
+# after stow: KEEP_ZSHRC stops the installer from replacing the linked .zshrc
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+	log "Installing Oh My Zsh"
+	RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c \
+		"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+for plugin in zsh-syntax-highlighting zsh-autosuggestions; do
+	if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/$plugin" ]; then
+		git clone --depth 1 "https://github.com/zsh-users/$plugin" "$HOME/.oh-my-zsh/custom/plugins/$plugin"
+	fi
+done
+
 # ---------------------------------------------------------------------------
 # tmux, gitconfig, gtk
 # ---------------------------------------------------------------------------
@@ -156,6 +174,21 @@ log "Setting up gtk.css"
 backup_if_present "$HOME/.config/gtk-3.0/gtk.css"
 # no folding: GTK writes other files to this folder, which must stay out of the repo
 (cd "$DOTFILES_DIR" && stow --no-folding gtk)
+
+# ---------------------------------------------------------------------------
+# JetBrainsMono Nerd Font (kitty uses it)
+# ---------------------------------------------------------------------------
+
+# not grep -q: exiting early would make fc-list fail with SIGPIPE under pipefail
+if ! fc-list | grep "JetBrainsMono Nerd Font" >/dev/null; then
+	log "Installing JetBrainsMono Nerd Font"
+	tmp="$(mktemp -d)"
+	curl -fsSLo "$tmp/font.zip" https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+	sudo mkdir -p /usr/local/share/fonts/JetBrainsMono
+	sudo unzip -oq "$tmp/font.zip" -d /usr/local/share/fonts/JetBrainsMono
+	rm -rf "$tmp"
+	sudo fc-cache -f
+fi
 
 # ---------------------------------------------------------------------------
 # Helper scripts -> /usr/local/bin
@@ -217,6 +250,105 @@ if $WITH_EXTRAS; then
 	dnf) install_pkgs go gh xkill tldr ;;
 	pacman) install_pkgs go github-cli xorg-xkill tldr ;;
 	esac
+fi
+
+# ---------------------------------------------------------------------------
+# Optional: Flatpak apps
+# ---------------------------------------------------------------------------
+
+if $WITH_FLATPAKS; then
+	log "Installing Flatpak apps"
+	install_pkgs flatpak
+	sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+	sudo flatpak install -y --noninteractive flathub \
+		org.telegram.desktop \
+		org.videolan.VLC \
+		com.brave.Browser \
+		com.google.Chrome \
+		com.bitwarden.desktop \
+		com.discordapp.Discord \
+		com.jgraph.drawio.desktop \
+		com.mattjakeman.ExtensionManager \
+		com.github.tchx84.Flatseal \
+		com.obsproject.Studio \
+		org.kde.okular \
+		org.gnome.Extensions \
+		org.qbittorrent.qBittorrent \
+		com.getpostman.Postman \
+		org.gimp.GIMP \
+		it.mijorus.gearlever \
+		it.mijorus.smile
+	# not installed: md.obsidian.Obsidian org.audacityteam.Audacity io.github.nokse22.asciidraw
+fi
+
+# ---------------------------------------------------------------------------
+# Optional: dev tools (VS Code, Docker Engine, rustup)
+# ---------------------------------------------------------------------------
+
+if $WITH_DEV; then
+	log "Setting up VS Code"
+	case "$PKG_MGR" in
+	apt)
+		install_pkgs gpg
+		curl -fsSL https://packages.microsoft.com/keys/microsoft.asc |
+			sudo gpg --dearmor --yes -o /usr/share/keyrings/microsoft.gpg
+		printf '%s\n' "Types: deb" "URIs: https://packages.microsoft.com/repos/code" "Suites: stable" \
+			"Components: main" "Architectures: amd64,arm64,armhf" "Signed-By: /usr/share/keyrings/microsoft.gpg" |
+			sudo tee /etc/apt/sources.list.d/vscode.sources >/dev/null
+		sudo apt-get update
+		install_pkgs code
+		;;
+	dnf)
+		sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+		printf '%s\n' "[code]" "name=Visual Studio Code" "baseurl=https://packages.microsoft.com/yumrepos/vscode" \
+			"enabled=1" "gpgcheck=1" "gpgkey=https://packages.microsoft.com/keys/microsoft.asc" |
+			sudo tee /etc/yum.repos.d/vscode.repo >/dev/null
+		install_pkgs code
+		;;
+	pacman)
+		# Microsoft's build is only in the AUR; this is the open-source build
+		install_pkgs code
+		;;
+	esac
+
+	log "Setting up Docker Engine"
+	case "$PKG_MGR" in
+	apt)
+		# Ubuntu derivatives (Mint, Pop!_OS) set UBUNTU_CODENAME
+		. /etc/os-release
+		if [ -n "${UBUNTU_CODENAME:-}" ]; then
+			DOCKER_DISTRO=ubuntu DOCKER_SUITE="$UBUNTU_CODENAME"
+		else
+			DOCKER_DISTRO=debian DOCKER_SUITE="$VERSION_CODENAME"
+		fi
+		sudo install -m 0755 -d /etc/apt/keyrings
+		sudo curl -fsSL "https://download.docker.com/linux/$DOCKER_DISTRO/gpg" -o /etc/apt/keyrings/docker.asc
+		printf '%s\n' "Types: deb" "URIs: https://download.docker.com/linux/$DOCKER_DISTRO" "Suites: $DOCKER_SUITE" \
+			"Components: stable" "Signed-By: /etc/apt/keyrings/docker.asc" |
+			sudo tee /etc/apt/sources.list.d/docker.sources >/dev/null
+		sudo apt-get update
+		install_pkgs docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+		;;
+	dnf)
+		sudo curl -fsSL https://download.docker.com/linux/fedora/docker-ce.repo -o /etc/yum.repos.d/docker-ce.repo
+		install_pkgs docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+		;;
+	pacman)
+		install_pkgs docker docker-compose docker-buildx
+		;;
+	esac
+	# no systemd in containers, where this script gets tested
+	if [ -d /run/systemd/system ]; then
+		sudo systemctl enable --now docker
+	fi
+	# takes effect at next login
+	sudo usermod -aG docker "$(id -un)"
+
+	if [ ! -x "$HOME/.cargo/bin/rustup" ]; then
+		log "Installing rustup"
+		# .zshrc already adds ~/.cargo/bin to PATH
+		curl --proto '=https' --tlsv1.2 -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
+	fi
 fi
 
 # ---------------------------------------------------------------------------
