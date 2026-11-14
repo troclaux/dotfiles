@@ -3,10 +3,7 @@
 
 > Automatically configure a fresh Linux workstation by installing all required packages and configuration files
 
-## Prerequisites
-
-- Git
-- Ansible
+Works on Fedora, Ubuntu/Debian and Arch-based distros.
 
 ## Installation
 
@@ -16,33 +13,38 @@ Clone Github repository:
 git clone https://github.com/troclaux/dotfiles ~/dotfiles
 ```
 
-Run Ansible playbook to setup a new linux machine:
+Run the setup script. It's safe to re-run, and it backs up existing dotfiles instead of overwriting them:
 
 ```bash
-ansible-playbook -K ~/dotfiles/local.yml
+~/dotfiles/setup_workstation.sh               # base setup
+~/dotfiles/setup_workstation.sh --sway --kitty  # base setup plus sway and kitty
+~/dotfiles/setup_workstation.sh --nvim-only   # only Neovim and Node
 ```
 
-## Testing Ansible playbook
+The base setup installs common CLI packages, links the zsh, tmux, gitconfig and gtk configs, symlinks the `bin/` scripts into `/usr/local/bin`, and installs Node and Neovim. Options:
 
-Make the script `setup_test_container.sh` executable:
+| Option | Adds |
+| --- | --- |
+| `--kitty` | kitty and its config |
+| `--sway` | sway, waybar, wofi, fuzzel and other desktop tools, with their configs |
+| `--extras` | optional CLI tools: go, bat, htop, btop, tldr, gh, ffmpeg, yt-dlp, rsync, rclone and more |
+| `--all` | all three of the above |
+| `--nvim-only` | skips everything else and only installs Neovim and Node (Mason needs npm). Can't be combined with other options |
+
+## Testing the setup script
+
+`./test_setup.sh` runs `setup_workstation.sh` twice in a fresh `fedora`, `ubuntu` or `arch` container, to check that it works and that a re-run also succeeds. It needs podman or docker, and passes any extra options on to the setup script:
 
 ```bash
-chmod +x ~/dotfiles/setup_test_container.sh
+./test_setup.sh arch --all
+./test_setup.sh fedora --nvim-only
 ```
 
-Run the script to setup a Docker container where you can test the Ansible playbook:
-
-```bash
-./setup_test_container.sh
-```
-
-## Scripts to run after using Ansible playbook
+## Optional scripts
 
 - `./scripts/fix_nvim_permissions.sh`
 - `./scripts/install_flatpaks.sh`
 - `./scripts/install_nerd_font.sh`
-- `./scripts/install_node.sh`
-- `./scripts/reinstall_nvim.sh`
 - `./scripts/go_install.sh`
 - `./scripts/ohmyzsh.sh`
 
@@ -69,7 +71,7 @@ Secrets don't belong in this public repository. Keep them in `~/.env.zsh`, which
 
 ### Neovim
 
-`./scripts/reinstall_nvim.sh` does a clean install from `dnf` or `apt`. It removes the package, the config, plugins and caches, and keeps undo history, swap files and shada. Each run also reinstalls plugins at the versions in `lazy-lock.json`.
+`./scripts/reinstall_nvim.sh` does a clean install from `dnf`, `apt` or `pacman`. `setup_workstation.sh` runs it only when Neovim isn't set up yet; run it yourself for a clean reinstall. It removes the package, the config, plugins and caches, and keeps undo history, swap files and shada. Each run also reinstalls plugins at the versions in `lazy-lock.json`.
 
 The script also installs the OpenCode CLI if it's missing and links its config for `opencode.nvim`. OpenCode reads `ANTHROPIC_API_KEY` from the environment, so keep the key in `~/.env.zsh`.
 

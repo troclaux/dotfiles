@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Clean Neovim install from the distro's package manager. Safe to re-run.
+# Clean Neovim install from the distro's package manager (apt, dnf or pacman). Safe to re-run.
 #
 # Removes the Neovim package, any source-built copy in /usr/local, and all
 # config, plugins and caches, then reinstalls and links the config with stow.
@@ -16,8 +16,10 @@ if command -v apt-get >/dev/null 2>&1; then
 	PKG_MGR=apt
 elif command -v dnf >/dev/null 2>&1; then
 	PKG_MGR=dnf
+elif command -v pacman >/dev/null 2>&1; then
+	PKG_MGR=pacman
 else
-	echo "Unsupported distro: no apt-get or dnf found." >&2
+	echo "Unsupported distro: no apt-get, dnf or pacman found." >&2
 	exit 1
 fi
 
@@ -25,8 +27,10 @@ echo "[*] Removing old Neovim install..."
 sudo rm -rf /usr/local/bin/nvim /usr/local/share/nvim /usr/local/lib/nvim
 if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo apt-get purge -y neovim neovim-runtime
-else
+elif [[ "$PKG_MGR" == "dnf" ]]; then
 	sudo dnf remove -y neovim
+elif pacman -Q neovim >/dev/null 2>&1; then
+	sudo pacman -Rns --noconfirm neovim
 fi
 
 echo "[*] Removing old Neovim config, plugins and caches..."
@@ -46,9 +50,12 @@ if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo apt-get update
 	sudo apt-get install -y neovim ripgrep fd-find luarocks lua5.4 tree-sitter-cli \
 		build-essential git curl unzip stow
-else
+elif [[ "$PKG_MGR" == "dnf" ]]; then
 	sudo dnf install -y neovim ripgrep fd-find luarocks lua tree-sitter-cli \
 		gcc gcc-c++ make git curl unzip stow
+else
+	sudo pacman -S --needed --noconfirm neovim ripgrep fd luarocks lua tree-sitter-cli \
+		base-devel git curl unzip stow
 fi
 
 echo "[*] Linking Neovim config..."
