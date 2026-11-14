@@ -76,11 +76,11 @@ Secrets don't belong in this public repository. Keep them in `~/.env.zsh`, which
 The script also installs the OpenCode CLI if it's missing and links its config for `opencode.nvim`. OpenCode reads `ANTHROPIC_API_KEY` from the environment, so keep the key in `~/.env.zsh`.
 
 > [!NOTE]
-> **Decision pending: Debian and Ubuntu.** This config needs Neovim 0.12 or later because of `nvim-treesitter`'s `main` branch, and of the distros this repo supports, only Fedora ships it so far. As of November 2026, the repos have 0.11.6 (Ubuntu 26.04), 0.10.4 (Debian 13) and 0.9.5 (Ubuntu 24.04). On these distros the script installs the older version, skips plugins and exits 1. Options to decide between:
+> **Decision pending: Debian and Ubuntu.** This config needs Neovim 0.12 or later because of `nvim-treesitter`'s `main` branch, and of the distros this repo supports, only Fedora ships it so far. As of November 2026, the repos have 0.11.6 (Ubuntu 26.04), 0.10.4 (Debian 13) and 0.9.5 (Ubuntu 24.04). On these distros the script installs the older version, skips plugins and exits 1. Later runs of `setup_workstation.sh` print a warning. Options to decide between:
 >
 > - Wait until their repos ship 0.12
 > - Use the Neovim PPA on Ubuntu (this doesn't help Debian)
-> - Make the config work on older versions
+> - Make the config work on older versions: nothing else in the config needs 0.12, so it's enough to use the `master` branch of `nvim-treesitter` and `nvim-treesitter-textobjects` on older Neovim versions. That branch is frozen but supports 0.11. It has a different setup API, so `treesitter.lua` and `editing.lua` would need two code paths.
 
 `nvim/.config/nvim/lua/` is organized by topic:
 
