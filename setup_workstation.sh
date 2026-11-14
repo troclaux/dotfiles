@@ -90,7 +90,7 @@ setup_node_and_nvim() {
 		log "Neovim already set up, skipping (run scripts/reinstall_nvim.sh for a clean reinstall)"
 		# exits 0 when the version is too old (has() returns 0)
 		if nvim --clean --headless +'lua os.exit(vim.fn.has("nvim-0.12"))' +q; then
-			printf '\033[1;33m[!] %s is older than 0.12: nvim-treesitter (main branch) needs 0.12, so plugins are not installed. See "Decision pending" in README.md.\033[0m\n' \
+			printf '\033[1;33m[!] %s is older than 0.12: nvim-treesitter (main branch) needs 0.12, so plugins are not installed. Run scripts/reinstall_nvim.sh to install a newer version.\033[0m\n' \
 				"$(nvim --version | head -n 1)" >&2
 		fi
 	else

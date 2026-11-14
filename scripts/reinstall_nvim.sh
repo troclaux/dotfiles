@@ -1,8 +1,10 @@
 #!/bin/bash
 #
-# Clean Neovim install from the distro's package manager (apt, dnf or pacman). Safe to re-run.
+# Clean Neovim install. Safe to re-run. Uses the distro package on Fedora and
+# Arch. On Debian and Ubuntu, whose repos ship versions older than the 0.12 this
+# config needs, installs the latest official release into /opt/nvim instead.
 #
-# Removes the Neovim package, any source-built copy in /usr/local, and all
+# Removes the Neovim package, any copy in /opt/nvim or /usr/local, and all
 # config, plugins and caches, then reinstalls and links the config with stow.
 # Keeps undo history, swap files and shada, since those are your data.
 # Also installs the OpenCode CLI if it's missing, and links its config.
@@ -24,7 +26,7 @@ else
 fi
 
 echo "[*] Removing old Neovim install..."
-sudo rm -rf /usr/local/bin/nvim /usr/local/share/nvim /usr/local/lib/nvim
+sudo rm -rf /opt/nvim /usr/local/bin/nvim /usr/local/share/nvim /usr/local/lib/nvim
 if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo apt-get purge -y neovim neovim-runtime
 elif [[ "$PKG_MGR" == "dnf" ]]; then
@@ -48,8 +50,17 @@ rm -f "$HOME/.config/opencode/opencode.jsonc"
 echo "[*] Installing Neovim and its dependencies..."
 if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo apt-get update
-	sudo apt-get install -y neovim ripgrep fd-find luarocks lua5.4 tree-sitter-cli \
+	sudo apt-get install -y ripgrep fd-find luarocks lua5.4 tree-sitter-cli \
 		build-essential git curl unzip stow
+	case "$(uname -m)" in
+	x86_64) NVIM_ARCH=x86_64 ;;
+	aarch64) NVIM_ARCH=arm64 ;;
+	*) echo "No official Neovim release for $(uname -m)." >&2 && exit 1 ;;
+	esac
+	sudo mkdir -p /opt/nvim
+	curl -fsSL "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-$NVIM_ARCH.tar.gz" |
+		sudo tar -xz -C /opt/nvim --strip-components=1
+	sudo ln -sfn /opt/nvim/bin/nvim /usr/local/bin/nvim
 elif [[ "$PKG_MGR" == "dnf" ]]; then
 	sudo dnf install -y neovim ripgrep fd-find luarocks lua tree-sitter-cli \
 		gcc gcc-c++ make git curl unzip stow

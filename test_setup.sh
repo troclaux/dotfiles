@@ -4,7 +4,7 @@
 # that a re-run also succeeds. Uses podman, or docker if podman is missing.
 # The repo is mounted read-only and copied inside, so nothing here changes.
 #
-# Usage: ./test_setup.sh <fedora|ubuntu|arch> [setup_workstation.sh options]
+# Usage: ./test_setup.sh <fedora|ubuntu|debian|arch> [setup_workstation.sh options]
 # Example: ./test_setup.sh arch --all
 
 set -euo pipefail
@@ -14,6 +14,7 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 case "${1:-}" in
 fedora) IMAGE=fedora:latest PREPARE="dnf install -y sudo findutils" ;;
 ubuntu) IMAGE=ubuntu:latest PREPARE="apt-get update && apt-get install -y sudo" ;;
+debian) IMAGE=debian:stable PREPARE="apt-get update && apt-get install -y sudo" ;;
 arch) IMAGE=archlinux:latest PREPARE="pacman -Syu --noconfirm --needed sudo" ;;
 *) sed -n '7,8s/^# //p' "$0" >&2 && exit 1 ;;
 esac
