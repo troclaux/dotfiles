@@ -4,7 +4,7 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		require("nvim-treesitter").install({
+		local install = require("nvim-treesitter").install({
 			"bash",
 			"c",
 			"diff",
@@ -25,6 +25,10 @@ return {
 			"vimdoc",
 			"yaml",
 		})
+		-- without a UI (scripts/reinstall_nvim.sh), Neovim could quit mid-install
+		if #vim.api.nvim_list_uis() == 0 then
+			install:wait(300000)
+		end
 		vim.api.nvim_create_autocmd("FileType", {
 			callback = function(args)
 				-- start() errors when the filetype has no installed parser

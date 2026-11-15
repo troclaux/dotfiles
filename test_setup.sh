@@ -29,8 +29,14 @@ shift
 
 RUNTIME="$(command -v podman || command -v docker)"
 
+# some Flatpak installers (Chrome's) run in bubblewrap, which needs namespaces
+PRIVILEGED=()
+case " $* " in
+*" --flatpaks "* | *" --all "*) PRIVILEGED=(--privileged) ;;
+esac
+
 # label=disable: on SELinux, avoids relabeling the repo just to mount it
-"$RUNTIME" run --rm -i --security-opt label=disable \
+"$RUNTIME" run --rm -i "${PRIVILEGED[@]}" --security-opt label=disable \
 	-e DEBIAN_FRONTEND=noninteractive -e TZ=UTC \
 	-v "$DOTFILES_DIR":/src:ro "$IMAGE" bash -c "$PREPARE && bash -s -- $*" <<'EOF'
 set -euo pipefail
