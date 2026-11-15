@@ -37,6 +37,24 @@ return {
 				},
 				input_window = {
 					["<C-s>"] = { "submit_input_prompt", mode = { "n", "i" }, desc = "Submit prompt" },
+					-- cycle through every window like <C-w>w instead of only input/output
+					["<tab>"] = {
+						function()
+							vim.cmd("wincmd w")
+						end,
+						mode = { "n" },
+						desc = "Next window",
+						defer_to_completion = true,
+					},
+				},
+				output_window = {
+					["<tab>"] = {
+						function()
+							vim.cmd("wincmd w")
+						end,
+						mode = { "n" },
+						desc = "Next window",
+					},
 				},
 			},
 		},
