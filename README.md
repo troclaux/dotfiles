@@ -36,7 +36,12 @@ The base setup installs common CLI packages, links the zsh, tmux, gitconfig and 
 
 ## Testing the setup script
 
-`./test_setup.sh` runs `setup_workstation.sh` twice in a fresh `fedora`, `ubuntu`, `debian` or `arch` container, to check that it works and that a re-run also succeeds. It needs podman or docker, and passes any extra options on to the setup script:
+`./test_setup.sh` runs `setup_workstation.sh` twice in a fresh `fedora`, `ubuntu`, `debian` or `arch` container. It fails unless:
+
+- existing dotfiles get backed up and replaced by links
+- the second run succeeds and changes nothing: it compares the files and links in the home folder, `/opt` and `/usr/local`, the package repo files and keys, the installed packages, Flatpak apps and remotes, and the `docker` group after each run
+
+It needs podman or docker, and passes any extra options on to the setup script:
 
 ```bash
 ./test_setup.sh arch --all
