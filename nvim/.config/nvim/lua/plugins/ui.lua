@@ -12,6 +12,9 @@ return {
 		"folke/snacks.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = { indent = { enabled = true, animate = { enabled = false } } },
+		opts = {
+			indent = { enabled = true, animate = { enabled = false } },
+			scope = { enabled = true },
+		},
 	},
 }
