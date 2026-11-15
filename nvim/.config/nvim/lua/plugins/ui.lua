@@ -7,7 +7,8 @@ return {
 			},
 		},
 	},
-	{ "folke/which-key.nvim", event = "VeryLazy", opts = {} },
+	-- helix: a single-column popup in the bottom-right corner
+	{ "folke/which-key.nvim", event = "VeryLazy", opts = { preset = "helix" } },
 	{
 		"folke/snacks.nvim",
 		lazy = false,
