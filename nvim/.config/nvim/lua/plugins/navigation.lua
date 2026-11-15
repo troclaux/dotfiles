@@ -17,7 +17,16 @@ return {
 			require("telescope").load_extension("fzf")
 		end,
 		keys = {
-			{ "<C-p>", "<cmd>Telescope git_files<CR>", desc = "Find Git Files" },
+			{
+				"<C-p>",
+				function()
+					-- git_files raises an error outside a git repository
+					if not pcall(require("telescope.builtin").git_files) then
+						require("telescope.builtin").find_files()
+					end
+				end,
+				desc = "Find Git Files (all files outside a repo)",
+			},
 			{ "<C-h>", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
 			{ "<C-j>", "<cmd>Telescope live_grep<CR>", desc = "Live Grep" },
 			{ "<C-k>", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Find Document Symbols" },
