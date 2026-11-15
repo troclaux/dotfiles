@@ -7,12 +7,23 @@
 # Removes the Neovim package, any copy in /opt/nvim or /usr/local, and all
 # config, plugins and caches, then reinstalls and links the config with stow.
 # Keeps undo history, swap files and shada, since those are your data.
-# Also installs the OpenCode CLI if it's missing, and links its config.
+# Also installs the OpenCode CLI if it's missing, and links its config, plus
+# ctags (for Tagbar) and the Mason packages below.
 
 set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 STATE_DIR="$HOME/.local/state/nvim"
+
+# Mason packages to install. Anything else is a manual :Mason install.
+MASON_PACKAGES=(
+	lua-language-server pyright ruff bash-language-server shellcheck
+	typescript-language-server yaml-language-server gopls
+	stylua shfmt eslint_d pylint markdownlint-cli2
+)
+
+# Mason needs npm for some packages; .zshrc doesn't apply in this bash script
+export PATH="$HOME/.volta/bin:$PATH"
 
 if command -v apt-get >/dev/null 2>&1; then
 	PKG_MGR=apt
@@ -51,7 +62,7 @@ echo "[*] Installing Neovim and its dependencies..."
 if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo apt-get update
 	sudo apt-get install -y ripgrep fd-find luarocks lua5.4 tree-sitter-cli \
-		build-essential git curl unzip stow
+		build-essential git curl unzip stow golang python3 python3-venv universal-ctags
 	case "$(uname -m)" in
 	x86_64) NVIM_ARCH=x86_64 ;;
 	aarch64) NVIM_ARCH=arm64 ;;
@@ -63,10 +74,10 @@ if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo ln -sfn /opt/nvim/bin/nvim /usr/local/bin/nvim
 elif [[ "$PKG_MGR" == "dnf" ]]; then
 	sudo dnf install -y neovim ripgrep fd-find luarocks lua tree-sitter-cli \
-		gcc gcc-c++ make git curl unzip stow
+		gcc gcc-c++ make git curl unzip stow go python3 ctags
 else
 	sudo pacman -S --needed --noconfirm neovim ripgrep fd luarocks lua tree-sitter-cli \
-		base-devel git curl unzip stow
+		base-devel git curl unzip stow go python ctags
 fi
 
 echo "[*] Linking Neovim config..."
@@ -92,6 +103,18 @@ if ! nvim --clean --headless +'lua os.exit(vim.fn.has("nvim-0.12"))' +q; then
 	git clone --quiet --filter=blob:none --branch=main https://github.com/folke/lazy.nvim.git "$LAZY_DIR"
 	git -C "$LAZY_DIR" checkout --quiet "$LAZY_COMMIT"
 	nvim --headless '+Lazy! restore' +qa
+
+	echo "[*] Installing Mason packages..."
+	# without a UI, :MasonInstall waits until every install finishes
+	nvim --headless -c "MasonInstall ${MASON_PACKAGES[*]}" -c qa
+	missing=()
+	for pkg in "${MASON_PACKAGES[@]}"; do
+		[[ -d "$HOME/.local/share/nvim/mason/packages/$pkg" ]] || missing+=("$pkg")
+	done
+	if ((${#missing[@]})); then
+		echo "[!] Mason packages failed to install: ${missing[*]}" >&2
+		exit 1
+	fi
 	echo "[*] Done! Launch Neovim with: nvim"
 else
 	echo "[!] $(nvim --version | head -n 1) is older than the 0.12 this config needs." >&2

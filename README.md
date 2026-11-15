@@ -39,6 +39,7 @@ The base setup installs common CLI packages, links the zsh, tmux, gitconfig and 
 `./test_setup.sh` runs `setup_workstation.sh` twice in a fresh `fedora`, `ubuntu`, `debian` or `arch` container. It fails unless:
 
 - existing dotfiles get backed up and replaced by links
+- every plugin in `lazy-lock.json` is installed, and every Mason package in `reinstall_nvim.sh`'s list
 - the second run succeeds and changes nothing: it compares the files and links in the home folder, `/opt` and `/usr/local`, the package repo files and keys, the installed packages, Flatpak apps and remotes, and the `docker` group after each run
 
 It needs podman or docker, and passes any extra options on to the setup script:
@@ -68,6 +69,8 @@ Secrets don't belong in this public repository. Keep them in `~/.env.zsh`, which
 `./scripts/reinstall_nvim.sh` does a clean install. `setup_workstation.sh` runs it only when Neovim isn't set up yet; run it yourself for a clean reinstall, or to update Neovim on Debian and Ubuntu. It removes Neovim, the config, plugins and caches, and keeps undo history, swap files and shada. Each run also reinstalls plugins at the versions in `lazy-lock.json`.
 
 This config needs Neovim 0.12 or later, because it uses the `main` branch of `nvim-treesitter`. Fedora and Arch ship it, so the script installs their package. Debian and Ubuntu repos ship older versions (as of November 2026: 0.11.6 on Ubuntu 26.04, 0.10.4 on Debian 13), so on those the script installs the latest official release from GitHub into `/opt/nvim`, linked from `/usr/local/bin/nvim`. apt doesn't update that copy.
+
+Besides the plugins and treesitter parsers, the script installs ctags (for Tagbar) and the Mason packages in its `MASON_PACKAGES` list: the language servers, formatters and linters this config uses. Install any other Mason tool by hand with `:Mason`.
 
 The script also installs the OpenCode CLI if it's missing and links its config for `opencode.nvim`. OpenCode reads `ANTHROPIC_API_KEY` from the environment, so keep the key in `~/.env.zsh`.
 

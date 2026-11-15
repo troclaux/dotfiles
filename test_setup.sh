@@ -6,6 +6,7 @@
 #
 # Checks that:
 #   - existing real dotfiles get backed up and replaced by links
+#   - every plugin in lazy-lock.json is installed
 #   - a second run succeeds and changes nothing: files and symlinks in the
 #     home folder, /opt and /usr/local, package repo files and keys,
 #     installed packages, Flatpak apps and remotes, and the docker group
@@ -23,7 +24,7 @@ fedora) IMAGE=fedora:latest PREPARE="dnf install -y sudo findutils" ;;
 ubuntu) IMAGE=ubuntu:latest PREPARE="apt-get update && apt-get install -y sudo" ;;
 debian) IMAGE=debian:stable PREPARE="apt-get update && apt-get install -y sudo" ;;
 arch) IMAGE=archlinux:latest PREPARE="pacman -Syu --noconfirm --needed sudo" ;;
-*) sed -n '14,15s/^# //p' "$0" >&2 && exit 1 ;;
+*) sed -n '15,16s/^# //p' "$0" >&2 && exit 1 ;;
 esac
 shift
 
@@ -67,6 +68,14 @@ snapshot() {
 echo '### First run'
 /root/dotfiles/setup_workstation.sh "$@"
 snapshot >/tmp/run1
+
+# reinstall_nvim.sh checks the Mason packages itself
+missing=$(sed -n 's/^ *"\([^"]*\)": {.*/\1/p' /root/dotfiles/nvim/.config/nvim/lazy-lock.json |
+	while read -r plugin; do [ -d "$HOME/.local/share/nvim/lazy/$plugin" ] || echo "$plugin"; done)
+if [ -n "$missing" ]; then
+	echo "### FAIL: plugins missing:" $missing && exit 1
+fi
+echo '### All plugins in lazy-lock.json are installed'
 
 for f in "${DOTFILES[@]}"; do
 	if [ ! -L "$HOME/$f" ] || ! grep -qx "# pre-existing $f" "$HOME/$f".bak.*; then
