@@ -20,7 +20,7 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 case "${1:-}" in
-fedora) IMAGE=fedora:latest PREPARE="dnf install -y sudo findutils" ;;
+fedora) IMAGE=fedora:latest PREPARE="dnf install -y sudo findutils diffutils" ;;
 ubuntu) IMAGE=ubuntu:latest PREPARE="apt-get update && apt-get install -y sudo" ;;
 debian) IMAGE=debian:stable PREPARE="apt-get update && apt-get install -y sudo" ;;
 arch) IMAGE=archlinux:latest PREPARE="pacman -Syu --noconfirm --needed sudo" ;;
@@ -77,12 +77,15 @@ if [ -n "$missing" ]; then
 fi
 echo '### All plugins in lazy-lock.json are installed'
 
-for f in "${DOTFILES[@]}"; do
-	if [ ! -L "$HOME/$f" ] || ! grep -qx "# pre-existing $f" "$HOME/$f".bak.*; then
-		echo "### FAIL: $f wasn't backed up and linked" && exit 1
-	fi
-done
-echo '### Existing dotfiles were backed up and linked'
+# --nvim-only doesn't touch dotfiles
+if [ "$*" != "--nvim-only" ]; then
+	for f in "${DOTFILES[@]}"; do
+		if [ ! -L "$HOME/$f" ] || ! grep -qx "# pre-existing $f" "$HOME/$f".bak.*; then
+			echo "### FAIL: $f wasn't backed up and linked" && exit 1
+		fi
+	done
+	echo '### Existing dotfiles were backed up and linked'
+fi
 
 echo '### Second run'
 /root/dotfiles/setup_workstation.sh "$@"
