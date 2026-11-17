@@ -140,7 +140,6 @@ export GIT_EDITOR="$EDITOR"
 export DOTFILES="$HOME/dotfiles"
 export NOTES="$HOME/Documents/notes"
 export PERSONAL="$HOME/Documents/personal"
-export XDG_CURRENT_DESKTOP=sway
 export DOCKER_BUILDKIT=1
 
 # Zsh key-bindings
@@ -178,7 +177,7 @@ alias vs="vim-startuptime -vimpath nvim | head -4 | tail -1"
 alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$file"'
 
 alias dnf="dnf5"
-alias fd="fdfind"
+command -v fdfind >/dev/null && alias fd="fdfind"
 alias lr="ls -R"
 alias py="python3"
 alias clipboard="wl-copy && echo '📋 Copied to clipboard!'"
@@ -199,8 +198,8 @@ alias trb="tree /usr/local/bin"
 alias trn="tree $HOME/.config/nvim/lua"
 alias pc='cat "$(find ~/Documents/notes/prompts -type f | fzf)" | wl-copy'
 alias fln='ls ~/Documents/notes | fzf | xargs -I{} ln -s ~/Documents/notes/{} .'
-alias ytp='yt-dlp -x --audio-format flac -o "~/Music/playlist/%(title)s.%(ext)s" --restrict-filenames $(xclip -selection clipboard -o)'
-alias yt='yt-dlp -x --audio-format flac -o "~/Music/%(title)s.%(ext)s" --restrict-filenames $(xclip -selection clipboard -o) --no-playlist'
+alias ytp='yt-dlp -x --audio-format flac -o "~/Music/playlist/%(title)s.%(ext)s" --restrict-filenames $(wl-paste)'
+alias yt='yt-dlp -x --audio-format flac -o "~/Music/%(title)s.%(ext)s" --restrict-filenames $(wl-paste) --no-playlist'
 alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
 
 alias cds="cd ~/.ssh"
@@ -265,11 +264,11 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Turso
-export PATH="$PATH:/home/troclaux/.turso"
+export PATH="$PATH:$HOME/.turso"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 
 # opencode
-export PATH=/home/troclaux/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
