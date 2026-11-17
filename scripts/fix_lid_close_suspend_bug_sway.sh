@@ -5,4 +5,6 @@
 # When two different things try to control suspend and resume at the same time, sometimes the screen doesn't get turned back on properly after you open the lid
 # the command below makes systemd "ignore" the lid, so now only swayidle manages suspend and resume. With just one program in control, your screen wakes up normally every time
 
-echo -e "[Login]\nHandleLidSwitch=ignore\nHandleLidSwitchDocked=ignore" | sudo tee /etc/systemd/logind.conf
+# a drop-in file, so the rest of logind.conf stays untouched
+sudo mkdir -p /etc/systemd/logind.conf.d
+echo -e "[Login]\nHandleLidSwitch=ignore\nHandleLidSwitchDocked=ignore" | sudo tee /etc/systemd/logind.conf.d/lid.conf
