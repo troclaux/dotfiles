@@ -14,8 +14,8 @@ fi
 echo "Selected: $selected"
 read -p "Enter Query: " query
 
-if echo "$languages" | grep -qs "$selected"; then
-	query=$(echo $query | tr " " "+")
+if echo "$languages" | grep -qx "$selected"; then
+	query=$(echo "$query" | tr " " "+")
 	tmux neww bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query & while [ : ]; do sleep 1; done"
 else
 	tmux neww bash -c "curl -s cht.sh/$selected~$query | less"
