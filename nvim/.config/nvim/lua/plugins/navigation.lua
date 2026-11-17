@@ -106,4 +106,6 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {},
 	},
+	-- show mark letters in the sign column
+	{ "chentoast/marks.nvim", event = { "BufReadPost", "BufNewFile" }, opts = {} },
 }
