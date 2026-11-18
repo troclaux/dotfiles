@@ -103,11 +103,6 @@ end, { desc = "Open tmux window in parent directory" })
 -- SNIPPETS KEYMAPS --
 ----------------------
 
-vim.keymap.set("n", "<Leader>pd", [[:r !date "+\%d-\%m-\%Y"<CR>kJ]], { desc = "Insert current date" })
-
--- Bash
-vim.keymap.set("n", "<Leader>ps", "mzggO#!/bin/bash<CR><Esc>`z", { desc = "Insert shebang statement" })
-
 -- Markdown
 vim.keymap.set("n", "<Leader>pf", "o- [ ] ", { desc = "Insert markdown form" })
 vim.keymap.set(
@@ -136,11 +131,6 @@ vim.keymap.set("n", "<Leader>rb", ":keeppatterns s/\\*//ge<CR>", { desc = "Remov
 -- Insert anchor link
 vim.keymap.set("n", "<Leader>pa", "ciW[](#)<Esc>F[pf#a", { desc = "Insert anchor link" })
 vim.keymap.set("x", "<Leader>pa", "c[](#)<Esc>F[pf#a", { desc = "Insert anchor link" })
-
--- Golang
-vim.keymap.set("n", "<leader>pe", "oif err != nil {<CR>return , err<CR>}<Esc>kf,i", { desc = "golang error" })
-vim.keymap.set("n", "<leader>pg", 'oimport "fmt"<Esc>hhh', { desc = "golang import single package" })
-vim.keymap.set("n", "<leader>pG", 'oimport (<CR>"fmt"<CR>)<Esc>ko""<Esc>i', { desc = "golang import packages" })
 
 -----------------------
 -- LAZY.NVIM KEYMAPS --

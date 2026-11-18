@@ -1,0 +1,7 @@
+{
+	"Checkbox": {
+		"prefix": "cb",
+		"body": "- [ ] $0",
+		"description": "Insert markdown checkbox"
+	}
+}
