@@ -16,6 +16,9 @@ return {
 		opts = {
 			indent = { enabled = true, animate = { enabled = false } },
 			scope = { enabled = true },
+			bigfile = { enabled = true },
+			notifier = { enabled = true },
+			image = { enabled = true },
 			dashboard = {
 				enabled = true,
 				preset = {
