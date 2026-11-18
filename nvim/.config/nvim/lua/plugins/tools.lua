@@ -4,9 +4,24 @@ return {
 		"MeanderingProgrammer/render-markdown.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" },
 		ft = { "markdown", "opencode_output" },
+		-- only triggers the load; config replaces it with the Snacks toggle
 		keys = {
-			{ "<Leader>tm", "<cmd>RenderMarkdown buf_toggle<CR>", desc = "Toggle markdown rendering" },
+			{ "<leader>um", desc = "Toggle Markdown Render" },
 		},
+		config = function(_, opts)
+			require("render-markdown").setup(opts)
+			Snacks.toggle
+				.new({
+					name = "Markdown Render",
+					get = function()
+						return require("render-markdown").get(vim.api.nvim_get_current_buf())
+					end,
+					set = function(state)
+						require("render-markdown").set_buf(state)
+					end,
+				})
+				:map("<leader>um")
+		end,
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {
