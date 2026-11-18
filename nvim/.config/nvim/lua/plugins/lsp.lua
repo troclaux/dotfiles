@@ -60,7 +60,8 @@ return {
 		},
 		init = function()
 			vim.diagnostic.config({
-				virtual_text = true,
+				-- only errors inline; warnings and below stay out of the way
+				virtual_text = { severity = { min = vim.diagnostic.severity.ERROR } },
 				signs = false,
 				underline = false,
 				update_in_insert = false,
