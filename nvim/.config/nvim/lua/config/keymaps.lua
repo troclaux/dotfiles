@@ -41,6 +41,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 -- Switch window
 vim.keymap.set("n", "<Tab>", "<C-w>w", { desc = "Switch window" })
+-- without its own mapping, <C-i> falls back to the <Tab> one above and stops jumping forward
+vim.keymap.set("n", "<C-i>", "<C-i>", { desc = "Jump forward" })
 
 -- Close all other windows
 vim.keymap.set("n", "ç", "<C-w>o", { desc = "Close all other windows" })
