@@ -21,6 +21,13 @@ return {
 	},
 	{
 		"sudo-tee/opencode.nvim",
+		-- opencode creates the real mappings when it loads; these only trigger the load
+		cmd = "Opencode",
+		keys = {
+			{ "<leader>ag", desc = "Toggle Opencode window" },
+			{ "<leader>a/", mode = { "n", "x" }, desc = "Quick chat with current context" },
+			{ "<leader>ay", mode = "x", desc = "Add visual selection to context" },
+		},
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 			"saghen/blink.cmp",
