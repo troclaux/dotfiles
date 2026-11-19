@@ -3,8 +3,8 @@
 # Sets up a fresh Fedora, Ubuntu/Debian or Arch-based workstation.
 #
 # Always sets up: base packages, zsh with Oh My Zsh, tmux, gitconfig, gtk, the
-# JetBrainsMono Nerd Font, the helper scripts under bin/, Node with mise (if missing) and
-# Neovim (if not set up yet, see scripts/reinstall_nvim.sh).
+# JetBrainsMono Nerd Font, the helper scripts under bin/, mise with the tools in its
+# config (Node, npm packages) and Neovim (if not set up yet, see scripts/reinstall_nvim.sh).
 #
 # Safe to re-run. Existing dotfiles that would be overwritten are backed up
 # with a timestamp suffix instead of being deleted outright.
@@ -16,7 +16,7 @@
 #   --flatpaks   install Flatpak, Flathub and desktop apps (browsers, Discord, GIMP, ...)
 #   --dev        install VS Code, Docker Engine and rustup
 #   --all        all of the above
-#   --nvim-only  only install Neovim and Node (Mason needs npm)
+#   --nvim-only  only install Neovim and mise's tools (Mason needs npm)
 
 set -euo pipefail
 
@@ -84,17 +84,19 @@ backup_if_present() {
 }
 
 setup_node_and_nvim() {
-	# Node first: Mason needs npm to install some language servers
-	if [ ! -x "$HOME/.local/share/mise/shims/node" ]; then
-		log "Installing mise and Node"
-		# Node's binary links against libatomic, which minimal installs can lack
-		# (Arch ships it in gcc-libs, which is always installed)
-		case "$PKG_MGR" in
-		apt) install_pkgs libatomic1 ;;
-		dnf) install_pkgs libatomic ;;
-		esac
-		"$DOTFILES_DIR/scripts/install_node.sh"
-	fi
+	# Node first: Mason needs npm to install some language servers.
+	# Runs every time, so tools added to the mise config get installed.
+	log "Installing mise, Node and the npm packages in its config"
+	# Node's binary links against libatomic, which minimal installs can lack
+	# (Arch ships it in gcc-libs, which is always installed)
+	case "$PKG_MGR" in
+	apt) install_pkgs libatomic1 ;;
+	dnf) install_pkgs libatomic ;;
+	esac
+	backup_if_present "$HOME/.config/mise/config.toml"
+	# no folding: mise writes other files to this folder, which must stay out of the repo
+	(cd "$DOTFILES_DIR" && stow --no-folding mise)
+	"$DOTFILES_DIR/scripts/install_node.sh"
 
 	# Neovim last: it exits non-zero on distros that don't ship a new enough version.
 	# reinstall_nvim.sh wipes and reinstalls everything, so only run it once.
@@ -127,7 +129,8 @@ pacman) sudo pacman -Syu --noconfirm ;;
 esac
 
 if $NVIM_ONLY; then
-	install_pkgs curl # install_node.sh needs it
+	# install_node.sh needs curl, and linking the mise config needs stow
+	install_pkgs curl stow
 	setup_node_and_nvim
 	log "Done."
 	exit 0

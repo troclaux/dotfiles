@@ -19,10 +19,10 @@ Run the setup script. It's safe to re-run, and it backs up existing dotfiles ins
 ~/dotfiles/setup_workstation.sh --all          # everything: a complete new machine
 ~/dotfiles/setup_workstation.sh                # base setup only
 ~/dotfiles/setup_workstation.sh --sway --kitty # base setup plus sway and kitty
-~/dotfiles/setup_workstation.sh --nvim-only    # only Neovim and Node
+~/dotfiles/setup_workstation.sh --nvim-only    # only Neovim and mise's tools (Node)
 ```
 
-The base setup installs common CLI packages (including fd, zoxide and delta, which `.zshrc`, `.gitconfig` and the `bin/` scripts use), links the zsh, tmux, gitconfig and gtk configs, installs Oh My Zsh (with the zsh-autosuggestions and zsh-syntax-highlighting plugins) and the JetBrainsMono Nerd Font, symlinks the `bin/` scripts into `/usr/local/bin`, and installs Node (the latest LTS, with [mise](https://mise.jdx.dev)) and Neovim. Options:
+The base setup installs common CLI packages (including fd, zoxide and delta, which `.zshrc`, `.gitconfig` and the `bin/` scripts use), links the zsh, tmux, gitconfig and gtk configs, installs Oh My Zsh (with the zsh-autosuggestions and zsh-syntax-highlighting plugins) and the JetBrainsMono Nerd Font, symlinks the `bin/` scripts into `/usr/local/bin`, links the [mise](https://mise.jdx.dev) config and installs its tools (the latest LTS Node and global npm packages), and installs Neovim. Options:
 
 | Option | Adds |
 | --- | --- |
@@ -32,7 +32,7 @@ The base setup installs common CLI packages (including fd, zoxide and delta, whi
 | `--flatpaks` | Flatpak and Flathub, and desktop apps: Brave, Chrome, Discord, Telegram, Bitwarden, VLC, OBS, GIMP, Postman, Gear Lever and more |
 | `--dev` | VS Code, Docker Engine and rustup. Log out and back in to use Docker without `sudo`. On Arch, VS Code is the open-source build, since Microsoft's is only in the AUR |
 | `--all` | all of the above |
-| `--nvim-only` | skips everything else and only installs Neovim and Node (Mason needs npm). Can't be combined with other options |
+| `--nvim-only` | skips everything else and only installs Neovim and mise's tools (Mason needs npm). Can't be combined with other options |
 
 ## Testing the setup script
 
@@ -60,6 +60,7 @@ Each top-level config folder is a [GNU Stow](https://www.gnu.org/software/stow/)
 | `nvim`, `kitty`, `sway`, `waybar`, `fuzzel`, `wofi`, `kanshi` | `~/.config/<package>` |
 | `gtk` | `~/.config/gtk-3.0/gtk.css` (use `stow --no-folding gtk`) |
 | `opencode` | `~/.config/opencode/opencode.jsonc` (use `stow --no-folding opencode`) |
+| `mise` | `~/.config/mise/config.toml` (use `stow --no-folding mise`) |
 
 To link a package by hand, run `stow <package>` from this directory.
 

@@ -45,9 +45,10 @@ esac
 set -euo pipefail
 cp -r /src /root/dotfiles
 
-DOTFILES=(.zshrc .tmux.conf .gitconfig)
+DOTFILES=(.zshrc .tmux.conf .gitconfig .config/mise/config.toml)
+mkdir -p "$HOME/.config/mise"
 for f in "${DOTFILES[@]}"; do
-	# a comment is valid in all three, and git reads .gitconfig before it gets linked
+	# a comment is valid in all of them, and git reads .gitconfig before it gets linked
 	echo "# pre-existing $f" >"$HOME/$f"
 done
 
@@ -92,15 +93,17 @@ for tool in "${tools[@]}"; do
 done
 echo "### These tools run: ${tools[*]}"
 
-# --nvim-only doesn't touch dotfiles
-if [ "$*" != "--nvim-only" ]; then
-	for f in "${DOTFILES[@]}"; do
-		if [ ! -L "$HOME/$f" ] || ! grep -qx "# pre-existing $f" "$HOME/$f".bak.*; then
-			echo "### FAIL: $f wasn't backed up and linked" && exit 1
-		fi
-	done
-	echo '### Existing dotfiles were backed up and linked'
+# --nvim-only only links the mise config
+linked=("${DOTFILES[@]}")
+if [ "$*" = "--nvim-only" ]; then
+	linked=(.config/mise/config.toml)
 fi
+for f in "${linked[@]}"; do
+	if [ ! -L "$HOME/$f" ] || ! grep -qx "# pre-existing $f" "$HOME/$f".bak.*; then
+		echo "### FAIL: $f wasn't backed up and linked" && exit 1
+	fi
+done
+echo "### Existing dotfiles were backed up and linked: ${linked[*]}"
 
 echo '### Second run'
 /root/dotfiles/setup_workstation.sh "$@"

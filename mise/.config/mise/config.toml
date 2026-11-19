@@ -1,0 +1,8 @@
+[tools]
+node = "lts"
+"npm:@google/gemini-cli" = "latest"
+"npm:openclaw" = "latest"
+"npm:pnpm" = "latest"
+"npm:ts-node" = "latest"
+"npm:typescript" = "latest"
+"npm:yarn" = "latest"
