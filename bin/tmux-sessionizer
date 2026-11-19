@@ -23,12 +23,19 @@ hydrate() {
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/ ~/Documents ~/draft -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf)
+	# zoxide's most used folders first, then the folders in ~, ~/Documents and ~/draft.
+	# fd ends folder names with a slash, which zoxide doesn't, so strip it to remove duplicates
+	selected=$({
+		zoxide query --list 2>/dev/null
+		fd --unrestricted --type d --max-depth 1 . ~ ~/Documents ~/draft 2>/dev/null | sed 's:/$::'
+	} | awk '!seen[$0]++' | fzf)
 fi
 
 if [[ -z "$selected" ]]; then
 	exit 0
 fi
+
+zoxide add "$selected" 2>/dev/null
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)

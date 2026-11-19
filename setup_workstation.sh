@@ -3,7 +3,7 @@
 # Sets up a fresh Fedora, Ubuntu/Debian or Arch-based workstation.
 #
 # Always sets up: base packages, zsh with Oh My Zsh, tmux, gitconfig, gtk, the
-# JetBrainsMono Nerd Font, the helper scripts under bin/, Node (if missing) and
+# JetBrainsMono Nerd Font, the helper scripts under bin/, Node with mise (if missing) and
 # Neovim (if not set up yet, see scripts/reinstall_nvim.sh).
 #
 # Safe to re-run. Existing dotfiles that would be overwritten are backed up
@@ -85,8 +85,14 @@ backup_if_present() {
 
 setup_node_and_nvim() {
 	# Node first: Mason needs npm to install some language servers
-	if [ ! -x "$HOME/.volta/bin/node" ]; then
-		log "Installing Node"
+	if [ ! -x "$HOME/.local/share/mise/shims/node" ]; then
+		log "Installing mise and Node"
+		# Node's binary links against libatomic, which minimal installs can lack
+		# (Arch ships it in gcc-libs, which is always installed)
+		case "$PKG_MGR" in
+		apt) install_pkgs libatomic1 ;;
+		dnf) install_pkgs libatomic ;;
+		esac
 		"$DOTFILES_DIR/scripts/install_node.sh"
 	fi
 
@@ -127,11 +133,15 @@ if $NVIM_ONLY; then
 	exit 0
 fi
 
-install_pkgs git xclip wl-clipboard unzip curl wget tmux fzf stow fontconfig
+install_pkgs git xclip wl-clipboard unzip curl wget tmux fzf stow fontconfig zoxide git-delta
 case "$PKG_MGR" in
-pacman) install_pkgs procps-ng ;;
-*) install_pkgs procps ;;
+pacman) install_pkgs procps-ng fd ;;
+*) install_pkgs procps fd-find ;;
 esac
+# Debian and Ubuntu name the binary fdfind; .zshrc and bin/ scripts call fd
+if [ "$PKG_MGR" = apt ]; then
+	sudo ln -sfn "$(command -v fdfind)" /usr/local/bin/fd
+fi
 
 # ---------------------------------------------------------------------------
 # zsh

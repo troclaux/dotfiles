@@ -22,7 +22,7 @@ Run the setup script. It's safe to re-run, and it backs up existing dotfiles ins
 ~/dotfiles/setup_workstation.sh --nvim-only    # only Neovim and Node
 ```
 
-The base setup installs common CLI packages, links the zsh, tmux, gitconfig and gtk configs, installs Oh My Zsh (with the zsh-autosuggestions and zsh-syntax-highlighting plugins) and the JetBrainsMono Nerd Font, symlinks the `bin/` scripts into `/usr/local/bin`, and installs Node and Neovim. Options:
+The base setup installs common CLI packages (including fd, zoxide and delta, which `.zshrc`, `.gitconfig` and the `bin/` scripts use), links the zsh, tmux, gitconfig and gtk configs, installs Oh My Zsh (with the zsh-autosuggestions and zsh-syntax-highlighting plugins) and the JetBrainsMono Nerd Font, symlinks the `bin/` scripts into `/usr/local/bin`, and installs Node (the latest LTS, with [mise](https://mise.jdx.dev)) and Neovim. Options:
 
 | Option | Adds |
 | --- | --- |
@@ -40,6 +40,7 @@ The base setup installs common CLI packages, links the zsh, tmux, gitconfig and 
 
 - existing dotfiles get backed up and replaced by links
 - every plugin in `lazy-lock.json` is installed, and every Mason package in `reinstall_nvim.sh`'s list
+- Node runs, and so do fd, zoxide and delta, which `.zshrc`, `.gitconfig` and the `bin/` scripts use (only Node with `--nvim-only`)
 - the second run succeeds and changes nothing: it compares the files and links in the home folder, `/opt` and `/usr/local`, the package repo files and keys, the installed packages, Flatpak apps and remotes, and the `docker` group after each run
 
 It needs podman or docker, and passes any extra options on to the setup script:

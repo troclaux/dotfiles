@@ -7,6 +7,8 @@
 # Checks that:
 #   - existing real dotfiles get backed up and replaced by links
 #   - every plugin in lazy-lock.json is installed
+#   - Node (installed with mise) runs, and so do fd, zoxide and delta, which
+#     .zshrc, .gitconfig and the bin/ scripts call (only Node with --nvim-only)
 #   - a second run succeeds and changes nothing: files and symlinks in the
 #     home folder, /opt and /usr/local, package repo files and keys,
 #     installed packages, Flatpak apps and remotes, and the docker group
@@ -24,7 +26,7 @@ fedora) IMAGE=fedora:latest PREPARE="dnf install -y sudo findutils diffutils" ;;
 ubuntu) IMAGE=ubuntu:latest PREPARE="apt-get update && apt-get install -y sudo" ;;
 debian) IMAGE=debian:stable PREPARE="apt-get update && apt-get install -y sudo" ;;
 arch) IMAGE=archlinux:latest PREPARE="pacman -Syu --noconfirm --needed sudo" ;;
-*) sed -n '15,16s/^# //p' "$0" >&2 && exit 1 ;;
+*) sed -n '17,18s/^# //p' "$0" >&2 && exit 1 ;;
 esac
 shift
 
@@ -76,6 +78,19 @@ if [ -n "$missing" ]; then
 	echo "### FAIL: plugins missing:" $missing && exit 1
 fi
 echo '### All plugins in lazy-lock.json are installed'
+
+# a new shell would get node from mise activate, which needs zsh
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+tools=(node)
+if [ "$*" != "--nvim-only" ]; then
+	tools+=(fd zoxide delta)
+fi
+for tool in "${tools[@]}"; do
+	if ! "$tool" --version >/dev/null; then
+		echo "### FAIL: $tool doesn't run" && exit 1
+	fi
+done
+echo "### These tools run: ${tools[*]}"
 
 # --nvim-only doesn't touch dotfiles
 if [ "$*" != "--nvim-only" ]; then

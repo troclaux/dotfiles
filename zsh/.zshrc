@@ -115,6 +115,11 @@ elif [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
   source /usr/share/doc/fzf/examples/completion.zsh
 fi
 
+# fd for fzf: faster than find, skips .git and gitignored files (node_modules...)
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -173,22 +178,18 @@ alias vd="sudo nvim /etc/dnf/dnf.conf"
 alias vo="nvim -c 'Telescope oldfiles'"
 alias vl="nvim -c 'Telescope live_grep'"
 alias vh='fc $(history | fzf --tac | awk "{print \$1}")'
-alias vs="vim-startuptime -vimpath nvim | head -4 | tail -1"
-alias vf='file=$(find ~ -maxdepth 4 -type f | grep -v ".git"| fzf) && nvim "$file"'
+alias vf='file=$(fd --type f --hidden --exclude .git --max-depth 4 . ~ | fzf) && nvim "$file"'
 
 alias dnf="dnf5"
-command -v fdfind >/dev/null && alias fd="fdfind"
 alias lr="ls -R"
 alias py="python3"
 alias clipboard="wl-copy && echo '📋 Copied to clipboard!'"
 alias im="kitty +kitten icat"
 alias dgrep='grep -r --include=".*"'
 alias ssh="TERM=xterm-256color ssh"
-alias fgl='glow -p $(find . | grep ".md" | fzf )'
 alias cps="fc -ln -1000 | sort | uniq | fzf | wl-copy"
 alias ggraph="git --no-pager log --oneline --graph --all"
-alias sta="vim-startuptime -vimpath nvim | head -n 4 | tail -n 1"
-alias rmp='rm $(find ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins -name "*.lua" | fzf) && echo "🗑️ Plugin removed" 2> /dev/null'
+alias rmp='rm $(fd --extension lua . ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins | fzf) && echo "🗑️ Plugin removed" 2> /dev/null'
 
 alias up="sudo dnf5 upgrade -y && flatpak update -y"
 
@@ -196,19 +197,18 @@ alias dot="cd $HOME/dotfiles"
 alias soz="source $HOME/.zshrc"
 alias trb="tree /usr/local/bin"
 alias trn="tree $HOME/.config/nvim/lua"
-alias pc='cat "$(find ~/Documents/notes/prompts -type f | fzf)" | wl-copy'
+alias pc='cat "$(fd --type f . ~/Documents/notes/prompts | fzf)" | wl-copy'
 alias fln='ls ~/Documents/notes | fzf | xargs -I{} ln -s ~/Documents/notes/{} .'
 alias ytp='yt-dlp -x --audio-format flac -o "~/Music/playlist/%(title)s.%(ext)s" --restrict-filenames $(wl-paste)'
 alias yt='yt-dlp -x --audio-format flac -o "~/Music/%(title)s.%(ext)s" --restrict-filenames $(wl-paste) --no-playlist'
-alias sk="curl -sL https://gist.githubusercontent.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df/raw/244284c0b3e40b2b67697665d2d61e537e0890fc/Shell_Keybindings.md | glow -p"
 
 alias cds="cd ~/.ssh"
 alias cdb="cd /usr/local/bin"
 alias cdr='cd /etc/yum.repos.d'
 alias cas="cat ~/.ssh/id_rsa.pub"
 alias cdn="cd $HOME/.config/nvim"
-alias cdf='cd "$(find "$HOME" -type d | fzf)"'
-alias cdp='cd "$(find . -path "./.git" -prune -o -type d | fzf)"'
+alias cdf='cd "$(fd --type d --hidden --exclude .git . "$HOME" | fzf)"'
+alias cdp='cd "$(fd --type d --hidden --exclude .git | fzf)"'
 
 ## Set shell functions
 
@@ -246,7 +246,7 @@ op() {
   if [ -n "$1" ]; then
     file="$1"
   else
-    file=$(find . -path "./.git" -prune -o -type f | grep -vE "\.(md|txt)$" | fzf)
+    file=$(fd --type f --hidden --exclude .git --exclude '*.md' --exclude '*.txt' | fzf)
   fi
 
   if [ -n "$file" ]; then
@@ -258,10 +258,11 @@ op() {
 
 # Set environment variables
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"
+
+# mise manages Node (see scripts/install_node.sh)
+eval "$(mise activate zsh)"
 
 # Turso
 export PATH="$PATH:$HOME/.turso"
@@ -272,3 +273,6 @@ complete -o nospace -C /usr/bin/terraform terraform
 
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
+
+# zoxide: z <dir>, zi to pick with fzf. Must come after compinit
+eval "$(zoxide init zsh)"

@@ -1,6 +1,12 @@
 #!/bin/bash
+#
+# Installs mise into ~/.local/bin and, with it, the latest LTS release of Node.
+# `mise use --global` saves the choice in ~/.config/mise/config.toml.
 
-rm -rdf ~/.volta &&
-	curl https://get.volta.sh | bash -s -- --skip-setup &&
-	~/.volta/bin/volta install node &&
-	echo "Finished installing node"
+set -euo pipefail
+
+if [ ! -x "$HOME/.local/bin/mise" ]; then
+	curl -fsSL https://mise.run | sh
+fi
+"$HOME/.local/bin/mise" use --global node@lts
+echo "Finished installing node"

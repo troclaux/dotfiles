@@ -23,7 +23,7 @@ MASON_PACKAGES=(
 )
 
 # Mason needs npm for some packages; .zshrc doesn't apply in this bash script
-export PATH="$HOME/.volta/bin:$PATH"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 if command -v apt-get >/dev/null 2>&1; then
 	PKG_MGR=apt
