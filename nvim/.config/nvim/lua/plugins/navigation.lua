@@ -23,6 +23,11 @@ return {
 			{ "<C-h>", function() Snacks.picker.files() end, desc = "Find Files" },
 			{ "<C-j>", function() Snacks.picker.grep() end, desc = "Live Grep" },
 			{ "<C-k>", function() Snacks.picker.lsp_symbols() end, desc = "Find Document Symbols" },
+			{ "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Find Keymaps" },
+			{ "<leader>fh", function() Snacks.picker.help() end, desc = "Find Help" },
+			{ "<leader>fw", function() Snacks.picker.grep_word() end, mode = { "n", "x" }, desc = "Grep Word/Selection" },
+			{ "<leader>fc", function() Snacks.picker.cliphist() end, desc = "Clipboard History" },
+			{ "<leader>gS", function() Snacks.picker.git_status() end, desc = "Git Status (picker)" },
 		},
 	},
 	{
