@@ -1,7 +1,7 @@
 return {
 	"tpope/vim-sleuth",
 	"tpope/vim-repeat",
-	"tpope/vim-surround",
+	{ "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
 	"tommcdo/vim-exchange",
 	{
 		"AndrewRadev/sideways.vim",
