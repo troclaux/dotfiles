@@ -140,7 +140,9 @@ export DOCKER_BUILDKIT=1
 # Zsh key-bindings
 
 bindkey -s '^f' "tmux-sessionizer\n"
-bindkey -s '^P' 'nvim\n'
+# open nvim and trigger its <C-p> mapping (snacks file picker)
+nvim-picker() { nvim +'lua vim.api.nvim_feedkeys(vim.keycode("<C-p>"), "m", false)' }
+bindkey -s '^P' 'nvim-picker\n'
 bindkey '^H' backward-kill-word
 bindkey -s '^b' "!!\n\n"
 
