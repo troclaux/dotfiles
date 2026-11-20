@@ -40,6 +40,8 @@ return {
 			bigfile = { enabled = true },
 			notifier = { enabled = true },
 			image = { enabled = true },
+			quickfile = { enabled = true },
+			statuscolumn = { enabled = true },
 			dashboard = {
 				enabled = true,
 				preset = {
