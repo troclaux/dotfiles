@@ -64,6 +64,8 @@ Each top-level config folder is a [GNU Stow](https://www.gnu.org/software/stow/)
 
 To link a package by hand, run `stow <package>` from this directory.
 
+The Warsaw security module that Brazilian banks require isn't installed by the setup script. See [`scripts/warsaw_setup.md`](scripts/warsaw_setup.md) to install it.
+
 Secrets don't belong in this public repository. Keep them in `~/.env.zsh`, which `.zshrc` sources and which isn't tracked.
 
 ### Neovim
