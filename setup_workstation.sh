@@ -290,7 +290,8 @@ if $WITH_FLATPAKS; then
 		com.getpostman.Postman \
 		org.gimp.GIMP \
 		it.mijorus.gearlever \
-		it.mijorus.smile
+		it.mijorus.smile \
+		io.github.nozwock.Packet
 	# not installed: md.obsidian.Obsidian org.audacityteam.Audacity io.github.nokse22.asciidraw
 fi
 
