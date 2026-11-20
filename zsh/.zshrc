@@ -175,8 +175,8 @@ alias vv="nvim ~/.env.zsh"
 alias vg="nvim -c 'Git | only'"
 alias vb="nvim -c \"normal '0\""
 alias vd="sudo nvim /etc/dnf/dnf.conf"
-alias vo="nvim -c 'Telescope oldfiles'"
-alias vl="nvim -c 'Telescope live_grep'"
+alias vo="nvim -c 'lua Snacks.picker.recent()'"
+alias vl="nvim -c 'lua Snacks.picker.grep()'"
 alias vh='fc $(history | fzf --tac | awk "{print \$1}")'
 alias vf='file=$(fd --type f --hidden --exclude .git --max-depth 4 . ~ | fzf) && nvim "$file"'
 

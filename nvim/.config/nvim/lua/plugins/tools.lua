@@ -43,12 +43,11 @@ return {
 			{ "<leader>ay", mode = "x", desc = "Add visual selection to context" },
 		},
 		dependencies = {
-			"nvim-telescope/telescope.nvim",
 			"saghen/blink.cmp",
 			"MeanderingProgrammer/render-markdown.nvim",
 		},
 		opts = {
-			preferred_picker = "telescope",
+			preferred_picker = "snacks",
 			keymap_prefix = "<leader>a",
 			keymap = {
 				-- use the default <leader>o names here, keymap_prefix rewrites them to <leader>a

@@ -6,30 +6,23 @@ end
 
 return {
 	{
-		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		},
-		config = function()
-			require("telescope").setup()
-			require("telescope").load_extension("fzf")
-		end,
+		"folke/snacks.nvim",
 		keys = {
 			{
 				"<C-p>",
 				function()
-					-- git_files raises an error outside a git repository
-					if not pcall(require("telescope.builtin").git_files) then
-						require("telescope.builtin").find_files()
+					-- git_files lists nothing outside a git repository
+					if Snacks.git.get_root() then
+						Snacks.picker.git_files()
+					else
+						Snacks.picker.files()
 					end
 				end,
 				desc = "Find Git Files (all files outside a repo)",
 			},
-			{ "<C-h>", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
-			{ "<C-j>", "<cmd>Telescope live_grep<CR>", desc = "Live Grep" },
-			{ "<C-k>", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Find Document Symbols" },
+			{ "<C-h>", function() Snacks.picker.files() end, desc = "Find Files" },
+			{ "<C-j>", function() Snacks.picker.grep() end, desc = "Live Grep" },
+			{ "<C-k>", function() Snacks.picker.lsp_symbols() end, desc = "Find Document Symbols" },
 		},
 	},
 	{
@@ -101,7 +94,7 @@ return {
 	{ "folke/trouble.nvim", cmd = "Trouble", opts = {} },
 	{
 		"folke/todo-comments.nvim",
-		cmd = { "TodoTelescope", "TodoTrouble", "TodoQuickFix" },
+		cmd = { "TodoTrouble", "TodoQuickFix" },
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {},
