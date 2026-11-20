@@ -3,19 +3,19 @@ if [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ]; then
   tmux attach -d || tmux
 fi
 
-setopt append_history
-setopt inc_append_history
-setopt extended_history
-setopt hist_verify
-setopt share_history
-setopt hist_ignore_dups
+# oh-my-zsh (lib/history.zsh) sets the rest: share_history, extended_history,
+# hist_verify, hist_ignore_dups, HISTSIZE=50000, SAVEHIST=10000
 setopt hist_reduce_blanks
-HISTSIZE=5000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# PATH (~/.cargo/bin is added by ~/.cargo/env in ~/.zshenv)
+typeset -U path
+path=(
+  $HOME/.opencode/bin
+  $HOME/.local/bin
+  $path
+  $HOME/go/bin
+  $HOME/.turso
+)
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -97,23 +97,14 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f "$HOME/.env.zsh" ] && source "$HOME/.env.zsh"
 
-# Load fzf key bindings and completion if available
+# Load fzf key bindings and completion
 
 # Ctrl+R => Fuzzy reverse search through shell history
 # Ctrl+T => Fuzzy file/path insertion
 # Alt+C => Fuzzy cd into a subdirectory
+# **<Tab> => Fuzzy completion
 
-if [ -f /usr/share/fzf/shell/key-bindings.zsh ]; then
-  source /usr/share/fzf/shell/key-bindings.zsh
-elif [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-fi
-
-if [ -f /usr/share/fzf/shell/completion.zsh ]; then
-  source /usr/share/fzf/shell/completion.zsh
-elif [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
-  source /usr/share/doc/fzf/examples/completion.zsh
-fi
+source <(fzf --zsh)
 
 # fd for fzf: faster than find, skips .git and gitignored files (node_modules...)
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
@@ -123,7 +114,6 @@ export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:$HOME/go/bin"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -150,8 +140,8 @@ export DOCKER_BUILDKIT=1
 # Zsh key-bindings
 
 bindkey -s '^f' "tmux-sessionizer\n"
-bindkey -s '^P' 'nvim -c "set verbose=0"\n'
-bindkey -s '^H' 'nvim -c "set verbose=0"\n'
+bindkey -s '^P' 'nvim\n'
+bindkey '^H' backward-kill-word
 bindkey -s '^b' "!!\n\n"
 
 bindkey "^[y" forward-word
@@ -168,9 +158,9 @@ bindkey "^N" down-line-or-beginning-search
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi='nvim -c "set verbose=0"'
-alias vim='nvim -c "set verbose=0"'
-alias ve='nvim -c "set verbose=0" .'
+alias vi='nvim'
+alias vim='nvim'
+alias ve='nvim .'
 alias vv="nvim ~/.env.zsh"
 alias vg="nvim -c 'Git | only'"
 alias vb="nvim -c \"normal '0\""
@@ -189,7 +179,7 @@ alias dgrep='grep -r --include=".*"'
 alias ssh="TERM=xterm-256color ssh"
 alias cps="fc -ln -1000 | sort | uniq | fzf | wl-copy"
 alias ggraph="git --no-pager log --oneline --graph --all"
-alias rmp='rm $(fd --extension lua . ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins | fzf) && echo "🗑️ Plugin removed" 2> /dev/null'
+alias rmp='file=$(fd --extension lua . ~/.config/nvim/lua/config ~/.config/nvim/lua/plugins | fzf) && rm "$file" && echo "🗑️ Plugin removed"'
 
 alias up="sudo dnf5 upgrade -y && flatpak update -y"
 
@@ -205,7 +195,6 @@ alias yt='yt-dlp -x --audio-format flac -o "~/Music/%(title)s.%(ext)s" --restric
 alias cds="cd ~/.ssh"
 alias cdb="cd /usr/local/bin"
 alias cdr='cd /etc/yum.repos.d'
-alias cas="cat ~/.ssh/id_rsa.pub"
 alias cdn="cd $HOME/.config/nvim"
 alias cdf='cd "$(fd --type d --hidden --exclude .git . "$HOME" | fzf)"'
 alias cdp='cd "$(fd --type d --hidden --exclude .git | fzf)"'
@@ -216,8 +205,12 @@ rms() {
   local file="$1"
   if [ -f "$file" ]; then
     local new_name="$(echo "$file" | tr " ,'[]{}()<>" '_')"
-    mv "$file" "$new_name"
-    echo "Renamed: $file -> $new_name"
+    if [ -e "$new_name" ]; then
+      echo "Skipped: $new_name already exists"
+    else
+      mv "$file" "$new_name"
+      echo "Renamed: $file -> $new_name"
+    fi
   fi
 }
 
@@ -226,8 +219,12 @@ rmsa() {
     if [ -f "$file" ]; then
       new_name=$(echo "$file" | tr " ,'[]{}()<>" '_')
       if [ "$file" != "$new_name" ]; then
-        mv "$file" "$new_name"
-        echo "Renamed: $file -> $new_name"
+        if [ -e "$new_name" ]; then
+          echo "Skipped: $new_name already exists"
+        else
+          mv "$file" "$new_name"
+          echo "Renamed: $file -> $new_name"
+        fi
       fi
     fi
   done
@@ -235,7 +232,7 @@ rmsa() {
 
 tsr() {
   if [ -z "$1" ]; then
-    echo "Usage: run_ts <filename.ts>"
+    echo "Usage: tsr <filename.ts>"
     return 1
   fi
 
@@ -243,6 +240,7 @@ tsr() {
 }
 
 op() {
+  local file
   if [ -n "$1" ]; then
     file="$1"
   else
@@ -250,29 +248,19 @@ op() {
   fi
 
   if [ -n "$file" ]; then
-    echo "📂✅ Opening file..." && nohup xdg-open "$file" > /dev/null 2>&1 &
+    echo "📂✅ Opening file..."
+    nohup xdg-open "$file" > /dev/null 2>&1 &!
   else
     echo "📂❌ No file selected"
   fi
 }
 
-# Set environment variables
-
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$HOME/.local/bin:$PATH"
-
 # mise manages Node (see scripts/install_node.sh)
 eval "$(mise activate zsh)"
-
-# Turso
-export PATH="$PATH:$HOME/.turso"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
-
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
 
 # zoxide: z <dir>, zi to pick with fzf. Must come after compinit
 eval "$(zoxide init zsh)"
