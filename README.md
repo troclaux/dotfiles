@@ -72,7 +72,7 @@ Secrets don't belong in this public repository. Keep them in `~/.env.zsh`, which
 
 This config needs Neovim 0.12 or later, because it uses the `main` branch of `nvim-treesitter`. Fedora and Arch ship it, so the script installs their package. Debian and Ubuntu repos ship older versions (as of November 2026: 0.11.6 on Ubuntu 26.04, 0.10.4 on Debian 13), so on those the script installs the latest official release from GitHub into `/opt/nvim`, linked from `/usr/local/bin/nvim`. apt doesn't update that copy.
 
-Besides the plugins and treesitter parsers, the script installs ctags (for Tagbar) and the Mason packages in its `MASON_PACKAGES` list: the language servers, formatters and linters this config uses. Install any other Mason tool by hand with `:Mason`.
+Besides the plugins and treesitter parsers, the script installs the Mason packages in its `MASON_PACKAGES` list: the language servers, formatters and linters this config uses. Install any other Mason tool by hand with `:Mason`.
 
 The script also installs the OpenCode CLI if it's missing and links its config for `opencode.nvim`. OpenCode reads `ANTHROPIC_API_KEY` from the environment, so keep the key in `~/.env.zsh`.
 

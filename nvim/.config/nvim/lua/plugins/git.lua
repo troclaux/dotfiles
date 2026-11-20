@@ -32,4 +32,12 @@ return {
 			end,
 		},
 	},
+	{
+		"sindrets/diffview.nvim",
+		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+		keys = {
+			{ "<Leader>gd", "<cmd>DiffviewOpen<CR>", desc = "Diff working tree" },
+			{ "<Leader>gf", "<cmd>DiffviewFileHistory %<CR>", desc = "Current file history" },
+		},
+	},
 }

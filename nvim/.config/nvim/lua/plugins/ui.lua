@@ -7,6 +7,8 @@ return {
 			},
 		},
 	},
+	-- pin the enclosing function/class header at the top of the window
+	{ "nvim-treesitter/nvim-treesitter-context", event = { "BufReadPost", "BufNewFile" }, opts = {} },
 	-- helix: a single-column popup in the bottom-right corner
 	{ "folke/which-key.nvim", event = "VeryLazy", opts = { preset = "helix" } },
 	{

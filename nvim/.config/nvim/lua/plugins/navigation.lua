@@ -78,11 +78,12 @@ return {
 		},
 	},
 	{
-		"preservim/tagbar",
-		cmd = "TagbarToggle",
+		"stevearc/aerial.nvim",
+		cmd = "AerialToggle",
 		keys = {
-			{ "<Leader><Leader>", "<cmd>TagbarToggle fjc<CR>", desc = "Show current buffer summary" },
+			{ "<Leader><Leader>", "<cmd>AerialToggle<CR>", desc = "Show current buffer summary" },
 		},
+		opts = { close_on_select = true },
 	},
 	{
 		"mbbill/undotree",

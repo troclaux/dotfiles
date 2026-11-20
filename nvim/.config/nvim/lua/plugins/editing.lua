@@ -45,4 +45,20 @@ return {
 	},
 	{ "windwp/nvim-ts-autotag", event = "InsertEnter", opts = {} },
 	{ "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
+	{
+		"MagicDuck/grug-far.nvim",
+		cmd = "GrugFar",
+		keys = {
+			{ "<Leader>rp", "<cmd>GrugFar<CR>", desc = "Search and replace in project" },
+			{
+				"<Leader>rp",
+				function()
+					require("grug-far").with_visual_selection()
+				end,
+				mode = "x",
+				desc = "Search and replace selection in project",
+			},
+		},
+		opts = {},
+	},
 }

@@ -8,7 +8,7 @@
 # config, plugins and caches, then reinstalls and links the config with stow.
 # Keeps undo history, swap files and shada, since those are your data.
 # Also installs the OpenCode CLI if it's missing, and links its config, plus
-# ctags (for Tagbar) and the Mason packages below.
+# the Mason packages below.
 
 set -euo pipefail
 
@@ -62,7 +62,7 @@ echo "[*] Installing Neovim and its dependencies..."
 if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo apt-get update
 	sudo apt-get install -y ripgrep fd-find luarocks lua5.4 tree-sitter-cli \
-		build-essential git curl unzip stow golang python3 python3-venv universal-ctags
+		build-essential git curl unzip stow golang python3 python3-venv
 	case "$(uname -m)" in
 	x86_64) NVIM_ARCH=x86_64 ;;
 	aarch64) NVIM_ARCH=arm64 ;;
@@ -74,10 +74,10 @@ if [[ "$PKG_MGR" == "apt" ]]; then
 	sudo ln -sfn /opt/nvim/bin/nvim /usr/local/bin/nvim
 elif [[ "$PKG_MGR" == "dnf" ]]; then
 	sudo dnf install -y neovim ripgrep fd-find luarocks lua tree-sitter-cli \
-		gcc gcc-c++ make git curl unzip stow go python3 ctags
+		gcc gcc-c++ make git curl unzip stow go python3
 else
 	sudo pacman -S --needed --noconfirm neovim ripgrep fd luarocks lua tree-sitter-cli \
-		base-devel git curl unzip stow go python ctags
+		base-devel git curl unzip stow go python
 fi
 
 echo "[*] Linking Neovim config..."
