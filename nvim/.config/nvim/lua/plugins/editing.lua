@@ -4,11 +4,41 @@ return {
 	{ "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
 	"tommcdo/vim-exchange",
 	{
-		"AndrewRadev/sideways.vim",
-		keys = {
-			{ "<A-L>", "<cmd>SidewaysRight<CR>", desc = "Move argument/parameter right" },
-			{ "<A-H>", "<cmd>SidewaysLeft<CR>", desc = "Move argument/parameter left" },
-		},
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
+		keys = function()
+			local function move(key, fn, capture, desc)
+				return {
+					key,
+					function()
+						require("nvim-treesitter-textobjects.move")[fn](capture, "textobjects")
+					end,
+					mode = { "n", "x", "o" },
+					desc = desc,
+				}
+			end
+			local function swap(key, fn, desc)
+				return {
+					key,
+					function()
+						require("nvim-treesitter-textobjects.swap")[fn]("@parameter.inner")
+					end,
+					desc = desc,
+				}
+			end
+			return {
+				move("]f", "goto_next_start", "@function.outer", "Next function start"),
+				move("[f", "goto_previous_start", "@function.outer", "Previous function start"),
+				move("]F", "goto_next_end", "@function.outer", "Next function end"),
+				move("[F", "goto_previous_end", "@function.outer", "Previous function end"),
+				move("]c", "goto_next_start", "@class.outer", "Next class start"),
+				move("[c", "goto_previous_start", "@class.outer", "Previous class start"),
+				move("]C", "goto_next_end", "@class.outer", "Next class end"),
+				move("[C", "goto_previous_end", "@class.outer", "Previous class end"),
+				swap("<A-L>", "swap_next", "Swap parameter with next"),
+				swap("<A-H>", "swap_previous", "Swap parameter with previous"),
+			}
+		end,
 	},
 	{
 		"Wansmer/treesj",
